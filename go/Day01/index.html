@@ -139,7 +139,7 @@
   <!--[if lt IE 9]> <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script> <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script> <![endif]-->
 
   <!-- ga & ba script hoook -->
-  <link rel="canonical" href="https://nuist-elite.github.io/myBlog/myBlog/undefined/Day01/">
+  <link rel="canonical" href="https://nuist-elite.github.io/myBlog/myBlog/go/Day01/">
   <title>
     
       Day01 - either thin | or die
@@ -247,9 +247,9 @@
           
           
           <li>
-            <a href="/myBlog/archive/">
+            <a href="/myBlog/about/">
               
-              ARCHIVES
+              ABOUT
               
               
             </a>
@@ -258,9 +258,9 @@
           
           
           <li>
-            <a href="/myBlog/categories/">
+            <a href="/myBlog/archive/">
               
-              CATEGORIES
+              ARCHIVES
               
               
             </a>
@@ -280,9 +280,9 @@
           
           
           <li>
-            <a href="/myBlog/about/">
+            <a href="/myBlog/categories/">
               
-              ABOUT
+              CATEGORIES
               
               
             </a>
@@ -389,6 +389,8 @@
           <div class="post-heading">
             <div class="tags">
               
+              <a class="tag" href="/myBlog/tags/#Go learning note day01" title="Go learning note day01">Go learning note day01</a>
+              
             </div>
             <h1>Day01</h1>
             <h2 class="subheading"></h2>
@@ -406,7 +408,7 @@
             </span>
             <div class="blank_box"></div>
             <span class="meta">
-              Words <span class="post-count">880</span> In Total
+              Words <span class="post-count">888</span> In Total
             </span>
             <div class="blank_box"></div>
             <!-- WordCount end -->
@@ -468,7 +470,9 @@
       <!-- Post Container -->
       <div class="col-lg-8 col-lg-offset-1 col-md-10 col-md-offset-1 post-container">
 
-        <h1 id="Day1"><a href="#Day1" class="headerlink" title="Day1"></a>Day1</h1><h2 id="Hello-world"><a href="#Hello-world" class="headerlink" title="Hello world"></a>Hello world</h2><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">	<span class="string">&quot;fmt&quot;</span></span><br><span class="line">	<span class="string">&quot;math/rand&quot;</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	fmt.Println(<span class="string">&quot;My favorite number is&quot;</span>, rand.Intn(<span class="number">10</span>))</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <h1>Day1</h1>
+<h2 id="Hello-world">Hello world</h2>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">	<span class="string">&quot;fmt&quot;</span></span><br><span class="line">	<span class="string">&quot;math/rand&quot;</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	fmt.Println(<span class="string">&quot;My favorite number is&quot;</span>, rand.Intn(<span class="number">10</span>))</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>fmt.Println() is the output function in go, using it by import the package “fmt”</p>
 <p>package “math/rand” allow user to use method start with “rand”</p>
@@ -479,7 +483,8 @@
 <blockquote>
 <p>In this case math. Pi is an exported value.</p>
 </blockquote>
-<h2 id="Function"><a href="#Function" class="headerlink" title="Function"></a>Function</h2><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">&quot;fmt&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// notice that the type is behind the parameter, as the return type</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">add</span><span class="params">(x <span class="keyword">int</span>, y <span class="keyword">int</span>)</span> <span class="title">int</span></span> &#123;</span><br><span class="line">	<span class="keyword">return</span> x + y</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	fmt.Println(add(<span class="number">42</span>, <span class="number">13</span>))</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Function">Function</h2>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">&quot;fmt&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// notice that the type is behind the parameter, as the return type</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">add</span><span class="params">(x <span class="keyword">int</span>, y <span class="keyword">int</span>)</span> <span class="title">int</span></span> &#123;</span><br><span class="line">	<span class="keyword">return</span> x + y</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	fmt.Println(add(<span class="number">42</span>, <span class="number">13</span>))</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>When the named parameter types of two or more consecutive functions are the same, the last type can be omitted.</p>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">add</span><span class="params">(x, y <span class="keyword">int</span>)</span> <span class="title">int</span></span> &#123;</span><br><span class="line">	<span class="keyword">return</span> x + y</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>It is noticeable that, unlike <em>Java</em>, function in go can return multiple values.</p>
@@ -487,25 +492,30 @@
 <blockquote>
 <p><code>a, b :=</code> is also different from other types of assignment statement</p>
 </blockquote>
-<h2 id="Parameter-and-variable"><a href="#Parameter-and-variable" class="headerlink" title="Parameter and variable"></a>Parameter and variable</h2><ul>
-<li><p>Define a variable</p>
+<h2 id="Parameter-and-variable">Parameter and variable</h2>
+<ul>
+<li>
+<p>Define a variable</p>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a <span class="keyword">int</span></span><br><span class="line"><span class="keyword">var</span> b <span class="keyword">string</span></span><br><span class="line"><span class="keyword">var</span> c <span class="keyword">bool</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// variable can be defined at package part or in a function</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="keyword">var</span> i <span class="keyword">int</span></span><br><span class="line">    <span class="keyword">var</span> str, boolNum = <span class="string">&quot;Hi&quot;</span>, <span class="literal">true</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>Variable declarations can contain initial values, one for each variable.</p>
 <p>If the initial value already exists, you can omit the type; the variable will get the type from the initial value.</p>
 </blockquote>
 </li>
-<li><p>Concise assignment statement <code>:=</code></p>
+<li>
+<p>Concise assignment statement <code>:=</code></p>
 <p>It can can replace var declarations where <strong>the type is clear</strong>. But it cannot be used <strong>outside</strong> a function</p>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	concise := <span class="string">&quot;concise&quot;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>Basic type in Go</p>
+<li>
+<p>Basic type in Go</p>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> (</span><br><span class="line">	<span class="string">&quot;fmt&quot;</span></span><br><span class="line">	<span class="string">&quot;math/cmplx&quot;</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> (</span><br><span class="line">	ToBe   <span class="keyword">bool</span>       = <span class="literal">false</span></span><br><span class="line">	MaxInt <span class="keyword">uint64</span>     = <span class="number">1</span>&lt;&lt;<span class="number">64</span> - <span class="number">1</span></span><br><span class="line">	z      <span class="keyword">complex128</span> = cmplx.Sqrt(<span class="number">-5</span> + <span class="number">12i</span>)</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="comment">// %T means the type of the variable</span></span><br><span class="line">    <span class="comment">// %v means the value of the variable</span></span><br><span class="line">	fmt.Printf(<span class="string">&quot;Type: %T Value: %v\n&quot;</span>, ToBe, ToBe)</span><br><span class="line">	fmt.Printf(<span class="string">&quot;Type: %T Value: %v\n&quot;</span>, MaxInt, MaxInt)</span><br><span class="line">	fmt.Printf(<span class="string">&quot;Type: %T Value: %v\n&quot;</span>, z, z)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>Like import statements, variable declarations can also be “grouped” into a syntax block.</p>
 </blockquote>
 </li>
-<li><p>Zero value</p>
+<li>
+<p>Zero value</p>
 <p>The default value for different types of variable</p>
 <ol>
 <li><code>string</code>: “”</li>
@@ -513,11 +523,13 @@
 <li><code>int, float64</code>: 0</li>
 </ol>
 </li>
-<li><p>Variable conversion</p>
+<li>
+<p>Variable conversion</p>
 <p>Go requires explicit conversion when assigning values between different types of items</p>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> i <span class="keyword">int</span> = <span class="number">42</span></span><br><span class="line"><span class="keyword">var</span> f <span class="keyword">float64</span> = <span class="keyword">float64</span>(i)</span><br><span class="line"><span class="keyword">var</span> u <span class="keyword">uint</span> = <span class="keyword">uint</span>(f)</span><br><span class="line"></span><br><span class="line"><span class="comment">// another simpler form</span></span><br><span class="line">i := <span class="number">42</span></span><br><span class="line">f := <span class="keyword">float64</span>(i)</span><br><span class="line">u := <span class="keyword">uint</span>(f)</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>Constant</p>
+<li>
+<p>Constant</p>
 <p>Define a constant using <code>const</code></p>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// starting with a capital letter is recommended</span></span><br><span class="line"><span class="keyword">const</span> World = <span class="string">&quot;world&quot;</span></span><br></pre></td></tr></table></figure>
 <blockquote>
@@ -526,25 +538,30 @@
 </blockquote>
 </li>
 </ul>
-<h2 id="Basic-structure-and-control-statement"><a href="#Basic-structure-and-control-statement" class="headerlink" title="Basic structure and control statement"></a>Basic structure and control statement</h2><h3 id="for"><a href="#for" class="headerlink" title="for"></a>for</h3><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	sum := <span class="number">0</span></span><br><span class="line">	<span class="keyword">for</span> i := <span class="number">0</span>; i &lt; <span class="number">10</span>; i++ &#123;</span><br><span class="line">		sum += i</span><br><span class="line">	&#125;</span><br><span class="line">	fmt.Println(sum)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Basic-structure-and-control-statement">Basic structure and control statement</h2>
+<h3 id="for">for</h3>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	sum := <span class="number">0</span></span><br><span class="line">	<span class="keyword">for</span> i := <span class="number">0</span>; i &lt; <span class="number">10</span>; i++ &#123;</span><br><span class="line">		sum += i</span><br><span class="line">	&#125;</span><br><span class="line">	fmt.Println(sum)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p><code>for</code> statement in Go is different from other languages like <em>Java</em>, <em>C</em> and <em>JavaScript</em>, for that i<strong>t does not have parentheses around its conditions</strong></p>
 </blockquote>
 <p>An interesting fact is that <strong>while</strong> statement in <em>C</em> is also <strong>for</strong> in <em>Go</em></p>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Known as while in Java and C, lol</span></span><br><span class="line">	<span class="keyword">for</span> sum &lt; <span class="number">1000</span> &#123;</span><br><span class="line">		sum += sum</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="If"><a href="#If" class="headerlink" title="If"></a>If</h3><p>If statement is similar to for, it <strong>doesn’t have parentheses</strong>.</p>
+<h3 id="If">If</h3>
+<p>If statement is similar to for, it <strong>doesn’t have parentheses</strong>.</p>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// return true if the number is an even number</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">isEven</span><span class="params">(num <span class="keyword">int</span>)</span> <span class="title">bool</span></span> &#123;</span><br><span class="line">	<span class="keyword">if</span> num % <span class="number">2</span> == <span class="number">0</span> &#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><strong>If statement</strong> can declare a variable like <strong>for statement</strong></p>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// return true if the number is an even number</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">isOdd</span><span class="params">(num <span class="keyword">int</span>)</span> <span class="title">bool</span></span> &#123;</span><br><span class="line">	<span class="keyword">if</span> i := <span class="number">1</span>; (num + i) % <span class="number">2</span> == <span class="number">0</span> &#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>the variable declared in <code>If</code> statement is only valid in <code>if</code> and <code>else if</code>, <code>else statement</code> of it</p>
 </blockquote>
-<h3 id="switch"><a href="#switch" class="headerlink" title="switch"></a>switch</h3><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">fmt.Print(<span class="string">&quot;Go runs on &quot;</span>)</span><br><span class="line">	<span class="keyword">switch</span> os := runtime.GOOS; os &#123;</span><br><span class="line">	<span class="keyword">case</span> <span class="string">&quot;darwin&quot;</span>:</span><br><span class="line">		fmt.Println(<span class="string">&quot;OS X.&quot;</span>)</span><br><span class="line">	<span class="keyword">case</span> <span class="string">&quot;linux&quot;</span>:</span><br><span class="line">		fmt.Println(<span class="string">&quot;Linux.&quot;</span>)</span><br><span class="line">	<span class="keyword">default</span>:</span><br><span class="line">		<span class="comment">// freebsd, openbsd,</span></span><br><span class="line">		<span class="comment">// plan9, windows...</span></span><br><span class="line">		fmt.Printf(<span class="string">&quot;%s.\n&quot;</span>, os)</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="switch">switch</h3>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">fmt.Print(<span class="string">&quot;Go runs on &quot;</span>)</span><br><span class="line">	<span class="keyword">switch</span> os := runtime.GOOS; os &#123;</span><br><span class="line">	<span class="keyword">case</span> <span class="string">&quot;darwin&quot;</span>:</span><br><span class="line">		fmt.Println(<span class="string">&quot;OS X.&quot;</span>)</span><br><span class="line">	<span class="keyword">case</span> <span class="string">&quot;linux&quot;</span>:</span><br><span class="line">		fmt.Println(<span class="string">&quot;Linux.&quot;</span>)</span><br><span class="line">	<span class="keyword">default</span>:</span><br><span class="line">		<span class="comment">// freebsd, openbsd,</span></span><br><span class="line">		<span class="comment">// plan9, windows...</span></span><br><span class="line">		fmt.Printf(<span class="string">&quot;%s.\n&quot;</span>, os)</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p><code>switch</code> in <em>Go</em> <strong>doesn’t require a break statement</strong> to end it, unless end with <code>fallthrough</code> statement</p>
 <p>Another important difference of <em>Go</em> is that the <code>case</code> of the <code>switch</code> does not need to be a <strong>constant</strong>, and the value does not need to be an <strong>integer</strong>.</p>
 </blockquote>
-<h3 id="defer"><a href="#defer" class="headerlink" title="defer"></a>defer</h3><p>The <code>defer</code> statement will postpone the function <strong>until the outer function returns</strong>.</p>
+<h3 id="defer">defer</h3>
+<p>The <code>defer</code> statement will postpone the function <strong>until the outer function returns</strong>.</p>
 <p>The parameters of the delayed function will <strong>be evaluated immediately</strong>, but the function will not be called until the outer function returns.</p>
 <p>Delayed function calls will be pushed onto a <strong>stack</strong>. When the outer function returns, the deferred function will be called in the order of <strong>LIFO</strong>.</p>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="keyword">for</span> i := <span class="number">0</span>; i &lt; <span class="number">10</span>; i++ &#123;</span><br><span class="line">		<span class="keyword">defer</span> fmt.Println(i)</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">// the output is :9 8 7 ....... 0</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -556,7 +573,7 @@
           
           
           <li class="next">
-            <a href="/myBlog/cn/Hexo-Theme-LiveMyLife/" data-toggle="tooltip" data-placement="top" title="Hexo-Theme-LiveMyLife">Next Post &rarr;</a>
+            <a href="/myBlog/en/Hexo-Theme-LiveMyLife/" data-toggle="tooltip" data-placement="top" title="Hexo-Theme-LiveMyLife">Next Post &rarr;</a>
           </li>
           
         </ul>
@@ -605,7 +622,7 @@
       </a>
     </li>
     <li class="social-share-li">
-      <a target="_blank" class="social-share-icon" href="mailto:?subject=Day01&body=Hi,I found this website and thought you might like it https://nuist-elite.github.io/myBlog/myBlog/undefined/Day01/">
+      <a target="_blank" class="social-share-icon" href="mailto:?subject=Day01&body=Hi,I found this website and thought you might like it https://nuist-elite.github.io/myBlog/myBlog/go/Day01/">
         <i class="fa fa-envelope fa-1x" aria-hidden="true"></i>
       </a>
     </li>
@@ -693,7 +710,7 @@
         <div id="toc" class="toc-article">
         <strong class="toc-title">Contents</strong>
         
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#Day1"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">Day1</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Hello-world"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">Hello world</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Function"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">Function</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Parameter-and-variable"><span class="toc-nav-number">1.3.</span> <span class="toc-nav-text">Parameter and variable</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Basic-structure-and-control-statement"><span class="toc-nav-number">1.4.</span> <span class="toc-nav-text">Basic structure and control statement</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#for"><span class="toc-nav-number">1.4.1.</span> <span class="toc-nav-text">for</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#If"><span class="toc-nav-number">1.4.2.</span> <span class="toc-nav-text">If</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#switch"><span class="toc-nav-number">1.4.3.</span> <span class="toc-nav-text">switch</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#defer"><span class="toc-nav-number">1.4.4.</span> <span class="toc-nav-text">defer</span></a></li></ol></li></ol></li></ol>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">Day1</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Hello-world"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">Hello world</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Function"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">Function</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Parameter-and-variable"><span class="toc-nav-number">1.3.</span> <span class="toc-nav-text">Parameter and variable</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Basic-structure-and-control-statement"><span class="toc-nav-number">1.4.</span> <span class="toc-nav-text">Basic structure and control statement</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#for"><span class="toc-nav-number">1.4.1.</span> <span class="toc-nav-text">for</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#If"><span class="toc-nav-number">1.4.2.</span> <span class="toc-nav-text">If</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#switch"><span class="toc-nav-number">1.4.3.</span> <span class="toc-nav-text">switch</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#defer"><span class="toc-nav-number">1.4.4.</span> <span class="toc-nav-text">defer</span></a></li></ol></li></ol></li></ol>
         
         </div>
       </aside>
@@ -715,6 +732,8 @@
             <a href="/myBlog/tags/">FEATURED TAGS</a>
           </h5>
           <div class="tags">
+            
+            <a class="tag" href="/myBlog/tags/#Go learning note day01" title="Go learning note day01">Go learning note day01</a>
             
           </div>
         </section>
