@@ -1,0 +1,1464 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag (contains Google-Analytics、Baidu-Tongji)-->
+<head>
+  <!-- Google Analytics -->
+  
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=UA-xxxxxx-xx"></script>
+    <script type="text/javascript">
+      window.dataLayer = window.dataLayer || [];
+
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag('js', new Date());
+
+      gtag('config', 'UA-xxxxxx-xx');
+    </script>
+  
+
+  <!-- Baidu Tongji -->
+  
+    <script type="text/javascript">
+      // Originial
+      var _hmt = _hmt || [];
+      (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+      })();
+    </script>
+  
+
+  <!-- Baidu Push -->
+  
+    <script>
+      (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+          bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+          bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+      })();
+    </script>
+  
+
+  <meta charset="utf-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+
+  <meta name="google-site-verification" content="lxDfCplOZbIzjhG34NuQBgu2gdyRlAtMB4utP5AgEBc"/>
+  <meta name="baidu-site-verification" content="PpzM9WxOJU"/>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="description" content="It&#39;s an IT blog..."/>
+  <meta name="keyword" content="livemylife,IT  blog,Blog"/>
+  <link rel="shortcut icon" href="/myBlog/img/avatar/roguerabbit.jpg"/>
+
+  <!-- Place this tag in your head or just before your close body tag. -->
+  <script async="async" defer="defer" src="https://buttons.github.io/buttons.js"></script>
+
+  
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/myBlog/css/bootstrap.min.css"/>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/myBlog/css/beantech.min.css"/>
+
+    <!-- Pygments Highlight CSS -->
+    <link rel="stylesheet" href="/myBlog/css/highlight.css"/>
+    <link rel="stylesheet" href="/myBlog/css/widget.css"/>
+    <link rel="stylesheet" href="/myBlog/css/rocket.css"/>
+    <link rel="stylesheet" href="/myBlog/css/signature.css"/>
+    <link rel="stylesheet" href="/myBlog/css/catalog.css"/>
+    <link rel="stylesheet" href="/myBlog/css/livemylife.css"/>
+
+    
+      <!-- wave start -->
+      <link rel="stylesheet" href="/myBlog/css/wave.css"/>
+      <!-- wave end -->
+    
+
+    
+      <!-- top start (article top hot config) -->
+      <link rel="stylesheet" href="/myBlog/css/top.css"/>
+      <!-- top end -->
+    
+
+    
+      <!-- ThemeColor start -->
+      <link rel="stylesheet" href="/myBlog/css/scroll.css"/>
+      <!-- ThemeColor end -->
+    
+
+    
+      <!-- viewer start (Picture preview) -->
+      <link rel="stylesheet" href="/myBlog/css/viewer.min.css"/>
+      <!-- viewer end -->
+    
+
+    
+      <!-- Search start -->
+      <link rel="stylesheet" href="/myBlog/css/search.css"/>
+      <!-- Search end -->
+    
+
+    
+      <!-- ThemeColor start -->
+      <link rel="stylesheet" href="/myBlog/css/themecolor.css"/>
+      <!-- ThemeColor end -->
+    
+
+    
+
+    
+      <!-- gitalk start -->
+      <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css"> -->
+      <link rel="stylesheet" href="/myBlog/css/gitalk.css"/>
+      <!-- gitalk end -->
+    
+  
+
+  <!-- Custom Fonts -->
+  <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+  <!-- Hux change font-awesome CDN to qiniu -->
+  <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" type="text/css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <!-- Hux Delete, sad but pending in China <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'> <link
+  href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/ css'> -->
+
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]> <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script> <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script> <![endif]-->
+
+  <!-- ga & ba script hoook -->
+  <link rel="canonical" href="https://nuist-elite.github.io/myBlog/myBlog/front-end/jQuery/">
+  <title>
+    
+      jQuery learning note - either win | or lose
+    
+  </title>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<!-- hack iOS CSS :active style -->
+
+	<body ontouchstart="" class="body--light body--dark">
+
+
+		<!-- ThemeColor -->
+		
+		<!-- ThemeColor -->
+<style type="text/css">
+  .body--light {
+    --light-mode: none;
+    --dark-mode: block;
+  }
+  .body--dark {
+    --light-mode: block;
+    --dark-mode: none;
+  }
+  i.mdui-icon.material-icons.light-mode {
+    display: var(--light-mode);
+  }
+  i.mdui-icon.material-icons.dark-mode {
+    display: var(--dark-mode);
+  }
+</style>
+<div class="toggle" onclick="document.body.classList.toggle('body--dark')">
+  <i class="mdui-icon material-icons light-mode"></i>
+  <i class="mdui-icon material-icons dark-mode"></i>
+</div>
+<script>
+  //getCookieValue
+  function getCookieValue(a) {
+    var b = document.cookie.match('(^|[^;]+)\\s*' + a + '\\s*=\\s*([^;]+)');
+    return b
+      ? b.pop()
+      : '';
+  }
+  let themeMode = 'dark';
+  if (getCookieValue('sb-color-mode') && (getCookieValue('sb-color-mode') !== themeMode)) {
+    let dbody = document.body.classList;
+    themeMode === 'dark' ? dbody.remove('body--dark') : dbody.add('body--dark');
+  }
+
+  //setCookieValue
+  var toggleBtn = document.querySelector(".toggle");
+  toggleBtn.addEventListener("click", function () {
+    var e = document.body.classList.contains("body--dark");
+    var cookieString = e
+      ? "dark"
+      : "light";
+    var exp = new Date();
+    exp.setTime(exp.getTime() + 3 * 24 * 60 * 60 * 1000); //3天过期
+    document.cookie = "sb-color-mode=" + cookieString + ";expires=" + exp.toGMTString() + ";path=/";
+  });
+</script>
+
+		
+
+		<!-- Gitter -->
+		
+		<!-- Gitter -->
+<!-- Docs:https://gitter.im/?utm_source=left-menu-logo -->
+<script>
+  ((window.gitter = {}).chat = {}).options = {
+    room: 'your-community/your-room'
+  };
+</script>
+<script src="https://sidecar.gitter.im/dist/sidecar.v1.js" async defer></script>
+
+		
+
+		<!-- Navigation (contains search)-->
+		<!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header page-scroll">
+      <button type="button" class="navbar-toggle">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/myBlog/">Programming for the future</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <!-- Known Issue, found by Hux: <nav>'s height woule be hold on by its content. so, when navbar scale out, the <nav> will cover tags. also mask any touch event of tags, unfortunately. -->
+    <div id="huxblog_navbar">
+      <div class="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <a href="/myBlog/">HOME</a>
+          </li>
+
+          
+          
+          
+          
+          <li>
+            <a href="/myBlog/about/">
+              
+              ABOUT
+              
+              
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/myBlog/archive/">
+              
+              ARCHIVES
+              
+              
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/myBlog/tags/">
+              
+              TAGS
+              
+              
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/myBlog/categories/">
+              
+              CATEGORIES
+              
+              
+            </a>
+          </li>
+          
+          
+
+          
+          <li>
+            <a class="popup-trigger">
+              <span class="search-icon"></span>SEARCH</a>
+          </li>
+          
+
+          <!-- LangSelect -->
+          
+          
+          
+          
+          
+        </ul>
+      </div>
+    </div>
+    <!-- /.navbar-collapse -->
+  </div>
+  <!-- /.container -->
+</nav>
+<!-- progress -->
+<div id="progress">
+  <div class="line" style="width: 0%;"></div>
+</div>
+
+<script>
+  // Drop Bootstarp low-performance Navbar Use customize navbar with high-quality material design animation in high-perf jank-free CSS3 implementation
+  var $body = document.body;
+  var $toggle = document.querySelector('.navbar-toggle');
+  var $navbar = document.querySelector('#huxblog_navbar');
+  var $collapse = document.querySelector('.navbar-collapse');
+
+  $toggle.addEventListener('click', handleMagic)
+
+  function handleMagic(e) {
+    if ($navbar.className.indexOf('in') > 0) {
+      // CLOSE
+      $navbar.className = " ";
+      // wait until animation end.
+      setTimeout(function() {
+        // prevent frequently toggle
+        if ($navbar.className.indexOf('in') < 0) {
+          $collapse.style.height = "0px"
+        }
+      }, 400)
+    } else {
+      // OPEN
+      $collapse.style.height = "auto"
+      $navbar.className += " in";
+    }
+  }
+</script>
+
+
+		<!-- Post Header (contains intro-header、signature、wordcount、busuanzi、waveoverlay) -->
+		<!-- Modified by Yu-Hsuan Yen -->
+<!-- Post Header -->
+
+  <style type="text/css">
+    .body--light {
+      /* intro-header */
+      --intro-header-background-image-url-home: url('/myBlog/img/header_img/newhome_bg.jpg');
+      --intro-header-background-image-url-post: url('/myBlog/img/header_img/front-end/jQuery.jpg');
+      --intro-header-background-image-url-page: url('/myBlog//myBlog/img/header_img/front-end/jQuery.jpg');
+    }
+    .body--dark {
+      --intro-header-background-image-url-home: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('/myBlog/img/header_img/newhome_bg.jpg');
+      --intro-header-background-image-url-post: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('/myBlog/img/header_img/front-end/jQuery.jpg');
+      --intro-header-background-image-url-page: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('/myBlog//myBlog/img/header_img/front-end/jQuery.jpg');
+    }
+
+    header.intro-header {
+       /*post*/
+        background-image: var(--intro-header-background-image-url-post);
+        /* background-image: url('/myBlog/img/header_img/front-end/jQuery.jpg'); */
+      
+    }
+
+    
+      #signature {/*signature*/
+        background-image: url('/myBlog/img/signature/vincent-white.png');
+      }
+    
+  </style>
+
+
+
+
+
+<header class="intro-header">
+  <!-- Signature -->
+  <div id="signature">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+          
+          <div class="post-heading">
+            <div class="tags">
+              
+              <a class="tag" href="/myBlog/tags/#learning note" title="learning note">learning note</a>
+              
+              <a class="tag" href="/myBlog/tags/#front-end" title="front-end">front-end</a>
+              
+            </div>
+            <h1>jQuery learning note</h1>
+            <h2 class="subheading">Some fundamental concepts and features of jQuery</h2>
+            <span class="meta">
+              Posted by Eric Wong on
+              2021-04-22
+            </span>
+
+
+            
+            <!-- WordCount start -->
+            <div class="blank_box"></div>
+            <span class="meta">
+              Estimated Reading Time <span class="post-count">9</span> Minutes
+            </span>
+            <div class="blank_box"></div>
+            <span class="meta">
+              Words <span class="post-count">1.5k</span> In Total
+            </span>
+            <div class="blank_box"></div>
+            <!-- WordCount end -->
+            
+            
+            <!-- 不蒜子统计 start -->
+            <span class="meta" id="busuanzi_container_page_pv">
+              Viewed <span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span> Times
+            </span>
+            <!-- 不蒜子统计 end -->
+            
+
+
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+  <!-- waveoverlay start -->
+  <div class="preview-overlay">
+    <svg class="preview-waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+      <defs>
+        <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"></path>
+      </defs>
+      <g class="preview-parallax">
+        <use xlink:href="#gentle-wave" x="48" y="0" fill=var(--gentle-wave1)></use>
+        <use xlink:href="#gentle-wave" x="48" y="3" fill=var(--gentle-wave2)></use>
+        <use xlink:href="#gentle-wave" x="48" y="5" fill=var(--gentle-wave3)></use>
+        <use xlink:href="#gentle-wave" x="48" y="7" fill=var(--gentle-wave)></use>
+      </g>
+    </svg>
+  </div>
+  <!-- waveoverlay end -->
+  
+
+</header>
+
+
+
+		<!-- Main Content (Post contains
+	Pager、
+	tip、
+	socialshare、
+	gitalk、gitment、disqus-comment、
+	Catalog、
+	Sidebar、
+	Featured-Tags、
+	Friends Blog、
+	anchorjs、
+	) -->
+		<!-- Modify by Yu-Hsuan Yen -->
+<!-- Post Content -->
+<article>
+  <div class="container">
+    <div class="row">
+      <!-- Post Container -->
+      <div class="col-lg-8 col-lg-offset-1 col-md-10 col-md-offset-1 post-container">
+
+        <h1>jQuery study note</h1>
+<h2 id="What’s-jQuery">What’s jQuery?</h2>
+<ul>
+<li>jQuery is a library for JavaScript, which significantly simplified coding for JS.</li>
+<li>jQuery includes lots of functions, including:
+<ol>
+<li>Selecting HTML elements</li>
+<li>Operating HTML elements</li>
+<li>Operating CSS</li>
+<li>Event handler functions</li>
+<li>Special effect and animation for JS</li>
+<li>HTML DOM traverse and revise</li>
+<li>AJAX</li>
+<li>Utilities</li>
+</ol>
+</li>
+<li>jQuery is an open-source framework.</li>
+</ul>
+<h2 id="jQuery-CDN">jQuery CDN</h2>
+<ol>
+<li>baidu: <code>https//apps.bdimg.com/libs/jQuery/2.1.4/jquery.min.js</code></li>
+<li>google: <code>https//ajax.googleapis.com/ajax/libs/jQuery/1.10.2/jquery.min.js</code></li>
+</ol>
+<h2 id="Fundamental-grammar">Fundamental grammar</h2>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="built_in">document</span>).ready(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="comment">//jQuery code</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// another form</span></span><br><span class="line">$(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="comment">//jQuery code</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>codes above display the Starting function of jQuery</p>
+</blockquote>
+<h2 id="jQuery-events">jQuery events</h2>
+<ul>
+<li>
+<pre><code class="language-js">$(&quot;p&quot;).click(function()&#123;
+	//code after the event happened
+&#125;)
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">  &gt; <span class="string">`click`</span> is a typical event <span class="keyword">of</span> jQuery; <span class="function"><span class="keyword">function</span> <span class="title">is</span> <span class="title">executed</span> <span class="title">after</span> <span class="title">user</span> <span class="title">clicked</span> <span class="title">the</span> <span class="title">mouse</span>.</span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function">* <span class="title">other</span> <span class="title">popular</span> <span class="title">events</span></span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function">  1. <span class="title">dblclick</span>(<span class="params"></span>): <span class="title">double</span> <span class="title">click</span> <span class="title">the</span> <span class="title">mouse</span></span></span><br><span class="line"><span class="function">  2. <span class="title">mouseenter</span>(<span class="params"></span>): <span class="title">mouse</span> <span class="title">moving</span> <span class="title">over</span> <span class="title">the</span> <span class="title">element</span></span></span><br><span class="line"><span class="function">  3. <span class="title">mouseleave</span>(<span class="params"></span>): <span class="title">mouse</span> <span class="title">leaving</span> <span class="title">the</span> <span class="title">element</span></span></span><br><span class="line"><span class="function">  4. <span class="title">hover</span>(<span class="params"></span>): <span class="title">combining</span> <span class="title">event</span> 2 &amp; 3</span></span><br><span class="line"><span class="function">  5. <span class="title">mouseup</span>(<span class="params"></span>),<span class="title">mousedown</span>(<span class="params"></span>):<span class="title">pressing</span> <span class="title">mouse</span> <span class="title">and</span> <span class="title">releasing</span> <span class="title">mouse</span></span></span><br><span class="line"><span class="function">  6. <span class="title">focus</span>(<span class="params"></span>),<span class="title">blur</span>(<span class="params"></span>): <span class="title">when</span> <span class="title">elements</span> <span class="title">acquire</span>/<span class="title">lose</span> <span class="title">focus</span></span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function">## <span class="title">jQuery</span> <span class="function"><span class="keyword">function</span></span></span></span><br><span class="line"><span class="function"><span class="function"></span></span></span><br><span class="line"><span class="function"><span class="function">* ```<span class="title">js</span></span></span></span><br><span class="line"><span class="function"><span class="function">  <span class="title">$</span>(<span class="params"><span class="string">&quot;p&quot;</span></span>).<span class="title">hide</span>(<span class="params">speed,callback</span>) /<span class="title">show</span>(<span class="params">speed,callback</span>)</span></span></span><br></pre></td></tr></table></figure>
+
+hiding/showing HTML elements.
+
+param: 
+
+&gt; speed: hide/show speed; using 'fast', 'slow' or ms
+&gt;
+&gt; callback: callback executed after the function
+
+
+
+</code></pre>
+</li>
+<li>
+<pre><code class="language-js">$(&quot;p&quot;).toggle(speed,callback)
+<figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">  switching between hide<span class="literal">()</span> <span class="keyword">and</span> show<span class="literal">()</span>.</span><br><span class="line"></span><br><span class="line">  </span><br><span class="line"></span><br><span class="line">* ```js</span><br><span class="line">  <span class="constructor">$(<span class="string">&quot;div&quot;</span>)</span>.fade<span class="constructor">In(<span class="params">speed</span>,<span class="params">callback</span>)</span><span class="operator"> / </span>fade<span class="constructor">Out(<span class="params">speed</span>,<span class="params">callback</span>)</span></span><br></pre></td></tr></table></figure>
+
+elements fading in / fading out.
+
+
+
+</code></pre>
+</li>
+<li>
+<pre><code class="language-js">$(&quot;div&quot;).fadeToggle(speed,callback)
+<figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">  switching between fade<span class="constructor">In()</span> <span class="keyword">and</span> fade<span class="constructor">Out()</span>.</span><br><span class="line"></span><br><span class="line">  </span><br><span class="line"></span><br><span class="line">* ```js</span><br><span class="line">  <span class="constructor">$(<span class="string">&quot;div&quot;</span>)</span>.fade<span class="constructor">To(<span class="params">speed</span>,<span class="params">opacity</span>,<span class="params">callback</span>)</span></span><br></pre></td></tr></table></figure>
+
+appointing the opacity after fading.
+
+
+
+</code></pre>
+</li>
+<li>
+<pre><code class="language-js">$(&quot;div&quot;).slideUp(speed,callback) / slideDown(speed,callback)
+<figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">  sliding the element up<span class="operator"> / </span>down.</span><br><span class="line"></span><br><span class="line">  </span><br><span class="line"></span><br><span class="line">* ```js</span><br><span class="line">  <span class="constructor">$(<span class="string">&quot;div&quot;</span>)</span>.slide<span class="constructor">Toggle(<span class="params">speed</span>,<span class="params">callback</span>)</span></span><br></pre></td></tr></table></figure>
+
+switching between slideUp() and slideDown().
+
+
+
+</code></pre>
+</li>
+<li>
+<p>jQuery animate()</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//After clicking the mouse, the div element moving 250px to the right</span></span><br><span class="line">$(<span class="string">&quot;button&quot;</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	$(<span class="string">&quot;div&quot;</span>).animate(&#123;<span class="attr">left</span>: <span class="string">&#x27;250px&#x27;</span>&#125;);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">//With multiple attributes</span></span><br><span class="line">$(<span class="string">&quot;button&quot;</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	$(<span class="string">&quot;div&quot;</span>).animate(&#123;</span><br><span class="line">        left: <span class="string">&#x27;250px&#x27;</span>,</span><br><span class="line">        opacity:<span class="string">&#x27;0.5&#x27;</span>,</span><br><span class="line">        height: <span class="string">&#x27;150px&#x27;</span></span><br><span class="line">        width: <span class="string">&#x27;150px&#x27;</span></span><br><span class="line">    &#125;);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">//Using relative values</span></span><br><span class="line">$(<span class="string">&quot;button&quot;</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	$(<span class="string">&quot;div&quot;</span>).animate(&#123;</span><br><span class="line">        width: <span class="string">&#x27;+=100px&#x27;</span>,</span><br><span class="line">        height: <span class="string">&#x27;+=100px&#x27;</span></span><br><span class="line">    &#125;);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">//Using the param &#x27;speed&#x27;</span></span><br><span class="line">$(<span class="string">&quot;button&quot;</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	$(<span class="string">&quot;div&quot;</span>).animate(&#123;<span class="attr">left</span>: <span class="string">&#x27;250px&#x27;</span>&#125;,<span class="string">&quot;slow&quot;</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<pre><code class="language-js">$(&quot;div&quot;).stop(stopAll,goToEnd)
+<figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">  Stopping <span class="keyword">the</span> effects <span class="keyword">and</span> animation.</span><br><span class="line"></span><br><span class="line">  <span class="built_in">param</span>:</span><br><span class="line"></span><br><span class="line">  &gt; stopAll: weather stopping all animation <span class="keyword">in</span> queue <span class="keyword">or</span> <span class="keyword">not</span>. Default: <span class="literal">false</span></span><br><span class="line">  &gt;</span><br><span class="line">  &gt; goToEnd: weather completing <span class="keyword">the</span> animation immediately <span class="keyword">or</span> <span class="keyword">not</span>. Default: <span class="literal">false</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">## jQuery chaining</span></span><br><span class="line"></span><br><span class="line">This feature allows users <span class="built_in">to</span> operate multiple <span class="function"><span class="keyword">function</span> <span class="title">for</span> <span class="title">single</span> <span class="title">elements</span> <span class="title">without</span> <span class="title">querying</span> <span class="title">many</span> <span class="title">times</span>.</span></span><br><span class="line"></span><br><span class="line">e.g.  </span><br><span class="line"></span><br><span class="line">```js</span><br><span class="line">$(<span class="string">&quot;div&quot;</span>).slideUp(<span class="number">2000</span>).slideDown(<span class="number">2000</span>)</span><br><span class="line">//sliding up <span class="keyword">the</span> <span class="keyword">element</span> <span class="keyword">first</span>, <span class="keyword">then</span> sliding down <span class="keyword">the</span> <span class="keyword">element</span></span><br></pre></td></tr></table></figure>
+
+
+
+</code></pre>
+</li>
+</ul>
+<h2 id="jQuery-DOM-operation">jQuery DOM operation</h2>
+<ul>
+<li>
+<p>text() : Setting or return the text of selected element</p>
+</li>
+<li>
+<p>html() : Setting or return the text(including HTML label) of selected element</p>
+</li>
+<li>
+<p>val() : Acquiring the value of input</p>
+<p>e.g.</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span> =<span class="string">&quot;text&quot;</span> <span class="attr">id</span>=<span class="string">&quot;one&quot;</span> <span class="attr">value</span>=<span class="string">&quot;Hello&quot;</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">	$(<span class="string">&quot;#one&quot;</span>).val(); <span class="comment">//return &quot;Hello&quot;</span></span></span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>attr() : Acquiring or setting the attributes of certain elements</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;www.google.com&quot;</span> <span class="attr">class</span>=<span class="string">&quot;search&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- JS code --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">    $(<span class="string">&quot;.search&quot;</span>).attr(<span class="string">&quot;href&quot;</span>) <span class="comment">//return &quot;www.google.com&quot;</span></span></span><br><span class="line"><span class="javascript">    $(<span class="string">&quot;.search&quot;</span>).attr(<span class="string">&quot;href&quot;</span>,<span class="string">&quot;www.baidu.com&quot;</span>) <span class="comment">//change &#x27;href&#x27; to &#x27;www.baidu.com&#x27;</span></span></span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>callback function for <code>text(), html(), val() and attr()</code></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">id</span>=<span class="string">&quot;first&quot;</span>&gt;</span></span><br><span class="line">    Hello World!</span><br><span class="line"><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">id</span>=<span class="string">&quot;second&quot;</span>&gt;</span></span><br><span class="line">    GoodBye World!</span><br><span class="line"><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">    $(<span class="string">&quot;#first&quot;</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">        $(<span class="string">&quot;#first&quot;</span>).text(<span class="function"><span class="keyword">function</span>(<span class="params">i,oriText</span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">            <span class="keyword">return</span> <span class="string">`This is new p<span class="subst">$&#123;i&#125;</span>, <span class="subst">$&#123;oriText&#125;</span> lol!`</span>;</span></span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;);</span><br><span class="line"><span class="javascript">    <span class="comment">// After clicked on the first &#x27;p&#x27; label, text of it turned into &#x27;This is new p0, Hello World! lol!&#x27;</span></span></span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>Adding elements</p>
+<ol>
+<li>
+<p>append() / prepend()</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">&quot;p&quot;</span>).append(<span class="string">&quot;adding text at the end of the element(still inside the element)&quot;</span>);</span><br><span class="line"></span><br><span class="line">$(<span class="string">&quot;p&quot;</span>).prepend(<span class="string">&quot;adding text at the beginning of the element(still inside the element)&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//Attention: Both function can add multiple text by using multiple param</span></span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>after() / before()</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">&quot;p&quot;</span>).after(<span class="string">&quot;adding text after the element(outside the element)&quot;</span>);</span><br><span class="line"></span><br><span class="line">$(<span class="string">&quot;p&quot;</span>).before(<span class="string">&quot;adding text before the element(outside the element)&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//Attention: Both function can add multiple text by using multiple param</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+</li>
+<li>
+<p>Deleting elements</p>
+<ol>
+<li>
+<p>remove()</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">&quot;div&quot;</span>).remove();</span><br><span class="line"><span class="comment">//Deleting selected element and its children elements</span></span><br><span class="line"></span><br><span class="line">$(<span class="string">&quot;div&quot;</span>).remove(<span class="string">&quot;.one&quot;</span>)</span><br><span class="line"><span class="comment">//Only operating on &#x27;div&#x27; with class &#x27;one&#x27;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>empty()</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">&quot;div&quot;</span>).empty();</span><br><span class="line"><span class="comment">//Deleting children elements of selected element(without selected element)</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+</li>
+</ul>
+<h2 id="jQuery-CSS">jQuery CSS</h2>
+<ol>
+<li>
+<p>Operating on class of CSS</p>
+<ul>
+<li>
+<p>addClass() / removeClass()</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">&quot;p&quot;</span>).addClass(<span class="string">&quot;big long&quot;</span>);</span><br><span class="line"><span class="comment">//Adding class &#x27;big&#x27; and &#x27;long&#x27;</span></span><br><span class="line"></span><br><span class="line">$(<span class="string">&quot;p&quot;</span>).removeClass(<span class="string">&quot;big long&quot;</span>);</span><br><span class="line"><span class="comment">//Aremoving class &#x27;big&#x27; and &#x27;long&#x27;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>toggleClass()</p>
+<p>Switching between <code>addClass()</code> and <code>removeClass()</code></p>
+</li>
+</ul>
+</li>
+<li>
+<p>css()</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">&quot;p&quot;</span>).css(<span class="string">&quot;color&quot;</span>);</span><br><span class="line"><span class="comment">// return value of selected attribute</span></span><br><span class="line"></span><br><span class="line">$(<span class="string">&quot;p&quot;</span>).css(<span class="string">&quot;color&quot;</span>,<span class="string">&quot;white&quot;</span>);</span><br><span class="line"><span class="comment">// setting value of selected attribute</span></span><br><span class="line"></span><br><span class="line">$(<span class="string">&quot;p&quot;</span>).css(&#123;<span class="string">&quot;color&quot;</span>:<span class="string">&quot;white&quot;</span>,<span class="string">&quot;font-size&quot;</span>:<span class="string">&quot;14px&quot;</span>&#125;);</span><br><span class="line"><span class="comment">// setting multiple value of selected attribute</span></span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>Sizing</p>
+<ul>
+<li>
+<p>width() / height()</p>
+<blockquote>
+<p>exclude padding, border and margin</p>
+</blockquote>
+</li>
+<li>
+<p>innerWidth() / innerHeight()</p>
+<blockquote>
+<p>exclude border and margin</p>
+</blockquote>
+</li>
+<li>
+<p>outerWidth() / outerHeight()</p>
+<blockquote>
+<p>exclude margin</p>
+</blockquote>
+</li>
+<li>
+<p>outerWidth(true) / outerHeight(true)</p>
+<blockquote>
+<p>include padding, border and margin</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="jQuery-Traverse">jQuery Traverse</h2>
+<ol>
+<li>
+<p>Ancestor</p>
+<ul>
+<li>
+<p>parent() / parents()</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">&quot;p&quot;</span>).parent();</span><br><span class="line"><span class="comment">//return father element of &#x27;p&#x27;</span></span><br><span class="line"></span><br><span class="line">$(<span class="string">&quot;p&quot;</span>).parents();</span><br><span class="line"><span class="comment">//return all ancestor element of &#x27;p&#x27;</span></span><br><span class="line"></span><br><span class="line">$(<span class="string">&quot;p&quot;</span>).parents(<span class="string">&quot;div&quot;</span>);</span><br><span class="line"><span class="comment">//return all ancestor &#x27;div&#x27; element of &#x27;p&#x27;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>parentsUntil()</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">&quot;p&quot;</span>).parentsUntil(<span class="string">&quot;div&quot;</span>);</span><br><span class="line"><span class="comment">//return elements between label &#x27;p&#x27; and &#x27;div&#x27;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li>
+<p>Offspring</p>
+<ul>
+<li>
+<p>children()</p>
+<p>Return children elements of selected label.</p>
+</li>
+<li>
+<p>find()</p>
+<p>Return all offspring elements of selected label.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Siblings</p>
+<ul>
+<li>
+<p>siblings()</p>
+<p>Return all siblings elements of selected label.</p>
+</li>
+<li>
+<p>next() / nextAll()</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">&quot;p&quot;</span>).next();</span><br><span class="line"><span class="comment">//return the next siblings element of &#x27;p&#x27;</span></span><br><span class="line"></span><br><span class="line">$(<span class="string">&quot;p&quot;</span>).nextAll();</span><br><span class="line"><span class="comment">//return all siblings elements following &#x27;p&#x27;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>nextUntil()</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">&quot;p&quot;</span>).nextUntil(<span class="string">&quot;h2&quot;</span>);</span><br><span class="line"><span class="comment">//return all siblings elements between label &#x27;p&#x27; and &#x27;h2&#x27;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<blockquote>
+<p>prev(), prevAll() &amp; prevUntil() are similar to functions above, only with reverse direction</p>
+</blockquote>
+</li>
+<li>
+<p>Filter</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">&quot;div p&quot;</span>).first();</span><br><span class="line"><span class="comment">//select the first &#x27;p&#x27; of first &#x27;div&#x27;</span></span><br><span class="line"></span><br><span class="line">$(<span class="string">&quot;div p&quot;</span>).last();</span><br><span class="line"><span class="comment">//select the last &#x27;p&#x27; of last &#x27;div&#x27;</span></span><br><span class="line"></span><br><span class="line">$(<span class="string">&quot;p&quot;</span>).eq(<span class="number">1</span>);</span><br><span class="line"><span class="comment">//select element by index(starting from 0)</span></span><br><span class="line"></span><br><span class="line">$(<span class="string">&quot;p&quot;</span>).filter(<span class="string">&quot;.good&quot;</span>);</span><br><span class="line"><span class="comment">//select &#x27;p&#x27; element with class &#x27;good&#x27;</span></span><br><span class="line"></span><br><span class="line">$(<span class="string">&quot;p&quot;</span>).not(<span class="string">&quot;.good&quot;</span>);</span><br><span class="line"><span class="comment">//select &#x27;p&#x27; element without class &#x27;good&#x27;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="jQuery-AJAX">jQuery AJAX</h2>
+<ol>
+<li>
+<p>load()</p>
+<p><code>load()</code> can load data from servers, and put the data into selected element.</p>
+<p>e.g. This is the content of a ‘txt’ file ‘demo.txt’:</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">id</span>=<span class="string">&quot;first&quot;</span>&gt;</span>Hello my world<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">id</span>=<span class="string">&quot;second&quot;</span>&gt;</span>GoodBye world<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;one&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">span</span>&gt;</span>origin<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">    $(<span class="string">&quot;#one&quot;</span>).load(<span class="string">&quot;demo.txt&quot;</span>); <span class="comment">// After executed, &#x27;span&#x27; will be replaced by both &#x27;p&#x27; in &#x27;demo.txt&#x27;</span></span></span><br><span class="line"><span class="javascript">    $(<span class="string">&quot;#one&quot;</span>).load(<span class="string">&quot;demo.txt #first&quot;</span>); <span class="comment">// After executed, &#x27;span&#x27; will be replaced by &#x27;p&#x27; with id &#x27;first&#x27; in &#x27;demo.txt&#x27;</span></span></span><br><span class="line"><span class="javascript">    $(<span class="string">&quot;#one&quot;</span>).load(<span class="string">&quot;demo_.txt&quot;</span>,<span class="function"><span class="keyword">function</span>(<span class="params">responseTxt,statusTxt,xhr</span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">    <span class="keyword">if</span>(statusTxt==<span class="string">&quot;success&quot;</span>)</span></span><br><span class="line"><span class="javascript">      alert(<span class="string">&quot;外部内容加载成功!&quot;</span>);</span></span><br><span class="line"><span class="javascript">    <span class="keyword">if</span>(statusTxt==<span class="string">&quot;error&quot;</span>)</span></span><br><span class="line"><span class="javascript">      alert(<span class="string">&quot;Error: &quot;</span>+xhr.status+<span class="string">&quot;: &quot;</span>+xhr.statusText);</span></span><br><span class="line"><span class="javascript">  &#125;); <span class="comment">// callback function is also available</span></span></span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>$.get(URL,function(data,status))</p>
+<blockquote>
+<p>First param: request URL</p>
+<p>Second param: callback function; first param refers to content of request page, second param refers to request status</p>
+</blockquote>
+</li>
+<li>
+<p>$.post(URL,data,function(data,status))</p>
+<blockquote>
+<p>First param: request URL</p>
+<p>Second param: data request to send</p>
+<p>Third param: callback function; first param refers to content of request page, second param refers to request status</p>
+</blockquote>
+</li>
+</ol>
+
+
+        <hr>
+        <!-- Pager -->
+        <ul class="pager">
+          
+          
+          <li class="next">
+            <a href="/myBlog/go/Day03/" data-toggle="tooltip" data-placement="top" title="Go day03-Mapping and function">Next Post &rarr;</a>
+          </li>
+          
+        </ul>
+
+        
+        <!-- tip start -->
+        <!-- tip -->
+<!-- tip start -->
+<div class="tip">
+  <p>
+    
+      If you like this blog or find it useful for you, you are welcome to comment on it. You are also welcome to share this blog, so that more people can participate in it. If the images used in the blog infringe your copyright, please contact the author to delete them. Thank you !
+    
+  </p>
+</div>
+<!-- tip end -->
+
+        <!-- tip end -->
+        
+
+        
+        <!-- Sharing Srtart -->
+        <!-- Social Social Share Post -->
+<!-- Docs:https://github.com/overtrue/share.js -->
+
+<div class="social-share" data-initialized="true" data-disabled="tencent ,douban ,qzone ,linkedin ,facebook ,google ,diandian" data-wechat-qrcode-helper="" align="center">
+  <ul class="list-inline text-center social-share-ul">
+    <li class="social-share-li">
+      <a target="_blank" class="social-share-icon icon-twitter">
+        <i class="fa fa-twitter fa-1x" aria-hidden="true"></i>
+      </a>
+    </li>
+    <li class="social-share-li">
+      <a class="social-share-icon icon-wechat">
+        <i class="fa fa-weixin fa-1x" aria-hidden="true"></i>
+      </a>
+    </li>
+    <li class="social-share-li">
+      <a target="_blank" class="social-share-icon icon-weibo">
+        <i class="fa fa-weibo fa-1x" aria-hidden="true"></i>
+      </a>
+    </li>
+    <li class="social-share-li">
+      <a target="_blank" class="social-share-icon icon-qq">
+        <i class="fa fa-qq fa-1x" aria-hidden="true"></i>
+      </a>
+    </li>
+    <li class="social-share-li">
+      <a target="_blank" class="social-share-icon" href="mailto:?subject=jQuery learning note&body=Hi,I found this website and thought you might like it https://nuist-elite.github.io/myBlog/myBlog/front-end/jQuery/">
+        <i class="fa fa-envelope fa-1x" aria-hidden="true"></i>
+      </a>
+    </li>
+  </ul>
+</div>
+
+<!-- css & js -->
+<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css"> -->
+<script defer="defer" async="true" src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
+
+        <!-- Sharing End -->
+        
+        <hr>
+
+        <!-- comments start -->
+        <!-- 1. gitalk comment -->
+
+  <!-- gitalk start -->
+  <!-- Docs:https://github.com/gitalk/gitalk/blob/master/readme-cn.md -->
+
+  <div id="gitalk-container"></div>
+
+  
+    <!-- <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.js"></script> -->
+    <script src="/myBlog/js/comment/gitalk.js"></script>
+  
+
+  <script>
+    var gitalk = new Gitalk({
+      clientID: '',
+      clientSecret: '',
+      repo: '',
+      owner: '',
+      admin: '',
+      id: 'Thu Apr 22 2021 21:32:06 GMT+0800', // Ensure uniqueness and length less than 50
+      distractionFreeMode: false, // Facebook-like distraction free mode
+      perPage: 10,
+      pagerDirection: 'last',
+      createIssueManually: false,
+      language: 'en',
+      proxy: 'https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token'
+    });
+    gitalk.render('gitalk-container');
+
+    var gtFolded = () => {
+      setTimeout(function () {
+        let markdownBody = document.getElementsByClassName("markdown-body");
+        let list = Array.from(markdownBody);
+        list.forEach(item => {
+          if (item.clientHeight > 250) {
+            item.classList.add('gt-comment-body-folded');
+            item.style.maxHeight = '250px';
+            item.title = 'Click to Expand';
+            item.onclick = function () {
+              item.classList.remove('gt-comment-body-folded');
+              item.style.maxHeight = '';
+              item.title = '';
+              item.onclick = null;
+            };
+          }
+        })
+      }, 800);
+    }
+  </script>
+
+  <!-- gitalk end -->
+
+
+<!-- 2. gitment comment -->
+
+
+<!-- 3. disqus comment -->
+
+
+        <!-- comments end -->
+        <hr>
+
+      </div>
+
+      <!-- Catalog: Tabe of Content -->
+      <!-- Table of Contents -->
+
+    
+      <aside id="sidebar">
+        <div id="toc" class="toc-article">
+        <strong class="toc-title">Contents</strong>
+        
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">jQuery study note</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#What%E2%80%99s-jQuery"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">What’s jQuery?</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#jQuery-CDN"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">jQuery CDN</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Fundamental-grammar"><span class="toc-nav-number">1.3.</span> <span class="toc-nav-text">Fundamental grammar</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#jQuery-events"><span class="toc-nav-number">1.4.</span> <span class="toc-nav-text">jQuery events</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#jQuery-DOM-operation"><span class="toc-nav-number">1.5.</span> <span class="toc-nav-text">jQuery DOM operation</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#jQuery-CSS"><span class="toc-nav-number">1.6.</span> <span class="toc-nav-text">jQuery CSS</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#jQuery-Traverse"><span class="toc-nav-number">1.7.</span> <span class="toc-nav-text">jQuery Traverse</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#jQuery-AJAX"><span class="toc-nav-number">1.8.</span> <span class="toc-nav-text">jQuery AJAX</span></a></li></ol></li></ol>
+        
+        </div>
+      </aside>
+    
+
+
+
+      <!-- Sidebar Container -->
+      <div class="
+                col-lg-8 col-lg-offset-1
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+        <!-- Featured Tags -->
+        
+        <section>
+          <!-- no hr -->
+          <h5>
+            <a href="/myBlog/tags/">FEATURED TAGS</a>
+          </h5>
+          <div class="tags">
+            
+            <a class="tag" href="/myBlog/tags/#learning note" title="learning note">learning note</a>
+            
+            <a class="tag" href="/myBlog/tags/#front-end" title="front-end">front-end</a>
+            
+          </div>
+        </section>
+        
+
+        <!-- Friends Blog -->
+        
+      </div>
+    </div>
+  </div>
+</article>
+
+
+
+<!-- anchorjs start -->
+<!-- async load function -->
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script type="text/javascript">
+  // async load function
+  function async (u, c) {
+    var d = document,
+      t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) {
+      o.addEventListener('load', function(e) {
+        c(null, e);
+      }, false);
+    }
+    s.parentNode.insertBefore(o, s);
+  };
+</script>
+<script type="text/javascript">
+  //anchor-js, Doc:http://bryanbraun.github.io/anchorjs/
+  async ("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js", function() {
+    anchors.options = {
+      visible: 'hover',
+      placement: 'left',
+      // icon: 'ℬ'
+      icon: '❡'
+    };
+    anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+  });
+</script>
+<style>
+  /* place left on bigger screen */
+  @media all and (min-width: 800px) {
+    .anchorjs-link {
+      position: absolute;
+      left: -0.75em;
+      font-size: 1.1em;
+      margin-top: -0.1em;
+    }
+  }
+</style>
+
+<!-- anchorjs end -->
+
+
+
+		<!-- Footer (contains ThemeColor、viewer) -->
+		<!-- Footer -->
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center">
+          
+
+          
+            <li>
+              <a target="_blank" href="https://github.com/NUIST-elite">
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+
+        </ul>
+        <p class="copyright text-muted">
+          Copyright &copy;
+          Eric Wong
+          2021
+          <br>
+          Theme by
+          <a target="_blank" rel="noopener" href="http://beantech.org">BeanTech</a>
+          <span style="display: inline-block; margin: 0 5px;">
+            <i class="fa fa-heart"></i>
+          </span>
+          re-Ported by
+          <a target="_blank" rel="noopener" href="https://v-vincen.life/">Live My Life</a>
+          |
+          <iframe style="margin-left: 2px; margin-bottom:-5px;" frameborder="0" scrolling="0" width="91px" height="20px" src="https://ghbtns.com/github-btn.html?user=V-Vincen&repo=V-Vincen.github.io&type=star&count=true"></iframe>
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<a id="rocket" href="#top" class=""></a>
+
+
+  <!-- jQuery -->
+  <script type="text/javascript" src="/myBlog/js/jquery.min.js"></script>
+  <!-- Bootstrap Core JavaScript -->
+  <script type="text/javascript" src="/myBlog/js/bootstrap.min.js"></script>
+  <!-- Custom Theme JavaScript -->
+  <script type="text/javascript" src="/myBlog/js/hux-blog.min.js"></script>
+  <!-- catalog -->
+  <script async="true" type="text/javascript" src="/js/catalog.js"></script>
+  <!-- totop(rocket) -->
+  <script async="true" type="text/javascript" src="/js/totop.js"></script>
+
+  
+    <!-- Busuanzi JavaScript -->
+    <script async="async" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  
+
+  
+    <!-- Scroll start -->
+    <script async="async" type="text/javascript" src="/myBlog/js/scroll.js"></script>
+    <!-- Scroll end -->
+  
+
+  
+    <!-- LangSelect start -->
+    <script type="text/javascript" src="/myBlog/js/langselect.js"></script>
+    <!-- LangSelect end -->
+  
+
+  
+    <!-- Mouseclick -->
+    <script type="text/javascript" src="/myBlog/js/mouseclick.js" content='The first step is as good as half over...,Laugh and grow fat...,Man proposes God disposes...,When all else is lost the future still remains...,Wasting time is robbing oneself...,Sharp tools make good work...,Cease to struggle and you cease to live...,A friend in need is a friend indeed...,Faith can move mountains...' color='#9933CC,#339933,#66CCCC,#FF99CC,#CCCCFF,#6666CC,#663399,#66CC99,#FF0033'></script>
+  
+
+  
+    <!-- ribbon -->
+    <script type="text/javascript" src="/myBlog/js/ribbonDynamic.js"></script>
+  
+
+  
+
+
+
+
+
+
+  <!-- viewer start -->
+  <!-- viewer start (Picture preview) -->
+  
+    <script async="async" type="text/javascript" src="/myBlog/js/viewer/viewer.min.js"></script>
+    <script async="async" type="text/javascript" src="/myBlog/js/viewer/pic-viewer.js"></script>
+  
+
+  <!-- viewer end -->
+
+
+<script>
+  // async load function
+  function async (u, c) {
+    var d = document,
+      t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) {
+      o.addEventListener('load', function (e) {
+        c(null, e);
+      }, false);
+    }
+    s.parentNode.insertBefore(o, s);
+  }
+
+  // fastClick.js
+  async ("https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function () {
+    var $nav = document.querySelector("nav");
+    if ($nav)
+      FastClick.attach($nav);
+    }
+  )
+</script>
+
+<!-- Because of the native support for backtick-style fenced code blocks right within the Markdown is landed in Github Pages, From V1.6, There is no need for Highlight.js, so Huxblog drops it officially. -
+https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0 - https://help.github.com/articles/creating-and-highlighting-code-blocks/ -->
+<!-- <script> async ("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function () { hljs.initHighlightingOnLoad(); }) </script> <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet"> -->
+
+<!-- jquery.tagcloud.js -->
+<!-- <script> // only load tagcloud.js in tag.html if ($('#tag_cloud').length !== 0) { async ("https://nuist-elite.github.io/myBlog/myBlog/js/jquery.tagcloud.js", function () { $.fn.tagcloud.defaults = { // size: { start: 1, end: 1, unit: 'em' }, color: {
+start: '#bbbbee', end: '#0085a1' } }; $('#tag_cloud a').tagcloud(); }) } </script> -->
+
+
+		<!-- Search -->
+		
+		<div class="popup search-popup local-search-popup">
+  <span class="popup-btn-close">
+    ESC
+  </span>
+  <div class="container">
+    <div class="row">
+      <!-- <div class="col-md-9 col-md-offset-1"> -->
+      <div class="col-lg-9 col-lg-offset-1 col-md-10 col-md-offset-1 local-search-content">
+
+        <div class="local-search-header clearfix">
+
+          <div class="local-search-input-wrapper">
+            <span class="search-icon">
+              <i class="fa fa-search fa-lg" style="margin: 25px 10px 25px 20px;"></i>
+            </span>
+            <input autocomplete="off" placeholder="SEARCH..." type="text" id="local-search-input">
+          </div>
+        </div>
+        <div id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  
+    <script src="/myBlog/js/ziploader.js"></script>
+  
+  <script>
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.json";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    // monitor main search box;
+    var onPopupClose = function (e) {
+      $('.popup').fadeOut(300);
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $('.popup').fadeIn(300);
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+    // get search zip version
+    $.get('/myBlog/searchVersion.json?t=' + (+new Date()), function (res) {
+      if (localStorage.getItem('searchVersion') !== res) {
+        localStorage.setItem('searchVersion', res);
+        initSearchJson();
+      }
+    });
+
+    function initSearchJson() {
+      initLoad(['/myBlog/search.flv'], {
+        loadOptions: {
+          success: function (obj) {
+            localStorage.setItem('searchJson', obj['search.json'])
+          },
+          error: function (e) {
+            return console.log(e)
+          }
+        },
+        returnOptions: {
+          'json': TYPE_TEXT
+        },
+        mimeOptions: {
+          'json': 'application/json'
+        }
+      })
+    }
+    // search function;
+    var searchFunc = function (search_id, content_id) {
+      'use strict';
+      isfetched = true;
+      var datas = JSON.parse(localStorage.getItem('searchJson'));
+      // console.log(search_id)
+      var input = document.getElementById(search_id);
+      var resultContent = document.getElementById(content_id);
+      var inputEventFunction = function () {
+        var searchText = input.value.trim().toLowerCase();
+        var keywords = searchText.split(/[\s\-]+/);
+        if (keywords.length > 1) {
+          keywords.push(searchText);
+        }
+        var resultItems = [];
+        if (searchText.length > 0) {
+          // perform local searching
+          datas.forEach(function (data) {
+            var isMatch = false;
+            var hitCount = 0;
+            var searchTextCount = 0;
+            var title = data.title
+              ? data.title.trim()
+              : '';
+            var titleInLowerCase = title.toLowerCase();
+            var content = data.content
+              ? data.content.trim().replace(/<[^>]+>/g, "")
+              : '';
+            var contentInLowerCase = content.toLowerCase();
+            var articleUrl = decodeURIComponent(data.url);
+
+            var date = data.date;
+            var dateTime = date.replace(/T/, " ").replace(/.000Z/, "");
+            var imgUrl = data.header_img;
+            
+
+
+            var indexOfTitle = [];
+            var indexOfContent = [];
+            // only match articles with not empty titles
+            keywords.forEach(function (keyword) {
+              function getIndexByWord(word, text, caseSensitive) {
+                var wordLen = word.length;
+                if (wordLen === 0) {
+                  return [];
+                }
+                var startPosition = 0,
+                  position = [],
+                  index = [];
+                if (!caseSensitive) {
+                  text = text.toLowerCase();
+                  word = word.toLowerCase();
+                }
+                while ((position = text.indexOf(word, startPosition)) > -1) {
+                  index.push({position: position, word: word});
+                  startPosition = position + wordLen;
+                }
+                return index;
+              }
+              indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+              indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+            });
+            if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+              isMatch = true;
+              hitCount = indexOfTitle.length + indexOfContent.length;
+            }
+            // show search results
+            if (isMatch) {
+              // sort index by position of keyword
+              [indexOfTitle, indexOfContent].forEach(function (index) {
+                index.sort(function (itemLeft, itemRight) {
+                  if (itemRight.position !== itemLeft.position) {
+                    return itemRight.position - itemLeft.position;
+                  } else {
+                    return itemLeft.word.length - itemRight.word.length;
+                  }
+                });
+              });
+              // merge hits into slices
+              function mergeIntoSlice(text, start, end, index) {
+                var item = index[index.length - 1];
+                var position = item.position;
+                var word = item.word;
+                var hits = [];
+                var searchTextCountInSlice = 0;
+                while (position + word.length <= end && index.length != 0) {
+                  if (word === searchText) {
+                    searchTextCountInSlice++;
+                  }
+                  hits.push({position: position, length: word.length});
+                  var wordEnd = position + word.length;
+                  // move to next position of hit
+                  index.pop();
+                  while (index.length != 0) {
+                    item = index[index.length - 1];
+                    position = item.position;
+                    word = item.word;
+                    if (wordEnd > position) {
+                      index.pop();
+                    } else {
+                      break;
+                    }
+                  }
+                }
+                searchTextCount += searchTextCountInSlice;
+                return {hits: hits, start: start, end: end, searchTextCount: searchTextCountInSlice};
+              }
+              var slicesOfTitle = [];
+              if (indexOfTitle.length != 0) {
+                slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+              }
+              var slicesOfContent = [];
+              while (indexOfContent.length != 0) {
+                var item = indexOfContent[indexOfContent.length - 1];
+                var position = item.position;
+                var word = item.word;
+                // cut out 100 characters
+                var start = position - 20;
+                var end = position + 80;
+                if (start < 0) {
+                  start = 0;
+                }
+                if (end < position + word.length) {
+                  end = position + word.length;
+                }
+                if (end > content.length) {
+                  end = content.length;
+                }
+                slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+              }
+              // sort slices in content by search text's count and hits' count
+              slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                  return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                  return sliceRight.hits.length - sliceLeft.hits.length;
+                } else {
+                  return sliceLeft.start - sliceRight.start;
+                }
+              });
+              // select top N slices in content
+              var upperBound = parseInt('1');
+              if (upperBound >= 0) {
+                slicesOfContent = slicesOfContent.slice(0, upperBound);
+              }
+              // highlight title and content
+              function highlightKeyword(text, slice) {
+                var result = '';
+                var prevEnd = slice.start;
+                slice.hits.forEach(function (hit) {
+                  result += text.substring(prevEnd, hit.position);
+                  var end = hit.position + hit.length;
+                  result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                  prevEnd = end;
+                });
+                result += text.substring(prevEnd, slice.end);
+                return result;
+              }
+              var resultItem = '';
+
+              // if (slicesOfTitle.length != 0) {   resultItem += "<li><a target='_blank' href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>"; } else {   resultItem += "<li><a target='_blank' href='" +
+              // articleUrl + "' class='search-result-title'>" + title + "</a>"; } slicesOfContent.forEach(function (slice) {   resultItem += "<a target='_blank' href='" + articleUrl + "'><p class=\"search-result\">" + highlightKeyword(content, slice) +
+              // "...</p></a>"; }); resultItem += "</li>";
+
+              if (slicesOfTitle.length != 0) {
+                resultItem += "<a target='_blank' href='" + articleUrl + "' class='search-result'><div class='search-result-left'><div class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</div><time class='search-result-date'>" + dateTime + "</time>";
+              } else {
+                resultItem += "<a target='_blank' href='" + articleUrl + "' class='search-result'><div class='search-result-left'><div class='search-result-title'>" + title + "</div><time class='search-result-date'>" + dateTime + "</time>";
+              }
+              slicesOfContent.forEach(function (slice) {
+                resultItem += "<p class=\"search-result-content\">" + highlightKeyword(content, slice) + "...</p>";
+              });
+              resultItem += "</div><div class='search-result-right'><img class='media-image' src='" + imgUrl + "' width='64px' height='48px'></img></div></a>";
+
+              resultItems.push({item: resultItem, searchTextCount: searchTextCount, hitCount: hitCount, id: resultItems.length});
+            }
+          })
+        };
+
+        if (keywords.length === 1 && keywords[0] === "") {
+          resultContent.innerHTML = '<div id="no-result"></div>'
+        } else if (resultItems.length === 0) {
+          resultContent.innerHTML = '<div id="no-result"></div>'
+        } else {
+          resultItems.sort(function (resultLeft, resultRight) {
+            if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+              return resultRight.searchTextCount - resultLeft.searchTextCount;
+            } else if (resultLeft.hitCount !== resultRight.hitCount) {
+              return resultRight.hitCount - resultLeft.hitCount;
+            } else {
+              return resultRight.id - resultLeft.id;
+            }
+          });
+          var searchResultList = '<div class=\"search-result-list\">';
+          resultItems.forEach(function (result) {
+            searchResultList += result.item;
+          })
+          searchResultList += "</div>";
+          resultContent.innerHTML = searchResultList;
+        }
+      }
+      if ('auto' === 'auto') {
+        input.addEventListener('input', inputEventFunction);
+      } else {
+        $('.search-icon').click(inputEventFunction);
+        input.addEventListener('keypress', function (event) {
+          if (event.keyCode === 13) {
+            inputEventFunction();
+          }
+        });
+      }
+      // remove loading animation
+      $('body').css('overflow', '');
+      proceedsearch();
+    }
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function (e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc('local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function (e) {
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 && $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+
+    document.addEventListener('mouseup', (e) => {
+      var _con = document.querySelector(".local-search-content");
+      if (_con) {
+        if (!_con.contains(e.target)) {
+          onPopupClose();
+        }
+      }
+    });
+  </script>
+
+
+		
+	<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
+</html>
