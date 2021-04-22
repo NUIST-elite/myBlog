@@ -2,27 +2,6 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://nuist-elite.github.io/myBlog/go/Day03/</loc>
-    
-    <lastmod>2021-04-21</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://nuist-elite.github.io/myBlog/go/Day02/</loc>
-    
-    <lastmod>2021-04-20</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://nuist-elite.github.io/myBlog/go/Day01/</loc>
-    
-    <lastmod>2021-04-20</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://nuist-elite.github.io/myBlog/tags/index.html</loc>
     
     <lastmod>2021-04-20</lastmod>
@@ -60,47 +39,12 @@
 
   <url>
     <loc>https://nuist-elite.github.io/myBlog</loc>
-    <lastmod>2021-04-21</lastmod>
+    <lastmod>2021-04-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
 
   
-  <url>
-    <loc>https://nuist-elite.github.io/myBlog/tags/Go/</loc>
-    <lastmod>2021-04-21</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://nuist-elite.github.io/myBlog/tags/learning-note/</loc>
-    <lastmod>2021-04-21</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
 
-  
-  <url>
-    <loc>https://nuist-elite.github.io/myBlog/categories/Go-learning-note-day-01/</loc>
-    <lastmod>2021-04-21</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://nuist-elite.github.io/myBlog/categories/Go-learning-note-day-02/</loc>
-    <lastmod>2021-04-21</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://nuist-elite.github.io/myBlog/categories/learning-note-for-go/</loc>
-    <lastmod>2021-04-21</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
   
 </urlset>
