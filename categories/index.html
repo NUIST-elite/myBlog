@@ -244,8 +244,6 @@
 
           
           
-          
-          
           <li>
             <a href="/myBlog/about/">
               
@@ -257,10 +255,12 @@
           
           
           
+          
+          
           <li>
-            <a href="/myBlog/archive/">
+            <a href="/myBlog/categories/">
               
-              ARCHIVES
+              CATEGORIES
               
               
             </a>
@@ -269,9 +269,9 @@
           
           
           <li>
-            <a href="/myBlog/categories/">
+            <a href="/myBlog/archive/">
               
-              CATEGORIES
+              ARCHIVES
               
               
             </a>
@@ -463,9 +463,72 @@
       <!-- 标签云 -->
       <div id='tag_cloud' class="tags">
         
+        <a href="#Go learning note" title="Go learning note" rel="3">Go learning note</a>
+        
       </div>
 
       <!-- 标签列表 -->
+      
+      <div class="one-tag-list">
+        <span class="fa fa-tag listing-seperator" id="Go learning note">
+          <span class="tag-text">Go learning note</span>
+        </span>
+        
+        <!-- <li class="listing-item">
+                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
+                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+                  </li> -->
+        <div class="post-preview">
+          <a href="/myBlog/go/Day01/">
+            <h2 class="post-title">
+              Go Day01-Basic structure and grammar
+              
+              -- go
+              
+            </h2>
+            
+          </a>
+          <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+        </div>
+        <hr>
+        
+        <!-- <li class="listing-item">
+                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
+                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+                  </li> -->
+        <div class="post-preview">
+          <a href="/myBlog/go/Day02/">
+            <h2 class="post-title">
+              Go Day02-Pointer ,array and slice
+              
+              -- go
+              
+            </h2>
+            
+          </a>
+          <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+        </div>
+        <hr>
+        
+        <!-- <li class="listing-item">
+                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
+                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+                  </li> -->
+        <div class="post-preview">
+          <a href="/myBlog/go/Day03/">
+            <h2 class="post-title">
+              Go day03-Mapping and function
+              
+              -- go
+              
+            </h2>
+            
+          </a>
+          <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+        </div>
+        <hr>
+        
+      </div>
       
 
     </div>
@@ -975,20 +1038,5 @@ start: '#bbbbee', end: '#0085a1' } }; $('#tag_cloud a').tagcloud(); }) } </scrip
 
 
 		
-	<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-</body>
+	</body>
 </html>

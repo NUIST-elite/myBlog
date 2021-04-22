@@ -139,10 +139,10 @@
   <!--[if lt IE 9]> <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script> <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script> <![endif]-->
 
   <!-- ga & ba script hoook -->
-  <link rel="canonical" href="https://nuist-elite.github.io/myBlog/myBlog/tags/">
+  <link rel="canonical" href="https://nuist-elite.github.io/myBlog/myBlog/go/Day02/">
   <title>
     
-      Tags - either thin | or die
+      Go Day02-Pointer ,array and slice - either thin | or die
     
   </title>
 <meta name="generator" content="Hexo 5.4.0"></head>
@@ -300,29 +300,7 @@
           <!-- LangSelect -->
           
           
-          <!-- LangSelect start -->
-          <!-- LangSelect -->
-<li>
-  <a id="lang-select-label"><i class="fa fa-globe"></i>
-    <span>
-      English
-    </span>
-    <select id="lang-select" data-canonical="tags/index.html">
-      
-      
-      <option value="en"  selected >
-        English
-      </option>
-      
-      <option value="cn" >
-        简体中文
-      </option>
-      
-    </select>
-  </a>
-</li>
-
-          <!-- LangSelect end -->
+          
           
           
         </ul>
@@ -374,19 +352,19 @@
     .body--light {
       /* intro-header */
       --intro-header-background-image-url-home: url('/myBlog/img/header_img/newhome_bg.jpg');
-      --intro-header-background-image-url-post: url('img/header_img/tag_bg.jpg');
-      --intro-header-background-image-url-page: url('/myBlog/img/header_img/tag_bg.jpg');
+      --intro-header-background-image-url-post: url('/myBlog/img/header_img/go/day02.jpg');
+      --intro-header-background-image-url-page: url('/myBlog//myBlog/img/header_img/go/day02.jpg');
     }
     .body--dark {
       --intro-header-background-image-url-home: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('/myBlog/img/header_img/newhome_bg.jpg');
-      --intro-header-background-image-url-post: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('img/header_img/tag_bg.jpg');
-      --intro-header-background-image-url-page: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('/myBlog/img/header_img/tag_bg.jpg');
+      --intro-header-background-image-url-post: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('/myBlog/img/header_img/go/day02.jpg');
+      --intro-header-background-image-url-page: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('/myBlog//myBlog/img/header_img/go/day02.jpg');
     }
 
     header.intro-header {
-       /*page*/
-        background-image: var(--intro-header-background-image-url-page);
-        /* background-image: url('/myBlog/img/header_img/tag_bg.jpg'); */
+       /*post*/
+        background-image: var(--intro-header-background-image-url-post);
+        /* background-image: url('/myBlog/img/header_img/go/day02.jpg'); */
       
     }
 
@@ -408,10 +386,44 @@
       <div class="row">
         <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
           
-          <div class="site-heading">
-            <h1>Tags</h1>
-            <!--<hr class="small">-->
-            <span class="subheading">I don’t know where I am going, but I am on my way......</span>
+          <div class="post-heading">
+            <div class="tags">
+              
+              <a class="tag" href="/myBlog/tags/#Go" title="Go">Go</a>
+              
+              <a class="tag" href="/myBlog/tags/#learning note" title="learning note">learning note</a>
+              
+            </div>
+            <h1>Go Day02-Pointer ,array and slice</h1>
+            <h2 class="subheading"></h2>
+            <span class="meta">
+              Posted by Eric Wong on
+              2021-04-20
+            </span>
+
+
+            
+            <!-- WordCount start -->
+            <div class="blank_box"></div>
+            <span class="meta">
+              Estimated Reading Time <span class="post-count">4</span> Minutes
+            </span>
+            <div class="blank_box"></div>
+            <span class="meta">
+              Words <span class="post-count">729</span> In Total
+            </span>
+            <div class="blank_box"></div>
+            <!-- WordCount end -->
+            
+            
+            <!-- 不蒜子统计 start -->
+            <span class="meta" id="busuanzi_container_page_pv">
+              Viewed <span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span> Times
+            </span>
+            <!-- 不蒜子统计 end -->
+            
+
+
           </div>
           
         </div>
@@ -452,119 +464,307 @@
 	Friends Blog、
 	anchorjs、
 	) -->
-		<!-- Main Content -->
-<div class="container">
-  <div class="row">
-    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-      <!-- 标签列表 -->
+		<!-- Modify by Yu-Hsuan Yen -->
+<!-- Post Content -->
+<article>
+  <div class="container">
+    <div class="row">
+      <!-- Post Container -->
+      <div class="col-lg-8 col-lg-offset-1 col-md-10 col-md-offset-1 post-container">
 
-      <!-- 标签云 -->
-      <div id='tag_cloud' class="tags">
+        <h1>Day02</h1>
+<h2 id="Pointer">Pointer</h2>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">i, j := <span class="number">42</span>, <span class="number">2701</span></span><br><span class="line"></span><br><span class="line">p := &amp;i         <span class="comment">// point to i</span></span><br><span class="line">fmt.Println(*p) <span class="comment">// get value of i by pointer</span></span><br><span class="line">*p = <span class="number">21</span>         <span class="comment">// set value of i by pointer</span></span><br><span class="line">fmt.Println(p)  <span class="comment">// output the address of i</span></span><br><span class="line">fmt.Println(i)  <span class="comment">// output the value of i</span></span><br><span class="line"></span><br><span class="line">p = &amp;j         <span class="comment">// point to j</span></span><br><span class="line">*p = *p / <span class="number">37</span>   <span class="comment">// doing divde by pointer</span></span><br><span class="line">fmt.Println(j) <span class="comment">// output value of j</span></span><br></pre></td></tr></table></figure>
+<h2 id="Structure">Structure</h2>
+<p>A <code>struct</code> is <strong>a set of fields</strong></p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> Vertex <span class="keyword">struct</span> &#123;</span><br><span class="line">	X <span class="keyword">int</span></span><br><span class="line">	Y <span class="keyword">int</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	fmt.Println(Vertex&#123;<span class="number">1</span>, <span class="number">2</span>&#125;)</span><br><span class="line">    <span class="comment">// Structure fields are accessed using dot notation</span></span><br><span class="line">    v1 = Vertex&#123;<span class="number">1</span>, <span class="number">2</span>&#125;  <span class="comment">//  create a Vertex struct</span></span><br><span class="line">	v2 = Vertex&#123;X: <span class="number">1</span>&#125;  <span class="comment">// Y:0 is declared implicitly</span></span><br><span class="line">	v3 = Vertex&#123;&#125;      <span class="comment">// X:0 Y:0</span></span><br><span class="line">    p  = &amp;Vertex&#123;<span class="number">1</span>, <span class="number">2</span>&#125; <span class="comment">// create a *Vertex struct(pointer)</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Array">Array</h2>
+<p>Type <code>[n]T</code> represents an array with n values of type T</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// array</span></span><br><span class="line">	<span class="keyword">var</span> a [<span class="number">2</span>]<span class="keyword">string</span></span><br><span class="line">	a[<span class="number">0</span>] = <span class="string">&quot;Hello&quot;</span></span><br><span class="line">	a[<span class="number">1</span>] = <span class="string">&quot;World&quot;</span></span><br><span class="line">	fmt.Println(a[<span class="number">0</span>], a[<span class="number">1</span>])</span><br><span class="line">	fmt.Println(a)</span><br><span class="line"></span><br><span class="line">	nums := [<span class="number">5</span>]<span class="keyword">int</span> &#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>&#125;</span><br><span class="line">	fmt.Println(nums)</span><br></pre></td></tr></table></figure>
+<h2 id="Slice">Slice</h2>
+<p>The size of each array is fixed. The slice provides a dynamically sized and flexible perspective for the array elements. In practice, <strong>slices are more commonly used than arrays</strong>.</p>
+<p><code>Type []T</code> represents a slice of element type <strong>T</strong>.</p>
+<p>The slice is defined by two subscripts, an upper bound and a lower bound, which are separated by a colon:</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">primes := [<span class="number">6</span>]<span class="keyword">int</span>&#123;<span class="number">2</span>, <span class="number">3</span>, <span class="number">5</span>, <span class="number">7</span>, <span class="number">11</span>, <span class="number">13</span>&#125;</span><br><span class="line"><span class="keyword">var</span> s []<span class="keyword">int</span> = primes[<span class="number">1</span>:<span class="number">4</span>]</span><br><span class="line">fmt.Println(s) <span class="comment">// output [3, 5, 7]</span></span><br><span class="line">s[<span class="number">0</span>] = <span class="number">12</span></span><br><span class="line">fmt.Println(primes) <span class="comment">// output [2 12 5 7 11 13]</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>It is noticeable that slices are not stored in memory, they just represent a part of the array</p>
+<p>If you change the elements in a slice, the corresponding elements in the array will be changed likewise</p>
+</blockquote>
+<p>following slices are considered the same:</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">a[<span class="number">0</span>:<span class="number">10</span>]</span><br><span class="line">a[:<span class="number">10</span>]</span><br><span class="line">a[<span class="number">0</span>:]</span><br><span class="line">a[:]</span><br></pre></td></tr></table></figure>
+<p>And if you use the following methods. it means that you create an array, and the system automatically generated a slice linked to it:</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[]<span class="keyword">string</span> &#123;<span class="string">&quot;Hello&quot;</span>, <span class="string">&quot;my&quot;</span>, <span class="string">&quot;world&quot;</span>&#125;</span><br></pre></td></tr></table></figure>
+<p>Slices have <strong>length</strong> and <strong>capacity</strong>.</p>
+<p>The length of a slice is <strong>the number of elements it contains</strong>.</p>
+<p>The capacity of a slice is the number from its first element to the end of its <strong>underlying array</strong> element.</p>
+<p>The length and capacity of slice <code>s</code> can be obtained by the expressions <code>len(s)</code> and <code>cap(s)</code>.</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// capacity and length of a slice</span></span><br><span class="line"><span class="keyword">var</span> s []<span class="keyword">int</span> = primes[<span class="number">1</span>:<span class="number">4</span>]</span><br><span class="line">fmt.Println(<span class="built_in">cap</span>(s), <span class="built_in">len</span>(s)) <span class="comment">// output 5 3</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>if the capacity and length of a slice are both 0, then the value of the slice is <code>nil</code></p>
+</blockquote>
+<p>You can create a slice using <code>make</code></p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">john := <span class="built_in">make</span>([]<span class="keyword">string</span>, <span class="number">0</span>, <span class="number">5</span>)</span><br><span class="line">fmt.Printf(<span class="string">&quot;cap: %d, len: %d\n&quot;</span>, <span class="built_in">cap</span>(john), <span class="built_in">len</span>(john)) <span class="comment">// cap: 5, len: 0</span></span><br><span class="line">john = john[:<span class="number">4</span>]</span><br><span class="line">fmt.Printf(<span class="string">&quot;cap: %d, len: %d\n&quot;</span>, <span class="built_in">cap</span>(john), <span class="built_in">len</span>(john)) <span class="comment">// cap: 5, len: 4</span></span><br><span class="line">john = john[<span class="number">2</span>:]</span><br><span class="line">fmt.Printf(<span class="string">&quot;cap: %d, len: %d\n&quot;</span>, <span class="built_in">cap</span>(john), <span class="built_in">len</span>(john)) <span class="comment">// cap: 3, len: 2</span></span><br></pre></td></tr></table></figure>
+<p>using append to add new elements into a slice</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	<span class="keyword">var</span> s []<span class="keyword">int</span></span><br><span class="line">	printSlice(s) <span class="comment">// len=0 cap=0 []</span></span><br><span class="line"></span><br><span class="line">	<span class="comment">// add to an empty slice</span></span><br><span class="line">	s = <span class="built_in">append</span>(s, <span class="number">0</span>)</span><br><span class="line">	printSlice(s) <span class="comment">// len=1 cap=1 [0]</span></span><br><span class="line"></span><br><span class="line">	<span class="comment">// add another element, and the length and capacity will grow simultaneously</span></span><br><span class="line">	s = <span class="built_in">append</span>(s, <span class="number">1</span>)</span><br><span class="line">	printSlice(s) <span class="comment">// len=2 cap=2 [0 1]</span></span><br><span class="line"></span><br><span class="line">	<span class="comment">// can add multiple elements</span></span><br><span class="line">	s = <span class="built_in">append</span>(s, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>)</span><br><span class="line">	printSlice(s) <span class="comment">// len=5 cap=6 [0 1 2 3 4]</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">printSlice</span><span class="params">(s []<span class="keyword">int</span>)</span></span> &#123;</span><br><span class="line">	fmt.Printf(<span class="string">&quot;len=%d cap=%d %v\n&quot;</span>, <span class="built_in">len</span>(s), <span class="built_in">cap</span>(s), s)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><code>append</code> can be used to add elements into the slice, and you can use <code>range</code> to iterate the slice</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">john = <span class="built_in">append</span>(john, <span class="string">&quot;smart&quot;</span>, <span class="string">&quot;humorous&quot;</span>, <span class="string">&quot;diligent&quot;</span>)</span><br><span class="line"><span class="keyword">for</span> i, v := <span class="keyword">range</span> john &#123;</span><br><span class="line">	fmt.Printf(<span class="string">&quot;index: %d, character: %s\n&quot;</span>, i, v)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// _ can be used to ignore i or v</span></span><br><span class="line"><span class="keyword">for</span> _, v := <span class="keyword">range</span> john &#123;</span><br><span class="line">		fmt.Println(<span class="string">&quot;one of his merits:&quot;</span>, v)</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// if just ignore v, just leave it!</span></span><br><span class="line"><span class="keyword">for</span> i := <span class="keyword">range</span> john &#123;</span><br><span class="line">    fmt.Printf(<span class="string">&quot;it is %d character\n&quot;</span>, i)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+        <hr>
+        <!-- Pager -->
+        <ul class="pager">
+          
+          <li class="previous">
+            <a href="/myBlog/go/Day03/" data-toggle="tooltip" data-placement="top" title="Go day03-Mapping and function">&larr; Previous Post</a>
+          </li>
+          
+          
+          <li class="next">
+            <a href="/myBlog/go/Day01/" data-toggle="tooltip" data-placement="top" title="Go Day01-Basic structure and grammar">Next Post &rarr;</a>
+          </li>
+          
+        </ul>
+
         
-        <a href="#Go" title="Go" rel="3">Go</a>
+        <!-- tip start -->
+        <!-- tip -->
+<!-- tip start -->
+<div class="tip">
+  <p>
+    
+      If you like this blog or find it useful for you, you are welcome to comment on it. You are also welcome to share this blog, so that more people can participate in it. If the images used in the blog infringe your copyright, please contact the author to delete them. Thank you !
+    
+  </p>
+</div>
+<!-- tip end -->
+
+        <!-- tip end -->
         
-        <a href="#learning note" title="learning note" rel="3">learning note</a>
+
         
+        <!-- Sharing Srtart -->
+        <!-- Social Social Share Post -->
+<!-- Docs:https://github.com/overtrue/share.js -->
+
+<div class="social-share" data-initialized="true" data-disabled="tencent ,douban ,qzone ,linkedin ,facebook ,google ,diandian" data-wechat-qrcode-helper="" align="center">
+  <ul class="list-inline text-center social-share-ul">
+    <li class="social-share-li">
+      <a target="_blank" class="social-share-icon icon-twitter">
+        <i class="fa fa-twitter fa-1x" aria-hidden="true"></i>
+      </a>
+    </li>
+    <li class="social-share-li">
+      <a class="social-share-icon icon-wechat">
+        <i class="fa fa-weixin fa-1x" aria-hidden="true"></i>
+      </a>
+    </li>
+    <li class="social-share-li">
+      <a target="_blank" class="social-share-icon icon-weibo">
+        <i class="fa fa-weibo fa-1x" aria-hidden="true"></i>
+      </a>
+    </li>
+    <li class="social-share-li">
+      <a target="_blank" class="social-share-icon icon-qq">
+        <i class="fa fa-qq fa-1x" aria-hidden="true"></i>
+      </a>
+    </li>
+    <li class="social-share-li">
+      <a target="_blank" class="social-share-icon" href="mailto:?subject=Go Day02-Pointer ,array and slice&body=Hi,I found this website and thought you might like it https://nuist-elite.github.io/myBlog/myBlog/go/Day02/">
+        <i class="fa fa-envelope fa-1x" aria-hidden="true"></i>
+      </a>
+    </li>
+  </ul>
+</div>
+
+<!-- css & js -->
+<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css"> -->
+<script defer="defer" async="true" src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
+
+        <!-- Sharing End -->
+        
+        <hr>
+
+        <!-- comments start -->
+        <!-- 1. gitalk comment -->
+
+  <!-- gitalk start -->
+  <!-- Docs:https://github.com/gitalk/gitalk/blob/master/readme-cn.md -->
+
+  <div id="gitalk-container"></div>
+
+  
+    <!-- <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.js"></script> -->
+    <script src="/myBlog/js/comment/gitalk.js"></script>
+  
+
+  <script>
+    var gitalk = new Gitalk({
+      clientID: '',
+      clientSecret: '',
+      repo: '',
+      owner: '',
+      admin: '',
+      id: 'Tue Apr 20 2021 16:48:33 GMT+0800', // Ensure uniqueness and length less than 50
+      distractionFreeMode: false, // Facebook-like distraction free mode
+      perPage: 10,
+      pagerDirection: 'last',
+      createIssueManually: false,
+      language: 'en',
+      proxy: 'https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token'
+    });
+    gitalk.render('gitalk-container');
+
+    var gtFolded = () => {
+      setTimeout(function () {
+        let markdownBody = document.getElementsByClassName("markdown-body");
+        let list = Array.from(markdownBody);
+        list.forEach(item => {
+          if (item.clientHeight > 250) {
+            item.classList.add('gt-comment-body-folded');
+            item.style.maxHeight = '250px';
+            item.title = 'Click to Expand';
+            item.onclick = function () {
+              item.classList.remove('gt-comment-body-folded');
+              item.style.maxHeight = '';
+              item.title = '';
+              item.onclick = null;
+            };
+          }
+        })
+      }, 800);
+    }
+  </script>
+
+  <!-- gitalk end -->
+
+
+<!-- 2. gitment comment -->
+
+
+<!-- 3. disqus comment -->
+
+
+        <!-- comments end -->
+        <hr>
+
       </div>
 
-      <!-- 标签列表 -->
-      
-      <div class="one-tag-list">
-        <span class="fa fa-tag listing-seperator" id="Go">
-          <span class="tag-text">Go</span>
-        </span>
-        
-        <div class="post-preview">
-          <a href="/myBlog/go/Day01/">
-            <h2 class="post-title">
-              Go Day01-Basic structure and grammar
-              
-              -- go
-              
-            </h2>
-            
-          </a>
-        </div>
-        <hr>
-        
-        <div class="post-preview">
-          <a href="/myBlog/go/Day02/">
-            <h2 class="post-title">
-              Go Day02-Pointer ,array and slice
-              
-              -- go
-              
-            </h2>
-            
-          </a>
-        </div>
-        <hr>
-        
-        <div class="post-preview">
-          <a href="/myBlog/go/Day03/">
-            <h2 class="post-title">
-              Go day03-Mapping and function
-              
-              -- go
-              
-            </h2>
-            
-          </a>
-        </div>
-        <hr>
-        
-      </div>
-      
-      <div class="one-tag-list">
-        <span class="fa fa-tag listing-seperator" id="learning note">
-          <span class="tag-text">learning note</span>
-        </span>
-        
-        <div class="post-preview">
-          <a href="/myBlog/go/Day01/">
-            <h2 class="post-title">
-              Go Day01-Basic structure and grammar
-              
-              -- go
-              
-            </h2>
-            
-          </a>
-        </div>
-        <hr>
-        
-        <div class="post-preview">
-          <a href="/myBlog/go/Day02/">
-            <h2 class="post-title">
-              Go Day02-Pointer ,array and slice
-              
-              -- go
-              
-            </h2>
-            
-          </a>
-        </div>
-        <hr>
-        
-        <div class="post-preview">
-          <a href="/myBlog/go/Day03/">
-            <h2 class="post-title">
-              Go day03-Mapping and function
-              
-              -- go
-              
-            </h2>
-            
-          </a>
-        </div>
-        <hr>
-        
-      </div>
-      
+      <!-- Catalog: Tabe of Content -->
+      <!-- Table of Contents -->
 
+    
+      <aside id="sidebar">
+        <div id="toc" class="toc-article">
+        <strong class="toc-title">Contents</strong>
+        
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">Day02</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Pointer"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">Pointer</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Structure"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">Structure</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Array"><span class="toc-nav-number">1.3.</span> <span class="toc-nav-text">Array</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Slice"><span class="toc-nav-number">1.4.</span> <span class="toc-nav-text">Slice</span></a></li></ol></li></ol>
+        
+        </div>
+      </aside>
+    
+
+
+
+      <!-- Sidebar Container -->
+      <div class="
+                col-lg-8 col-lg-offset-1
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+        <!-- Featured Tags -->
+        
+        <section>
+          <!-- no hr -->
+          <h5>
+            <a href="/myBlog/tags/">FEATURED TAGS</a>
+          </h5>
+          <div class="tags">
+            
+            <a class="tag" href="/myBlog/tags/#Go" title="Go">Go</a>
+            
+            <a class="tag" href="/myBlog/tags/#learning note" title="learning note">learning note</a>
+            
+          </div>
+        </section>
+        
+
+        <!-- Friends Blog -->
+        
+        <hr>
+        <h5>FRIENDS</h5>
+        <ul class="list-inline">
+
+          
+          <li>
+            <a href="https://v-vincen.life/" target="_blank">V_Vincen</a>
+          </li>
+          
+          <li>
+            <a href="http://beantech.org" target="_blank">Bean Tech</a>
+          </li>
+          
+          <li>
+            <a href="http://huangxuan.me" target="_blank">Hux Blog</a>
+          </li>
+          
+          <li>
+            <a href="https://hexo.io/" target="_blank">Hexo</a>
+          </li>
+          
+        </ul>
+        
+      </div>
     </div>
   </div>
-</div>
+</article>
+
+
+
+<!-- anchorjs start -->
+<!-- async load function -->
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script type="text/javascript">
+  // async load function
+  function async (u, c) {
+    var d = document,
+      t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) {
+      o.addEventListener('load', function(e) {
+        c(null, e);
+      }, false);
+    }
+    s.parentNode.insertBefore(o, s);
+  };
+</script>
+<script type="text/javascript">
+  //anchor-js, Doc:http://bryanbraun.github.io/anchorjs/
+  async ("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js", function() {
+    anchors.options = {
+      visible: 'hover',
+      placement: 'left',
+      // icon: 'ℬ'
+      icon: '❡'
+    };
+    anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+  });
+</script>
+<style>
+  /* place left on bigger screen */
+  @media all and (min-width: 800px) {
+    .anchorjs-link {
+      position: absolute;
+      left: -0.75em;
+      font-size: 1.1em;
+      margin-top: -0.1em;
+    }
+  }
+</style>
+
+<!-- anchorjs end -->
+
 
 
 		<!-- Footer (contains ThemeColor、viewer) -->
