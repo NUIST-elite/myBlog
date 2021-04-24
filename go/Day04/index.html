@@ -139,10 +139,10 @@
   <!--[if lt IE 9]> <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script> <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script> <![endif]-->
 
   <!-- ga & ba script hoook -->
-  <link rel="canonical" href="https://nuist-elite.github.io/myBlog/myBlog/404.html">
+  <link rel="canonical" href="https://nuist-elite.github.io/myBlog/myBlog/go/Day04/">
   <title>
     
-      either win | or lose
+      Go day04-Method and interface - either win | or lose
     
   </title>
 <meta name="generator" content="Hexo 5.4.0"></head>
@@ -301,6 +301,8 @@
           
           
           
+          
+          
         </ul>
       </div>
     </div>
@@ -350,19 +352,19 @@
     .body--light {
       /* intro-header */
       --intro-header-background-image-url-home: url('/myBlog/img/header_img/newhome_bg.jpg');
-      --intro-header-background-image-url-post: url('img/header_img/404_bg.jpg');
-      --intro-header-background-image-url-page: url('/myBlog/img/header_img/404_bg.jpg');
+      --intro-header-background-image-url-post: url('/myBlog/img/header_img/go/day04.jpg');
+      --intro-header-background-image-url-page: url('/myBlog//myBlog/img/header_img/go/day04.jpg');
     }
     .body--dark {
       --intro-header-background-image-url-home: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('/myBlog/img/header_img/newhome_bg.jpg');
-      --intro-header-background-image-url-post: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('img/header_img/404_bg.jpg');
-      --intro-header-background-image-url-page: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('/myBlog/img/header_img/404_bg.jpg');
+      --intro-header-background-image-url-post: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('/myBlog/img/header_img/go/day04.jpg');
+      --intro-header-background-image-url-page: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('/myBlog//myBlog/img/header_img/go/day04.jpg');
     }
 
     header.intro-header {
-       /*page*/
-        background-image: var(--intro-header-background-image-url-page);
-        /* background-image: url('/myBlog/img/header_img/404_bg.jpg'); */
+       /*post*/
+        background-image: var(--intro-header-background-image-url-post);
+        /* background-image: url('/myBlog/img/header_img/go/day04.jpg'); */
       
     }
 
@@ -377,6 +379,78 @@
 
 
 
+<header class="intro-header">
+  <!-- Signature -->
+  <div id="signature">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+          
+          <div class="post-heading">
+            <div class="tags">
+              
+              <a class="tag" href="/myBlog/tags/#learning note" title="learning note">learning note</a>
+              
+              <a class="tag" href="/myBlog/tags/#Go" title="Go">Go</a>
+              
+            </div>
+            <h1>Go day04-Method and interface</h1>
+            <h2 class="subheading"></h2>
+            <span class="meta">
+              Posted by Eric Wong on
+              2021-04-24
+            </span>
+
+
+            
+            <!-- WordCount start -->
+            <div class="blank_box"></div>
+            <span class="meta">
+              Estimated Reading Time <span class="post-count">3</span> Minutes
+            </span>
+            <div class="blank_box"></div>
+            <span class="meta">
+              Words <span class="post-count">576</span> In Total
+            </span>
+            <div class="blank_box"></div>
+            <!-- WordCount end -->
+            
+            
+            <!-- 不蒜子统计 start -->
+            <span class="meta" id="busuanzi_container_page_pv">
+              Viewed <span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span> Times
+            </span>
+            <!-- 不蒜子统计 end -->
+            
+
+
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+  <!-- waveoverlay start -->
+  <div class="preview-overlay">
+    <svg class="preview-waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+      <defs>
+        <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"></path>
+      </defs>
+      <g class="preview-parallax">
+        <use xlink:href="#gentle-wave" x="48" y="0" fill=var(--gentle-wave1)></use>
+        <use xlink:href="#gentle-wave" x="48" y="3" fill=var(--gentle-wave2)></use>
+        <use xlink:href="#gentle-wave" x="48" y="5" fill=var(--gentle-wave3)></use>
+        <use xlink:href="#gentle-wave" x="48" y="7" fill=var(--gentle-wave)></use>
+      </g>
+    </svg>
+  </div>
+  <!-- waveoverlay end -->
+  
+
+</header>
+
 
 
 		<!-- Main Content (Post contains
@@ -390,39 +464,292 @@
 	Friends Blog、
 	anchorjs、
 	) -->
-		<style type="text/css">
+		<!-- Modify by Yu-Hsuan Yen -->
+<!-- Post Content -->
+<article>
+  <div class="container">
+    <div class="row">
+      <!-- Post Container -->
+      <div class="col-lg-8 col-lg-offset-1 col-md-10 col-md-offset-1 post-container">
+
+        <h1>Day04</h1>
+<h2 id="Method">Method</h2>
+<ul>
+<li>
+<p>What’s method?</p>
+<p>Unlike <em>Java</em> and <em>C++</em>, <em>Go</em> doesn’t have concept of <code>class</code>, But it has <code>method</code>.</p>
+<p><strong>Method</strong> is similar to <strong>function</strong>, except that it has a special type of parameter called <strong>‘receiver’</strong>.</p>
+<p>It means that variable with type of receiver can call the method.</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> Point <span class="keyword">struct</span> &#123;</span><br><span class="line">	X, Y <span class="keyword">float64</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	p1 := Point&#123;<span class="number">3</span>, <span class="number">4</span>&#125;</span><br><span class="line">	fmt.Println(p1.Abs()) <span class="comment">// call the method, output 5</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// declare a method called Abs</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(p Point)</span> <span class="title">Abs</span><span class="params">()</span> <span class="title">float64</span></span> &#123;</span><br><span class="line">	<span class="keyword">return</span> math.Sqrt(p.X * p.X + p.Y * p.Y)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>because function and method are very alike, users must pay attention to the difference.</p>
+<p>following form is the same logic with <code>Abs()</code> above, except it is a <strong>function</strong>.</p>
+</blockquote>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">Abs</span><span class="params">(p Point)</span> <span class="title">float64</span></span> &#123;</span><br><span class="line">	<span class="keyword">return</span> math.Sqrt(p.X * p.X + p.Y * p.Y)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>Pointer receiver</p>
+<p>Method can have  a parameter with <strong>pointer</strong> type, it means the method can <strong>modify the caller’s attributed directly</strong>.</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	<span class="keyword">var</span> p2 Point = Point&#123;<span class="number">2</span>, <span class="number">2</span>&#125;</span><br><span class="line">	p2.Scale(<span class="number">10</span>)</span><br><span class="line">    fmt.Println(p2) <span class="comment">// &#123;20, 20&#125;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(p Point)</span> <span class="title">Scale</span><span class="params">(s <span class="keyword">float64</span>)</span></span> &#123;</span><br><span class="line">	p.X = p.X * s</span><br><span class="line">	p.Y = p.Y * s</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>If the type of receiver is not <strong>pointer</strong>, changes within the method are only exerted on its <strong>duplication</strong></p>
+<p>Therefore, using pointer as receiver is a <strong>more common way</strong> in <em>Go</em> programming</p>
+</blockquote>
+<p>If a method has a pointer receiver, it can be called by a pointer or a common variable</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> p Point</span><br><span class="line">p.Scale(<span class="number">5</span>)  <span class="comment">// OK</span></span><br><span class="line">pPointer := &amp;p</span><br><span class="line">pPointer.Scale(<span class="number">10</span>) <span class="comment">// OK</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>Go will interpret p.Scale(5) as (&amp;p).Scale(5)</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="Interface">Interface</h2>
+<p>Interface is composed of a group of function definition.</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> Point <span class="keyword">struct</span> &#123;</span><br><span class="line">	X, Y <span class="keyword">float64</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">type</span> MyFloat <span class="keyword">float64</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">type</span> Abser <span class="keyword">interface</span> &#123;</span><br><span class="line">	Abs() <span class="keyword">float64</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	<span class="keyword">var</span> a Abser</span><br><span class="line">	p3 := Point&#123;<span class="number">5</span> ,<span class="number">12</span>&#125;</span><br><span class="line">	f1 := MyFloat(-math.Sqrt(<span class="number">2</span>))</span><br><span class="line"></span><br><span class="line">	a = &amp;p3 <span class="comment">// implements Abser</span></span><br><span class="line">	a = f1 <span class="comment">// implements Abser</span></span><br><span class="line">	fmt.Println(a.Abs())</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// implements Abser</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(p Point)</span> <span class="title">Abs</span><span class="params">()</span> <span class="title">float64</span></span> &#123;</span><br><span class="line">	<span class="keyword">return</span> math.Sqrt(p.X * p.X + p.Y * p.Y)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// implements Abser</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(f MyFloat)</span> <span class="title">Abs</span><span class="params">()</span> <span class="title">float64</span></span> &#123;</span><br><span class="line">	<span class="keyword">if</span> f &lt; <span class="number">0</span> &#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">float64</span>(-f)</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="keyword">float64</span>(f)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>It is noticeable that, If a method with the same name of that in the interface, that means the receiver’s type implements the interface, and don’t have to declare the implementation <strong>explicitly</strong>.</p>
+</blockquote>
+<h3 id="Type-assertion">Type assertion</h3>
+<p><strong>Type assertion</strong> provides a way to access the underlying concrete value of the interface value</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">t := i.(<span class="keyword">string</span>) <span class="comment">// this sentence assert that the interface i saved type string</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>If then interface <strong>i</strong> did save the type <code>string</code>, it will assign value of type <code>string</code> to <strong>t</strong></p>
+<p>Else, it will cause a <strong>panic</strong> in <em>Go</em></p>
+</blockquote>
+<p>In order not  to cause a panic, it is recommended using following form:</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	<span class="keyword">var</span> i <span class="keyword">interface</span>&#123;&#125; = <span class="string">&quot;hello&quot;</span></span><br><span class="line"></span><br><span class="line">	s, ok := i.(<span class="keyword">string</span>) <span class="comment">// ok return true if there is indeed type string exist</span></span><br><span class="line">	fmt.Println(s, ok)</span><br><span class="line"></span><br><span class="line">	f, ok := i.(<span class="keyword">float64</span>) <span class="comment">// ok return false if type float64 doesn&#x27;t exist, and it won&#x27;t cause a panic</span></span><br><span class="line">	fmt.Println(f, ok)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Type-selection">Type selection</h3>
+<p>Type selection is a structure that selects branches from several type assertions in sequence.</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">switch</span> v := i.(<span class="keyword">type</span>) &#123;</span><br><span class="line"><span class="keyword">case</span> T:</span><br><span class="line">    <span class="comment">// the type of v is T</span></span><br><span class="line"><span class="keyword">case</span> S:</span><br><span class="line">    <span class="comment">// the type of v is S</span></span><br><span class="line"><span class="keyword">default</span>:</span><br><span class="line">    <span class="comment">// not match, the type of v is i</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+        <hr>
+        <!-- Pager -->
+        <ul class="pager">
+          
+          
+          <li class="next">
+            <a href="/myBlog/front-end/jQuery/" data-toggle="tooltip" data-placement="top" title="jQuery learning note">Next Post &rarr;</a>
+          </li>
+          
+        </ul>
+
+        
+        <!-- tip start -->
+        <!-- tip -->
+<!-- tip start -->
+<div class="tip">
+  <p>
+    
+      If you like this blog or find it useful for you, you are welcome to comment on it. You are also welcome to share this blog, so that more people can participate in it. If the images used in the blog infringe your copyright, please contact the author to delete them. Thank you !
+    
+  </p>
+</div>
+<!-- tip end -->
+
+        <!-- tip end -->
+        
+
+        
+        <!-- Sharing Srtart -->
+        <!-- Social Social Share Post -->
+<!-- Docs:https://github.com/overtrue/share.js -->
+
+<div class="social-share" data-initialized="true" data-disabled="tencent ,douban ,qzone ,linkedin ,facebook ,google ,diandian" data-wechat-qrcode-helper="" align="center">
+  <ul class="list-inline text-center social-share-ul">
+    <li class="social-share-li">
+      <a target="_blank" class="social-share-icon icon-twitter">
+        <i class="fa fa-twitter fa-1x" aria-hidden="true"></i>
+      </a>
+    </li>
+    <li class="social-share-li">
+      <a class="social-share-icon icon-wechat">
+        <i class="fa fa-weixin fa-1x" aria-hidden="true"></i>
+      </a>
+    </li>
+    <li class="social-share-li">
+      <a target="_blank" class="social-share-icon icon-weibo">
+        <i class="fa fa-weibo fa-1x" aria-hidden="true"></i>
+      </a>
+    </li>
+    <li class="social-share-li">
+      <a target="_blank" class="social-share-icon icon-qq">
+        <i class="fa fa-qq fa-1x" aria-hidden="true"></i>
+      </a>
+    </li>
+    <li class="social-share-li">
+      <a target="_blank" class="social-share-icon" href="mailto:?subject=Go day04-Method and interface&body=Hi,I found this website and thought you might like it https://nuist-elite.github.io/myBlog/myBlog/go/Day04/">
+        <i class="fa fa-envelope fa-1x" aria-hidden="true"></i>
+      </a>
+    </li>
+  </ul>
+</div>
+
+<!-- css & js -->
+<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css"> -->
+<script defer="defer" async="true" src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
+
+        <!-- Sharing End -->
+        
+        <hr>
+
+        <!-- comments start -->
+        <!-- 1. gitalk comment -->
+
+  <!-- gitalk start -->
+  <!-- Docs:https://github.com/gitalk/gitalk/blob/master/readme-cn.md -->
+
+  <div id="gitalk-container"></div>
+
   
-    .body--light {
-      /* intro-header */
-      --intro-header-background-image-url-404: url('/myBlog/img/header_img/404_bg.jpg');
-    }
-    .body--dark {
-      --intro-header-background-image-url-404: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('/myBlog/img/header_img/404_bg.jpg');
-    }
-    header.intro-header {
-      background-image: var(--intro-header-background-image-url-404);
-    }
+    <!-- <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.js"></script> -->
+    <script src="/myBlog/js/comment/gitalk.js"></script>
   
 
+  <script>
+    var gitalk = new Gitalk({
+      clientID: '',
+      clientSecret: '',
+      repo: '',
+      owner: '',
+      admin: '',
+      id: 'Sat Apr 24 2021 19:23:02 GMT+0800', // Ensure uniqueness and length less than 50
+      distractionFreeMode: false, // Facebook-like distraction free mode
+      perPage: 10,
+      pagerDirection: 'last',
+      createIssueManually: false,
+      language: 'en',
+      proxy: 'https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token'
+    });
+    gitalk.render('gitalk-container');
+
+    var gtFolded = () => {
+      setTimeout(function () {
+        let markdownBody = document.getElementsByClassName("markdown-body");
+        let list = Array.from(markdownBody);
+        list.forEach(item => {
+          if (item.clientHeight > 250) {
+            item.classList.add('gt-comment-body-folded');
+            item.style.maxHeight = '250px';
+            item.title = 'Click to Expand';
+            item.onclick = function () {
+              item.classList.remove('gt-comment-body-folded');
+              item.style.maxHeight = '';
+              item.title = '';
+              item.onclick = null;
+            };
+          }
+        })
+      }, 800);
+    }
+  </script>
+
+  <!-- gitalk end -->
+
+
+<!-- 2. gitment comment -->
+
+
+<!-- 3. disqus comment -->
+
+
+        <!-- comments end -->
+        <hr>
+
+      </div>
+
+      <!-- Catalog: Tabe of Content -->
+      <!-- Table of Contents -->
+
+    
+      <aside id="sidebar">
+        <div id="toc" class="toc-article">
+        <strong class="toc-title">Contents</strong>
+        
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">Day04</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Method"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">Method</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Interface"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">Interface</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Type-assertion"><span class="toc-nav-number">1.2.1.</span> <span class="toc-nav-text">Type assertion</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Type-selection"><span class="toc-nav-number">1.2.2.</span> <span class="toc-nav-text">Type selection</span></a></li></ol></li></ol></li></ol>
+        
+        </div>
+      </aside>
+    
+
+
+
+      <!-- Sidebar Container -->
+      <div class="
+                col-lg-8 col-lg-offset-1
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+        <!-- Featured Tags -->
+        
+        <section>
+          <!-- no hr -->
+          <h5>
+            <a href="/myBlog/tags/">FEATURED TAGS</a>
+          </h5>
+          <div class="tags">
+            
+            <a class="tag" href="/myBlog/tags/#learning note" title="learning note">learning note</a>
+            
+            <a class="tag" href="/myBlog/tags/#Go" title="Go">Go</a>
+            
+          </div>
+        </section>
+        
+
+        <!-- Friends Blog -->
+        
+      </div>
+    </div>
+  </div>
+</article>
+
+
+
+<!-- anchorjs start -->
+<!-- async load function -->
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script type="text/javascript">
+  // async load function
+  function async (u, c) {
+    var d = document,
+      t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) {
+      o.addEventListener('load', function(e) {
+        c(null, e);
+      }, false);
+    }
+    s.parentNode.insertBefore(o, s);
+  };
+</script>
+<script type="text/javascript">
+  //anchor-js, Doc:http://bryanbraun.github.io/anchorjs/
+  async ("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js", function() {
+    anchors.options = {
+      visible: 'hover',
+      placement: 'left',
+      // icon: 'ℬ'
+      icon: '❡'
+    };
+    anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+  });
+</script>
+<style>
+  /* place left on bigger screen */
+  @media all and (min-width: 800px) {
+    .anchorjs-link {
+      position: absolute;
+      left: -0.75em;
+      font-size: 1.1em;
+      margin-top: -0.1em;
+    }
+  }
 </style>
 
-<!-- Page Header -->
-<header class="intro-header">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 ">
-                <div class="site-heading">
-                    <h1>404</h1>
-                    <!--<hr class="small">-->
-                    <span class="subheading">I&#39;m sorry there is nothing that you want , but you can enjoy the scenery here ...</span>
-                </div>
-            </div>
-        </div>
-    </div>
-</header>
-<script>
-    document.body.classList.add('page-fullscreen');
-</script>
+<!-- anchorjs end -->
+
 
 
 		<!-- Footer (contains ThemeColor、viewer) -->
