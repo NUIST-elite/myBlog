@@ -247,17 +247,6 @@
           
           
           <li>
-            <a href="/myBlog/archive/">
-              
-              ARCHIVES
-              
-              
-            </a>
-          </li>
-          
-          
-          
-          <li>
             <a href="/myBlog/about/">
               
               ABOUT
@@ -269,9 +258,9 @@
           
           
           <li>
-            <a href="/myBlog/categories/">
+            <a href="/myBlog/tags/">
               
-              CATEGORIES
+              TAGS
               
               
             </a>
@@ -280,9 +269,20 @@
           
           
           <li>
-            <a href="/myBlog/tags/">
+            <a href="/myBlog/archive/">
               
-              TAGS
+              ARCHIVES
+              
+              
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/myBlog/categories/">
+              
+              CATEGORIES
               
               
             </a>
@@ -408,11 +408,11 @@
             <!-- WordCount start -->
             <div class="blank_box"></div>
             <span class="meta">
-              Estimated Reading Time <span class="post-count">6</span> Minutes
+              Estimated Reading Time <span class="post-count">8</span> Minutes
             </span>
             <div class="blank_box"></div>
             <span class="meta">
-              Words <span class="post-count">1.9k</span> In Total
+              Words <span class="post-count">2.3k</span> In Total
             </span>
             <div class="blank_box"></div>
             <!-- WordCount end -->
@@ -632,20 +632,67 @@
 <figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="keyword">clone</span> <span class="title">仓库地址</span></span><br></pre></td></tr></table></figure>
 <p>仓库地址，可以在仓库页面找到，点击中右部分的<code>code</code>，然后选择<code>ssh</code>，复制ssh地址</p>
 <p><img src="clone2.png" alt="clone"></p>
-<p>出现如下显示就代表clone成功了！</p>
+<p>出现如下显示就代表<strong>clone</strong>成功了！</p>
 <p><img src="clone3.png" alt="clone"></p>
 </li>
 <li>
 <p>输入如下命令，进入仓库</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> 你的仓库名 // 比如我的仓库名是<span class="built_in">test</span>，就是<span class="built_in">cd</span> <span class="built_in">test</span></span><br></pre></td></tr></table></figure>
-<p>可以看到，目前是在仓库的主分支main。</p>
+<p>可以看到，目前是在仓库的主分支<strong>main</strong>。</p>
 <p><img src="clone4.png" alt="clone"></p>
-<p>这样远程仓库就已经clone到我们自己的电脑上了，可以在文件夹中看到与远程仓库中相同的文件。</p>
+<p>这样<strong>远程仓库</strong>就已经clone到我们自己的电脑上了，可以在文件夹中看到与远程仓库中相同的文件。</p>
 <p><img src="clone5.png" alt="clone"></p>
 </li>
 </ul>
 <p> </p>
 <h2 id="本地仓库提交到远程">本地仓库提交到远程</h2>
+<p>完成clone后，就拥有了<strong>本地仓库</strong>，并且已经<strong>绑定了远程仓库</strong>，这时我们就可以在本地修改文件，并且提交了。</p>
+<ul>
+<li>
+<p>进入你刚刚clone的文件夹，打开<strong><a target="_blank" rel="noopener" href="http://README.md">README.md</a></strong>，可以直接用记事本打开。</p>
+<blockquote>
+<p>推荐一个很好用的markdown编辑器：Typora</p>
+</blockquote>
+<p>删除原本内容，在里面输入如下内容：</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="section"># This is title one</span></span><br><span class="line">this is content</span><br><span class="line"><span class="quote">&gt; this is blockquote</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>这里面是一些markdown基本语法，之前介绍过</p>
+</blockquote>
+</li>
+<li>
+<p>保存并关闭文件，在仓库文件夹中打开<strong>Git bash</strong>，开始提交，提交分为三步走：</p>
+<ol>
+<li>
+<p>git add；git add是提交的第一步，一般是这么写的：</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="builtin-name">add</span> -A</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>这条命令的意思是<strong>添加所有文件</strong>，也可以输入<code>git add .</code>，是一样的</p>
+</blockquote>
+</li>
+<li>
+<p>git commit；git commit是提交第二步，写法如下:</p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">git</span> commit -m <span class="string">&quot;你本次提交的备注&quot;</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>备注就是对你这个版本修改了哪些东西的概括，建议输入</p>
+</blockquote>
+<p><img src="push2.png" alt="push"></p>
+</li>
+<li>
+<p>git push；提交的最后一步是git push，在第一次提交时，需要下面这样写：</p>
+<figure class="highlight maxima"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">push</span> <span class="built_in">origin</span> main</span><br></pre></td></tr></table></figure>
+<p>之后每次提交，这一步只要输入<code>git push</code>就行了。</p>
+<p>第一次使用git提交时，会出现如下提示，输入<code>yes</code>即可：</p>
+<p><img src="push1.png" alt="push"></p>
+<p><img src="push3.png" alt="push"></p>
+</li>
+</ol>
+</li>
+<li>
+<p>提交完成进入你的GitHub仓库，打开README.md文件，就会发想刚刚的修改已经成功提交上去了！</p>
+<p><img src="push4.png" alt="push"></p>
+<p><img src="push5.png" alt="push"></p>
+</li>
+</ul>
 
 
         <hr>
@@ -974,10 +1021,6 @@
     <script type="text/javascript" src="/myBlog/js/ribbonDynamic.js"></script>
   
 
-  
-    <!-- Line start -->
-    <script async="text/javascript" src="/myBlog/js/line.js"></script>
-    <!-- Line end -->
   
 
 
