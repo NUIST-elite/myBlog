@@ -269,9 +269,9 @@
           
           
           <li>
-            <a href="/myBlog/categories/">
+            <a href="/myBlog/tags/">
               
-              CATEGORIES
+              TAGS
               
               
             </a>
@@ -280,9 +280,9 @@
           
           
           <li>
-            <a href="/myBlog/tags/">
+            <a href="/myBlog/categories/">
               
-              TAGS
+              CATEGORIES
               
               
             </a>
@@ -410,7 +410,7 @@
             </span>
             <div class="blank_box"></div>
             <span class="meta">
-              Words <span class="post-count">572</span> In Total
+              Words <span class="post-count">576</span> In Total
             </span>
             <div class="blank_box"></div>
             <!-- WordCount end -->
@@ -472,8 +472,11 @@
       <!-- Post Container -->
       <div class="col-lg-8 col-lg-offset-1 col-md-10 col-md-offset-1 post-container">
 
-        <h1 id="Day04"><a href="#Day04" class="headerlink" title="Day04"></a>Day04</h1><h2 id="Method"><a href="#Method" class="headerlink" title="Method"></a>Method</h2><ul>
-<li><p>What’s method?</p>
+        <h1>Day04</h1>
+<h2 id="Method">Method</h2>
+<ul>
+<li>
+<p>What’s method?</p>
 <p>Unlike <em>Java</em> and <em>C++</em>, <em>Go</em> doesn’t have concept of <code>class</code>, But it has <code>method</code>.</p>
 <p><strong>Method</strong> is similar to <strong>function</strong>, except that it has a special type of parameter called <strong>‘receiver’</strong>.</p>
 <p>It means that variable with type of receiver can call the method.</p>
@@ -484,7 +487,8 @@
 </blockquote>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">Abs</span><span class="params">(p Point)</span> <span class="title">float64</span></span> &#123;</span><br><span class="line">	<span class="keyword">return</span> math.Sqrt(p.X * p.X + p.Y * p.Y)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>Pointer receiver</p>
+<li>
+<p>Pointer receiver</p>
 <p>Method can have  a parameter with <strong>pointer</strong> type, it means the method can <strong>modify the caller’s attributed directly</strong>.</p>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	<span class="keyword">var</span> p2 Point = Point&#123;<span class="number">2</span>, <span class="number">2</span>&#125;</span><br><span class="line">	p2.Scale(<span class="number">10</span>)</span><br><span class="line">    fmt.Println(p2) <span class="comment">// &#123;20, 20&#125;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(p Point)</span> <span class="title">Scale</span><span class="params">(s <span class="keyword">float64</span>)</span></span> &#123;</span><br><span class="line">	p.X = p.X * s</span><br><span class="line">	p.Y = p.Y * s</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <blockquote>
@@ -498,12 +502,14 @@
 </blockquote>
 </li>
 </ul>
-<h2 id="Interface"><a href="#Interface" class="headerlink" title="Interface"></a>Interface</h2><p>Interface is composed of a group of function definition. </p>
+<h2 id="Interface">Interface</h2>
+<p>Interface is composed of a group of function definition.</p>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> Point <span class="keyword">struct</span> &#123;</span><br><span class="line">	X, Y <span class="keyword">float64</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">type</span> MyFloat <span class="keyword">float64</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">type</span> Abser <span class="keyword">interface</span> &#123;</span><br><span class="line">	Abs() <span class="keyword">float64</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	<span class="keyword">var</span> a Abser</span><br><span class="line">	p3 := Point&#123;<span class="number">5</span> ,<span class="number">12</span>&#125;</span><br><span class="line">	f1 := MyFloat(-math.Sqrt(<span class="number">2</span>))</span><br><span class="line"></span><br><span class="line">	a = &amp;p3 <span class="comment">// implements Abser</span></span><br><span class="line">	a = f1 <span class="comment">// implements Abser</span></span><br><span class="line">	fmt.Println(a.Abs())</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// implements Abser</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(p Point)</span> <span class="title">Abs</span><span class="params">()</span> <span class="title">float64</span></span> &#123;</span><br><span class="line">	<span class="keyword">return</span> math.Sqrt(p.X * p.X + p.Y * p.Y)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// implements Abser</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(f MyFloat)</span> <span class="title">Abs</span><span class="params">()</span> <span class="title">float64</span></span> &#123;</span><br><span class="line">	<span class="keyword">if</span> f &lt; <span class="number">0</span> &#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">float64</span>(-f)</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="keyword">float64</span>(f)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>It is noticeable that, If a method with the same name of that in the interface, that means the receiver’s type implements the interface, and don’t have to declare the implementation <strong>explicitly</strong>.</p>
 </blockquote>
-<h3 id="Type-assertion"><a href="#Type-assertion" class="headerlink" title="Type assertion"></a>Type assertion</h3><p><strong>Type assertion</strong> provides a way to access the underlying concrete value of the interface value</p>
+<h3 id="Type-assertion">Type assertion</h3>
+<p><strong>Type assertion</strong> provides a way to access the underlying concrete value of the interface value</p>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">t := i.(<span class="keyword">string</span>) <span class="comment">// this sentence assert that the interface i saved type string</span></span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>If then interface <strong>i</strong> did save the type <code>string</code>, it will assign value of type <code>string</code> to <strong>t</strong></p>
@@ -511,7 +517,8 @@
 </blockquote>
 <p>In order not  to cause a panic, it is recommended using following form:</p>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	<span class="keyword">var</span> i <span class="keyword">interface</span>&#123;&#125; = <span class="string">&quot;hello&quot;</span></span><br><span class="line"></span><br><span class="line">	s, ok := i.(<span class="keyword">string</span>) <span class="comment">// ok return true if there is indeed type string exist</span></span><br><span class="line">	fmt.Println(s, ok)</span><br><span class="line"></span><br><span class="line">	f, ok := i.(<span class="keyword">float64</span>) <span class="comment">// ok return false if type float64 doesn&#x27;t exist, and it won&#x27;t cause a panic</span></span><br><span class="line">	fmt.Println(f, ok)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="Type-selection"><a href="#Type-selection" class="headerlink" title="Type selection"></a>Type selection</h3><p>Type selection is a structure that selects branches from several type assertions in sequence.</p>
+<h3 id="Type-selection">Type selection</h3>
+<p>Type selection is a structure that selects branches from several type assertions in sequence.</p>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">switch</span> v := i.(<span class="keyword">type</span>) &#123;</span><br><span class="line"><span class="keyword">case</span> T:</span><br><span class="line">    <span class="comment">// the type of v is T</span></span><br><span class="line"><span class="keyword">case</span> S:</span><br><span class="line">    <span class="comment">// the type of v is S</span></span><br><span class="line"><span class="keyword">default</span>:</span><br><span class="line">    <span class="comment">// not match, the type of v is i</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
@@ -662,7 +669,7 @@
         <div id="toc" class="toc-article">
         <strong class="toc-title">Contents</strong>
         
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#Day04"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">Day04</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Method"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">Method</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Interface"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">Interface</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Type-assertion"><span class="toc-nav-number">1.2.1.</span> <span class="toc-nav-text">Type assertion</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Type-selection"><span class="toc-nav-number">1.2.2.</span> <span class="toc-nav-text">Type selection</span></a></li></ol></li></ol></li></ol>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">Day04</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Method"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">Method</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Interface"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">Interface</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Type-assertion"><span class="toc-nav-number">1.2.1.</span> <span class="toc-nav-text">Type assertion</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Type-selection"><span class="toc-nav-number">1.2.2.</span> <span class="toc-nav-text">Type selection</span></a></li></ol></li></ol></li></ol>
         
         </div>
       </aside>
