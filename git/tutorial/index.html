@@ -244,12 +244,10 @@
 
           
           
-          
-          
           <li>
-            <a href="/myBlog/about/">
+            <a href="/myBlog/categories/">
               
-              ABOUT
+              CATEGORIES
               
               
             </a>
@@ -257,10 +255,12 @@
           
           
           
+          
+          
           <li>
-            <a href="/myBlog/categories/">
+            <a href="/myBlog/about/">
               
-              CATEGORIES
+              ABOUT
               
               
             </a>
@@ -493,7 +493,7 @@
 <p>在主页左中处输入自己的<strong>邮箱</strong>，并点击右边<strong>Sign up for GitHub</strong></p>
 <p><img src="tutorial/git_regis.png" alt="点击登录"></p>
 <p>进入到如下注册页面，输入自己的用户名，一定要用<strong>英文</strong>的，建议用<strong>小写</strong>字母，多个单词中间用<code>-</code>连接。</p>
-<img src="tutorial/git_regis2.png" alt="注册页面" style="zoom:80%;" />
+<img src="git_regis2.png" alt="注册页面" style="zoom:80%;" />
 <img src="tutorial/git_regis3.png" alt="注册页面" style="zoom:80%;" />
 <blockquote>
 <p>Email-preference勾了会定期给你发一些推荐邮件，勾不勾都可以。</p>
@@ -1224,5 +1224,20 @@ start: '#bbbbee', end: '#0085a1' } }; $('#tag_cloud a').tagcloud(); }) } </scrip
 
 
 		
-	</body>
+	<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
 </html>
