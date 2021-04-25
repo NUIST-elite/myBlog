@@ -247,6 +247,17 @@
           
           
           <li>
+            <a href="/myBlog/archive/">
+              
+              ARCHIVES
+              
+              
+            </a>
+          </li>
+          
+          
+          
+          <li>
             <a href="/myBlog/about/">
               
               ABOUT
@@ -261,17 +272,6 @@
             <a href="/myBlog/categories/">
               
               CATEGORIES
-              
-              
-            </a>
-          </li>
-          
-          
-          
-          <li>
-            <a href="/myBlog/archive/">
-              
-              ARCHIVES
               
               
             </a>
@@ -408,11 +408,11 @@
             <!-- WordCount start -->
             <div class="blank_box"></div>
             <span class="meta">
-              Estimated Reading Time <span class="post-count">2</span> Minutes
+              Estimated Reading Time <span class="post-count">3</span> Minutes
             </span>
             <div class="blank_box"></div>
             <span class="meta">
-              Words <span class="post-count">694</span> In Total
+              Words <span class="post-count">1.1k</span> In Total
             </span>
             <div class="blank_box"></div>
             <!-- WordCount end -->
@@ -485,7 +485,7 @@
 <p><em>GitHub</em>是世界上最大的代码托管平台,超5千万开发者正在使用。而本篇博客会帮助大家拥有自己的GitHub账号并熟练使用。</p>
 <h1>创建GitHub账号</h1>
 <h2 id="进入GitHub官网">进入GitHub官网</h2>
-<p>点击<a target="_blank" rel="noopener" href="https://github.com/">此处</a>，或者直接在浏览器中访问以下地址</p>
+<p>点击<a target="_blank" rel="noopener" href="https://github.com/">此处</a>，或者直接在浏览器中访问以下地址（对于国内用户，建议挂一个<strong>VPN</strong>，网速会快很多）</p>
 <p><code>https://github.com/</code></p>
 <p>点进去后会看到如下页面：</p>
 <p><img src="git_home.png" alt="home"></p>
@@ -498,23 +498,46 @@
 <blockquote>
 <p>Email-preference勾了会定期给你发一些推荐邮件，勾不勾都可以。</p>
 </blockquote>
-<p>进行完人机认证后，点击create account，然后是Join a free plan创建账号。</p>
+<p>进行完人机认证后，点击<code>create account</code>，然后是<code>Join a free plan</code>创建账号。</p>
 <h2 id="完成注册">完成注册</h2>
 <p>看到如下页面后，就意味着注册已经成功了！</p>
 <p><img src="git_welcome1.png" alt="注册成功"></p>
-<p>该页面中，根据自己的情况选择，工作，爱好，使用GitHub目的等，选择完成后，点击最下方Complete setup就ok啦。</p>
+<p>该页面中，根据自己的情况选择，工作，爱好，使用<em>GitHub</em>目的等，选择完成后，点击最下方<code>Complete setup</code>就ok啦。</p>
 <p><img src="git_welcome2.png" alt="Ok"></p>
-<p>之后会发送给你一封验证邮件，进入你的注册邮箱，打开邮件，点击Verify email address即可。</p>
+<p>之后会发送给你一封验证邮件，进入你的注册邮箱，打开邮件，点击<code>Verify email address</code>即可。</p>
 <p><img src="git_email1.png" alt="邮件"></p>
-<p>跳转到如下页面，点击skip for now，进入GitHub主页。</p>
+<p>跳转到如下页面，点击<code>skip for now</code>，进入<em>GitHub</em>主页。</p>
 <p><img src="git_email2.png" alt="ok"></p>
 <h2 id="GitHub主页">GitHub主页</h2>
-<p>到这里，你就已经拥有自己的GitHub帐号了！</p>
+<p>到这里，你就已经拥有自己的<em>GitHub</em>帐号了！</p>
 <p><img src="git_home1.png" alt="home page"></p>
-<p>点击右上角自己的头像，并点击自己的名字，进入个人中心</p>
+<p>点击<strong>右上角</strong>自己的头像，并点击自己的名字，进入<strong>个人中心</strong></p>
 <p><img src="git_home2.png" alt="enter"></p>
-<p><img src="/git_home3.png" alt="home"></p>
-<h1>建立自己的代码仓库</h1>
+<p><img src="git_home3.png" alt="home"></p>
+<h1>建立自己的代码仓库并绑定本地</h1>
+<h2 id="GitHub创建新仓库">GitHub创建新仓库</h2>
+<p>在创建好自己的账号后，我们要做的就是把自己的代码上传到GitHub上！这时候就要用到GitHub的仓库(repository)，所以接下来我们首先在GitHub上创建仓库！</p>
+<p>进入自己的首页，在下图两处中任意一处点击，即可开始创建一个新的代码仓库。</p>
+<p><img src="repo1.png" alt="repo"></p>
+<p>进入创建详情页，具体的操作见下图：</p>
+<p><img src="repo2.png" alt="repo"></p>
+<p>创建完成后，进入仓库首页，可以随便看看各个模块。</p>
+<p><img src="repo3.png" alt="repo"></p>
+<p>在这里介绍一下创建仓库时添加的两个文件：</p>
+<ul>
+<li>
+<p><strong><a target="_blank" rel="noopener" href="http://README.md">README.md</a></strong>：该文件的内容主要是你对自己该项目的介绍与说明，如果有人打开你的仓库，看到代码都会一筹莫展，那这时他们就可以打开README查看项目说明</p>
+<blockquote>
+<p>.md是markdown文件的后缀名，Markdown 是一种轻量级标记语言，它允许人们使用易读易写的纯文本格式编写文档。语法非常简单，可在网上自行查询学习。</p>
+</blockquote>
+</li>
+<li>
+<p><strong>.gitignore</strong>：我们做的每个Git项目中都需要一个**“.gitignore”<strong>文件，这个文件的作用就是告诉Git哪些文件</strong>不需要**添加到版本管理中。</p>
+<blockquote>
+<p>在之后代码提交时，会进行具体介绍，现在了解作用即可。</p>
+</blockquote>
+</li>
+</ul>
 
 
         <hr>
@@ -660,7 +683,7 @@
         <div id="toc" class="toc-article">
         <strong class="toc-title">Contents</strong>
         
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">前言</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">GitHub是什么</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Git"><span class="toc-nav-number">2.1.</span> <span class="toc-nav-text">Git</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#GitHub"><span class="toc-nav-number">2.2.</span> <span class="toc-nav-text">GitHub</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">创建GitHub账号</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E8%BF%9B%E5%85%A5GitHub%E5%AE%98%E7%BD%91"><span class="toc-nav-number">3.1.</span> <span class="toc-nav-text">进入GitHub官网</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E6%B3%A8%E5%86%8C%E8%B4%A6%E5%8F%B7"><span class="toc-nav-number">3.2.</span> <span class="toc-nav-text">注册账号</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E5%AE%8C%E6%88%90%E6%B3%A8%E5%86%8C"><span class="toc-nav-number">3.3.</span> <span class="toc-nav-text">完成注册</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#GitHub%E4%B8%BB%E9%A1%B5"><span class="toc-nav-number">3.4.</span> <span class="toc-nav-text">GitHub主页</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">建立自己的代码仓库</span></a></li></ol>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">前言</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">GitHub是什么</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Git"><span class="toc-nav-number">2.1.</span> <span class="toc-nav-text">Git</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#GitHub"><span class="toc-nav-number">2.2.</span> <span class="toc-nav-text">GitHub</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">创建GitHub账号</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E8%BF%9B%E5%85%A5GitHub%E5%AE%98%E7%BD%91"><span class="toc-nav-number">3.1.</span> <span class="toc-nav-text">进入GitHub官网</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E6%B3%A8%E5%86%8C%E8%B4%A6%E5%8F%B7"><span class="toc-nav-number">3.2.</span> <span class="toc-nav-text">注册账号</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E5%AE%8C%E6%88%90%E6%B3%A8%E5%86%8C"><span class="toc-nav-number">3.3.</span> <span class="toc-nav-text">完成注册</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#GitHub%E4%B8%BB%E9%A1%B5"><span class="toc-nav-number">3.4.</span> <span class="toc-nav-text">GitHub主页</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">建立自己的代码仓库并绑定本地</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#GitHub%E5%88%9B%E5%BB%BA%E6%96%B0%E4%BB%93%E5%BA%93"><span class="toc-nav-number">4.1.</span> <span class="toc-nav-text">GitHub创建新仓库</span></a></li></ol></li></ol>
         
         </div>
       </aside>
