@@ -247,17 +247,6 @@
           
           
           <li>
-            <a href="/myBlog/archive/">
-              
-              ARCHIVES
-              
-              
-            </a>
-          </li>
-          
-          
-          
-          <li>
             <a href="/myBlog/about/">
               
               ABOUT
@@ -269,9 +258,9 @@
           
           
           <li>
-            <a href="/myBlog/categories/">
+            <a href="/myBlog/archive/">
               
-              CATEGORIES
+              ARCHIVES
               
               
             </a>
@@ -283,6 +272,17 @@
             <a href="/myBlog/tags/">
               
               TAGS
+              
+              
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/myBlog/categories/">
+              
+              CATEGORIES
               
               
             </a>
@@ -410,7 +410,7 @@
             </span>
             <div class="blank_box"></div>
             <span class="meta">
-              Words <span class="post-count">729</span> In Total
+              Words <span class="post-count">724</span> In Total
             </span>
             <div class="blank_box"></div>
             <!-- WordCount end -->
@@ -472,17 +472,12 @@
       <!-- Post Container -->
       <div class="col-lg-8 col-lg-offset-1 col-md-10 col-md-offset-1 post-container">
 
-        <h1>Day02</h1>
-<h2 id="Pointer">Pointer</h2>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">i, j := <span class="number">42</span>, <span class="number">2701</span></span><br><span class="line"></span><br><span class="line">p := &amp;i         <span class="comment">// point to i</span></span><br><span class="line">fmt.Println(*p) <span class="comment">// get value of i by pointer</span></span><br><span class="line">*p = <span class="number">21</span>         <span class="comment">// set value of i by pointer</span></span><br><span class="line">fmt.Println(p)  <span class="comment">// output the address of i</span></span><br><span class="line">fmt.Println(i)  <span class="comment">// output the value of i</span></span><br><span class="line"></span><br><span class="line">p = &amp;j         <span class="comment">// point to j</span></span><br><span class="line">*p = *p / <span class="number">37</span>   <span class="comment">// doing divde by pointer</span></span><br><span class="line">fmt.Println(j) <span class="comment">// output value of j</span></span><br></pre></td></tr></table></figure>
-<h2 id="Structure">Structure</h2>
-<p>A <code>struct</code> is <strong>a set of fields</strong></p>
+        <h1 id="Day02"><a href="#Day02" class="headerlink" title="Day02"></a>Day02</h1><h2 id="Pointer"><a href="#Pointer" class="headerlink" title="Pointer"></a>Pointer</h2><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">i, j := <span class="number">42</span>, <span class="number">2701</span></span><br><span class="line"></span><br><span class="line">p := &amp;i         <span class="comment">// point to i</span></span><br><span class="line">fmt.Println(*p) <span class="comment">// get value of i by pointer</span></span><br><span class="line">*p = <span class="number">21</span>         <span class="comment">// set value of i by pointer</span></span><br><span class="line">fmt.Println(p)  <span class="comment">// output the address of i</span></span><br><span class="line">fmt.Println(i)  <span class="comment">// output the value of i</span></span><br><span class="line"></span><br><span class="line">p = &amp;j         <span class="comment">// point to j</span></span><br><span class="line">*p = *p / <span class="number">37</span>   <span class="comment">// doing divde by pointer</span></span><br><span class="line">fmt.Println(j) <span class="comment">// output value of j</span></span><br></pre></td></tr></table></figure>
+<h2 id="Structure"><a href="#Structure" class="headerlink" title="Structure"></a>Structure</h2><p>A <code>struct</code> is <strong>a set of fields</strong></p>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> Vertex <span class="keyword">struct</span> &#123;</span><br><span class="line">	X <span class="keyword">int</span></span><br><span class="line">	Y <span class="keyword">int</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	fmt.Println(Vertex&#123;<span class="number">1</span>, <span class="number">2</span>&#125;)</span><br><span class="line">    <span class="comment">// Structure fields are accessed using dot notation</span></span><br><span class="line">    v1 = Vertex&#123;<span class="number">1</span>, <span class="number">2</span>&#125;  <span class="comment">//  create a Vertex struct</span></span><br><span class="line">	v2 = Vertex&#123;X: <span class="number">1</span>&#125;  <span class="comment">// Y:0 is declared implicitly</span></span><br><span class="line">	v3 = Vertex&#123;&#125;      <span class="comment">// X:0 Y:0</span></span><br><span class="line">    p  = &amp;Vertex&#123;<span class="number">1</span>, <span class="number">2</span>&#125; <span class="comment">// create a *Vertex struct(pointer)</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="Array">Array</h2>
-<p>Type <code>[n]T</code> represents an array with n values of type T</p>
+<h2 id="Array"><a href="#Array" class="headerlink" title="Array"></a>Array</h2><p>Type <code>[n]T</code> represents an array with n values of type T</p>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// array</span></span><br><span class="line">	<span class="keyword">var</span> a [<span class="number">2</span>]<span class="keyword">string</span></span><br><span class="line">	a[<span class="number">0</span>] = <span class="string">&quot;Hello&quot;</span></span><br><span class="line">	a[<span class="number">1</span>] = <span class="string">&quot;World&quot;</span></span><br><span class="line">	fmt.Println(a[<span class="number">0</span>], a[<span class="number">1</span>])</span><br><span class="line">	fmt.Println(a)</span><br><span class="line"></span><br><span class="line">	nums := [<span class="number">5</span>]<span class="keyword">int</span> &#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>&#125;</span><br><span class="line">	fmt.Println(nums)</span><br></pre></td></tr></table></figure>
-<h2 id="Slice">Slice</h2>
-<p>The size of each array is fixed. The slice provides a dynamically sized and flexible perspective for the array elements. In practice, <strong>slices are more commonly used than arrays</strong>.</p>
+<h2 id="Slice"><a href="#Slice" class="headerlink" title="Slice"></a>Slice</h2><p>The size of each array is fixed. The slice provides a dynamically sized and flexible perspective for the array elements. In practice, <strong>slices are more commonly used than arrays</strong>.</p>
 <p><code>Type []T</code> represents a slice of element type <strong>T</strong>.</p>
 <p>The slice is defined by two subscripts, an upper bound and a lower bound, which are separated by a colon:</p>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">primes := [<span class="number">6</span>]<span class="keyword">int</span>&#123;<span class="number">2</span>, <span class="number">3</span>, <span class="number">5</span>, <span class="number">7</span>, <span class="number">11</span>, <span class="number">13</span>&#125;</span><br><span class="line"><span class="keyword">var</span> s []<span class="keyword">int</span> = primes[<span class="number">1</span>:<span class="number">4</span>]</span><br><span class="line">fmt.Println(s) <span class="comment">// output [3, 5, 7]</span></span><br><span class="line">s[<span class="number">0</span>] = <span class="number">12</span></span><br><span class="line">fmt.Println(primes) <span class="comment">// output [2 12 5 7 11 13]</span></span><br></pre></td></tr></table></figure>
@@ -657,7 +652,7 @@
         <div id="toc" class="toc-article">
         <strong class="toc-title">Contents</strong>
         
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">Day02</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Pointer"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">Pointer</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Structure"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">Structure</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Array"><span class="toc-nav-number">1.3.</span> <span class="toc-nav-text">Array</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Slice"><span class="toc-nav-number">1.4.</span> <span class="toc-nav-text">Slice</span></a></li></ol></li></ol>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#Day02"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">Day02</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Pointer"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">Pointer</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Structure"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">Structure</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Array"><span class="toc-nav-number">1.3.</span> <span class="toc-nav-text">Array</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Slice"><span class="toc-nav-number">1.4.</span> <span class="toc-nav-text">Slice</span></a></li></ol></li></ol>
         
         </div>
       </aside>
