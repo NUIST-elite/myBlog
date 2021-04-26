@@ -244,8 +244,6 @@
 
           
           
-          
-          
           <li>
             <a href="/myBlog/about/">
               
@@ -254,6 +252,8 @@
               
             </a>
           </li>
+          
+          
           
           
           
@@ -701,8 +701,8 @@
 <p>这是最简单的情况，不会出现任何代码冲突的情况。我们一步一步来看</p>
 <ul>
 <li>
-<p>首先你可以随便选择本地的一个项目，我会使用一个普通的<strong>Spring boot</strong>项目进行演示。首先我们在<em>GitHub</em>中创建一个空的仓库，创建仓库的步骤与之前相同，但要注意，<strong>不要</strong>勾选<strong>README</strong>和**.gitIgnore**。</p>
-<p><img src="init1/png" alt="init"></p>
+<p>首先你可以随便选择本地的一个项目，我会使用一个普通的<strong>Spring boot</strong>项目进行演示。首先我们在<em>GitHub</em>中创建一个空的仓库，创建仓库的步骤与之前相同，但要注意，<strong>不要</strong>勾选<strong>README</strong>和.gitignore。</p>
+<p><img src="init1.png" alt="init"></p>
 </li>
 <li>
 <p>创建完成后，根据之前一样的步骤，复制下你这个项目的<strong>SSH地址</strong>。</p>
@@ -713,7 +713,7 @@
 <p>可以看到，在图中指出的两个文件是有用的代码，是我们需要上传到GitHub的，用户只需要这两个文件夹即可运行项目。而其他则是一些软件或是工具产生的无关文件，并不需要上传。这个时候，.gitignore文件就派上用场了。</p>
 </li>
 <li>
-<p>首先我们对照着我的项目文件夹，看一看下面的这个**.gitIgnore**文件：</p>
+<p>首先我们对照着我的项目文件夹，看一看下面的这个.gitignore文件：</p>
 <figure class="highlight diff"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">/*</span><br><span class="line"><span class="addition">!src</span></span><br><span class="line"><span class="addition">!pom.xml</span></span><br></pre></td></tr></table></figure>
 <blockquote>
 <p><code>/</code>符号的意思是，后面跟的文件<strong>不上传</strong>。上面第一行的意思是，所有文件夹内文件<strong>全部忽略不上传</strong></p>
@@ -722,10 +722,10 @@
 </blockquote>
 </li>
 <li>
-<p>大家对应自己的项目，看看哪些文件是需要上传的，在**.gitignore**文件中写好规则，如果没有这个文件，自己创建一个即可。</p>
+<p>大家对应自己的项目，看看哪些文件是需要上传的，在.gitignore文件中写好规则，如果没有这个文件，自己创建一个即可。</p>
 </li>
 <li>
-<p>做好准备工作后，就可以开始绑定了！首先在项目文件夹中打开git bash，输入如下命令：</p>
+<p>做好准备工作后，就可以开始绑定了！首先在项目文件夹中打开<strong>git bash</strong>，输入如下命令：</p>
 <figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="keyword">init</span></span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>该命令意思是，将该项目文件夹初始化为一个<em>Github</em>仓库</p>
