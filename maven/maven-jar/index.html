@@ -143,10 +143,10 @@
   <!--[if lt IE 9]> <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script> <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script> <![endif]-->
 
   <!-- ga & ba script hoook -->
-  <link rel="canonical" href="https://nuist-elite.github.io/myBlog/myBlog/go/Day03/">
+  <link rel="canonical" href="https://nuist-elite.github.io/myBlog/myBlog/maven/maven-jar/">
   <title>
     
-      Go day03-Mapping and function - either win | or lose
+      Install jar package at your local maven repository - either win | or lose
     
   </title>
 <meta name="generator" content="Hexo 5.4.0"></head>
@@ -356,19 +356,19 @@
     .body--light {
       /* intro-header */
       --intro-header-background-image-url-home: url('/myBlog/img/header_img/newhome_bg.jpg');
-      --intro-header-background-image-url-post: url('/myBlog/img/header_img/go/day03.jpg');
-      --intro-header-background-image-url-page: url('/myBlog//myBlog/img/header_img/go/day03.jpg');
+      --intro-header-background-image-url-post: url('/myBlog/img/header_img/tip/mvn_jar.jpg');
+      --intro-header-background-image-url-page: url('/myBlog//myBlog/img/header_img/tip/mvn_jar.jpg');
     }
     .body--dark {
       --intro-header-background-image-url-home: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('/myBlog/img/header_img/newhome_bg.jpg');
-      --intro-header-background-image-url-post: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('/myBlog/img/header_img/go/day03.jpg');
-      --intro-header-background-image-url-page: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('/myBlog//myBlog/img/header_img/go/day03.jpg');
+      --intro-header-background-image-url-post: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('/myBlog/img/header_img/tip/mvn_jar.jpg');
+      --intro-header-background-image-url-page: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('/myBlog//myBlog/img/header_img/tip/mvn_jar.jpg');
     }
 
     header.intro-header {
        /*post*/
         background-image: var(--intro-header-background-image-url-post);
-        /* background-image: url('/myBlog/img/header_img/go/day03.jpg'); */
+        /* background-image: url('/myBlog/img/header_img/tip/mvn_jar.jpg'); */
       
     }
 
@@ -393,16 +393,16 @@
           <div class="post-heading">
             <div class="tags">
               
-              <a class="tag" href="/myBlog/tags/#Go" title="Go">Go</a>
+              <a class="tag" href="/myBlog/tags/#tip" title="tip">tip</a>
               
-              <a class="tag" href="/myBlog/tags/#learning note" title="learning note">learning note</a>
+              <a class="tag" href="/myBlog/tags/#maven" title="maven">maven</a>
               
             </div>
-            <h1>Go day03-Mapping and function</h1>
+            <h1>Install jar package at your local maven repository</h1>
             <h2 class="subheading"></h2>
             <span class="meta">
               Posted by Eric Wong on
-              2021-04-21
+              2021-04-27
             </span>
 
 
@@ -414,7 +414,7 @@
             </span>
             <div class="blank_box"></div>
             <span class="meta">
-              Words <span class="post-count">307</span> In Total
+              Words <span class="post-count">212</span> In Total
             </span>
             <div class="blank_box"></div>
             <!-- WordCount end -->
@@ -476,46 +476,40 @@
       <!-- Post Container -->
       <div class="col-lg-8 col-lg-offset-1 col-md-10 col-md-offset-1 post-container">
 
-        <h1 id="Day03"><a href="#Day03" class="headerlink" title="Day03"></a>Day03</h1><h2 id="Mapping"><a href="#Mapping" class="headerlink" title="Mapping"></a>Mapping</h2><p>Mapping is similar to <code>Map</code> in <em>Java</em>, it  maps <strong>keys to values</strong>.</p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> Vertex2 <span class="keyword">struct</span> &#123;</span><br><span class="line">	Lat, Long <span class="keyword">float64</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> m <span class="keyword">map</span>[<span class="keyword">string</span>]Vertex2</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	m = <span class="built_in">make</span>(<span class="keyword">map</span>[<span class="keyword">string</span>]Vertex2)</span><br><span class="line">	fmt.Println(m) <span class="comment">// map[]</span></span><br><span class="line">	m[<span class="string">&quot;demo location&quot;</span>] = Vertex2&#123;</span><br><span class="line">		<span class="number">12.34</span>, <span class="number">56.78</span>,</span><br><span class="line">	&#125;</span><br><span class="line">	fmt.Println(m) <span class="comment">// map[1:&#123;12.34 56.78&#125;]</span></span><br><span class="line">	fmt.Println(m[<span class="string">&quot;demo location&quot;</span>]) <span class="comment">// &#123;12.34 56.78&#125;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>Another example: creating a <code>map</code> whose <strong>key</strong> is type <code>string</code> and <strong>value</strong> is type <code>int</code> using following steps:</p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a <span class="keyword">map</span>[<span class="keyword">string</span>]<span class="keyword">int</span> <span class="comment">// creating an empty map</span></span><br><span class="line">a = <span class="built_in">make</span>(<span class="keyword">map</span>[<span class="keyword">string</span>]<span class="keyword">int</span>) <span class="comment">// initilize the map</span></span><br><span class="line">a[<span class="string">&quot;rank&quot;</span>] = <span class="number">1</span></span><br><span class="line"></span><br><span class="line">fmt.Println(a) <span class="comment">// map[rank:1]</span></span><br><span class="line">fmt.Println(a[<span class="string">&quot;rank&quot;</span>]) <span class="comment">// 1</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// another form</span></span><br><span class="line"><span class="keyword">var</span> a = <span class="keyword">map</span>[<span class="keyword">string</span>]<span class="keyword">int</span>&#123;</span><br><span class="line">    <span class="string">&quot;rank&quot;</span>: <span class="number">1</span>,</span><br><span class="line">    <span class="string">&quot;age&quot;</span>: <span class="number">18</span>,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>Some common operation of map:</p>
-<ul>
-<li><p>insert or update elements</p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">m[key] = elem</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>get elements</p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">elem := m[key]</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>delete elements</p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">delete</span>(m, key)</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>find out if the key exists</p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">elem, ok := m[key]</span><br></pre></td></tr></table></figure>
+        <h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p>This article is intended to show you how to install a <strong>jar</strong> package at your l<strong>ocal maven repository</strong> in order that you can user it in Spring project directly by <strong>importing</strong> <strong>a dependency in your</strong> <code>pom.xml</code>.</p>
+<p>&nbsp;</p>
+<h1 id="premise"><a href="#premise" class="headerlink" title="premise"></a>premise</h1><p>This article is based on the condition that you have installed your maven and  configured your environmental variables correctly.</p>
+<p>you can use the following command in your cmd to check:</p>
+<figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mvn <span class="comment">--version</span></span><br></pre></td></tr></table></figure>
 <blockquote>
-<p>If the key exists, elem return the <strong>value</strong> of it and ok is <strong>true</strong></p>
-<p>otherwise, elem return <strong>nil</strong> and ok is <strong>false</strong></p>
+<p> if you can see the version of maven,  jdk and MAVEN_HOME , that means you can continue this article.</p>
 </blockquote>
+<p><img src="command1.png" alt="maven"></p>
+<p>&nbsp;</p>
+<h1 id="Measure"><a href="#Measure" class="headerlink" title="Measure"></a>Measure</h1><ul>
+<li><p>First, you need to download the jar package you want to use, and open the <code>cmd In the directory where the file is located</code> .</p>
+</li>
+<li><p>Input the following command into your cmd, replace each value according to your jar</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mvn install:install-file <span class="attribute">-DgroupId</span>=#your groupId# <span class="attribute">-DartifactId</span>=#your artifactId# <span class="attribute">-Dversion</span>=#your version# <span class="attribute">-Dpackaging</span>=jar <span class="attribute">-Dfile</span>=#your jar package name#</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>For example, I have a jar package named “<strong>xxxx-1.0.jar</strong>“, <strong>groupId</strong>: <code>com.example</code>; <strong>artifactId</strong>: <code>test</code>; <strong>version</strong>: <code>1.0</code> ;</p>
+<p>then the command should be the following:</p>
+</blockquote>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mvn install:install-file <span class="attribute">-DgroupId</span>=com.example <span class="attribute">-DartifactId</span>=test <span class="attribute">-Dversion</span>=1.0 <span class="attribute">-Dpackaging</span>=jar <span class="attribute">-Dfile</span>=xxxx-1.0.jar</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>After execute the command, if you see “BUILD SUCCESS”, then you can use it by importing maven dependency:</p>
+<p><img src="command2.png" alt="maven"></p>
 </li>
 </ul>
-<h2 id="Some-additions-for-function"><a href="#Some-additions-for-function" class="headerlink" title="Some additions for function"></a>Some additions for function</h2><p>It is noticeable that <code>function</code> can also be used as a <strong>parameter</strong> of <code>function</code></p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">operator</span><span class="params">(fn <span class="keyword">func</span>(a, b <span class="keyword">int</span>)</span><span class="title">int</span>) <span class="title">int</span></span> &#123;</span><br><span class="line">	<span class="keyword">return</span> fn(<span class="number">7</span>, <span class="number">8</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    hypot := <span class="function"><span class="keyword">func</span><span class="params">(x, y <span class="keyword">int</span>)</span> <span class="title">int</span></span> &#123;</span><br><span class="line">		<span class="keyword">return</span> x * y</span><br><span class="line">	&#125;</span><br><span class="line">	fmt.Println(hypot(<span class="number">5</span>, <span class="number">12</span>)) <span class="comment">// 60</span></span><br><span class="line"></span><br><span class="line">	fmt.Println(operator(hypot)) <span class="comment">// 56</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="Function-closure"><a href="#Function-closure" class="headerlink" title="Function closure"></a>Function closure</h3><p>function closure is like Anonymous function in Java</p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">getSequence</span><span class="params">()</span> <span class="title">func</span><span class="params">()</span> <span class="title">int</span></span> &#123;</span><br><span class="line">   i:=<span class="number">0</span></span><br><span class="line">   <span class="keyword">return</span> <span class="function"><span class="keyword">func</span><span class="params">()</span> <span class="title">int</span></span> &#123;</span><br><span class="line">      i+=<span class="number">1</span></span><br><span class="line">     <span class="keyword">return</span> i  </span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">   <span class="comment">/* nextNumber is a function, i = 1 */</span></span><br><span class="line">   nextNumber := getSequence()  </span><br><span class="line"></span><br><span class="line">   <span class="comment">/* call nextNumber, i+=1 and return */</span></span><br><span class="line">   fmt.Println(nextNumber()) <span class="comment">// 1</span></span><br><span class="line">   fmt.Println(nextNumber()) <span class="comment">// 2</span></span><br><span class="line">   fmt.Println(nextNumber()) <span class="comment">// 3</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
         <hr>
         <!-- Pager -->
         <ul class="pager">
           
-          <li class="previous">
-            <a href="/myBlog/front-end/jQuery/" data-toggle="tooltip" data-placement="top" title="jQuery learning note">&larr; Previous Post</a>
-          </li>
-          
           
           <li class="next">
-            <a href="/myBlog/go/Day02/" data-toggle="tooltip" data-placement="top" title="Go Day02-Pointer ,array and slice">Next Post &rarr;</a>
+            <a href="/myBlog/git/tutorial/" data-toggle="tooltip" data-placement="top" title="GitHub教程-从零开始">Next Post &rarr;</a>
           </li>
           
         </ul>
@@ -564,7 +558,7 @@
       </a>
     </li>
     <li class="social-share-li">
-      <a target="_blank" class="social-share-icon" href="mailto:?subject=Go day03-Mapping and function&body=Hi,I found this website and thought you might like it https://nuist-elite.github.io/myBlog/myBlog/go/Day03/">
+      <a target="_blank" class="social-share-icon" href="mailto:?subject=Install jar package at your local maven repository&body=Hi,I found this website and thought you might like it https://nuist-elite.github.io/myBlog/myBlog/maven/maven-jar/">
         <i class="fa fa-envelope fa-1x" aria-hidden="true"></i>
       </a>
     </li>
@@ -599,7 +593,7 @@
       repo: '',
       owner: '',
       admin: '',
-      id: 'Wed Apr 21 2021 08:07:00 GMT+0800', // Ensure uniqueness and length less than 50
+      id: 'Tue Apr 27 2021 20:52:43 GMT+0800', // Ensure uniqueness and length less than 50
       distractionFreeMode: false, // Facebook-like distraction free mode
       perPage: 10,
       pagerDirection: 'last',
@@ -670,7 +664,7 @@
     }
 
     const gitment = new Gitment({
-      id: 'Wed Apr 21 2021 08:07:00 GMT+0800', // optional
+      id: 'Tue Apr 27 2021 20:52:43 GMT+0800', // optional
       owner: 'NUIST-elite',
       repo: 'git@github.com:NUIST-elite/blog-comment.git',
       oauth: {
@@ -707,7 +701,7 @@
         <div id="toc" class="toc-article">
         <strong class="toc-title">Contents</strong>
         
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#Day03"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">Day03</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Mapping"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">Mapping</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Some-additions-for-function"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">Some additions for function</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Function-closure"><span class="toc-nav-number">1.2.1.</span> <span class="toc-nav-text">Function closure</span></a></li></ol></li></ol></li></ol>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#Introduction"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">Introduction</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#premise"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">premise</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#Measure"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">Measure</span></a></li></ol>
         
         </div>
       </aside>
@@ -730,9 +724,9 @@
           </h5>
           <div class="tags">
             
-            <a class="tag" href="/myBlog/tags/#Go" title="Go">Go</a>
+            <a class="tag" href="/myBlog/tags/#tip" title="tip">tip</a>
             
-            <a class="tag" href="/myBlog/tags/#learning note" title="learning note">learning note</a>
+            <a class="tag" href="/myBlog/tags/#maven" title="maven">maven</a>
             
           </div>
         </section>

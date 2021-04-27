@@ -143,10 +143,10 @@
   <!--[if lt IE 9]> <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script> <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script> <![endif]-->
 
   <!-- ga & ba script hoook -->
-  <link rel="canonical" href="https://nuist-elite.github.io/myBlog/myBlog/go/Day03/">
+  <link rel="canonical" href="https://nuist-elite.github.io/myBlog/myBlog/categories/maven/">
   <title>
     
-      Go day03-Mapping and function - either win | or lose
+      either win | or lose
     
   </title>
 <meta name="generator" content="Hexo 5.4.0"></head>
@@ -304,7 +304,29 @@
           <!-- LangSelect -->
           
           
-          
+          <!-- LangSelect start -->
+          <!-- LangSelect -->
+<li>
+  <a id="lang-select-label"><i class="fa fa-globe"></i>
+    <span>
+      English
+    </span>
+    <select id="lang-select" data-canonical="categories/maven/index.html">
+      
+      
+      <option value="en"  selected >
+        English
+      </option>
+      
+      <option value="cn" >
+        简体中文
+      </option>
+      
+    </select>
+  </a>
+</li>
+
+          <!-- LangSelect end -->
           
           
         </ul>
@@ -356,19 +378,19 @@
     .body--light {
       /* intro-header */
       --intro-header-background-image-url-home: url('/myBlog/img/header_img/newhome_bg.jpg');
-      --intro-header-background-image-url-post: url('/myBlog/img/header_img/go/day03.jpg');
-      --intro-header-background-image-url-page: url('/myBlog//myBlog/img/header_img/go/day03.jpg');
+      --intro-header-background-image-url-post: url('');
+      --intro-header-background-image-url-page: url('/myBlog/img/header_img/archive_bg2.jpg');
     }
     .body--dark {
       --intro-header-background-image-url-home: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('/myBlog/img/header_img/newhome_bg.jpg');
-      --intro-header-background-image-url-post: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('/myBlog/img/header_img/go/day03.jpg');
-      --intro-header-background-image-url-page: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('/myBlog//myBlog/img/header_img/go/day03.jpg');
+      --intro-header-background-image-url-post: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('');
+      --intro-header-background-image-url-page: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('/myBlog/img/header_img/archive_bg2.jpg');
     }
 
     header.intro-header {
-       /*post*/
-        background-image: var(--intro-header-background-image-url-post);
-        /* background-image: url('/myBlog/img/header_img/go/day03.jpg'); */
+       /*page*/
+        background-image: var(--intro-header-background-image-url-page);
+        /* background-image: url('/myBlog/img/header_img/archive_bg2.jpg'); */
       
     }
 
@@ -390,44 +412,10 @@
       <div class="row">
         <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
           
-          <div class="post-heading">
-            <div class="tags">
-              
-              <a class="tag" href="/myBlog/tags/#Go" title="Go">Go</a>
-              
-              <a class="tag" href="/myBlog/tags/#learning note" title="learning note">learning note</a>
-              
-            </div>
-            <h1>Go day03-Mapping and function</h1>
-            <h2 class="subheading"></h2>
-            <span class="meta">
-              Posted by Eric Wong on
-              2021-04-21
-            </span>
-
-
-            
-            <!-- WordCount start -->
-            <div class="blank_box"></div>
-            <span class="meta">
-              Estimated Reading Time <span class="post-count">1</span> Minutes
-            </span>
-            <div class="blank_box"></div>
-            <span class="meta">
-              Words <span class="post-count">307</span> In Total
-            </span>
-            <div class="blank_box"></div>
-            <!-- WordCount end -->
-            
-            
-            <!-- 不蒜子统计 start -->
-            <span class="meta" id="busuanzi_container_page_pv">
-              Viewed <span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span> Times
-            </span>
-            <!-- 不蒜子统计 end -->
-            
-
-
+          <div class="site-heading">
+            <h1>Programming for the future</h1>
+            <!--<hr class="small">-->
+            <span class="subheading">personal blog of a normal programmer</span>
           </div>
           
         </div>
@@ -468,330 +456,338 @@
 	Friends Blog、
 	anchorjs、
 	) -->
-		<!-- Modify by Yu-Hsuan Yen -->
-<!-- Post Content -->
-<article>
-  <div class="container">
-    <div class="row">
-      <!-- Post Container -->
-      <div class="col-lg-8 col-lg-offset-1 col-md-10 col-md-offset-1 post-container">
+		<!-- Main Content -->
+<div class="container">
+  <div class="row">
+    
 
-        <h1 id="Day03"><a href="#Day03" class="headerlink" title="Day03"></a>Day03</h1><h2 id="Mapping"><a href="#Mapping" class="headerlink" title="Mapping"></a>Mapping</h2><p>Mapping is similar to <code>Map</code> in <em>Java</em>, it  maps <strong>keys to values</strong>.</p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> Vertex2 <span class="keyword">struct</span> &#123;</span><br><span class="line">	Lat, Long <span class="keyword">float64</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> m <span class="keyword">map</span>[<span class="keyword">string</span>]Vertex2</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	m = <span class="built_in">make</span>(<span class="keyword">map</span>[<span class="keyword">string</span>]Vertex2)</span><br><span class="line">	fmt.Println(m) <span class="comment">// map[]</span></span><br><span class="line">	m[<span class="string">&quot;demo location&quot;</span>] = Vertex2&#123;</span><br><span class="line">		<span class="number">12.34</span>, <span class="number">56.78</span>,</span><br><span class="line">	&#125;</span><br><span class="line">	fmt.Println(m) <span class="comment">// map[1:&#123;12.34 56.78&#125;]</span></span><br><span class="line">	fmt.Println(m[<span class="string">&quot;demo location&quot;</span>]) <span class="comment">// &#123;12.34 56.78&#125;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>Another example: creating a <code>map</code> whose <strong>key</strong> is type <code>string</code> and <strong>value</strong> is type <code>int</code> using following steps:</p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a <span class="keyword">map</span>[<span class="keyword">string</span>]<span class="keyword">int</span> <span class="comment">// creating an empty map</span></span><br><span class="line">a = <span class="built_in">make</span>(<span class="keyword">map</span>[<span class="keyword">string</span>]<span class="keyword">int</span>) <span class="comment">// initilize the map</span></span><br><span class="line">a[<span class="string">&quot;rank&quot;</span>] = <span class="number">1</span></span><br><span class="line"></span><br><span class="line">fmt.Println(a) <span class="comment">// map[rank:1]</span></span><br><span class="line">fmt.Println(a[<span class="string">&quot;rank&quot;</span>]) <span class="comment">// 1</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// another form</span></span><br><span class="line"><span class="keyword">var</span> a = <span class="keyword">map</span>[<span class="keyword">string</span>]<span class="keyword">int</span>&#123;</span><br><span class="line">    <span class="string">&quot;rank&quot;</span>: <span class="number">1</span>,</span><br><span class="line">    <span class="string">&quot;age&quot;</span>: <span class="number">18</span>,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>Some common operation of map:</p>
-<ul>
-<li><p>insert or update elements</p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">m[key] = elem</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>get elements</p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">elem := m[key]</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>delete elements</p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">delete</span>(m, key)</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>find out if the key exists</p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">elem, ok := m[key]</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>If the key exists, elem return the <strong>value</strong> of it and ok is <strong>true</strong></p>
-<p>otherwise, elem return <strong>nil</strong> and ok is <strong>false</strong></p>
-</blockquote>
-</li>
-</ul>
-<h2 id="Some-additions-for-function"><a href="#Some-additions-for-function" class="headerlink" title="Some additions for function"></a>Some additions for function</h2><p>It is noticeable that <code>function</code> can also be used as a <strong>parameter</strong> of <code>function</code></p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">operator</span><span class="params">(fn <span class="keyword">func</span>(a, b <span class="keyword">int</span>)</span><span class="title">int</span>) <span class="title">int</span></span> &#123;</span><br><span class="line">	<span class="keyword">return</span> fn(<span class="number">7</span>, <span class="number">8</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    hypot := <span class="function"><span class="keyword">func</span><span class="params">(x, y <span class="keyword">int</span>)</span> <span class="title">int</span></span> &#123;</span><br><span class="line">		<span class="keyword">return</span> x * y</span><br><span class="line">	&#125;</span><br><span class="line">	fmt.Println(hypot(<span class="number">5</span>, <span class="number">12</span>)) <span class="comment">// 60</span></span><br><span class="line"></span><br><span class="line">	fmt.Println(operator(hypot)) <span class="comment">// 56</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="Function-closure"><a href="#Function-closure" class="headerlink" title="Function closure"></a>Function closure</h3><p>function closure is like Anonymous function in Java</p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">getSequence</span><span class="params">()</span> <span class="title">func</span><span class="params">()</span> <span class="title">int</span></span> &#123;</span><br><span class="line">   i:=<span class="number">0</span></span><br><span class="line">   <span class="keyword">return</span> <span class="function"><span class="keyword">func</span><span class="params">()</span> <span class="title">int</span></span> &#123;</span><br><span class="line">      i+=<span class="number">1</span></span><br><span class="line">     <span class="keyword">return</span> i  </span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">   <span class="comment">/* nextNumber is a function, i = 1 */</span></span><br><span class="line">   nextNumber := getSequence()  </span><br><span class="line"></span><br><span class="line">   <span class="comment">/* call nextNumber, i+=1 and return */</span></span><br><span class="line">   fmt.Println(nextNumber()) <span class="comment">// 1</span></span><br><span class="line">   fmt.Println(nextNumber()) <span class="comment">// 2</span></span><br><span class="line">   fmt.Println(nextNumber()) <span class="comment">// 3</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+    <!-- USE SIDEBAR -->
+    <!-- Post Container -->
+    <div class="
+                col-lg-8 col-lg-offset-1
+                col-md-8 col-md-offset-1
+                col-sm-12
+                col-xs-12
+                post-container
+            ">
 
+      <!-- Main Content -->
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-0 col-md-10 col-md-offset-1">
+      <!-- 归档列表 -->
 
-        <hr>
-        <!-- Pager -->
-        <ul class="pager">
+      
+
+      <!-- 归档列表 -->
+      
+      <div class="one-tag-list">
+        <span class="fa fa-calendar-times-o listing-seperator" id="2021">
+          <span class="tag-text">2021</span>
+        </span>
+        <ul>
           
-          <li class="previous">
-            <a href="/myBlog/front-end/jQuery/" data-toggle="tooltip" data-placement="top" title="jQuery learning note">&larr; Previous Post</a>
+          <li>
+            04-27
+            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
+            <a href="/myBlog/maven/maven-jar/" style="color: #0085a1">
+              <span>
+                Install jar package at your local maven repository
+                
+                -- maven
+                
+              </span>
+            </a>
           </li>
           
+          <li>
+            04-25
+            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
+            <a href="/myBlog/git/tutorial/" style="color: #0085a1">
+              <span>
+                GitHub教程-从零开始
+                
+                -- git
+                
+              </span>
+            </a>
+          </li>
           
-          <li class="next">
-            <a href="/myBlog/go/Day02/" data-toggle="tooltip" data-placement="top" title="Go Day02-Pointer ,array and slice">Next Post &rarr;</a>
+          <li>
+            04-24
+            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
+            <a href="/myBlog/go/Day04/" style="color: #0085a1">
+              <span>
+                Go day04-Method and interface
+                
+                -- go
+                
+              </span>
+            </a>
+          </li>
+          
+          <li>
+            04-22
+            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
+            <a href="/myBlog/front-end/jQuery/" style="color: #0085a1">
+              <span>
+                jQuery learning note
+                
+                -- front-end
+                
+              </span>
+            </a>
+          </li>
+          
+          <li>
+            04-21
+            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
+            <a href="/myBlog/go/Day03/" style="color: #0085a1">
+              <span>
+                Go day03-Mapping and function
+                
+                -- go
+                
+              </span>
+            </a>
+          </li>
+          
+          <li>
+            04-20
+            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
+            <a href="/myBlog/go/Day02/" style="color: #0085a1">
+              <span>
+                Go Day02-Pointer ,array and slice
+                
+                -- go
+                
+              </span>
+            </a>
+          </li>
+          
+          <li>
+            04-20
+            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
+            <a href="/myBlog/go/Day01/" style="color: #0085a1">
+              <span>
+                Go Day01-Basic structure and grammar
+                
+                -- go
+                
+              </span>
+            </a>
           </li>
           
         </ul>
-
-        
-        <!-- tip start -->
-        <!-- tip -->
-<!-- tip start -->
-<div class="tip">
-  <p>
-    
-      If you like this blog or find it useful for you, you are welcome to comment on it. You are also welcome to share this blog, so that more people can participate in it. If the images used in the blog infringe your copyright, please contact the author to delete them. Thank you !
-    
-  </p>
+      </div>
+      
+    </div>
+  </div>
 </div>
-<!-- tip end -->
 
-        <!-- tip end -->
-        
 
-        
-        <!-- Sharing Srtart -->
-        <!-- Social Social Share Post -->
-<!-- Docs:https://github.com/overtrue/share.js -->
+      <!-- 如果开启评论功能 -->
+      
+    </div>
 
-<div class="social-share" data-initialized="true" data-disabled="tencent ,douban ,qzone ,linkedin ,facebook ,google ,diandian" data-wechat-qrcode-helper="" align="center">
-  <ul class="list-inline text-center social-share-ul">
-    <li class="social-share-li">
-      <a target="_blank" class="social-share-icon icon-twitter">
-        <i class="fa fa-twitter fa-1x" aria-hidden="true"></i>
-      </a>
-    </li>
-    <li class="social-share-li">
-      <a class="social-share-icon icon-wechat">
-        <i class="fa fa-weixin fa-1x" aria-hidden="true"></i>
-      </a>
-    </li>
-    <li class="social-share-li">
-      <a target="_blank" class="social-share-icon icon-weibo">
-        <i class="fa fa-weibo fa-1x" aria-hidden="true"></i>
-      </a>
-    </li>
-    <li class="social-share-li">
-      <a target="_blank" class="social-share-icon icon-qq">
-        <i class="fa fa-qq fa-1x" aria-hidden="true"></i>
-      </a>
-    </li>
-    <li class="social-share-li">
-      <a target="_blank" class="social-share-icon" href="mailto:?subject=Go day03-Mapping and function&body=Hi,I found this website and thought you might like it https://nuist-elite.github.io/myBlog/myBlog/go/Day03/">
-        <i class="fa fa-envelope fa-1x" aria-hidden="true"></i>
-      </a>
-    </li>
+    <!-- Sidebar Container -->
+<div class="
+    col-lg-3 col-lg-offset-0
+    col-md-3 col-md-offset-0
+    col-sm-12
+    col-xs-12
+    sidebar-container
+">
+    
+        <!-- Visitors -->
+<h5><a href="/myBlog/">VISITORS</a></h5>
+
+<div class="widget">
+  <span>
+    Viewed <b><i><span id="busuanzi_value_site_pv"><i class="fa fa-spinner fa-spin"></i></span></i></b> Times
+  </span>
+  <br />
+  <span>
+    <b><i><span id="busuanzi_value_site_uv"><i class="fa fa-spinner fa-spin"></i></span></i></b> Visitors In Total
+  </span>
+</div>
+
+
+        <hr>
+    
+        <!-- Featured Tags -->
+
+<section>
+  <h5><a href="/myBlog/tags/">FEATURED TAGS</a></h5>
+  <div class="tags">
+    
+    
+    <a href="/myBlog/tags/#git" title="git" rel="1">git</a>
+    
+    
+    
+    <a href="/myBlog/tags/#tutorial" title="tutorial" rel="1">tutorial</a>
+    
+    
+    
+    <a href="/myBlog/tags/#basic" title="basic" rel="1">basic</a>
+    
+    
+    
+    <a href="/myBlog/tags/#Go" title="Go" rel="4">Go</a>
+    
+    
+    
+    <a href="/myBlog/tags/#learning note" title="learning note" rel="5">learning note</a>
+    
+    
+    
+    <a href="/myBlog/tags/#front-end" title="front-end" rel="1">front-end</a>
+    
+    
+    
+    <a href="/myBlog/tags/#tip" title="tip" rel="1">tip</a>
+    
+    
+    
+    <a href="/myBlog/tags/#maven" title="maven" rel="1">maven</a>
+    
+    
+  </div>
+</section>
+
+
+        <hr>
+    
+        <!-- Short About -->
+<section class="visible-md visible-lg">
+  <h5><a href="/myBlog/about/">ABOUT ME</a></h5>
+  <div class="short-about">
+
+    
+    <img id="avatar_pic" src="/myBlog/img/avatar/fatpeople.jpg" alt="avatar_pic" style="box-shadow: 5px 5px 10px 5px rgba(0, 0, 0, .5);
+    -moz-box-shadow: 5px 5px 10px 5px rgba(0, 0, 0, .5);
+    -webkit-box-shadow: 5px 5px 10px 5px rgba(0, 0, 0, .5);" />
+    
+
+    
+    <p>Everything has its time and that time must be watched</p>
+    
+
+    <!-- SNS Link -->
+    <ul class="list-inline">
+      
+
+      
+      <li>
+        <a target="_blank" href="https://github.com/NUIST-elite">
+          <span class="fa-stack fa-lg">
+            <i class="fa fa-circle fa-stack-2x"></i>
+            <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+          </span>
+        </a>
+      </li>
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+    </ul>
+  </div>
+</section>
+
+        <hr>
+    
+        <!-- RECENT POSTS -->
+
+<h5><a href="/myBlog/">RECENT POSTS</a></h5>
+<div class="widget">
+  <ul>
+    
+    <a href="../../maven/maven-jar/">
+      <li>Install jar package at your local maven repository</li>
+    </a>
+    
+    <a href="../../git/tutorial/">
+      <li>GitHub教程-从零开始</li>
+    </a>
+    
+    <a href="../../go/Day04/">
+      <li>Go day04-Method and interface</li>
+    </a>
+    
+    <a href="../../front-end/jQuery/">
+      <li>jQuery learning note</li>
+    </a>
+    
+    <a href="../../go/Day03/">
+      <li>Go day03-Mapping and function</li>
+    </a>
+    
   </ul>
 </div>
 
-<!-- css & js -->
-<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css"> -->
-<script defer="defer" async="true" src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
 
-        <!-- Sharing End -->
-        
         <hr>
-
-        <!-- comments start -->
-        <!-- 1. gitalk comment -->
-
-  <!-- gitalk start -->
-  <!-- Docs:https://github.com/gitalk/gitalk/blob/master/readme-cn.md -->
-
-  <div id="gitalk-container"></div>
-
-  
-    <!-- <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.js"></script> -->
-    <script src="/myBlog/js/comment/gitalk.js"></script>
-  
-
-  <script>
-    var gitalk = new Gitalk({
-      clientID: '',
-      clientSecret: '',
-      repo: '',
-      owner: '',
-      admin: '',
-      id: 'Wed Apr 21 2021 08:07:00 GMT+0800', // Ensure uniqueness and length less than 50
-      distractionFreeMode: false, // Facebook-like distraction free mode
-      perPage: 10,
-      pagerDirection: 'last',
-      createIssueManually: false,
-      language: 'en',
-      proxy: 'https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token'
-    });
-    gitalk.render('gitalk-container');
-
-    var gtFolded = () => {
-      setTimeout(function () {
-        let markdownBody = document.getElementsByClassName("markdown-body");
-        let list = Array.from(markdownBody);
-        list.forEach(item => {
-          if (item.clientHeight > 250) {
-            item.classList.add('gt-comment-body-folded');
-            item.style.maxHeight = '250px';
-            item.title = 'Click to Expand';
-            item.onclick = function () {
-              item.classList.remove('gt-comment-body-folded');
-              item.style.maxHeight = '';
-              item.title = '';
-              item.onclick = null;
-            };
-          }
-        })
-      }, 800);
-    }
-  </script>
-
-  <!-- gitalk end -->
-
-
-<!-- 2. gitment comment -->
-
-  <!-- gitment start -->
-  <!-- Docs:https://github.com/imsun/gitment -->
-
-  <div id="blog_comments"></div>
-  <!-- <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css"> <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script> -->
-
-  <script src="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/gitment.browser.js"></script>
-
-  <script>
-    const myTheme = {
-      render(state, instance) {
-        const container = document.createElement('div')
-        container.lang = "en-US"
-        container.className = 'gitment-container gitment-root-container'
-
-        // your custom component
-        container.appendChild(instance.renderSomething(state, instance))
-        container.appendChild(instance.renderHeader(state, instance))
-        container.appendChild(instance.renderEditor(state, instance))
-        container.appendChild(instance.renderComments(state, instance))
-        container.appendChild(instance.renderFooter(state, instance))
-        return container
-      },
-      renderSomething(state, instance) {
-        const container = document.createElement('div')
-        container.lang = "en-US"
-        container.className = 'hello_visitor'
-        if (state.user.login) {
-          container.innerText = `Hello ${state.user.login}, Welcome to comment system`
-        }
-        return container
-      }
-    }
-
-    const gitment = new Gitment({
-      id: 'Wed Apr 21 2021 08:07:00 GMT+0800', // optional
-      owner: 'NUIST-elite',
-      repo: 'git@github.com:NUIST-elite/blog-comment.git',
-      oauth: {
-        client_id: 'a8536bceb8b28d0df731',
-        client_secret: '696da9430a77d9bfafcbbc62d88eb7196e426c35'
-      },
-      desc: '',
-      perPage: '10',
-      maxCommentHeight: '250',
-      theme: myTheme,
-      // ... For more available options, check out the documentation below
-    })
-
-    gitment.render('blog_comments')
-    // or gitment.render(document.getElementById('comments')) or document.body.appendChild(gitment.render())
-  </script>
-
-  <!-- gitment end -->
-
-
-<!-- 3. disqus comment -->
-
-
-        <!-- comments end -->
-        <hr>
-
-      </div>
-
-      <!-- Catalog: Tabe of Content -->
-      <!-- Table of Contents -->
-
     
-      <aside id="sidebar">
-        <div id="toc" class="toc-article">
-        <strong class="toc-title">Contents</strong>
-        
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#Day03"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">Day03</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Mapping"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">Mapping</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Some-additions-for-function"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">Some additions for function</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Function-closure"><span class="toc-nav-number">1.2.1.</span> <span class="toc-nav-text">Function closure</span></a></li></ol></li></ol></li></ol>
-        
-        </div>
-      </aside>
-    
-
-
-
-      <!-- Sidebar Container -->
-      <div class="
-                col-lg-8 col-lg-offset-1
-                col-md-10 col-md-offset-1
-                sidebar-container">
-
-        <!-- Featured Tags -->
-        
-        <section>
-          <!-- no hr -->
-          <h5>
-            <a href="/myBlog/tags/">FEATURED TAGS</a>
-          </h5>
-          <div class="tags">
-            
-            <a class="tag" href="/myBlog/tags/#Go" title="Go">Go</a>
-            
-            <a class="tag" href="/myBlog/tags/#learning note" title="learning note">learning note</a>
-            
-          </div>
-        </section>
-        
-
         <!-- Friends Blog -->
-        
-      </div>
-    </div>
+
+
+        <hr>
+    
+        <!-- Archives -->
+
+<h5><a href="/myBlog/archives/">archives</a></h5>
+<div class="widget">
+  <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/04/">April 2021</a><span class="archive-list-count">7</span></li></ul>
+</div>
+
+
+        <hr>
+    
+        <!-- Categories -->
+
+<h5><a href="/myBlog/categories/">categories</a></h5>
+<div class="widget">
+  <ul>
+    
+    <a href="/myBlog/categories/#git basic tutorial">
+      <li>git basic tutorial</li>
+    </a>
+    
+    <a href="/myBlog/categories/#Go learning note">
+      <li>Go learning note</li>
+    </a>
+    
+    <a href="/myBlog/categories/#front-end learning note">
+      <li>front-end learning note</li>
+    </a>
+    
+    <a href="/myBlog/categories/#maven">
+      <li>maven</li>
+    </a>
+    
+  </ul>
+</div>
+
+
+        <hr>
+    
+</div>
+
+
+    
   </div>
-</article>
-
-
-
-<!-- anchorjs start -->
-<!-- async load function -->
-<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
-<script type="text/javascript">
-  // async load function
-  function async (u, c) {
-    var d = document,
-      t = 'script',
-      o = d.createElement(t),
-      s = d.getElementsByTagName(t)[0];
-    o.src = u;
-    if (c) {
-      o.addEventListener('load', function(e) {
-        c(null, e);
-      }, false);
-    }
-    s.parentNode.insertBefore(o, s);
-  };
-</script>
-<script type="text/javascript">
-  //anchor-js, Doc:http://bryanbraun.github.io/anchorjs/
-  async ("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js", function() {
-    anchors.options = {
-      visible: 'hover',
-      placement: 'left',
-      // icon: 'ℬ'
-      icon: '❡'
-    };
-    anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
-  });
-</script>
-<style>
-  /* place left on bigger screen */
-  @media all and (min-width: 800px) {
-    .anchorjs-link {
-      position: absolute;
-      left: -0.75em;
-      font-size: 1.1em;
-      margin-top: -0.1em;
-    }
-  }
-</style>
-
-<!-- anchorjs end -->
-
+</div>
 
 
 		<!-- Footer (contains ThemeColor、viewer) -->
