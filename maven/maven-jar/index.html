@@ -251,9 +251,9 @@
           
           
           <li>
-            <a href="/myBlog/tags/">
+            <a href="/myBlog/about/">
               
-              TAGS
+              ABOUT
               
               
             </a>
@@ -262,9 +262,9 @@
           
           
           <li>
-            <a href="/myBlog/about/">
+            <a href="/myBlog/archive/">
               
-              ABOUT
+              ARCHIVES
               
               
             </a>
@@ -284,9 +284,9 @@
           
           
           <li>
-            <a href="/myBlog/archive/">
+            <a href="/myBlog/tags/">
               
-              ARCHIVES
+              TAGS
               
               
             </a>
@@ -414,7 +414,7 @@
             </span>
             <div class="blank_box"></div>
             <span class="meta">
-              Words <span class="post-count">212</span> In Total
+              Words <span class="post-count">220</span> In Total
             </span>
             <div class="blank_box"></div>
             <!-- WordCount end -->
@@ -480,7 +480,7 @@
 <p>&nbsp;</p>
 <h1 id="premise"><a href="#premise" class="headerlink" title="premise"></a>premise</h1><p>This article is based on the condition that you have installed your maven and  configured your environmental variables correctly.</p>
 <p>you can use the following command in your cmd to check:</p>
-<figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mvn <span class="comment">--version</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mvn --version</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p> if you can see the version of maven,  jdk and MAVEN_HOME , that means you can continue this article.</p>
 </blockquote>
@@ -490,12 +490,12 @@
 <li><p>First, you need to download the jar package you want to use, and open the <code>cmd In the directory where the file is located</code> .</p>
 </li>
 <li><p>Input the following command into your cmd, replace each value according to your jar</p>
-<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mvn install:install-file <span class="attribute">-DgroupId</span>=#your groupId# <span class="attribute">-DartifactId</span>=#your artifactId# <span class="attribute">-Dversion</span>=#your version# <span class="attribute">-Dpackaging</span>=jar <span class="attribute">-Dfile</span>=#your jar package name#</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mvn install:install-file -DgroupId=<span class="string">&#x27;your groupId&#x27;</span> -DartifactId=<span class="string">&#x27;your artifactId&#x27;</span> -Dversion=<span class="string">&#x27;your version&#x27;</span> -Dpackaging=jar -Dfile=<span class="string">&#x27;your jar package name&#x27;</span></span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>For example, I have a jar package named “<strong>xxxx-1.0.jar</strong>“, <strong>groupId</strong>: <code>com.example</code>; <strong>artifactId</strong>: <code>test</code>; <strong>version</strong>: <code>1.0</code> ;</p>
 <p>then the command should be the following:</p>
 </blockquote>
-<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mvn install:install-file <span class="attribute">-DgroupId</span>=com.example <span class="attribute">-DartifactId</span>=test <span class="attribute">-Dversion</span>=1.0 <span class="attribute">-Dpackaging</span>=jar <span class="attribute">-Dfile</span>=xxxx-1.0.jar</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mvn install:install-file -DgroupId=com.example -DartifactId=<span class="built_in">test</span> -Dversion=1.0 -Dpackaging=jar -Dfile=xxxx-1.0.jar</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>After execute the command, if you see “BUILD SUCCESS”, then you can use it by importing maven dependency:</p>
 <p><img src="command2.png" alt="maven"></p>

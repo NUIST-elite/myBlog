@@ -251,9 +251,9 @@
           
           
           <li>
-            <a href="/myBlog/tags/">
+            <a href="/myBlog/about/">
               
-              TAGS
+              ABOUT
               
               
             </a>
@@ -262,9 +262,9 @@
           
           
           <li>
-            <a href="/myBlog/about/">
+            <a href="/myBlog/archive/">
               
-              ABOUT
+              ARCHIVES
               
               
             </a>
@@ -284,9 +284,9 @@
           
           
           <li>
-            <a href="/myBlog/archive/">
+            <a href="/myBlog/tags/">
               
-              ARCHIVES
+              TAGS
               
               
             </a>
@@ -565,12 +565,12 @@
 <p><img src="ssh1.png" alt="ssh"></p>
 </li>
 <li><p>首先输入下面命令，查看是否已经存在ssh</p>
-<figure class="highlight arcade"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat ~<span class="regexp">/.ssh/i</span>d_rsa.pub</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat ~/.ssh/id_rsa.pub</span><br></pre></td></tr></table></figure>
 <p>如果出现如下字符串，就是说明<strong>已经存在ssh key</strong>，可以跳过创建的步骤</p>
 <p><img src="ssh2.png" alt="ssh"></p>
 </li>
 <li><p>如果没有已创建的ssh key，则需要自己创建，输入如下命令：</p>
-<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">ssh</span>-keygen -t rsa -b <span class="number">4096</span> -C <span class="string">&quot;your_email@example.com&quot;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -b 4096 -C <span class="string">&quot;your_email@example.com&quot;</span></span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>其中的<code>your_email@example.com</code>换成自己创建GitHub的邮箱</p>
 </blockquote>
@@ -578,7 +578,7 @@
 <p><img src="ssh3.png" alt="ssh"></p>
 </li>
 <li><p>再输入下列命令，就可以得到ssh字符串：</p>
-<figure class="highlight arcade"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat ~<span class="regexp">/.ssh/i</span>d_rsa.pub</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat ~/.ssh/id_rsa.pub</span><br></pre></td></tr></table></figure>
 <p><img src="ssh2.png" alt="ssh"></p>
 <p>复制这个由<strong>ssh-rsa</strong>开头，<strong>你的邮箱</strong>结尾的字符串</p>
 </li>
@@ -596,7 +596,7 @@
 <h2 id="git-clone远程仓库"><a href="#git-clone远程仓库" class="headerlink" title="git clone远程仓库"></a>git clone远程仓库</h2><p>之前已经创建好了ssh key并绑定了自己的电脑和<em>GitHub</em>账号，现在就可以利用<strong>SSH地址</strong>，将远程的仓库<strong>clone</strong>到本地</p>
 <ul>
 <li><p>在第一次使用git时，需要配置git全局邮箱和用户名，打开git bash，一次输入如下两条命令</p>
-<figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git <span class="keyword">config</span> --<span class="keyword">global</span> user<span class="variable">.name</span> <span class="string">&quot;your name&quot;</span> <span class="comment">// 配置全局用户名</span></span><br><span class="line">git <span class="keyword">config</span> --<span class="keyword">global</span> user<span class="variable">.email</span> <span class="string">&quot;your@example.com&quot;</span> <span class="comment">// 配置全局邮箱</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name <span class="string">&quot;your name&quot;</span> <span class="comment"># 配置全局用户名</span></span><br><span class="line">git config --global user.email <span class="string">&quot;your@example.com&quot;</span> <span class="comment"># 配置全局邮箱</span></span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>其中，<code>your name</code>换成你的<em>GitHub</em>用户名，<code>your@example.com</code>换成你注册<em>GitHub</em>的邮箱地址</p>
 </blockquote>
@@ -605,14 +605,14 @@
 <p><img src="clone1.png" alt="clone"></p>
 </li>
 <li><p>输入如下命令：</p>
-<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="keyword">clone</span> <span class="title">仓库地址</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> 仓库地址</span><br></pre></td></tr></table></figure>
 <p>仓库地址，可以在仓库页面找到，点击中右部分的<code>code</code>，然后选择<code>ssh</code>，复制ssh地址</p>
 <p><img src="clone2.png" alt="clone"></p>
 <p>出现如下显示就代表<strong>clone</strong>成功了！</p>
 <p><img src="clone3.png" alt="clone"></p>
 </li>
 <li><p>输入如下命令，进入仓库</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> 你的仓库名 // 比如我的仓库名是<span class="built_in">test</span>，就是<span class="built_in">cd</span> <span class="built_in">test</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> 你的仓库名 <span class="comment"># 比如我的仓库名是test，就是cd test</span></span><br></pre></td></tr></table></figure>
 <p>可以看到，目前是在仓库的主分支<strong>main</strong>。</p>
 <p><img src="clone4.png" alt="clone"></p>
 <p>这样<strong>远程仓库</strong>就已经clone到我们自己的电脑上了，可以在文件夹中看到与远程仓库中相同的文件。</p>
@@ -635,20 +635,20 @@
 <li><p>保存并关闭文件，在仓库文件夹中打开<strong>Git bash</strong>，开始提交，提交分为三步走：</p>
 <ol>
 <li><p>git add；git add是提交的第一步，一般是这么写的：</p>
-<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="builtin-name">add</span> -A</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git add -A</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>这条命令的意思是<strong>添加所有文件</strong>，也可以输入<code>git add .</code>，是一样的</p>
 </blockquote>
 </li>
 <li><p>git commit；git commit是提交第二步，写法如下:</p>
-<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">git</span> commit -m <span class="string">&quot;你本次提交的备注&quot;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git commit -m <span class="string">&quot;你本次提交的备注&quot;</span></span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>备注就是对你这个版本修改了哪些东西的概括，建议输入</p>
 </blockquote>
 <p><img src="push2.png" alt="push"></p>
 </li>
 <li><p>git push；提交的最后一步是git push，在第一次提交时，需要下面这样写：</p>
-<figure class="highlight maxima"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">push</span> <span class="built_in">origin</span> main</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push origin main</span><br></pre></td></tr></table></figure>
 <p>之后每次提交，这一步只要输入<code>git push</code>就行了。</p>
 <p>第一次使用git提交时，会出现如下提示，输入<code>yes</code>即可：</p>
 <p><img src="push1.png" alt="push"></p>
@@ -686,7 +686,7 @@
 <li><p>大家对应自己的项目，看看哪些文件是需要上传的，在.gitignore文件中写好规则，如果没有这个文件，自己创建一个即可。</p>
 </li>
 <li><p>做好准备工作后，就可以开始绑定了！首先在项目文件夹中打开<strong>git bash</strong>，输入如下命令：</p>
-<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="keyword">init</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git init</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>该命令意思是，将该项目文件夹初始化为一个<em>Github</em>仓库</p>
 </blockquote>
@@ -694,13 +694,13 @@
 <p>可以看到，初始化成功后，会显示当前处于默认的main分支</p>
 </li>
 <li><p>现在我们的项目文件夹就已经是一个git仓库了，但我们还需要将它与远程仓库绑定，首先输入如下命令，查看是否已有绑定：</p>
-<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">git remote -v</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote -v</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>如果是刚初始化的仓库，是不会显示有内容的</p>
 </blockquote>
 </li>
 <li><p>接下来进行绑定，将你之前复制的空仓库的SSH地址放在下面命令最后：</p>
-<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote <span class="keyword">add </span><span class="keyword">origin </span>你的SSH地址</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote add origin 你的SSH地址</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>比如我的SSH地址是<code>git@github.com:NUIST-elite/demo.git</code>，那我就输入：</p>
 <p><code>git remote add origin git@github.com:NUIST-elite/demo.git</code></p>
