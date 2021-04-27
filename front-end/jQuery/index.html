@@ -262,9 +262,9 @@
           
           
           <li>
-            <a href="/myBlog/categories/">
+            <a href="/myBlog/archive/">
               
-              CATEGORIES
+              ARCHIVES
               
               
             </a>
@@ -273,9 +273,9 @@
           
           
           <li>
-            <a href="/myBlog/archive/">
+            <a href="/myBlog/categories/">
               
-              ARCHIVES
+              CATEGORIES
               
               
             </a>
@@ -476,12 +476,9 @@
       <!-- Post Container -->
       <div class="col-lg-8 col-lg-offset-1 col-md-10 col-md-offset-1 post-container">
 
-        <h1>jQuery study note</h1>
-<h2 id="What’s-jQuery">What’s jQuery?</h2>
-<ul>
+        <h1 id="jQuery-study-note"><a href="#jQuery-study-note" class="headerlink" title="jQuery study note"></a>jQuery study note</h1><h2 id="What’s-jQuery"><a href="#What’s-jQuery" class="headerlink" title="What’s jQuery?"></a>What’s jQuery?</h2><ul>
 <li>jQuery is a library for JavaScript, which significantly simplified coding for JS.</li>
-<li>jQuery includes lots of functions, including:
-<ol>
+<li>jQuery includes lots of functions, including: <ol>
 <li>Selecting HTML elements</li>
 <li>Operating HTML elements</li>
 <li>Operating CSS</li>
@@ -494,169 +491,124 @@
 </li>
 <li>jQuery is an open-source framework.</li>
 </ul>
-<h2 id="jQuery-CDN">jQuery CDN</h2>
-<ol>
+<h2 id="jQuery-CDN"><a href="#jQuery-CDN" class="headerlink" title="jQuery CDN"></a>jQuery CDN</h2><ol>
 <li>baidu: <code>https//apps.bdimg.com/libs/jQuery/2.1.4/jquery.min.js</code></li>
 <li>google: <code>https//ajax.googleapis.com/ajax/libs/jQuery/1.10.2/jquery.min.js</code></li>
 </ol>
-<h2 id="Fundamental-grammar">Fundamental grammar</h2>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="built_in">document</span>).ready(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="comment">//jQuery code</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// another form</span></span><br><span class="line">$(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="comment">//jQuery code</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h2 id="Fundamental-grammar"><a href="#Fundamental-grammar" class="headerlink" title="Fundamental grammar"></a>Fundamental grammar</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="built_in">document</span>).ready(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="comment">//jQuery code</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// another form</span></span><br><span class="line">$(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="comment">//jQuery code</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>codes above display the Starting function of jQuery</p>
 </blockquote>
-<h2 id="jQuery-events">jQuery events</h2>
-<ul>
-<li>
-<pre><code class="language-js">$(&quot;p&quot;).click(function()&#123;
-	//code after the event happened
-&#125;)
+<h2 id="jQuery-events"><a href="#jQuery-events" class="headerlink" title="jQuery events"></a>jQuery events</h2><ul>
+<li><p>```js<br>$(“p”).click(function(){</p>
+<pre><code>//code after the event happened
+</code></pre><p>})</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">  &gt; <span class="string">`click`</span> is a typical event <span class="keyword">of</span> jQuery; <span class="function"><span class="keyword">function</span> <span class="title">is</span> <span class="title">executed</span> <span class="title">after</span> <span class="title">user</span> <span class="title">clicked</span> <span class="title">the</span> <span class="title">mouse</span>.</span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function">* <span class="title">other</span> <span class="title">popular</span> <span class="title">events</span></span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function">  1. <span class="title">dblclick</span>(<span class="params"></span>): <span class="title">double</span> <span class="title">click</span> <span class="title">the</span> <span class="title">mouse</span></span></span><br><span class="line"><span class="function">  2. <span class="title">mouseenter</span>(<span class="params"></span>): <span class="title">mouse</span> <span class="title">moving</span> <span class="title">over</span> <span class="title">the</span> <span class="title">element</span></span></span><br><span class="line"><span class="function">  3. <span class="title">mouseleave</span>(<span class="params"></span>): <span class="title">mouse</span> <span class="title">leaving</span> <span class="title">the</span> <span class="title">element</span></span></span><br><span class="line"><span class="function">  4. <span class="title">hover</span>(<span class="params"></span>): <span class="title">combining</span> <span class="title">event</span> 2 &amp; 3</span></span><br><span class="line"><span class="function">  5. <span class="title">mouseup</span>(<span class="params"></span>),<span class="title">mousedown</span>(<span class="params"></span>):<span class="title">pressing</span> <span class="title">mouse</span> <span class="title">and</span> <span class="title">releasing</span> <span class="title">mouse</span></span></span><br><span class="line"><span class="function">  6. <span class="title">focus</span>(<span class="params"></span>),<span class="title">blur</span>(<span class="params"></span>): <span class="title">when</span> <span class="title">elements</span> <span class="title">acquire</span>/<span class="title">lose</span> <span class="title">focus</span></span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function">## <span class="title">jQuery</span> <span class="function"><span class="keyword">function</span></span></span></span><br><span class="line"><span class="function"><span class="function"></span></span></span><br><span class="line"><span class="function"><span class="function">* ```<span class="title">js</span></span></span></span><br><span class="line"><span class="function"><span class="function">  <span class="title">$</span>(<span class="params"><span class="string">&quot;p&quot;</span></span>).<span class="title">hide</span>(<span class="params">speed,callback</span>) /<span class="title">show</span>(<span class="params">speed,callback</span>)</span></span></span><br></pre></td></tr></table></figure>
-
-hiding/showing HTML elements.
-
-param: 
-
-&gt; speed: hide/show speed; using 'fast', 'slow' or ms
-&gt;
-&gt; callback: callback executed after the function
-
-
-
-</code></pre>
-</li>
-<li>
-<pre><code class="language-js">$(&quot;p&quot;).toggle(speed,callback)
-<figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">  switching between hide<span class="literal">()</span> <span class="keyword">and</span> show<span class="literal">()</span>.</span><br><span class="line"></span><br><span class="line">  </span><br><span class="line"></span><br><span class="line">* ```js</span><br><span class="line">  <span class="constructor">$(<span class="string">&quot;div&quot;</span>)</span>.fade<span class="constructor">In(<span class="params">speed</span>,<span class="params">callback</span>)</span><span class="operator"> / </span>fade<span class="constructor">Out(<span class="params">speed</span>,<span class="params">callback</span>)</span></span><br></pre></td></tr></table></figure>
-
-elements fading in / fading out.
-
-
-
-</code></pre>
-</li>
-<li>
-<pre><code class="language-js">$(&quot;div&quot;).fadeToggle(speed,callback)
-<figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">  switching between fade<span class="constructor">In()</span> <span class="keyword">and</span> fade<span class="constructor">Out()</span>.</span><br><span class="line"></span><br><span class="line">  </span><br><span class="line"></span><br><span class="line">* ```js</span><br><span class="line">  <span class="constructor">$(<span class="string">&quot;div&quot;</span>)</span>.fade<span class="constructor">To(<span class="params">speed</span>,<span class="params">opacity</span>,<span class="params">callback</span>)</span></span><br></pre></td></tr></table></figure>
-
-appointing the opacity after fading.
-
-
-
-</code></pre>
-</li>
-<li>
-<pre><code class="language-js">$(&quot;div&quot;).slideUp(speed,callback) / slideDown(speed,callback)
-<figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">  sliding the element up<span class="operator"> / </span>down.</span><br><span class="line"></span><br><span class="line">  </span><br><span class="line"></span><br><span class="line">* ```js</span><br><span class="line">  <span class="constructor">$(<span class="string">&quot;div&quot;</span>)</span>.slide<span class="constructor">Toggle(<span class="params">speed</span>,<span class="params">callback</span>)</span></span><br></pre></td></tr></table></figure>
-
-switching between slideUp() and slideDown().
-
-
-
-</code></pre>
-</li>
-<li>
-<p>jQuery animate()</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//After clicking the mouse, the div element moving 250px to the right</span></span><br><span class="line">$(<span class="string">&quot;button&quot;</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	$(<span class="string">&quot;div&quot;</span>).animate(&#123;<span class="attr">left</span>: <span class="string">&#x27;250px&#x27;</span>&#125;);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">//With multiple attributes</span></span><br><span class="line">$(<span class="string">&quot;button&quot;</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	$(<span class="string">&quot;div&quot;</span>).animate(&#123;</span><br><span class="line">        left: <span class="string">&#x27;250px&#x27;</span>,</span><br><span class="line">        opacity:<span class="string">&#x27;0.5&#x27;</span>,</span><br><span class="line">        height: <span class="string">&#x27;150px&#x27;</span></span><br><span class="line">        width: <span class="string">&#x27;150px&#x27;</span></span><br><span class="line">    &#125;);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">//Using relative values</span></span><br><span class="line">$(<span class="string">&quot;button&quot;</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	$(<span class="string">&quot;div&quot;</span>).animate(&#123;</span><br><span class="line">        width: <span class="string">&#x27;+=100px&#x27;</span>,</span><br><span class="line">        height: <span class="string">&#x27;+=100px&#x27;</span></span><br><span class="line">    &#125;);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">//Using the param &#x27;speed&#x27;</span></span><br><span class="line">$(<span class="string">&quot;button&quot;</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	$(<span class="string">&quot;div&quot;</span>).animate(&#123;<span class="attr">left</span>: <span class="string">&#x27;250px&#x27;</span>&#125;,<span class="string">&quot;slow&quot;</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-</li>
-<li>
-<pre><code class="language-js">$(&quot;div&quot;).stop(stopAll,goToEnd)
-<figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">  Stopping <span class="keyword">the</span> effects <span class="keyword">and</span> animation.</span><br><span class="line"></span><br><span class="line">  <span class="built_in">param</span>:</span><br><span class="line"></span><br><span class="line">  &gt; stopAll: weather stopping all animation <span class="keyword">in</span> queue <span class="keyword">or</span> <span class="keyword">not</span>. Default: <span class="literal">false</span></span><br><span class="line">  &gt;</span><br><span class="line">  &gt; goToEnd: weather completing <span class="keyword">the</span> animation immediately <span class="keyword">or</span> <span class="keyword">not</span>. Default: <span class="literal">false</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">## jQuery chaining</span></span><br><span class="line"></span><br><span class="line">This feature allows users <span class="built_in">to</span> operate multiple <span class="function"><span class="keyword">function</span> <span class="title">for</span> <span class="title">single</span> <span class="title">elements</span> <span class="title">without</span> <span class="title">querying</span> <span class="title">many</span> <span class="title">times</span>.</span></span><br><span class="line"></span><br><span class="line">e.g.  </span><br><span class="line"></span><br><span class="line">```js</span><br><span class="line">$(<span class="string">&quot;div&quot;</span>).slideUp(<span class="number">2000</span>).slideDown(<span class="number">2000</span>)</span><br><span class="line">//sliding up <span class="keyword">the</span> <span class="keyword">element</span> <span class="keyword">first</span>, <span class="keyword">then</span> sliding down <span class="keyword">the</span> <span class="keyword">element</span></span><br></pre></td></tr></table></figure>
-
-
-
-</code></pre>
+<p>hiding/showing HTML elements.</p>
+<p>param: </p>
+<blockquote>
+<p>speed: hide/show speed; using ‘fast’, ‘slow’ or ms</p>
+<p>callback: callback executed after the function</p>
+</blockquote>
 </li>
 </ul>
-<h2 id="jQuery-DOM-operation">jQuery DOM operation</h2>
 <ul>
-<li>
-<p>text() : Setting or return the text of selected element</p>
+<li><p>```js<br>$(“p”).toggle(speed,callback)</p>
+<figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">  switching between hide<span class="literal">()</span> <span class="keyword">and</span> show<span class="literal">()</span>.</span><br><span class="line"></span><br><span class="line">  </span><br><span class="line"></span><br><span class="line">* ```js</span><br><span class="line">  <span class="constructor">$(<span class="string">&quot;div&quot;</span>)</span>.fade<span class="constructor">In(<span class="params">speed</span>,<span class="params">callback</span>)</span><span class="operator"> / </span>fade<span class="constructor">Out(<span class="params">speed</span>,<span class="params">callback</span>)</span></span><br></pre></td></tr></table></figure>
+<p>elements fading in / fading out.</p>
 </li>
-<li>
-<p>html() : Setting or return the text(including HTML label) of selected element</p>
+</ul>
+<ul>
+<li><p>```js<br>$(“div”).fadeToggle(speed,callback)</p>
+<figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">  switching between fade<span class="constructor">In()</span> <span class="keyword">and</span> fade<span class="constructor">Out()</span>.</span><br><span class="line"></span><br><span class="line">  </span><br><span class="line"></span><br><span class="line">* ```js</span><br><span class="line">  <span class="constructor">$(<span class="string">&quot;div&quot;</span>)</span>.fade<span class="constructor">To(<span class="params">speed</span>,<span class="params">opacity</span>,<span class="params">callback</span>)</span></span><br></pre></td></tr></table></figure>
+<p>appointing the opacity after fading.</p>
 </li>
-<li>
-<p>val() : Acquiring the value of input</p>
+</ul>
+<ul>
+<li><p>```js<br>$(“div”).slideUp(speed,callback) / slideDown(speed,callback)</p>
+<figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">  sliding the element up<span class="operator"> / </span>down.</span><br><span class="line"></span><br><span class="line">  </span><br><span class="line"></span><br><span class="line">* ```js</span><br><span class="line">  <span class="constructor">$(<span class="string">&quot;div&quot;</span>)</span>.slide<span class="constructor">Toggle(<span class="params">speed</span>,<span class="params">callback</span>)</span></span><br></pre></td></tr></table></figure>
+<p>switching between slideUp() and slideDown().</p>
+</li>
+</ul>
+<ul>
+<li><p>jQuery animate()</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//After clicking the mouse, the div element moving 250px to the right</span></span><br><span class="line">$(<span class="string">&quot;button&quot;</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	$(<span class="string">&quot;div&quot;</span>).animate(&#123;<span class="attr">left</span>: <span class="string">&#x27;250px&#x27;</span>&#125;);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">//With multiple attributes</span></span><br><span class="line">$(<span class="string">&quot;button&quot;</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	$(<span class="string">&quot;div&quot;</span>).animate(&#123;</span><br><span class="line">        left: <span class="string">&#x27;250px&#x27;</span>,</span><br><span class="line">        opacity:<span class="string">&#x27;0.5&#x27;</span>,</span><br><span class="line">        height: <span class="string">&#x27;150px&#x27;</span></span><br><span class="line">        width: <span class="string">&#x27;150px&#x27;</span></span><br><span class="line">    &#125;);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">//Using relative values</span></span><br><span class="line">$(<span class="string">&quot;button&quot;</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	$(<span class="string">&quot;div&quot;</span>).animate(&#123;</span><br><span class="line">        width: <span class="string">&#x27;+=100px&#x27;</span>,</span><br><span class="line">        height: <span class="string">&#x27;+=100px&#x27;</span></span><br><span class="line">    &#125;);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">//Using the param &#x27;speed&#x27;</span></span><br><span class="line">$(<span class="string">&quot;button&quot;</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	$(<span class="string">&quot;div&quot;</span>).animate(&#123;<span class="attr">left</span>: <span class="string">&#x27;250px&#x27;</span>&#125;,<span class="string">&quot;slow&quot;</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li>```js<br>$(“div”).stop(stopAll,goToEnd)<figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">  Stopping <span class="keyword">the</span> effects <span class="keyword">and</span> animation.</span><br><span class="line"></span><br><span class="line">  <span class="built_in">param</span>:</span><br><span class="line"></span><br><span class="line">  &gt; stopAll: weather stopping all animation <span class="keyword">in</span> queue <span class="keyword">or</span> <span class="keyword">not</span>. Default: <span class="literal">false</span></span><br><span class="line">  &gt;</span><br><span class="line">  &gt; goToEnd: weather completing <span class="keyword">the</span> animation immediately <span class="keyword">or</span> <span class="keyword">not</span>. Default: <span class="literal">false</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">## jQuery chaining</span></span><br><span class="line"></span><br><span class="line">This feature allows users <span class="built_in">to</span> operate multiple <span class="function"><span class="keyword">function</span> <span class="title">for</span> <span class="title">single</span> <span class="title">elements</span> <span class="title">without</span> <span class="title">querying</span> <span class="title">many</span> <span class="title">times</span>.</span></span><br><span class="line"></span><br><span class="line">e.g.  </span><br><span class="line"></span><br><span class="line">```js</span><br><span class="line">$(<span class="string">&quot;div&quot;</span>).slideUp(<span class="number">2000</span>).slideDown(<span class="number">2000</span>)</span><br><span class="line">//sliding up <span class="keyword">the</span> <span class="keyword">element</span> <span class="keyword">first</span>, <span class="keyword">then</span> sliding down <span class="keyword">the</span> <span class="keyword">element</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="jQuery-DOM-operation"><a href="#jQuery-DOM-operation" class="headerlink" title="jQuery DOM operation"></a>jQuery DOM operation</h2><ul>
+<li><p>text() : Setting or return the text of selected element</p>
+</li>
+<li><p>html() : Setting or return the text(including HTML label) of selected element</p>
+</li>
+<li><p>val() : Acquiring the value of input</p>
 <p>e.g.</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span> =<span class="string">&quot;text&quot;</span> <span class="attr">id</span>=<span class="string">&quot;one&quot;</span> <span class="attr">value</span>=<span class="string">&quot;Hello&quot;</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">	$(<span class="string">&quot;#one&quot;</span>).val(); <span class="comment">//return &quot;Hello&quot;</span></span></span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
 </li>
-<li>
-<p>attr() : Acquiring or setting the attributes of certain elements</p>
+<li><p>attr() : Acquiring or setting the attributes of certain elements</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;www.google.com&quot;</span> <span class="attr">class</span>=<span class="string">&quot;search&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- JS code --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">    $(<span class="string">&quot;.search&quot;</span>).attr(<span class="string">&quot;href&quot;</span>) <span class="comment">//return &quot;www.google.com&quot;</span></span></span><br><span class="line"><span class="javascript">    $(<span class="string">&quot;.search&quot;</span>).attr(<span class="string">&quot;href&quot;</span>,<span class="string">&quot;www.baidu.com&quot;</span>) <span class="comment">//change &#x27;href&#x27; to &#x27;www.baidu.com&#x27;</span></span></span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
 </li>
-<li>
-<p>callback function for <code>text(), html(), val() and attr()</code></p>
+<li><p>callback function for <code>text(), html(), val() and attr()</code></p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">id</span>=<span class="string">&quot;first&quot;</span>&gt;</span></span><br><span class="line">    Hello World!</span><br><span class="line"><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">id</span>=<span class="string">&quot;second&quot;</span>&gt;</span></span><br><span class="line">    GoodBye World!</span><br><span class="line"><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">    $(<span class="string">&quot;#first&quot;</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">        $(<span class="string">&quot;#first&quot;</span>).text(<span class="function"><span class="keyword">function</span>(<span class="params">i,oriText</span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">            <span class="keyword">return</span> <span class="string">`This is new p<span class="subst">$&#123;i&#125;</span>, <span class="subst">$&#123;oriText&#125;</span> lol!`</span>;</span></span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;);</span><br><span class="line"><span class="javascript">    <span class="comment">// After clicked on the first &#x27;p&#x27; label, text of it turned into &#x27;This is new p0, Hello World! lol!&#x27;</span></span></span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
 </li>
-<li>
-<p>Adding elements</p>
+</ul>
+<ul>
+<li><p>Adding elements</p>
 <ol>
-<li>
-<p>append() / prepend()</p>
+<li><p>append() / prepend()</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">&quot;p&quot;</span>).append(<span class="string">&quot;adding text at the end of the element(still inside the element)&quot;</span>);</span><br><span class="line"></span><br><span class="line">$(<span class="string">&quot;p&quot;</span>).prepend(<span class="string">&quot;adding text at the beginning of the element(still inside the element)&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//Attention: Both function can add multiple text by using multiple param</span></span><br></pre></td></tr></table></figure>
 </li>
-<li>
-<p>after() / before()</p>
+<li><p>after() / before()</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">&quot;p&quot;</span>).after(<span class="string">&quot;adding text after the element(outside the element)&quot;</span>);</span><br><span class="line"></span><br><span class="line">$(<span class="string">&quot;p&quot;</span>).before(<span class="string">&quot;adding text before the element(outside the element)&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//Attention: Both function can add multiple text by using multiple param</span></span><br></pre></td></tr></table></figure>
 </li>
 </ol>
 </li>
-<li>
-<p>Deleting elements</p>
+<li><p>Deleting elements</p>
 <ol>
-<li>
-<p>remove()</p>
+<li><p>remove()</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">&quot;div&quot;</span>).remove();</span><br><span class="line"><span class="comment">//Deleting selected element and its children elements</span></span><br><span class="line"></span><br><span class="line">$(<span class="string">&quot;div&quot;</span>).remove(<span class="string">&quot;.one&quot;</span>)</span><br><span class="line"><span class="comment">//Only operating on &#x27;div&#x27; with class &#x27;one&#x27;</span></span><br></pre></td></tr></table></figure>
 </li>
-<li>
-<p>empty()</p>
+<li><p>empty()</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">&quot;div&quot;</span>).empty();</span><br><span class="line"><span class="comment">//Deleting children elements of selected element(without selected element)</span></span><br></pre></td></tr></table></figure>
 </li>
 </ol>
 </li>
 </ul>
-<h2 id="jQuery-CSS">jQuery CSS</h2>
-<ol>
-<li>
-<p>Operating on class of CSS</p>
+<h2 id="jQuery-CSS"><a href="#jQuery-CSS" class="headerlink" title="jQuery CSS"></a>jQuery CSS</h2><ol>
+<li><p>Operating on class of CSS</p>
 <ul>
-<li>
-<p>addClass() / removeClass()</p>
+<li><p>addClass() / removeClass()</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">&quot;p&quot;</span>).addClass(<span class="string">&quot;big long&quot;</span>);</span><br><span class="line"><span class="comment">//Adding class &#x27;big&#x27; and &#x27;long&#x27;</span></span><br><span class="line"></span><br><span class="line">$(<span class="string">&quot;p&quot;</span>).removeClass(<span class="string">&quot;big long&quot;</span>);</span><br><span class="line"><span class="comment">//Aremoving class &#x27;big&#x27; and &#x27;long&#x27;</span></span><br></pre></td></tr></table></figure>
 </li>
-<li>
-<p>toggleClass()</p>
+<li><p>toggleClass()</p>
 <p>Switching between <code>addClass()</code> and <code>removeClass()</code></p>
 </li>
 </ul>
 </li>
-<li>
-<p>css()</p>
+<li><p>css()</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">&quot;p&quot;</span>).css(<span class="string">&quot;color&quot;</span>);</span><br><span class="line"><span class="comment">// return value of selected attribute</span></span><br><span class="line"></span><br><span class="line">$(<span class="string">&quot;p&quot;</span>).css(<span class="string">&quot;color&quot;</span>,<span class="string">&quot;white&quot;</span>);</span><br><span class="line"><span class="comment">// setting value of selected attribute</span></span><br><span class="line"></span><br><span class="line">$(<span class="string">&quot;p&quot;</span>).css(&#123;<span class="string">&quot;color&quot;</span>:<span class="string">&quot;white&quot;</span>,<span class="string">&quot;font-size&quot;</span>:<span class="string">&quot;14px&quot;</span>&#125;);</span><br><span class="line"><span class="comment">// setting multiple value of selected attribute</span></span><br></pre></td></tr></table></figure>
 </li>
-<li>
-<p>Sizing</p>
+<li><p>Sizing</p>
 <ul>
-<li>
-<p>width() / height()</p>
+<li><p>width() / height()</p>
 <blockquote>
 <p>exclude padding, border and margin</p>
 </blockquote>
 </li>
-<li>
-<p>innerWidth() / innerHeight()</p>
+<li><p>innerWidth() / innerHeight()</p>
 <blockquote>
 <p>exclude border and margin</p>
 </blockquote>
 </li>
-<li>
-<p>outerWidth() / outerHeight()</p>
+<li><p>outerWidth() / outerHeight()</p>
 <blockquote>
 <p>exclude margin</p>
 </blockquote>
 </li>
-<li>
-<p>outerWidth(true) / outerHeight(true)</p>
+<li><p>outerWidth(true) / outerHeight(true)</p>
 <blockquote>
 <p>include padding, border and margin</p>
 </blockquote>
@@ -664,47 +616,36 @@ switching between slideUp() and slideDown().
 </ul>
 </li>
 </ol>
-<h2 id="jQuery-Traverse">jQuery Traverse</h2>
-<ol>
-<li>
-<p>Ancestor</p>
+<h2 id="jQuery-Traverse"><a href="#jQuery-Traverse" class="headerlink" title="jQuery Traverse"></a>jQuery Traverse</h2><ol>
+<li><p>Ancestor</p>
 <ul>
-<li>
-<p>parent() / parents()</p>
+<li><p>parent() / parents()</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">&quot;p&quot;</span>).parent();</span><br><span class="line"><span class="comment">//return father element of &#x27;p&#x27;</span></span><br><span class="line"></span><br><span class="line">$(<span class="string">&quot;p&quot;</span>).parents();</span><br><span class="line"><span class="comment">//return all ancestor element of &#x27;p&#x27;</span></span><br><span class="line"></span><br><span class="line">$(<span class="string">&quot;p&quot;</span>).parents(<span class="string">&quot;div&quot;</span>);</span><br><span class="line"><span class="comment">//return all ancestor &#x27;div&#x27; element of &#x27;p&#x27;</span></span><br></pre></td></tr></table></figure>
 </li>
-<li>
-<p>parentsUntil()</p>
+<li><p>parentsUntil()</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">&quot;p&quot;</span>).parentsUntil(<span class="string">&quot;div&quot;</span>);</span><br><span class="line"><span class="comment">//return elements between label &#x27;p&#x27; and &#x27;div&#x27;</span></span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 </li>
-<li>
-<p>Offspring</p>
+<li><p>Offspring</p>
 <ul>
-<li>
-<p>children()</p>
+<li><p>children()</p>
 <p>Return children elements of selected label.</p>
 </li>
-<li>
-<p>find()</p>
+<li><p>find()</p>
 <p>Return all offspring elements of selected label.</p>
 </li>
 </ul>
 </li>
-<li>
-<p>Siblings</p>
+<li><p>Siblings</p>
 <ul>
-<li>
-<p>siblings()</p>
+<li><p>siblings()</p>
 <p>Return all siblings elements of selected label.</p>
 </li>
-<li>
-<p>next() / nextAll()</p>
+<li><p>next() / nextAll()</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">&quot;p&quot;</span>).next();</span><br><span class="line"><span class="comment">//return the next siblings element of &#x27;p&#x27;</span></span><br><span class="line"></span><br><span class="line">$(<span class="string">&quot;p&quot;</span>).nextAll();</span><br><span class="line"><span class="comment">//return all siblings elements following &#x27;p&#x27;</span></span><br></pre></td></tr></table></figure>
 </li>
-<li>
-<p>nextUntil()</p>
+<li><p>nextUntil()</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">&quot;p&quot;</span>).nextUntil(<span class="string">&quot;h2&quot;</span>);</span><br><span class="line"><span class="comment">//return all siblings elements between label &#x27;p&#x27; and &#x27;h2&#x27;</span></span><br></pre></td></tr></table></figure>
 </li>
 </ul>
@@ -712,29 +653,24 @@ switching between slideUp() and slideDown().
 <p>prev(), prevAll() &amp; prevUntil() are similar to functions above, only with reverse direction</p>
 </blockquote>
 </li>
-<li>
-<p>Filter</p>
+<li><p>Filter</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">&quot;div p&quot;</span>).first();</span><br><span class="line"><span class="comment">//select the first &#x27;p&#x27; of first &#x27;div&#x27;</span></span><br><span class="line"></span><br><span class="line">$(<span class="string">&quot;div p&quot;</span>).last();</span><br><span class="line"><span class="comment">//select the last &#x27;p&#x27; of last &#x27;div&#x27;</span></span><br><span class="line"></span><br><span class="line">$(<span class="string">&quot;p&quot;</span>).eq(<span class="number">1</span>);</span><br><span class="line"><span class="comment">//select element by index(starting from 0)</span></span><br><span class="line"></span><br><span class="line">$(<span class="string">&quot;p&quot;</span>).filter(<span class="string">&quot;.good&quot;</span>);</span><br><span class="line"><span class="comment">//select &#x27;p&#x27; element with class &#x27;good&#x27;</span></span><br><span class="line"></span><br><span class="line">$(<span class="string">&quot;p&quot;</span>).not(<span class="string">&quot;.good&quot;</span>);</span><br><span class="line"><span class="comment">//select &#x27;p&#x27; element without class &#x27;good&#x27;</span></span><br></pre></td></tr></table></figure>
 </li>
 </ol>
-<h2 id="jQuery-AJAX">jQuery AJAX</h2>
-<ol>
-<li>
-<p>load()</p>
+<h2 id="jQuery-AJAX"><a href="#jQuery-AJAX" class="headerlink" title="jQuery AJAX"></a>jQuery AJAX</h2><ol>
+<li><p>load()</p>
 <p><code>load()</code> can load data from servers, and put the data into selected element.</p>
 <p>e.g. This is the content of a ‘txt’ file ‘demo.txt’:</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">id</span>=<span class="string">&quot;first&quot;</span>&gt;</span>Hello my world<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">id</span>=<span class="string">&quot;second&quot;</span>&gt;</span>GoodBye world<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;one&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">span</span>&gt;</span>origin<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">    $(<span class="string">&quot;#one&quot;</span>).load(<span class="string">&quot;demo.txt&quot;</span>); <span class="comment">// After executed, &#x27;span&#x27; will be replaced by both &#x27;p&#x27; in &#x27;demo.txt&#x27;</span></span></span><br><span class="line"><span class="javascript">    $(<span class="string">&quot;#one&quot;</span>).load(<span class="string">&quot;demo.txt #first&quot;</span>); <span class="comment">// After executed, &#x27;span&#x27; will be replaced by &#x27;p&#x27; with id &#x27;first&#x27; in &#x27;demo.txt&#x27;</span></span></span><br><span class="line"><span class="javascript">    $(<span class="string">&quot;#one&quot;</span>).load(<span class="string">&quot;demo_.txt&quot;</span>,<span class="function"><span class="keyword">function</span>(<span class="params">responseTxt,statusTxt,xhr</span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">    <span class="keyword">if</span>(statusTxt==<span class="string">&quot;success&quot;</span>)</span></span><br><span class="line"><span class="javascript">      alert(<span class="string">&quot;外部内容加载成功!&quot;</span>);</span></span><br><span class="line"><span class="javascript">    <span class="keyword">if</span>(statusTxt==<span class="string">&quot;error&quot;</span>)</span></span><br><span class="line"><span class="javascript">      alert(<span class="string">&quot;Error: &quot;</span>+xhr.status+<span class="string">&quot;: &quot;</span>+xhr.statusText);</span></span><br><span class="line"><span class="javascript">  &#125;); <span class="comment">// callback function is also available</span></span></span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
 </li>
-<li>
-<p>$.get(URL,function(data,status))</p>
+<li><p>$.get(URL,function(data,status))</p>
 <blockquote>
 <p>First param: request URL</p>
 <p>Second param: callback function; first param refers to content of request page, second param refers to request status</p>
 </blockquote>
 </li>
-<li>
-<p>$.post(URL,data,function(data,status))</p>
+<li><p>$.post(URL,data,function(data,status))</p>
 <blockquote>
 <p>First param: request URL</p>
 <p>Second param: data request to send</p>
@@ -946,7 +882,7 @@ switching between slideUp() and slideDown().
         <div id="toc" class="toc-article">
         <strong class="toc-title">Contents</strong>
         
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">jQuery study note</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#What%E2%80%99s-jQuery"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">What’s jQuery?</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#jQuery-CDN"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">jQuery CDN</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Fundamental-grammar"><span class="toc-nav-number">1.3.</span> <span class="toc-nav-text">Fundamental grammar</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#jQuery-events"><span class="toc-nav-number">1.4.</span> <span class="toc-nav-text">jQuery events</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#jQuery-DOM-operation"><span class="toc-nav-number">1.5.</span> <span class="toc-nav-text">jQuery DOM operation</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#jQuery-CSS"><span class="toc-nav-number">1.6.</span> <span class="toc-nav-text">jQuery CSS</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#jQuery-Traverse"><span class="toc-nav-number">1.7.</span> <span class="toc-nav-text">jQuery Traverse</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#jQuery-AJAX"><span class="toc-nav-number">1.8.</span> <span class="toc-nav-text">jQuery AJAX</span></a></li></ol></li></ol>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#jQuery-study-note"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">jQuery study note</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#What%E2%80%99s-jQuery"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">What’s jQuery?</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#jQuery-CDN"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">jQuery CDN</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Fundamental-grammar"><span class="toc-nav-number">1.3.</span> <span class="toc-nav-text">Fundamental grammar</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#jQuery-events"><span class="toc-nav-number">1.4.</span> <span class="toc-nav-text">jQuery events</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#jQuery-DOM-operation"><span class="toc-nav-number">1.5.</span> <span class="toc-nav-text">jQuery DOM operation</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#jQuery-CSS"><span class="toc-nav-number">1.6.</span> <span class="toc-nav-text">jQuery CSS</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#jQuery-Traverse"><span class="toc-nav-number">1.7.</span> <span class="toc-nav-text">jQuery Traverse</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#jQuery-AJAX"><span class="toc-nav-number">1.8.</span> <span class="toc-nav-text">jQuery AJAX</span></a></li></ol></li></ol>
         
         </div>
       </aside>
