@@ -143,10 +143,10 @@
   <!--[if lt IE 9]> <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script> <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script> <![endif]-->
 
   <!-- ga & ba script hoook -->
-  <link rel="canonical" href="https://nuist-elite.github.io/myBlog/myBlog/go/Day04/">
+  <link rel="canonical" href="https://nuist-elite.github.io/myBlog/myBlog/maven/FABRIC/">
   <title>
     
-      Go day04-Method and interface - either win | or lose
+      FABRIC - either win | or lose
     
   </title>
 <meta name="generator" content="Hexo 5.4.0"></head>
@@ -356,19 +356,19 @@
     .body--light {
       /* intro-header */
       --intro-header-background-image-url-home: url('/myBlog/img/header_img/newhome_bg.jpg');
-      --intro-header-background-image-url-post: url('/myBlog/img/header_img/go/day04.jpg');
-      --intro-header-background-image-url-page: url('/myBlog//myBlog/img/header_img/go/day04.jpg');
+      --intro-header-background-image-url-post: url('');
+      --intro-header-background-image-url-page: url('/myBlog/img/header_img/archive_bg2.jpg');
     }
     .body--dark {
       --intro-header-background-image-url-home: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('/myBlog/img/header_img/newhome_bg.jpg');
-      --intro-header-background-image-url-post: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('/myBlog/img/header_img/go/day04.jpg');
-      --intro-header-background-image-url-page: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('/myBlog//myBlog/img/header_img/go/day04.jpg');
+      --intro-header-background-image-url-post: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('');
+      --intro-header-background-image-url-page: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('/myBlog/img/header_img/archive_bg2.jpg');
     }
 
     header.intro-header {
        /*post*/
         background-image: var(--intro-header-background-image-url-post);
-        /* background-image: url('/myBlog/img/header_img/go/day04.jpg'); */
+        /* background-image: url(''); */
       
     }
 
@@ -393,16 +393,12 @@
           <div class="post-heading">
             <div class="tags">
               
-              <a class="tag" href="/myBlog/tags/#learning note" title="learning note">learning note</a>
-              
-              <a class="tag" href="/myBlog/tags/#Go" title="Go">Go</a>
-              
             </div>
-            <h1>Go day04-Method and interface</h1>
+            <h1>FABRIC</h1>
             <h2 class="subheading"></h2>
             <span class="meta">
               Posted by Eric Wong on
-              2021-04-24
+              2021-04-27
             </span>
 
 
@@ -410,11 +406,11 @@
             <!-- WordCount start -->
             <div class="blank_box"></div>
             <span class="meta">
-              Estimated Reading Time <span class="post-count">3</span> Minutes
+              Estimated Reading Time <span class="post-count">12</span> Minutes
             </span>
             <div class="blank_box"></div>
             <span class="meta">
-              Words <span class="post-count">576</span> In Total
+              Words <span class="post-count">1.9k</span> In Total
             </span>
             <div class="blank_box"></div>
             <!-- WordCount end -->
@@ -476,54 +472,137 @@
       <!-- Post Container -->
       <div class="col-lg-8 col-lg-offset-1 col-md-10 col-md-offset-1 post-container">
 
-        <h1>Day04</h1>
-<h2 id="Method">Method</h2>
-<ul>
-<li>
-<p>What’s method?</p>
-<p>Unlike <em>Java</em> and <em>C++</em>, <em>Go</em> doesn’t have concept of <code>class</code>, But it has <code>method</code>.</p>
-<p><strong>Method</strong> is similar to <strong>function</strong>, except that it has a special type of parameter called <strong>‘receiver’</strong>.</p>
-<p>It means that variable with type of receiver can call the method.</p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> Point <span class="keyword">struct</span> &#123;</span><br><span class="line">	X, Y <span class="keyword">float64</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	p1 := Point&#123;<span class="number">3</span>, <span class="number">4</span>&#125;</span><br><span class="line">	fmt.Println(p1.Abs()) <span class="comment">// call the method, output 5</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// declare a method called Abs</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(p Point)</span> <span class="title">Abs</span><span class="params">()</span> <span class="title">float64</span></span> &#123;</span><br><span class="line">	<span class="keyword">return</span> math.Sqrt(p.X * p.X + p.Y * p.Y)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <h1>How to build Fabric Network on four servers.</h1>
+<p>The whole network includes an orderer and two peers belonging to two different organizations. In this blog, we put the orderer on one server, the cli, ca_orderer, ca_org1 and ca_org2 on one server and two organizations on another two servers. Here, we use debian10.7 as the operating system. This OS should include python 3.</p>
+<p><strong><u>Tips: All the paths in this blog are just examples. Please enter your own paths in order to avoid mistakes!!!</u></strong></p>
+<p>[TOC]</p>
+<h3 id="TO-BEGIN-WITH-BUILD-THE-ENVIRONMENT">TO BEGIN WITH, BUILD THE ENVIRONMENT</h3>
+<p>We need docker, docker-compose, GO lang. These three are of necessity. If you want to compile with java, install your jdk(please notice the version you need), gradle, etc. And if you decide to compile with javascript, it is a good choice to install npm and nodejs. Anyway, it’s up to you.</p>
+<p>Here are the steps.</p>
+<p>Uninstall old versions of docker. (we usually call them docker, <a target="_blank" rel="noopener" href="http://docker.io">docker.io</a> or docker-engine)</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-<span class="builtin-name">get</span> <span class="builtin-name">remove</span> docker docker-engine docker.io containerd runc</span><br></pre></td></tr></table></figure>
+<p>Update the apt index</p>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-<span class="keyword">get</span> <span class="keyword">update</span></span><br></pre></td></tr></table></figure>
+<p>Install docker(install apt dependency and get repository with HTTPS)</p>
+<figure class="highlight livescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install <span class="string">\</span></span><br><span class="line">    apt-transport-https <span class="string">\</span></span><br><span class="line">    ca-certificates <span class="string">\</span></span><br><span class="line">    curl <span class="string">\</span></span><br><span class="line">    gnupg2 <span class="string">\</span></span><br><span class="line">    software-properties-common</span><br></pre></td></tr></table></figure>
+<p>Add the official key</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -fsSL https:<span class="regexp">//mi</span>rrors.ustc.edu.cn<span class="regexp">/docker-ce/</span>linux<span class="regexp">/debian/g</span>pg | sudo apt-key add -</span><br></pre></td></tr></table></figure>
+<p>Make sure that you have had the key with fingerprint</p>
+<figure class="highlight gauss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-<span class="built_in">key</span> fingerprint <span class="number">0</span>EBFCD88</span><br><span class="line"><span class="comment">//you will see the following text if succeed</span></span><br><span class="line">pub   <span class="number">4096</span>R/<span class="number">0</span>EBFCD88 <span class="number">2017</span><span class="number">-02</span><span class="number">-22</span></span><br><span class="line">      <span class="built_in">Key</span> fingerprint = <span class="number">9</span>DC8 <span class="number">5822</span> <span class="number">9</span>FC7 DD38 <span class="number">854</span>A  E2D8 <span class="number">8</span>D81 <span class="number">803</span>C <span class="number">0</span>EBF CD88</span><br><span class="line">uid                  Docker <span class="built_in">Release</span> (CE deb) &lt;docker<span class="comment">@docker.com&gt;</span></span><br><span class="line"><span class="comment">sub   4096R/F273FCD8 2017-02-22</span></span><br></pre></td></tr></table></figure>
+<p>Update the apt index</p>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-<span class="keyword">get</span> <span class="keyword">update</span></span><br></pre></td></tr></table></figure>
+<p>Install the latest Docker-Engine-Community and <a target="_blank" rel="noopener" href="http://containerd.io">containerd.io</a></p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-<span class="built_in">get</span> install docker-<span class="keyword">ce</span> docker-<span class="keyword">ce</span>-cli containerd.io</span><br></pre></td></tr></table></figure>
+<p>Check if the install is successful</p>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker <span class="built_in">version</span></span><br></pre></td></tr></table></figure>
 <blockquote>
-<p>because function and method are very alike, users must pay attention to the difference.</p>
-<p>following form is the same logic with <code>Abs()</code> above, except it is a <strong>function</strong>.</p>
+<p><strong>make sure that you have add docker to the user group</strong></p>
 </blockquote>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">Abs</span><span class="params">(p Point)</span> <span class="title">float64</span></span> &#123;</span><br><span class="line">	<span class="keyword">return</span> math.Sqrt(p.X * p.X + p.Y * p.Y)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li>
-<p>Pointer receiver</p>
-<p>Method can have  a parameter with <strong>pointer</strong> type, it means the method can <strong>modify the caller’s attributed directly</strong>.</p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	<span class="keyword">var</span> p2 Point = Point&#123;<span class="number">2</span>, <span class="number">2</span>&#125;</span><br><span class="line">	p2.Scale(<span class="number">10</span>)</span><br><span class="line">    fmt.Println(p2) <span class="comment">// &#123;20, 20&#125;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(p Point)</span> <span class="title">Scale</span><span class="params">(s <span class="keyword">float64</span>)</span></span> &#123;</span><br><span class="line">	p.X = p.X * s</span><br><span class="line">	p.Y = p.Y * s</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Install docker (we use 1.24.1 as an example)</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo curl -L <span class="string">&quot;https://github.com/docker/compose/releases/download/1.24.1/docker-compose-$(uname -s)-$(uname -m)&quot;</span> -o <span class="regexp">/usr/</span>local<span class="regexp">/bin/</span>docker-compose</span><br></pre></td></tr></table></figure>
+<p>Give executive authority to docker-compose</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo chmod +x <span class="regexp">/usr/</span>local<span class="regexp">/bin/</span>docker-compose</span><br></pre></td></tr></table></figure>
+<p>Check if you have succeeded</p>
+<figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker-compose <span class="comment">--version</span></span><br></pre></td></tr></table></figure>
 <blockquote>
-<p>If the type of receiver is not <strong>pointer</strong>, changes within the method are only exerted on its <strong>duplication</strong></p>
-<p>Therefore, using pointer as receiver is a <strong>more common way</strong> in <em>Go</em> programming</p>
+<p><strong>make sure you have given the executive authority!</strong></p>
 </blockquote>
-<p>If a method has a pointer receiver, it can be called by a pointer or a common variable</p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> p Point</span><br><span class="line">p.Scale(<span class="number">5</span>)  <span class="comment">// OK</span></span><br><span class="line">pPointer := &amp;p</span><br><span class="line">pPointer.Scale(<span class="number">10</span>) <span class="comment">// OK</span></span><br></pre></td></tr></table></figure>
+<p>Download go.tar with wget and url(here we use the version of 1.13.4)</p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">wget</span> https://dl.google.com/go/go<span class="number">1</span>.<span class="number">13</span>.<span class="number">4</span>.linux-amd<span class="number">64</span>.tar.gz</span><br></pre></td></tr></table></figure>
+<p>Unzip and move go file to <strong>/usr/local</strong></p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">tar</span> -xvf go<span class="number">1</span>.<span class="number">13</span>.<span class="number">4</span>.linux-amd<span class="number">64</span>.tar.gz &amp;&amp; mv go /usr/local</span><br></pre></td></tr></table></figure>
+<p>Set environment variables</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/profile</span><br><span class="line"></span><br><span class="line"><span class="builtin-name">add</span> the following text between <span class="string">&quot;//&quot;</span></span><br><span class="line">//</span><br><span class="line"><span class="builtin-name">export</span> <span class="attribute">GOROOT</span>=/usr/local/go</span><br><span class="line"><span class="builtin-name">export</span> <span class="attribute">GOPATH</span>=/home/go</span><br><span class="line"><span class="builtin-name">export</span> <span class="attribute">PATH</span>=<span class="variable">$PATH</span>:/usr/local/go/bin</span><br><span class="line">//</span><br><span class="line"></span><br><span class="line">source /etc/profile</span><br></pre></td></tr></table></figure>
+<p>Check if you have succeeded</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">go</span> <span class="keyword">version</span></span><br></pre></td></tr></table></figure>
+<p><strong>Now, you have succeeded in installing docker, docker-compose and GO lang! Choose your compile environment and install as you like. You have quite a lot of choices, but remember that you should have at least one compile environment(Java,javascript…).</strong></p>
+<h3 id="GIT-CLONE-THE-OPEN-SOURCE-OF-FABRIC-AND-PULL-THE-IMAGES">GIT CLONE THE OPEN SOURCE OF FABRIC AND PULL THE IMAGES</h3>
+<p>Here in this blog, we use fabric 2.3.1.</p>
+<p>Steps are as follows.</p>
+<p>Git clone the open source of fabric</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd ~</span><br><span class="line">git clone https:<span class="regexp">//gi</span>thub.com<span class="regexp">/hyperledger/</span>fabric.git</span><br></pre></td></tr></table></figure>
+<p>If you are Chinese and you are downloading at a low speed. Try the following method.</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https:<span class="regexp">//gi</span>thub.com.cnpmjs.org<span class="regexp">/hyperledger/</span>fabric.git</span><br></pre></td></tr></table></figure>
+<p>Use <a target="_blank" rel="noopener" href="http://bootstrap.sh">bootstrap.sh</a> to pull images under the root path</p>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">cd</span> ~/fabric/script</span><br><span class="line">mv <span class="keyword">bootstrap</span>.<span class="keyword">sh</span> ~</span><br><span class="line">./<span class="keyword">bootstrap</span>.<span class="keyword">sh</span></span><br></pre></td></tr></table></figure>
+<p>Also,if you are Chinese and you are downloading at a low speed. Try the following method.</p>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">vim ~/<span class="keyword">bootstrap</span>.<span class="keyword">sh</span></span><br><span class="line"><span class="comment">//use mirror site </span></span><br><span class="line"><span class="comment">//you should add &quot;.cnpm.org&quot; behind &quot;github.com&quot; in the url</span></span><br><span class="line"><span class="comment">//you can also use vpn as well</span></span><br></pre></td></tr></table></figure>
+<p>Set environment variables</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">vim <span class="regexp">/etc/</span>profile</span><br><span class="line"></span><br><span class="line">add the following text between <span class="string">&quot;//&quot;</span></span><br><span class="line"><span class="regexp">//</span></span><br><span class="line">export PATH=<span class="variable">$PATH</span>:<span class="variable">$GOROOT</span><span class="regexp">/bin:$GOPATH/</span>bin:<span class="regexp">/root/</span>fabric-samples/bin</span><br><span class="line"><span class="regexp">//</span></span><br><span class="line"></span><br><span class="line">source <span class="regexp">/etc/</span>profile</span><br></pre></td></tr></table></figure>
+<p>If you are in China, get your accelerator address on <a target="_blank" rel="noopener" href="https://cr.console.aliyun.com/cn-hangzhou/instances/mirrors">https://cr.console.aliyun.com/cn-hangzhou/instances/mirrors</a></p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p <span class="regexp">/etc/</span>docker</span><br><span class="line">tee <span class="regexp">/etc/</span>docker/daemon.json &lt;&lt;-<span class="string">&#x27;EOF&#x27;</span></span><br><span class="line"> &#123;</span><br><span class="line"> <span class="string">&quot;registry-mirrors&quot;</span>: [<span class="string">&quot;the accelerator address you get on the site above&quot;</span>]</span><br><span class="line"> &#125;</span><br><span class="line"> EOF</span><br><span class="line"> </span><br><span class="line">systemctl daemon-reload</span><br><span class="line">systemctl restart docker</span><br></pre></td></tr></table></figure>
+<p>Congratulations! You have succeeded in the first step. You can now start your first fabric test-network. Read the official docs on the site <a target="_blank" rel="noopener" href="https://hyperledger-fabric.readthedocs.io/en/latest/getting_started_run_fabric.html">https://hyperledger-fabric.readthedocs.io/en/latest/getting_started_run_fabric.html</a> to learn more about fabric.</p>
+<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">cd ~<span class="regexp">/fabric-samples/</span>test-network</span><br><span class="line"></span><br><span class="line">.<span class="regexp">/network.sh up createChannel -c mychannel -ca &amp;&amp; ./</span>network.sh deployCC -ccn ChaincodeName -ccp ChaincodePath -ccl ChaincodeLanguage</span><br><span class="line"></span><br><span class="line"><span class="comment">//here we run a java app as an example, you need gradle environment in this step</span></span><br><span class="line"></span><br><span class="line">cd ~<span class="regexp">/fabric-samples/</span>asset-transfer-basic/application-java</span><br><span class="line"></span><br><span class="line">gradle runapp</span><br><span class="line"></span><br><span class="line"><span class="comment">//then you will see the transaction details</span></span><br></pre></td></tr></table></figure>
+<p><strong>Now you have succeeded in building the fabric network on a single server.</strong></p>
+<h3 id="CHANGE-FROM-ONE-SERVER-TO-FOUR-SERVERS">CHANGE FROM ONE SERVER TO FOUR SERVERS</h3>
+<p>If you have read the <strong><a target="_blank" rel="noopener" href="http://network.sh">network.sh</a></strong> line by line and understood each step written in the script. Just go ahead. If you haven’t, stop right here and read the script quite carefully and you will learn a lot.</p>
+<p>Now, the first step is that you must check the environment on all the four servers and make sure they are all the same.</p>
+<p><strong>Premise:</strong></p>
+<p><strong>cli, ca_orderer, ca_org1, ca_org2 on server0</strong></p>
+<p><strong>orderer on server1</strong></p>
+<p><strong><a target="_blank" rel="noopener" href="http://peer0.org1.example.com">peer0.org1.example.com</a> on server3</strong></p>
+<p><strong><a target="_blank" rel="noopener" href="http://peer0.org2.example.com">peer0.org2.example.com</a> on server4</strong></p>
+<p>After the preparation, let’s start.</p>
+<p>Modify docker-compose-test-net.yaml and docker-compose-ca.yaml (you only need to modify the test-net.yaml on server1,2,3)</p>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//cd to the path of your files(fabric-samples/docker)</span></span><br><span class="line">vim docker-compose-<span class="keyword">test</span>-<span class="keyword">net</span>.yaml</span><br><span class="line"><span class="comment">//retain what you need and delete the spare(example:on server 3,you only need the config of org1)</span></span><br><span class="line"><span class="comment">//now add the extra_host at the bottom(behind the ports and networks)</span></span><br><span class="line"><span class="comment">//here is an example</span></span><br><span class="line"></span><br><span class="line">    extra_hosts:</span><br><span class="line">      - <span class="string">&quot;example.com:ip&quot;</span></span><br><span class="line">      - <span class="string">&quot;orderer.example.com:ip&quot;</span></span><br><span class="line">      - <span class="string">&quot;peer0.org1.example.com:ip&quot;</span></span><br><span class="line">      - <span class="string">&quot;peer0.org2.example.com:ip&quot;</span></span><br><span class="line">      </span><br></pre></td></tr></table></figure>
+<figure class="highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//cd to the path of your files(fabric-samples/docker)</span></span><br><span class="line">vim docker-compose-ca.yaml</span><br><span class="line"><span class="comment">//now add the extra_host at the bottom(behind the ports and networks)</span></span><br><span class="line"><span class="comment">//here is an example</span></span><br><span class="line"></span><br><span class="line"><span class="symbol">    extra_hosts:</span></span><br><span class="line">      - <span class="string">&quot;example.com:ip&quot;</span></span><br><span class="line">      - <span class="string">&quot;orderer.example.com:ip&quot;</span></span><br><span class="line">      - <span class="string">&quot;peer0.org1.example.com:ip&quot;</span></span><br><span class="line">      - <span class="string">&quot;peer0.org2.example.com:ip&quot;</span></span><br><span class="line">      </span><br><span class="line"><span class="symbol">tips:</span>there are three <span class="string">&quot;extra_hosts&quot;</span>(behind ca_org1,org2,orderer)</span><br></pre></td></tr></table></figure>
+<p>Now, on server0.</p>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//the path you operate under should be consistent with network.sh. Otherwise, more configs should be modified.</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">cd</span> docker</span><br><span class="line">docker-compose -f docker-compose-<span class="keyword">ca</span>.yaml up -<span class="keyword">d</span> <span class="comment">//build ca_org and ca_orderer</span></span><br></pre></td></tr></table></figure>
+<p>Still on server0</p>
+<p>Register orgs and orderer</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">cd test-network <span class="regexp">//</span>the path where the network.sh is</span><br><span class="line">. .<span class="regexp">/organizations/</span>fabric-ca/registerEnroll.sh</span><br><span class="line">createOrderer <span class="regexp">//</span>register orderer</span><br><span class="line">. .<span class="regexp">/organizations/</span>fabric-ca/registerEnroll.sh</span><br><span class="line">createOrg1 <span class="regexp">//</span>register org1</span><br><span class="line">. .<span class="regexp">/organizations/</span>fabric-ca/registerEnroll.sh</span><br><span class="line">createOrg2 <span class="regexp">//</span>register org2</span><br></pre></td></tr></table></figure>
+<p>ccp-generate for org1 and org2</p>
+<figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd test-network</span><br><span class="line">./organizations/ccp-<span class="keyword">generate</span><span class="variable">.sh</span></span><br></pre></td></tr></table></figure>
+<p>These steps will add new files to the <strong>organizations</strong> folder(test-network/organizations). Now you should transfer organizations folder to server1,server2 and server3. Put them under the path of <strong>fabric-samples/test-network</strong>.</p>
+<p>On server1</p>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">cd</span> docker</span><br><span class="line">docker-compose -f docker-compose-<span class="keyword">test</span>-<span class="keyword">net</span>.yaml up -<span class="keyword">d</span> <span class="comment">//build orderer</span></span><br><span class="line">docker ps <span class="comment">//check if orderer is built</span></span><br></pre></td></tr></table></figure>
+<p>On server2</p>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">cd</span> docker</span><br><span class="line">docker-compose -f docker-compose-<span class="keyword">test</span>-<span class="keyword">net</span>.yaml up -<span class="keyword">d</span> <span class="comment">//build peer0.org1.example.com</span></span><br><span class="line">docker ps <span class="comment">//check if peer is built</span></span><br></pre></td></tr></table></figure>
+<p>On server3</p>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">cd</span> docker</span><br><span class="line">docker-compose -f docker-compose-<span class="keyword">test</span>-<span class="keyword">net</span>.yaml up -<span class="keyword">d</span> <span class="comment">//build peer0.org2.example.com</span></span><br><span class="line">docker ps <span class="comment">//check if peer is built</span></span><br></pre></td></tr></table></figure>
+<p>On server0</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> docker</span><br><span class="line">docker<span class="literal">-compose</span> <span class="operator">-f</span> docker<span class="literal">-compose</span><span class="literal">-test</span><span class="literal">-net</span>.yaml up <span class="literal">-d</span> //build <span class="built_in">cli</span></span><br><span class="line">docker <span class="built_in">ps</span> //check <span class="keyword">if</span> <span class="built_in">cli</span> is build</span><br></pre></td></tr></table></figure>
+<p>You can see docker logs to guarantee the connection between all the servers.</p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">docker</span> logs <span class="string">&quot;id&quot;</span></span><br></pre></td></tr></table></figure>
+<p>If everything is OK, let’s go ahead.</p>
+<p>On server1</p>
+<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">cd test-network <span class="comment">//the path where the network.sh is</span></span><br><span class="line">mkdir channel-<span class="keyword">artifacts</span> <span class="comment">//create a folder to save genesis block</span></span><br><span class="line">cd configtx</span><br><span class="line">configtxgen -profile TwoOrgsApplicationGenesis -outputBlock ..<span class="regexp">/channel-artifacts/</span>channelname.block -channelID channelname <span class="comment">//use your own channel name to generate genesis block</span></span><br><span class="line">cd test-network</span><br><span class="line">. .<span class="regexp">/scripts/</span>envVar.sh</span><br><span class="line">setGlobals <span class="number">1</span> <span class="comment">//setGlobals for org1</span></span><br><span class="line"></span><br><span class="line">cd test-network</span><br><span class="line"></span><br><span class="line">osnadmin channel <span class="keyword">join</span> --channelID channelname --config-block .<span class="regexp">/channel-artifacts/</span>channelname.block -o localhost:<span class="number">7053</span> --ca-<span class="keyword">file</span> <span class="regexp">/test-network/</span>organizations<span class="regexp">/ordererOrganizations/</span>example.com<span class="regexp">/orderers/</span>orderer.example.com<span class="regexp">/msp/</span>tlscacerts<span class="regexp">/tlsca.example.com-cert.pem --client-cert test-network/</span>organizations<span class="regexp">/ordererOrganizations/</span>example.com<span class="regexp">/orderers/</span>orderer.example.com<span class="regexp">/tls/</span>server.crt --client-key test-network<span class="regexp">/organizations/</span>ordererOrganizations<span class="regexp">/example.com/</span>orderers<span class="regexp">/orderer.example.com/</span>tls/server.key</span><br><span class="line"><span class="comment">// haha, this is so long ! It is used to create the channel. Be careful! First, use your own channel name. Second, notice the path of all the three tls files. Even a little mistake is forbidden!</span></span><br></pre></td></tr></table></figure>
 <blockquote>
-<p>Go will interpret p.Scale(5) as (&amp;p).Scale(5)</p>
+<p><strong>Status 204 is excellent . When 1xx,3xx,4xx and 5xx occur(Something bad happened, you may check the former processes twice)</strong></p>
 </blockquote>
-</li>
-</ul>
-<h2 id="Interface">Interface</h2>
-<p>Interface is composed of a group of function definition.</p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> Point <span class="keyword">struct</span> &#123;</span><br><span class="line">	X, Y <span class="keyword">float64</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">type</span> MyFloat <span class="keyword">float64</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">type</span> Abser <span class="keyword">interface</span> &#123;</span><br><span class="line">	Abs() <span class="keyword">float64</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	<span class="keyword">var</span> a Abser</span><br><span class="line">	p3 := Point&#123;<span class="number">5</span> ,<span class="number">12</span>&#125;</span><br><span class="line">	f1 := MyFloat(-math.Sqrt(<span class="number">2</span>))</span><br><span class="line"></span><br><span class="line">	a = &amp;p3 <span class="comment">// implements Abser</span></span><br><span class="line">	a = f1 <span class="comment">// implements Abser</span></span><br><span class="line">	fmt.Println(a.Abs())</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// implements Abser</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(p Point)</span> <span class="title">Abs</span><span class="params">()</span> <span class="title">float64</span></span> &#123;</span><br><span class="line">	<span class="keyword">return</span> math.Sqrt(p.X * p.X + p.Y * p.Y)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// implements Abser</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(f MyFloat)</span> <span class="title">Abs</span><span class="params">()</span> <span class="title">float64</span></span> &#123;</span><br><span class="line">	<span class="keyword">if</span> f &lt; <span class="number">0</span> &#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">float64</span>(-f)</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="keyword">float64</span>(f)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Then, we should transfer channel-artifacts folder to server0, server2 and server3. Put this folder under <strong>test-network</strong>.</p>
+<p>Now, a channel has been built. Let’s join the peers to the channel.</p>
+<p>On server2</p>
+<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">cd test-network</span><br><span class="line">. .<span class="regexp">/script/</span>envVar.sh</span><br><span class="line">setGlobals <span class="number">1</span></span><br><span class="line">FABRIC_CFG_PATH=<span class="regexp">/root/</span>fabric-samples<span class="regexp">/config peer channel join -b ./</span>channel-<span class="keyword">artifacts</span>/channelname.block</span><br><span class="line"><span class="comment">//enter your own config path and channel-artifacts path!!!</span></span><br><span class="line"><span class="comment">//join org1 to the channel</span></span><br></pre></td></tr></table></figure>
+<p>On server3</p>
+<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">cd test-network</span><br><span class="line">. .<span class="regexp">/script/</span>envVar.sh</span><br><span class="line">setGlobals <span class="number">2</span></span><br><span class="line">FABRIC_CFG_PATH=<span class="regexp">/root/</span>fabric-samples<span class="regexp">/config peer channel join -b ./</span>channel-<span class="keyword">artifacts</span>/channelname.block</span><br><span class="line"><span class="comment">//enter your own config path and channel-artifacts path!!!</span></span><br><span class="line"><span class="comment">//join org2 to the channel</span></span><br></pre></td></tr></table></figure>
+<p>All the peers have joined the channel you created. See the docker logs to check if there is something wrong.</p>
+<p>On server0</p>
+<p>Now, we should setAnchorPeer.</p>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">cd</span> <span class="keyword">test</span>-network</span><br><span class="line">docker exec <span class="keyword">cli</span> ./scripts/setAnchorPeer.<span class="keyword">sh</span> 1 channelname</span><br><span class="line">docker exec <span class="keyword">cli</span> ./scripts/setAnchorPeer.<span class="keyword">sh</span> 2 channelname</span><br></pre></td></tr></table></figure>
+<p><strong>Check the docker logs on all servers. If there is no error, it means you have succeeded! CONGRATULATIONS!!!</strong></p>
+<h3 id="DEPLOY-YOUR-CHAINCODE-ON-FOUR-SERVERS">DEPLOY YOUR CHAINCODE ON FOUR SERVERS</h3>
+<p>It is quite easy to deploy your chaincode on only one server. Now I’ll show you how to deploy on four servers.</p>
+<p>add hosts on server0.</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/hosts</span><br><span class="line"><span class="comment">// add the following text</span></span><br><span class="line"></span><br><span class="line">ip        orderer<span class="selector-class">.example</span>.com</span><br><span class="line">ip        peer0<span class="selector-class">.org1</span><span class="selector-class">.example</span>.com</span><br><span class="line">ip        peer0<span class="selector-class">.org2</span><span class="selector-class">.example</span>.com</span><br><span class="line">ip        example.com</span><br><span class="line"></span><br><span class="line"><span class="comment">//in order to state ip</span></span><br></pre></td></tr></table></figure>
+<p>Modify your <a target="_blank" rel="noopener" href="http://deployCC.sh">deployCC.sh</a>.</p>
+<p>On server0</p>
+<p>Because peers are not on server0, so you should enter --peerAddress and --tlsRootCertFiles behind most commands to state the address of your peers and tlsfiles paths on other servers.                                                                                                                                       For example,       --peerAddresses <a target="_blank" rel="noopener" href="http://peer0.org1.example.com:7051">peer0.org1.example.com:7051</a> --tlsRootCertFiles /root/00/test-network/organizations/peerOrganizations/org1.example.com/peers/peer0.org1.example.com/tls/ca.crt</p>
 <blockquote>
-<p>It is noticeable that, If a method with the same name of that in the interface, that means the receiver’s type implements the interface, and don’t have to declare the implementation <strong>explicitly</strong>.</p>
+<p>Quite a lot of sentences should be modified. This is an example and please enter you own file path.</p>
 </blockquote>
-<h3 id="Type-assertion">Type assertion</h3>
-<p><strong>Type assertion</strong> provides a way to access the underlying concrete value of the interface value</p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">t := i.(<span class="keyword">string</span>) <span class="comment">// this sentence assert that the interface i saved type string</span></span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>If then interface <strong>i</strong> did save the type <code>string</code>, it will assign value of type <code>string</code> to <strong>t</strong></p>
-<p>Else, it will cause a <strong>panic</strong> in <em>Go</em></p>
-</blockquote>
-<p>In order not  to cause a panic, it is recommended using following form:</p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	<span class="keyword">var</span> i <span class="keyword">interface</span>&#123;&#125; = <span class="string">&quot;hello&quot;</span></span><br><span class="line"></span><br><span class="line">	s, ok := i.(<span class="keyword">string</span>) <span class="comment">// ok return true if there is indeed type string exist</span></span><br><span class="line">	fmt.Println(s, ok)</span><br><span class="line"></span><br><span class="line">	f, ok := i.(<span class="keyword">float64</span>) <span class="comment">// ok return false if type float64 doesn&#x27;t exist, and it won&#x27;t cause a panic</span></span><br><span class="line">	fmt.Println(f, ok)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="Type-selection">Type selection</h3>
-<p>Type selection is a structure that selects branches from several type assertions in sequence.</p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">switch</span> v := i.(<span class="keyword">type</span>) &#123;</span><br><span class="line"><span class="keyword">case</span> T:</span><br><span class="line">    <span class="comment">// the type of v is T</span></span><br><span class="line"><span class="keyword">case</span> S:</span><br><span class="line">    <span class="comment">// the type of v is S</span></span><br><span class="line"><span class="keyword">default</span>:</span><br><span class="line">    <span class="comment">// not match, the type of v is i</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>On server0</p>
+<figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">cd</span> test-network &amp;&amp; <span class="string">./network.sh</span> <span class="keyword">deploy</span>CC -ccn chaincodename -ccp chaincodepath -ccl chaincodelanguage</span><br></pre></td></tr></table></figure>
+<h3 id="BUILD-YOUR-WALLET-AND-RUN-YOUR-APP">BUILD YOUR WALLET AND RUN YOUR APP</h3>
+<h4 id="Build-your-wallet">Build your wallet</h4>
+<p>modify <strong>connection-org1.json</strong> and <strong>connection-org1.yaml</strong> under                                                                                                                               <strong>test-network/organizations/peerOrganizations/org1.example.com</strong></p>
+<p>modify <strong>connection-org2.json</strong> and <strong>connection-org2.yaml</strong> under                                                                                                                               <strong>test-network/organizations/peerOrganizations/org2.example.com</strong></p>
+<figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">change localhost <span class="keyword">into</span> <span class="keyword">the</span> ip <span class="keyword">of</span> your own servers.</span><br></pre></td></tr></table></figure>
+<p>modify your app</p>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">aslocalhost:<span class="literal">false</span> <span class="comment">//peers are on the different servers</span></span><br></pre></td></tr></table></figure>
+<p><strong>Warning: you must have a wallet under the path of your app folder(consistent with the path of src)</strong></p>
+<h4 id="Run-your-app">Run your app</h4>
+<figure class="highlight scilab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> application-java</span><br><span class="line">gradle runapp</span><br><span class="line"><span class="comment">//just an example, you can run your own app.</span></span><br></pre></td></tr></table></figure>
 
 
         <hr>
@@ -531,12 +610,12 @@
         <ul class="pager">
           
           <li class="previous">
-            <a href="/myBlog/git/tutorial/" data-toggle="tooltip" data-placement="top" title="GitHub教程-从零开始">&larr; Previous Post</a>
+            <a href="/myBlog/maven/maven-jar/" data-toggle="tooltip" data-placement="top" title="Install jar package at your local maven repository">&larr; Previous Post</a>
           </li>
           
           
           <li class="next">
-            <a href="/myBlog/front-end/jQuery/" data-toggle="tooltip" data-placement="top" title="jQuery learning note">Next Post &rarr;</a>
+            <a href="/myBlog/git/tutorial/" data-toggle="tooltip" data-placement="top" title="GitHub教程-从零开始">Next Post &rarr;</a>
           </li>
           
         </ul>
@@ -585,7 +664,7 @@
       </a>
     </li>
     <li class="social-share-li">
-      <a target="_blank" class="social-share-icon" href="mailto:?subject=Go day04-Method and interface&body=Hi,I found this website and thought you might like it https://nuist-elite.github.io/myBlog/myBlog/go/Day04/">
+      <a target="_blank" class="social-share-icon" href="mailto:?subject=FABRIC&body=Hi,I found this website and thought you might like it https://nuist-elite.github.io/myBlog/myBlog/maven/FABRIC/">
         <i class="fa fa-envelope fa-1x" aria-hidden="true"></i>
       </a>
     </li>
@@ -620,7 +699,7 @@
       repo: '',
       owner: '',
       admin: '',
-      id: 'Sat Apr 24 2021 19:23:02 GMT+0800', // Ensure uniqueness and length less than 50
+      id: 'Tue Apr 27 2021 14:30:32 GMT+0800', // Ensure uniqueness and length less than 50
       distractionFreeMode: false, // Facebook-like distraction free mode
       perPage: 10,
       pagerDirection: 'last',
@@ -691,7 +770,7 @@
     }
 
     const gitment = new Gitment({
-      id: 'Sat Apr 24 2021 19:23:02 GMT+0800', // optional
+      id: 'Tue Apr 27 2021 14:30:32 GMT+0800', // optional
       owner: 'NUIST-elite',
       repo: 'git@github.com:NUIST-elite/blog-comment.git',
       oauth: {
@@ -723,17 +802,6 @@
       <!-- Catalog: Tabe of Content -->
       <!-- Table of Contents -->
 
-    
-      <aside id="sidebar">
-        <div id="toc" class="toc-article">
-        <strong class="toc-title">Contents</strong>
-        
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">Day04</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Method"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">Method</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Interface"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">Interface</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Type-assertion"><span class="toc-nav-number">1.2.1.</span> <span class="toc-nav-text">Type assertion</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Type-selection"><span class="toc-nav-number">1.2.2.</span> <span class="toc-nav-text">Type selection</span></a></li></ol></li></ol></li></ol>
-        
-        </div>
-      </aside>
-    
-
 
 
       <!-- Sidebar Container -->
@@ -750,10 +818,6 @@
             <a href="/myBlog/tags/">FEATURED TAGS</a>
           </h5>
           <div class="tags">
-            
-            <a class="tag" href="/myBlog/tags/#learning note" title="learning note">learning note</a>
-            
-            <a class="tag" href="/myBlog/tags/#Go" title="Go">Go</a>
             
           </div>
         </section>
