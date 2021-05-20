@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://nuist-elite.github.io/myBlog/go/Day08/</loc>
+    
+    <lastmod>2021-05-20</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://nuist-elite.github.io/myBlog/go/Day07/</loc>
     
     <lastmod>2021-05-19</lastmod>
@@ -116,85 +123,85 @@
 
   <url>
     <loc>https://nuist-elite.github.io/myBlog</loc>
-    <lastmod>2021-05-19</lastmod>
+    <lastmod>2021-05-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
 
   
   <url>
-    <loc>https://nuist-elite.github.io/myBlog/tags/git/</loc>
-    <lastmod>2021-05-19</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://nuist-elite.github.io/myBlog/tags/tutorial/</loc>
-    <lastmod>2021-05-19</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://nuist-elite.github.io/myBlog/tags/basic/</loc>
-    <lastmod>2021-05-19</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://nuist-elite.github.io/myBlog/tags/front-end/</loc>
-    <lastmod>2021-05-19</lastmod>
+    <lastmod>2021-05-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://nuist-elite.github.io/myBlog/tags/learning-note/</loc>
-    <lastmod>2021-05-19</lastmod>
+    <lastmod>2021-05-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://nuist-elite.github.io/myBlog/tags/git/</loc>
+    <lastmod>2021-05-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://nuist-elite.github.io/myBlog/tags/tutorial/</loc>
+    <lastmod>2021-05-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://nuist-elite.github.io/myBlog/tags/basic/</loc>
+    <lastmod>2021-05-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://nuist-elite.github.io/myBlog/tags/Go/</loc>
-    <lastmod>2021-05-19</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://nuist-elite.github.io/myBlog/tags/tip/</loc>
-    <lastmod>2021-05-19</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://nuist-elite.github.io/myBlog/tags/maven/</loc>
-    <lastmod>2021-05-19</lastmod>
+    <lastmod>2021-05-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://nuist-elite.github.io/myBlog/tags/JSoup/</loc>
-    <lastmod>2021-05-19</lastmod>
+    <lastmod>2021-05-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://nuist-elite.github.io/myBlog/tags/Java/</loc>
-    <lastmod>2021-05-19</lastmod>
+    <lastmod>2021-05-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://nuist-elite.github.io/myBlog/tags/note/</loc>
-    <lastmod>2021-05-19</lastmod>
+    <lastmod>2021-05-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://nuist-elite.github.io/myBlog/tags/tip/</loc>
+    <lastmod>2021-05-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://nuist-elite.github.io/myBlog/tags/maven/</loc>
+    <lastmod>2021-05-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
@@ -202,36 +209,36 @@
 
   
   <url>
-    <loc>https://nuist-elite.github.io/myBlog/categories/git-basic-tutorial/</loc>
-    <lastmod>2021-05-19</lastmod>
+    <loc>https://nuist-elite.github.io/myBlog/categories/front-end-learning-note/</loc>
+    <lastmod>2021-05-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://nuist-elite.github.io/myBlog/categories/front-end-learning-note/</loc>
-    <lastmod>2021-05-19</lastmod>
+    <loc>https://nuist-elite.github.io/myBlog/categories/git-basic-tutorial/</loc>
+    <lastmod>2021-05-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://nuist-elite.github.io/myBlog/categories/Go-learning-note/</loc>
-    <lastmod>2021-05-19</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://nuist-elite.github.io/myBlog/categories/maven/</loc>
-    <lastmod>2021-05-19</lastmod>
+    <lastmod>2021-05-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://nuist-elite.github.io/myBlog/categories/JavaTools/</loc>
-    <lastmod>2021-05-19</lastmod>
+    <lastmod>2021-05-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://nuist-elite.github.io/myBlog/categories/maven/</loc>
+    <lastmod>2021-05-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
