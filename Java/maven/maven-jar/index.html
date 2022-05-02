@@ -262,9 +262,9 @@
           
           
           <li>
-            <a href="/myBlog/archive/">
+            <a href="/myBlog/categories/">
               
-              ARCHIVES
+              CATEGORIES
               
               
             </a>
@@ -273,9 +273,9 @@
           
           
           <li>
-            <a href="/myBlog/categories/">
+            <a href="/myBlog/archive/">
               
-              CATEGORIES
+              ARCHIVES
               
               
             </a>
@@ -476,34 +476,28 @@
       <!-- Post Container -->
       <div class="col-lg-8 col-lg-offset-1 col-md-10 col-md-offset-1 post-container">
 
-        <h1>Introduction</h1>
-<p>This article is intended to show you how to install a <strong>jar</strong> package at your l<strong>ocal maven repository</strong> in order that you can user it in Spring project directly by <strong>importing</strong> <strong>a dependency in your</strong> <code>pom.xml</code>.</p>
-<p> </p>
-<h1>premise</h1>
-<p>This article is based on the condition that you have installed your maven and  configured your environmental variables correctly.</p>
+        <h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p>This article is intended to show you how to install a <strong>jar</strong> package at your l<strong>ocal maven repository</strong> in order that you can user it in Spring project directly by <strong>importing</strong> <strong>a dependency in your</strong> <code>pom.xml</code>.</p>
+<p>&nbsp;</p>
+<h1 id="premise"><a href="#premise" class="headerlink" title="premise"></a>premise</h1><p>This article is based on the condition that you have installed your maven and  configured your environmental variables correctly.</p>
 <p>you can use the following command in your cmd to check:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mvn --version</span><br></pre></td></tr></table></figure>
 <blockquote>
-<p>if you can see the version of maven,  jdk and MAVEN_HOME , that means you can continue this article.</p>
+<p> if you can see the version of maven,  jdk and MAVEN_HOME , that means you can continue this article.</p>
 </blockquote>
 <p><img src="command1.png" alt="maven"></p>
-<p> </p>
-<h1>Measure</h1>
-<ul>
-<li>
-<p>First, you need to download the jar package you want to use, and open the <code>cmd In the directory where the file is located</code> .</p>
+<p>&nbsp;</p>
+<h1 id="Measure"><a href="#Measure" class="headerlink" title="Measure"></a>Measure</h1><ul>
+<li><p>First, you need to download the jar package you want to use, and open the <code>cmd In the directory where the file is located</code> .</p>
 </li>
-<li>
-<p>Input the following command into your cmd, replace each value according to your jar</p>
+<li><p>Input the following command into your cmd, replace each value according to your jar</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mvn install:install-file -DgroupId=<span class="string">&#x27;your groupId&#x27;</span> -DartifactId=<span class="string">&#x27;your artifactId&#x27;</span> -Dversion=<span class="string">&#x27;your version&#x27;</span> -Dpackaging=jar -Dfile=<span class="string">&#x27;your jar package name&#x27;</span></span><br></pre></td></tr></table></figure>
 <blockquote>
-<p>For example, I have a jar package named “<strong>xxxx-1.0.jar</strong>”, <strong>groupId</strong>: <code>com.example</code>; <strong>artifactId</strong>: <code>test</code>; <strong>version</strong>: <code>1.0</code> ;</p>
+<p>For example, I have a jar package named “<strong>xxxx-1.0.jar</strong>“, <strong>groupId</strong>: <code>com.example</code>; <strong>artifactId</strong>: <code>test</code>; <strong>version</strong>: <code>1.0</code> ;</p>
 <p>then the command should be the following:</p>
 </blockquote>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mvn install:install-file -DgroupId=com.example -DartifactId=<span class="built_in">test</span> -Dversion=1.0 -Dpackaging=jar -Dfile=xxxx-1.0.jar</span><br></pre></td></tr></table></figure>
 </li>
-<li>
-<p>After execute the command, if you see “BUILD SUCCESS”, then you can use it by importing maven dependency:</p>
+<li><p>After execute the command, if you see “BUILD SUCCESS”, then you can use it by importing maven dependency:</p>
 <p><img src="command2.png" alt="maven"></p>
 </li>
 </ul>
@@ -711,7 +705,7 @@
         <div id="toc" class="toc-article">
         <strong class="toc-title">Contents</strong>
         
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">Introduction</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">premise</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">Measure</span></a></li></ol>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#Introduction"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">Introduction</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#premise"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">premise</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#Measure"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">Measure</span></a></li></ol>
         
         </div>
       </aside>

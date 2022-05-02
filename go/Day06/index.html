@@ -262,9 +262,9 @@
           
           
           <li>
-            <a href="/myBlog/archive/">
+            <a href="/myBlog/categories/">
               
-              ARCHIVES
+              CATEGORIES
               
               
             </a>
@@ -273,9 +273,9 @@
           
           
           <li>
-            <a href="/myBlog/categories/">
+            <a href="/myBlog/archive/">
               
-              CATEGORIES
+              ARCHIVES
               
               
             </a>
@@ -414,7 +414,7 @@
             </span>
             <div class="blank_box"></div>
             <span class="meta">
-              Words <span class="post-count">476</span> In Total
+              Words <span class="post-count">474</span> In Total
             </span>
             <div class="blank_box"></div>
             <!-- WordCount end -->
@@ -476,9 +476,7 @@
       <!-- Post Container -->
       <div class="col-lg-8 col-lg-offset-1 col-md-10 col-md-offset-1 post-container">
 
-        <h1>Day06</h1>
-<h2 id="Multiplexing">Multiplexing</h2>
-<p>Sometimes we need to receive data from multiple channel, if we receive it one by one, that will cause bad performance.</p>
+        <h1 id="Day06"><a href="#Day06" class="headerlink" title="Day06"></a>Day06</h1><h2 id="Multiplexing"><a href="#Multiplexing" class="headerlink" title="Multiplexing"></a>Multiplexing</h2><p>Sometimes we need to receive data from multiple channel, if we receive it one by one, that will cause bad performance.</p>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> &#123;</span><br><span class="line">    data, ok := &lt;-ch1</span><br><span class="line">    data, ok := &lt;-ch2</span><br><span class="line">    <span class="comment">// ...........</span></span><br><span class="line">    <span class="comment">// bad performance</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>Therefore, Go provides us a keyword called <code>select</code>, <code>select</code> is similar to <code>switch</code>, it has many <strong>cases</strong> waiting to receive data, once one  of these cases receive data, <strong>statements</strong> in corresponding <strong>case</strong> will be executed.</p>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span>&#123;</span><br><span class="line">    <span class="keyword">case</span> &lt;-ch1:</span><br><span class="line">        ...</span><br><span class="line">    <span class="keyword">case</span> data := &lt;-ch2:</span><br><span class="line">        ...</span><br><span class="line">    <span class="keyword">case</span> ch3&lt;-data:</span><br><span class="line">        ...</span><br><span class="line">    <span class="keyword">default</span>:</span><br><span class="line">        <span class="comment">// default operation</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -487,31 +485,26 @@
 <p>if several cases can be executed, it will execute randomly</p>
 <p>select() without case will be blocked</p>
 </blockquote>
-<p> </p>
-<h2 id="Concurrency-security-and-locks">Concurrency security and locks</h2>
-<p>As can be seen in many programming language, data conflict is a very common problem, so is Go. If two or more goroutine are manipulating one variable at the same time, there would be conflict and the outcome won’t be satisfied.</p>
-<p> </p>
-<h3 id="Mutex-Lock">Mutex Lock</h3>
-<p>Mutex lock guarantees that only one goroutine ca access one resource at the same time.</p>
+<p>&nbsp;</p>
+<h2 id="Concurrency-security-and-locks"><a href="#Concurrency-security-and-locks" class="headerlink" title="Concurrency security and locks"></a>Concurrency security and locks</h2><p>As can be seen in many programming language, data conflict is a very common problem, so is Go. If two or more goroutine are manipulating one variable at the same time, there would be conflict and the outcome won’t be satisfied.</p>
+<p>&nbsp;</p>
+<h3 id="Mutex-Lock"><a href="#Mutex-Lock" class="headerlink" title="Mutex Lock"></a>Mutex Lock</h3><p>Mutex lock guarantees that only one goroutine ca access one resource at the same time.</p>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> wg sync.WaitGroup</span><br><span class="line"><span class="keyword">var</span> lock sync.Mutex</span><br><span class="line"><span class="keyword">var</span> flag <span class="keyword">int</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	wg.Add(<span class="number">2</span>)</span><br><span class="line">	<span class="keyword">go</span> exec()</span><br><span class="line">	<span class="keyword">go</span> exec()</span><br><span class="line">	wg.Wait()</span><br><span class="line">	fmt.Println(flag) <span class="comment">// output 4000</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">exec</span><span class="params">()</span></span> &#123;</span><br><span class="line">	<span class="keyword">defer</span> wg.Done()</span><br><span class="line">	<span class="keyword">for</span> i := <span class="number">0</span>; i &lt; <span class="number">2000</span>; i++ &#123;</span><br><span class="line">		lock.Lock()</span><br><span class="line">		flag = flag + <span class="number">1</span></span><br><span class="line">		lock.Unlock()</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>If there is no lock in above code, output can be any number between 2000 and 4000</p>
 </blockquote>
-<p> </p>
-<h3 id="Read-Write-mutex-lock">Read&amp;Write mutex lock</h3>
-<p>rwlock is suitable for circumstances that read operation is way more that write operation</p>
+<p>&nbsp;</p>
+<h3 id="Read-amp-Write-mutex-lock"><a href="#Read-amp-Write-mutex-lock" class="headerlink" title="Read&amp;Write mutex lock"></a>Read&amp;Write mutex lock</h3><p>rwlock is suitable for circumstances that read operation is way more that write operation</p>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> (</span><br><span class="line">	flag      <span class="keyword">int64</span></span><br><span class="line">	wg     sync.WaitGroup</span><br><span class="line">	lock   sync.Mutex</span><br><span class="line">	rwLock sync.RWMutex</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">write</span><span class="params">()</span></span> &#123;</span><br><span class="line">	rwLock.Lock() <span class="comment">// add write lock, this will prohibited any other read or write operation</span></span><br><span class="line">	flag = flag + <span class="number">1</span></span><br><span class="line">	time.Sleep(<span class="number">10</span> * time.Millisecond) <span class="comment">// 10ms</span></span><br><span class="line">	rwLock.Unlock()                   <span class="comment">// unlock write lock</span></span><br><span class="line">	wg.Done()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">read</span><span class="params">()</span></span> &#123;</span><br><span class="line">	rwLock.RLock()               <span class="comment">// add read lock, it won&#x27;t affect other read or write operation</span></span><br><span class="line">	time.Sleep(time.Millisecond) <span class="comment">// 1ms</span></span><br><span class="line">	rwLock.RUnlock()             <span class="comment">// unlock read lock</span></span><br><span class="line">	wg.Done()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    ....</span><br><span class="line">    wg.Wait()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>In a word, if data is being read, other can assess this data likewise; if data is being written, whether read or write operation are not allowed here.</p>
 </blockquote>
-<p> </p>
-<h3 id="sync-Once">sync.Once</h3>
-<p><strong>Once</strong> can ensure that one operation is only executed once in a high concurrency circumstance.</p>
+<p>&nbsp;</p>
+<h3 id="sync-Once"><a href="#sync-Once" class="headerlink" title="sync.Once"></a>sync.Once</h3><p><strong>Once</strong> can ensure that one operation is only executed once in a high concurrency circumstance.</p>
 <p>Implement high concurrency secured <strong>singleton pattern</strong> using <strong>Once</strong>:</p>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> singleton <span class="keyword">struct</span> &#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> instance *singleton</span><br><span class="line"><span class="keyword">var</span> once sync.Once</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">GetInstance</span><span class="params">()</span> *<span class="title">singleton</span></span> &#123;</span><br><span class="line">    once.Do(<span class="function"><span class="keyword">func</span><span class="params">()</span></span> &#123;</span><br><span class="line">        instance = &amp;singleton&#123;&#125;</span><br><span class="line">    &#125;)</span><br><span class="line">    <span class="keyword">return</span> instance</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p> </p>
-<h3 id="sync-Map">sync.Map</h3>
-<p><strong>sync.Map</strong> is a concurrency secured map, <code>map</code> in Go is not concurrency secured.</p>
+<p>&nbsp;</p>
+<h3 id="sync-Map"><a href="#sync-Map" class="headerlink" title="sync.Map"></a>sync.Map</h3><p><strong>sync.Map</strong> is a concurrency secured map, <code>map</code> in Go is not concurrency secured.</p>
 <p><strong>sync.Map</strong> does not need to initialize using make, and it has many built-in function:</p>
 <ul>
 <li>Store(key, value): put new key-value pair in the map</li>
@@ -724,7 +717,7 @@
         <div id="toc" class="toc-article">
         <strong class="toc-title">Contents</strong>
         
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">Day06</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Multiplexing"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">Multiplexing</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Concurrency-security-and-locks"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">Concurrency security and locks</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Mutex-Lock"><span class="toc-nav-number">1.2.1.</span> <span class="toc-nav-text">Mutex Lock</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Read-Write-mutex-lock"><span class="toc-nav-number">1.2.2.</span> <span class="toc-nav-text">Read&amp;Write mutex lock</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#sync-Once"><span class="toc-nav-number">1.2.3.</span> <span class="toc-nav-text">sync.Once</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#sync-Map"><span class="toc-nav-number">1.2.4.</span> <span class="toc-nav-text">sync.Map</span></a></li></ol></li></ol></li></ol>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#Day06"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">Day06</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Multiplexing"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">Multiplexing</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Concurrency-security-and-locks"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">Concurrency security and locks</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Mutex-Lock"><span class="toc-nav-number">1.2.1.</span> <span class="toc-nav-text">Mutex Lock</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Read-amp-Write-mutex-lock"><span class="toc-nav-number">1.2.2.</span> <span class="toc-nav-text">Read&amp;Write mutex lock</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#sync-Once"><span class="toc-nav-number">1.2.3.</span> <span class="toc-nav-text">sync.Once</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#sync-Map"><span class="toc-nav-number">1.2.4.</span> <span class="toc-nav-text">sync.Map</span></a></li></ol></li></ol></li></ol>
         
         </div>
       </aside>

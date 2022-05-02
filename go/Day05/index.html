@@ -262,9 +262,9 @@
           
           
           <li>
-            <a href="/myBlog/archive/">
+            <a href="/myBlog/categories/">
               
-              ARCHIVES
+              CATEGORIES
               
               
             </a>
@@ -273,9 +273,9 @@
           
           
           <li>
-            <a href="/myBlog/categories/">
+            <a href="/myBlog/archive/">
               
-              CATEGORIES
+              ARCHIVES
               
               
             </a>
@@ -414,7 +414,7 @@
             </span>
             <div class="blank_box"></div>
             <span class="meta">
-              Words <span class="post-count">489</span> In Total
+              Words <span class="post-count">487</span> In Total
             </span>
             <div class="blank_box"></div>
             <!-- WordCount end -->
@@ -476,30 +476,23 @@
       <!-- Post Container -->
       <div class="col-lg-8 col-lg-offset-1 col-md-10 col-md-offset-1 post-container">
 
-        <h1>Day05</h1>
-<h2 id="Goroutine">Goroutine</h2>
-<p>Concurrent programming is simple in go, unlike Java, you do not have to configure lots of Threads, etc. You can add <code>go</code> before a function, that means start a <strong>goroutine</strong>.</p>
+        <h1 id="Day05"><a href="#Day05" class="headerlink" title="Day05"></a>Day05</h1><h2 id="Goroutine"><a href="#Goroutine" class="headerlink" title="Goroutine"></a>Goroutine</h2><p>Concurrent programming is simple in go, unlike Java, you do not have to configure lots of Threads, etc. You can add <code>go</code> before a function, that means start a <strong>goroutine</strong>.</p>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="keyword">go</span> <span class="built_in">print</span>();</span><br><span class="line">    fmt.Println(<span class="string">&quot;World&quot;</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">print</span><span class="params">()</span></span> &#123;</span><br><span class="line">    fmt.Println(<span class="string">&quot;Hello&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>After running above programme, I noticed that it only output “World” without “Hello”. Because goroutine ends when the main function ends.</p>
 <ul>
-<li>
-<p>WaitGroup</p>
+<li><p>WaitGroup</p>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> wg sync.WaitGroup</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="keyword">for</span> <span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++ &#123;</span><br><span class="line">        wg.add(<span class="number">1</span>) <span class="comment">// add a goroutine to wait group</span></span><br><span class="line">        <span class="keyword">go</span> <span class="built_in">print</span>(i)</span><br><span class="line">    &#125;</span><br><span class="line">    wg.wait() <span class="comment">// wait all goroutine is done</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">print</span><span class="params">(i <span class="keyword">int</span>)</span></span> &#123;</span><br><span class="line">    <span class="keyword">defer</span> wg.done() <span class="comment">// end the goroutine when function is done</span></span><br><span class="line">    fmt.Println(<span class="string">&quot;Hello&quot;</span>, i)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
-<li>
-<p>Channel</p>
+<li><p>Channel</p>
 <p>Using channel to communicate and share RAM.</p>
 <ul>
-<li>
-<p>Define a channel</p>
+<li><p>Define a channel</p>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> ch <span class="keyword">chan</span> <span class="keyword">int</span> <span class="comment">// define a channel to transmit Integer</span></span><br><span class="line">ch <span class="comment">// &lt;nil&gt;, have not been initilized</span></span><br><span class="line">ch1 := <span class="built_in">make</span>(<span class="keyword">chan</span> <span class="keyword">int</span>) <span class="comment">// initilize a channel</span></span><br></pre></td></tr></table></figure>
 </li>
-<li>
-<p>Manipulate channel</p>
+<li><p>Manipulate channel</p>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ch := <span class="built_in">make</span>(<span class="keyword">chan</span> <span class="keyword">int</span>)</span><br><span class="line">ch &lt;- <span class="number">100</span> <span class="comment">// send Integer 100 to ch</span></span><br><span class="line">x := &lt;- ch <span class="comment">// receive the Integer 100</span></span><br><span class="line">&lt;- ch <span class="comment">// receive but ignore the value</span></span><br><span class="line"><span class="built_in">close</span>(ch) <span class="comment">// close the channel, not necessary</span></span><br></pre></td></tr></table></figure>
 </li>
-<li>
-<p>Unbuffered channel</p>
+<li><p>Unbuffered channel</p>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    ch := <span class="built_in">make</span>(<span class="keyword">chan</span> <span class="keyword">int</span>);</span><br><span class="line">    ch &lt;- <span class="number">10</span></span><br><span class="line">    fmt.Println(<span class="string">&quot;end&quot;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>code above will cause an error, because the channel has no receiver, therefore the Integer cannot be sent.</p>
@@ -508,16 +501,13 @@
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">rev</span><span class="params">(c <span class="keyword">chan</span> <span class="keyword">int</span>)</span></span> &#123;</span><br><span class="line">    res := &lt;- c</span><br><span class="line">    fmt.Println(<span class="string">&quot;receive&quot;</span>, res)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    ch := <span class="built_in">make</span>(<span class="keyword">chan</span> <span class="keyword">int</span>)</span><br><span class="line">    <span class="keyword">go</span> rev(ch)</span><br><span class="line">    ch &lt;- <span class="number">10</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>Unbuffered channel will be blocked if there is no receiver or sender, the channel will wait another goroutine to finish the communication.</p>
 </li>
-<li>
-<p>Buffered channel</p>
+<li><p>Buffered channel</p>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ch := <span class="built_in">make</span>(<span class="keyword">chan</span> <span class="keyword">int</span>, <span class="number">1</span>) <span class="comment">// offer channel capacity</span></span><br><span class="line"><span class="comment">// channel won&#x27;t be blocked unless send value more than capacity</span></span><br></pre></td></tr></table></figure>
 </li>
-<li>
-<p>Retrieve value from a closed channel</p>
+<li><p>Retrieve value from a closed channel</p>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	ch1 := <span class="built_in">make</span>(<span class="keyword">chan</span> <span class="keyword">int</span>)</span><br><span class="line">	ch2 := <span class="built_in">make</span>(<span class="keyword">chan</span> <span class="keyword">int</span>)</span><br><span class="line"></span><br><span class="line">	<span class="keyword">go</span> <span class="function"><span class="keyword">func</span><span class="params">()</span></span> &#123;</span><br><span class="line">		<span class="keyword">for</span> i := <span class="number">0</span>; i &lt; <span class="number">100</span>; i++ &#123;</span><br><span class="line">			ch1 &lt;- i <span class="comment">// send 1 ~ 100 to ch1</span></span><br><span class="line">		&#125;</span><br><span class="line">		<span class="built_in">close</span>(ch1) <span class="comment">// close ch1</span></span><br><span class="line">	&#125;()</span><br><span class="line"></span><br><span class="line">	<span class="keyword">go</span> <span class="function"><span class="keyword">func</span><span class="params">()</span></span> &#123;</span><br><span class="line">		<span class="keyword">for</span> &#123;</span><br><span class="line">			i, ok := &lt;- ch1 <span class="comment">// ok return false if channel is closed and all value has been received</span></span><br><span class="line">			<span class="keyword">if</span> !ok &#123;</span><br><span class="line">				<span class="keyword">break</span></span><br><span class="line">			&#125;</span><br><span class="line">			ch2 &lt;- i</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="built_in">close</span>(ch2) <span class="comment">// close ch2</span></span><br><span class="line">cls	&#125;()</span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span> i := <span class="keyword">range</span> ch2 &#123; <span class="comment">// for-range will wutomatically break if channel is closed and all value has been received, so it is recommended.</span></span><br><span class="line">		fmt.Println(i)</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
-<li>
-<p>One-way channel</p>
+<li><p>One-way channel</p>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    ch1 := <span class="built_in">make</span>(<span class="keyword">chan</span> <span class="keyword">int</span>)</span><br><span class="line">    ch2 := <span class="built_in">make</span>(<span class="keyword">chan</span> <span class="keyword">int</span>)</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> i := <span class="number">0</span>; i &lt; <span class="number">10</span>; i++ &#123;</span><br><span class="line">        ch2 &lt;- i</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">close</span>(ch2)</span><br><span class="line">    <span class="keyword">go</span> setAndGet(ch1, ch2);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">setAndGet</span><span class="params">(set <span class="keyword">chan</span> &lt;- <span class="keyword">int</span>, get &lt;- <span class="keyword">chan</span> <span class="keyword">int</span>)</span></span> &#123;</span><br><span class="line">    <span class="keyword">for</span> i := <span class="keyword">range</span> get &#123;</span><br><span class="line">		set &lt;- i * i</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">close</span>(set)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// send only : chan &lt;- int</span></span><br><span class="line"><span class="comment">// receive only : &lt;- chan int</span></span><br></pre></td></tr></table></figure></li>
 </ul>
 </li>
@@ -726,7 +716,7 @@
         <div id="toc" class="toc-article">
         <strong class="toc-title">Contents</strong>
         
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">Day05</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Goroutine"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">Goroutine</span></a></li></ol></li></ol>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#Day05"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">Day05</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Goroutine"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">Goroutine</span></a></li></ol></li></ol>
         
         </div>
       </aside>

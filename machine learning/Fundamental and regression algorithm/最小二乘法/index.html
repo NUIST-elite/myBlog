@@ -143,10 +143,10 @@
   <!--[if lt IE 9]> <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script> <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script> <![endif]-->
 
   <!-- ga & ba script hoook -->
-  <link rel="canonical" href="https://nuist-elite.github.io/myBlog/myBlog/archives/">
+  <link rel="canonical" href="https://nuist-elite.github.io/myBlog/myBlog/machine learning/Fundamental and regression algorithm/最小二乘法/">
   <title>
     
-      either win | or lose
+      最小二乘法 - either win | or lose
     
   </title>
 <meta name="generator" content="Hexo 5.4.0"></head>
@@ -304,29 +304,7 @@
           <!-- LangSelect -->
           
           
-          <!-- LangSelect start -->
-          <!-- LangSelect -->
-<li>
-  <a id="lang-select-label"><i class="fa fa-globe"></i>
-    <span>
-      English
-    </span>
-    <select id="lang-select" data-canonical="archives/index.html">
-      
-      
-      <option value="en"  selected >
-        English
-      </option>
-      
-      <option value="cn" >
-        简体中文
-      </option>
-      
-    </select>
-  </a>
-</li>
-
-          <!-- LangSelect end -->
+          
           
           
         </ul>
@@ -378,19 +356,19 @@
     .body--light {
       /* intro-header */
       --intro-header-background-image-url-home: url('/myBlog/img/header_img/newhome_bg.jpg');
-      --intro-header-background-image-url-post: url('');
-      --intro-header-background-image-url-page: url('/myBlog/img/header_img/archive_bg2.jpg');
+      --intro-header-background-image-url-post: url('/myBlog/img/header_img/go/day01.jpg');
+      --intro-header-background-image-url-page: url('/myBlog//myBlog/img/header_img/go/day01.jpg');
     }
     .body--dark {
       --intro-header-background-image-url-home: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('/myBlog/img/header_img/newhome_bg.jpg');
-      --intro-header-background-image-url-post: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('');
-      --intro-header-background-image-url-page: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('/myBlog/img/header_img/archive_bg2.jpg');
+      --intro-header-background-image-url-post: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('/myBlog/img/header_img/go/day01.jpg');
+      --intro-header-background-image-url-page: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('/myBlog//myBlog/img/header_img/go/day01.jpg');
     }
 
     header.intro-header {
-       /*page*/
-        background-image: var(--intro-header-background-image-url-page);
-        /* background-image: url('/myBlog/img/header_img/archive_bg2.jpg'); */
+       /*post*/
+        background-image: var(--intro-header-background-image-url-post);
+        /* background-image: url('/myBlog/img/header_img/go/day01.jpg'); */
       
     }
 
@@ -412,10 +390,44 @@
       <div class="row">
         <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
           
-          <div class="site-heading">
-            <h1>Programming for the future</h1>
-            <!--<hr class="small">-->
-            <span class="subheading">personal blog of a normal programmer</span>
+          <div class="post-heading">
+            <div class="tags">
+              
+              <a class="tag" href="/myBlog/tags/#machine learning" title="machine learning">machine learning</a>
+              
+              <a class="tag" href="/myBlog/tags/#regression" title="regression">regression</a>
+              
+            </div>
+            <h1>最小二乘法</h1>
+            <h2 class="subheading">最小二乘法学习总结</h2>
+            <span class="meta">
+              Posted by Eric Wong on
+              2022-05-02
+            </span>
+
+
+            
+            <!-- WordCount start -->
+            <div class="blank_box"></div>
+            <span class="meta">
+              Estimated Reading Time <span class="post-count">4</span> Minutes
+            </span>
+            <div class="blank_box"></div>
+            <span class="meta">
+              Words <span class="post-count">1.1k</span> In Total
+            </span>
+            <div class="blank_box"></div>
+            <!-- WordCount end -->
+            
+            
+            <!-- 不蒜子统计 start -->
+            <span class="meta" id="busuanzi_container_page_pv">
+              Viewed <span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span> Times
+            </span>
+            <!-- 不蒜子统计 end -->
+            
+
+
           </div>
           
         </div>
@@ -456,492 +468,328 @@
 	Friends Blog、
 	anchorjs、
 	) -->
-		<!-- Main Content -->
-<div class="container">
-  <div class="row">
+		<!-- Modify by Yu-Hsuan Yen -->
+<!-- Post Content -->
+<article>
+  <div class="container">
+    <div class="row">
+      <!-- Post Container -->
+      <div class="col-lg-8 col-lg-offset-1 col-md-10 col-md-offset-1 post-container">
+
+        <h1 id="最小二乘法原理"><a href="#最小二乘法原理" class="headerlink" title="最小二乘法原理"></a>最小二乘法原理</h1><p>最小二乘法是用来做函数拟合或者求函数极值的方法。在机器学习，尤其是回归模型中，经常可以看到最小二乘法的身影</p>
+<p>最小二乘法的一般形式如下：</p>
+<script type="math/tex; mode=display">loss\ function = \sum\limits（y-hypothesis\ function）^2</script><p><strong>loss function</strong>就是损失函数，y是样本的观测值，<strong>hypothesis function</strong>是假设拟合函数。我们的目标是得到使loss function最小化时候的hypothesis function的模型。</p>
+<p>以<strong>线性回归</strong>为例，如现在有m个只有<strong>一个特征</strong>的样本：</p>
+<script type="math/tex; mode=display">(x^{(1)},y^{(1)}), (x^{(2)},y^{(2)},...(x^{(m)},y^{(m)})</script><p>样本的拟合函数定义如下：</p>
+<script type="math/tex; mode=display">h_\theta(x) = \theta_0 + \theta_1 x</script><p>现在我们的目标就是求出其中的两个参数$\theta_0$和$\theta_1$的值。损失函数为：</p>
+<script type="math/tex; mode=display">J(\theta_0, \theta_1) = \sum\limits_{i=1}^{m}(y^{(i)} - h_\theta(x^{(i)})^2 = \sum\limits_{i=1}^{m}(y^{(i)} -  \theta_0 - \theta_1 x^{(i)})^2</script><p>最小二乘法的目标就是使$J(\theta_0, \theta_1)$最小，求出使J(θ0,θ1)最小时的$\theta_0$和$\theta_1$ ，这样拟合函数就得出了。</p>
+<h1 id="最小二乘法算法"><a href="#最小二乘法算法" class="headerlink" title="最小二乘法算法"></a>最小二乘法算法</h1><h2 id="代数法"><a href="#代数法" class="headerlink" title="代数法"></a>代数法</h2><p>要使$J(\theta_0, \theta_1)$最小，就要对$\theta_0$和$\theta_1$分别求偏导，令偏导为0，得到一个方程组，方程组的解（如果存在的话）就是要求的参数值。</p>
+<ul>
+<li>$J(\theta_0, \theta_1)$对$\theta_0$求导，得到如下方程：<script type="math/tex; mode=display">\sum\limits_{i=1}^{m}(y^{(i)} -  \theta_0 - \theta_1 x^{(i)}) = 0</script></li>
+<li>$J(\theta_0, \theta_1)$对$\theta_1$求导，得到如下方程：<script type="math/tex; mode=display">\sum\limits_{i=1}^{m}(y^{(i)} -  \theta_0 - \theta_1 x^{(i)})x^{(i)} = 0</script></li>
+<li>将两个算式作为一个方程组求解，就可以得到最终两个参数的值：<script type="math/tex; mode=display">\theta_0 = \sum\limits_{i=1}^{m}\big(x^{(i)})^2\sum\limits_{i=1}^{m}y^{(i)} - \sum\limits_{i=1}^{m}x^{(i)}\sum\limits_{i=1}^{m}x^{(i)}y^{(i)} \Bigg/ m\sum\limits_{i=1}^{m}\big(x^{(i)})^2 - \big(\sum\limits_{i=1}^{m}x^{(i)})^2</script><script type="math/tex; mode=display">\theta_1 = m\sum\limits_{i=1}^{m}x^{(i)}y^{(i)} - \sum\limits_{i=1}^{m}x^{(i)}\sum\limits_{i=1}^{m}y^{(i)} \Bigg/ m\sum\limits_{i=1}^{m}\big(x^{(i)})^2 - \big(\sum\limits_{i=1}^{m}x^{(i)})^2</script></li>
+<li>这个方法可以推到多元线性方程的解，对于一个有n个特征的拟然函数，就需要求解一个n+1个方程的方程组。</li>
+</ul>
+<h2 id="矩阵法"><a href="#矩阵法" class="headerlink" title="矩阵法"></a>矩阵法</h2><p>:cry:</p>
+<h1 id="最小二乘法的局限性-amp-适用场景"><a href="#最小二乘法的局限性-amp-适用场景" class="headerlink" title="最小二乘法的局限性&amp;适用场景"></a>最小二乘法的局限性&amp;适用场景</h1><p>从上面可以看出，最小二乘法的步骤十分简洁，比梯度下降这样的迭代法似乎方便很多。但也有不少局限性，在使用中需要注意场景是否合适。</p>
+<ol>
+<li>最小二乘法需要计算一个方程组，但如果<strong>方程组的解不存在</strong>，这样就没有办法直接用最小二乘法了，此时梯度下降法仍然可以使用。当然，我们可以通过对样本数据进行整理，去掉冗余特征，然后继续使用最小二乘法，但这样就徒增了一些麻烦。</li>
+<li>当样本特征n非常的大的时候，计算一个有<strong>n+1个方程的方程组</strong>是一个非常耗时的工作，甚至不可行。此时以梯度下降为代表的迭代法仍然可以使用。在机器学习的实践中，如果没有很多的分布式大数据计算资源，一般超过<strong>10000个特征</strong>就建议使用迭代法。或者通过主成分分析降低特征的维度后再用最小二乘法。</li>
+<li>如果拟合函数不是线性的，就无法直接使用最小二乘法，需要转化为线性才能使用。</li>
+<li>当样本量m很少，小于特征数n的时候，这时拟合方程是<strong>欠定</strong>的，常用的优化方法都无法去拟合数据。当样本量m等于特征数n的时候，用方程组求解就可以了。当m大于n时，拟合方程是<strong>超定</strong>的，也就是我们常用与最小二乘法的场景。<blockquote>
+<p>超定：方程个数大于未知量个数的方程组，超定方程一般是不存在解的矛盾方程。<br>欠定：方程个数小于未知量个数的方程组，对于方程组Ra=y，R为n×m矩阵，且n &lt; m。则方程组有无穷多组解，此时称方程组为欠定方程组。</p>
+</blockquote>
+</li>
+</ol>
+
+
+        <hr>
+        <!-- Pager -->
+        <ul class="pager">
+          
+          <li class="previous">
+            <a href="/myBlog/machine learning/Fundamental and regression algorithm/交叉验证/" data-toggle="tooltip" data-placement="top" title="交叉验证">&larr; Previous Post</a>
+          </li>
+          
+          
+          <li class="next">
+            <a href="/myBlog/machine learning/Fundamental and regression algorithm/梯度下降(Gradient Descent)/" data-toggle="tooltip" data-placement="top" title="梯度下降（Gradient Descent）">Next Post &rarr;</a>
+          </li>
+          
+        </ul>
+
+        
+        <!-- tip start -->
+        <!-- tip -->
+<!-- tip start -->
+<div class="tip">
+  <p>
+    
+      If you like this blog or find it useful for you, you are welcome to comment on it. You are also welcome to share this blog, so that more people can participate in it. If the images used in the blog infringe your copyright, please contact the author to delete them. Thank you !
+    
+  </p>
+</div>
+<!-- tip end -->
+
+        <!-- tip end -->
+        
+
+        
+        <!-- Sharing Srtart -->
+        <!-- Social Social Share Post -->
+<!-- Docs:https://github.com/overtrue/share.js -->
+
+<div class="social-share" data-initialized="true" data-disabled="tencent ,douban ,qzone ,linkedin ,facebook ,google ,diandian" data-wechat-qrcode-helper="" align="center">
+  <ul class="list-inline text-center social-share-ul">
+    <li class="social-share-li">
+      <a target="_blank" class="social-share-icon icon-twitter">
+        <i class="fa fa-twitter fa-1x" aria-hidden="true"></i>
+      </a>
+    </li>
+    <li class="social-share-li">
+      <a class="social-share-icon icon-wechat">
+        <i class="fa fa-weixin fa-1x" aria-hidden="true"></i>
+      </a>
+    </li>
+    <li class="social-share-li">
+      <a target="_blank" class="social-share-icon icon-weibo">
+        <i class="fa fa-weibo fa-1x" aria-hidden="true"></i>
+      </a>
+    </li>
+    <li class="social-share-li">
+      <a target="_blank" class="social-share-icon icon-qq">
+        <i class="fa fa-qq fa-1x" aria-hidden="true"></i>
+      </a>
+    </li>
+    <li class="social-share-li">
+      <a target="_blank" class="social-share-icon" href="mailto:?subject=最小二乘法&body=Hi,I found this website and thought you might like it https://nuist-elite.github.io/myBlog/myBlog/machine learning/Fundamental and regression algorithm/最小二乘法/">
+        <i class="fa fa-envelope fa-1x" aria-hidden="true"></i>
+      </a>
+    </li>
+  </ul>
+</div>
+
+<!-- css & js -->
+<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css"> -->
+<script defer="defer" async="true" src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
+
+        <!-- Sharing End -->
+        
+        <hr>
+
+        <!-- comments start -->
+        <!-- 1. gitalk comment -->
+
+  <!-- gitalk start -->
+  <!-- Docs:https://github.com/gitalk/gitalk/blob/master/readme-cn.md -->
+
+  <div id="gitalk-container"></div>
+
+  
+    <!-- <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.js"></script> -->
+    <script src="/myBlog/js/comment/gitalk.js"></script>
+  
+
+  <script>
+    var gitalk = new Gitalk({
+      clientID: '',
+      clientSecret: '',
+      repo: '',
+      owner: '',
+      admin: '',
+      id: 'Mon May 02 2022 14:24:03 GMT+0800', // Ensure uniqueness and length less than 50
+      distractionFreeMode: false, // Facebook-like distraction free mode
+      perPage: 10,
+      pagerDirection: 'last',
+      createIssueManually: false,
+      language: 'en',
+      proxy: 'https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token'
+    });
+    gitalk.render('gitalk-container');
+
+    var gtFolded = () => {
+      setTimeout(function () {
+        let markdownBody = document.getElementsByClassName("markdown-body");
+        let list = Array.from(markdownBody);
+        list.forEach(item => {
+          if (item.clientHeight > 250) {
+            item.classList.add('gt-comment-body-folded');
+            item.style.maxHeight = '250px';
+            item.title = 'Click to Expand';
+            item.onclick = function () {
+              item.classList.remove('gt-comment-body-folded');
+              item.style.maxHeight = '';
+              item.title = '';
+              item.onclick = null;
+            };
+          }
+        })
+      }, 800);
+    }
+  </script>
+
+  <!-- gitalk end -->
+
+
+<!-- 2. gitment comment -->
+
+  <!-- gitment start -->
+  <!-- Docs:https://github.com/imsun/gitment -->
+
+  <div id="blog_comments"></div>
+  <!-- <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css"> <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script> -->
+
+  <script src="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/gitment.browser.js"></script>
+
+  <script>
+    const myTheme = {
+      render(state, instance) {
+        const container = document.createElement('div')
+        container.lang = "en-US"
+        container.className = 'gitment-container gitment-root-container'
+
+        // your custom component
+        container.appendChild(instance.renderSomething(state, instance))
+        container.appendChild(instance.renderHeader(state, instance))
+        container.appendChild(instance.renderEditor(state, instance))
+        container.appendChild(instance.renderComments(state, instance))
+        container.appendChild(instance.renderFooter(state, instance))
+        return container
+      },
+      renderSomething(state, instance) {
+        const container = document.createElement('div')
+        container.lang = "en-US"
+        container.className = 'hello_visitor'
+        if (state.user.login) {
+          container.innerText = `Hello ${state.user.login}, Welcome to comment system`
+        }
+        return container
+      }
+    }
+
+    const gitment = new Gitment({
+      id: 'Mon May 02 2022 14:24:03 GMT+0800', // optional
+      owner: 'NUIST-elite',
+      repo: 'git@github.com:NUIST-elite/blog-comment.git',
+      oauth: {
+        client_id: 'a8536bceb8b28d0df731',
+        client_secret: '696da9430a77d9bfafcbbc62d88eb7196e426c35'
+      },
+      desc: '',
+      perPage: '10',
+      maxCommentHeight: '250',
+      theme: myTheme,
+      // ... For more available options, check out the documentation below
+    })
+
+    gitment.render('blog_comments')
+    // or gitment.render(document.getElementById('comments')) or document.body.appendChild(gitment.render())
+  </script>
+
+  <!-- gitment end -->
+
+
+<!-- 3. disqus comment -->
+
+
+        <!-- comments end -->
+        <hr>
+
+      </div>
+
+      <!-- Catalog: Tabe of Content -->
+      <!-- Table of Contents -->
+
+    
+      <aside id="sidebar">
+        <div id="toc" class="toc-article">
+        <strong class="toc-title">Contents</strong>
+        
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#%E6%9C%80%E5%B0%8F%E4%BA%8C%E4%B9%98%E6%B3%95%E5%8E%9F%E7%90%86"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">最小二乘法原理</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#%E6%9C%80%E5%B0%8F%E4%BA%8C%E4%B9%98%E6%B3%95%E7%AE%97%E6%B3%95"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">最小二乘法算法</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E4%BB%A3%E6%95%B0%E6%B3%95"><span class="toc-nav-number">2.1.</span> <span class="toc-nav-text">代数法</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E7%9F%A9%E9%98%B5%E6%B3%95"><span class="toc-nav-number">2.2.</span> <span class="toc-nav-text">矩阵法</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#%E6%9C%80%E5%B0%8F%E4%BA%8C%E4%B9%98%E6%B3%95%E7%9A%84%E5%B1%80%E9%99%90%E6%80%A7-amp-%E9%80%82%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">最小二乘法的局限性&amp;适用场景</span></a></li></ol>
+        
+        </div>
+      </aside>
     
 
-    <!-- USE SIDEBAR -->
-    <!-- Post Container -->
-    <div class="
+
+
+      <!-- Sidebar Container -->
+      <div class="
                 col-lg-8 col-lg-offset-1
-                col-md-8 col-md-offset-1
-                col-sm-12
-                col-xs-12
-                post-container
-            ">
+                col-md-10 col-md-offset-1
+                sidebar-container">
 
-      <!-- Main Content -->
-<div class="container">
-  <div class="row">
-    <div class="col-lg-8 col-lg-offset-0 col-md-10 col-md-offset-1">
-      <!-- 归档列表 -->
-
-      
-
-      <!-- 归档列表 -->
-      
-      <div class="one-tag-list">
-        <span class="fa fa-calendar-times-o listing-seperator" id="2022">
-          <span class="tag-text">2022</span>
-        </span>
-        <ul>
-          
-          <li>
-            05-02
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/myBlog/machine learning/Fundamental and regression algorithm/精确率，召回率，RoC和PR曲线/" style="color: #0085a1">
-              <span>
-                精确率，召回率，RoC,PR曲线
-                
-                -- machine learning
-                
-              </span>
-            </a>
-          </li>
-          
-          <li>
-            05-02
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/myBlog/machine learning/Fundamental and regression algorithm/交叉验证/" style="color: #0085a1">
-              <span>
-                交叉验证
-                
-                -- machine learning
-                
-              </span>
-            </a>
-          </li>
-          
-          <li>
-            05-02
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/myBlog/machine learning/Fundamental and regression algorithm/最小二乘法/" style="color: #0085a1">
-              <span>
-                最小二乘法
-                
-                -- machine learning
-                
-              </span>
-            </a>
-          </li>
-          
-          <li>
-            05-01
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/myBlog/machine learning/Fundamental and regression algorithm/梯度下降(Gradient Descent)/" style="color: #0085a1">
-              <span>
-                梯度下降（Gradient Descent）
-                
-                -- machine learning
-                
-              </span>
-            </a>
-          </li>
-          
-        </ul>
-      </div>
-      
-      <div class="one-tag-list">
-        <span class="fa fa-calendar-times-o listing-seperator" id="2021">
-          <span class="tag-text">2021</span>
-        </span>
-        <ul>
-          
-          <li>
-            05-20
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/myBlog/go/Day08/" style="color: #0085a1">
-              <span>
-                Go Day08-Commonly used package-log
-                
-                -- go
-                
-              </span>
-            </a>
-          </li>
-          
-          <li>
-            05-19
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/myBlog/go/Day07/" style="color: #0085a1">
-              <span>
-                Go Day07-Commonly used package-time
-                
-                -- go
-                
-              </span>
-            </a>
-          </li>
-          
-          <li>
-            05-17
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/myBlog/go/Day06/" style="color: #0085a1">
-              <span>
-                Go Day06-Concurrent Programming Part 2
-                
-                -- go
-                
-              </span>
-            </a>
-          </li>
-          
-          <li>
-            05-17
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/myBlog/Java/JavaTools/JSoup/" style="color: #0085a1">
-              <span>
-                Using Jsoup to parse content from html page
-                
-                -- Java
-                
-              </span>
-            </a>
-          </li>
-          
-          <li>
-            05-16
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/myBlog/go/Day05/" style="color: #0085a1">
-              <span>
-                Go Day05-Concurrent Programming
-                
-                -- go
-                
-              </span>
-            </a>
-          </li>
-          
-          <li>
-            04-27
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/myBlog/Java/maven/maven-jar/" style="color: #0085a1">
-              <span>
-                Install jar package at your local maven repository
-                
-                -- Java
-                
-              </span>
-            </a>
-          </li>
-          
-          <li>
-            04-25
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/myBlog/git/tutorial/" style="color: #0085a1">
-              <span>
-                GitHub教程-从零开始
-                
-                -- git
-                
-              </span>
-            </a>
-          </li>
-          
-          <li>
-            04-24
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/myBlog/go/Day04/" style="color: #0085a1">
-              <span>
-                Go day04-Method and interface
-                
-                -- go
-                
-              </span>
-            </a>
-          </li>
-          
-          <li>
-            04-22
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/myBlog/front-end/jQuery/" style="color: #0085a1">
-              <span>
-                jQuery learning note
-                
-                -- front-end
-                
-              </span>
-            </a>
-          </li>
-          
-          <li>
-            04-21
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/myBlog/go/Day03/" style="color: #0085a1">
-              <span>
-                Go day03-Mapping and function
-                
-                -- go
-                
-              </span>
-            </a>
-          </li>
-          
-          <li>
-            04-20
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/myBlog/go/Day02/" style="color: #0085a1">
-              <span>
-                Go Day02-Pointer ,array and slice
-                
-                -- go
-                
-              </span>
-            </a>
-          </li>
-          
-          <li>
-            04-20
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/myBlog/go/Day01/" style="color: #0085a1">
-              <span>
-                Go Day01-Basic structure and grammar
-                
-                -- go
-                
-              </span>
-            </a>
-          </li>
-          
-        </ul>
-      </div>
-      
-    </div>
-  </div>
-</div>
-
-
-      <!-- 如果开启评论功能 -->
-      
-    </div>
-
-    <!-- Sidebar Container -->
-<div class="
-    col-lg-3 col-lg-offset-0
-    col-md-3 col-md-offset-0
-    col-sm-12
-    col-xs-12
-    sidebar-container
-">
-    
-        <!-- Visitors -->
-<h5><a href="/myBlog/">VISITORS</a></h5>
-
-<div class="widget">
-  <span>
-    Viewed <b><i><span id="busuanzi_value_site_pv"><i class="fa fa-spinner fa-spin"></i></span></i></b> Times
-  </span>
-  <br />
-  <span>
-    <b><i><span id="busuanzi_value_site_uv"><i class="fa fa-spinner fa-spin"></i></span></i></b> Visitors In Total
-  </span>
-</div>
-
-
-        <hr>
-    
         <!-- Featured Tags -->
+        
+        <section>
+          <!-- no hr -->
+          <h5>
+            <a href="/myBlog/tags/">FEATURED TAGS</a>
+          </h5>
+          <div class="tags">
+            
+            <a class="tag" href="/myBlog/tags/#machine learning" title="machine learning">machine learning</a>
+            
+            <a class="tag" href="/myBlog/tags/#regression" title="regression">regression</a>
+            
+          </div>
+        </section>
+        
 
-<section>
-  <h5><a href="/myBlog/tags/">FEATURED TAGS</a></h5>
-  <div class="tags">
-    
-    
-    <a href="/myBlog/tags/#front-end" title="front-end" rel="1">front-end</a>
-    
-    
-    
-    <a href="/myBlog/tags/#learning note" title="learning note" rel="9">learning note</a>
-    
-    
-    
-    <a href="/myBlog/tags/#git" title="git" rel="1">git</a>
-    
-    
-    
-    <a href="/myBlog/tags/#tutorial" title="tutorial" rel="1">tutorial</a>
-    
-    
-    
-    <a href="/myBlog/tags/#basic" title="basic" rel="1">basic</a>
-    
-    
-    
-    <a href="/myBlog/tags/#Go" title="Go" rel="8">Go</a>
-    
-    
-    
-    <a href="/myBlog/tags/#JSoup" title="JSoup" rel="1">JSoup</a>
-    
-    
-    
-    <a href="/myBlog/tags/#Java" title="Java" rel="1">Java</a>
-    
-    
-    
-    <a href="/myBlog/tags/#note" title="note" rel="1">note</a>
-    
-    
-    
-    <a href="/myBlog/tags/#tip" title="tip" rel="1">tip</a>
-    
-    
-    
-    <a href="/myBlog/tags/#maven" title="maven" rel="1">maven</a>
-    
-    
-    
-    <a href="/myBlog/tags/#machine learning" title="machine learning" rel="4">machine learning</a>
-    
-    
-    
-    <a href="/myBlog/tags/#regression" title="regression" rel="4">regression</a>
-    
-    
-  </div>
-</section>
-
-
-        <hr>
-    
-        <!-- Short About -->
-<section class="visible-md visible-lg">
-  <h5><a href="/myBlog/about/">ABOUT ME</a></h5>
-  <div class="short-about">
-
-    
-    <img id="avatar_pic" src="/myBlog/img/avatar/fatpeople.jpg" alt="avatar_pic" style="box-shadow: 5px 5px 10px 5px rgba(0, 0, 0, .5);
-    -moz-box-shadow: 5px 5px 10px 5px rgba(0, 0, 0, .5);
-    -webkit-box-shadow: 5px 5px 10px 5px rgba(0, 0, 0, .5);" />
-    
-
-    
-    <p>Everything has its time and that time must be watched</p>
-    
-
-    <!-- SNS Link -->
-    <ul class="list-inline">
-      
-
-      
-      <li>
-        <a target="_blank" href="https://github.com/NUIST-elite">
-          <span class="fa-stack fa-lg">
-            <i class="fa fa-circle fa-stack-2x"></i>
-            <i class="fa fa-github fa-stack-1x fa-inverse"></i>
-          </span>
-        </a>
-      </li>
-      
-
-      
-
-      
-
-      
-
-      
-
-      
-
-      
-
-    </ul>
-  </div>
-</section>
-
-        <hr>
-    
-        <!-- RECENT POSTS -->
-
-<h5><a href="/myBlog/">RECENT POSTS</a></h5>
-<div class="widget">
-  <ul>
-    
-    <a href="../machine%20learning/Fundamental%20and%20regression%20algorithm/%E7%B2%BE%E7%A1%AE%E7%8E%87%EF%BC%8C%E5%8F%AC%E5%9B%9E%E7%8E%87%EF%BC%8CRoC%E5%92%8CPR%E6%9B%B2%E7%BA%BF/">
-      <li>精确率，召回率，RoC,PR曲线</li>
-    </a>
-    
-    <a href="../machine%20learning/Fundamental%20and%20regression%20algorithm/%E4%BA%A4%E5%8F%89%E9%AA%8C%E8%AF%81/">
-      <li>交叉验证</li>
-    </a>
-    
-    <a href="../machine%20learning/Fundamental%20and%20regression%20algorithm/%E6%9C%80%E5%B0%8F%E4%BA%8C%E4%B9%98%E6%B3%95/">
-      <li>最小二乘法</li>
-    </a>
-    
-    <a href="../machine%20learning/Fundamental%20and%20regression%20algorithm/%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D(Gradient%20Descent)/">
-      <li>梯度下降（Gradient Descent）</li>
-    </a>
-    
-    <a href="../go/Day08/">
-      <li>Go Day08-Commonly used package-log</li>
-    </a>
-    
-  </ul>
-</div>
-
-
-        <hr>
-    
         <!-- Friends Blog -->
-
-
-        <hr>
-    
-        <!-- Archives -->
-
-<h5><a href="/myBlog/archives/">archives</a></h5>
-<div class="widget">
-  <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="2022/05/">May 2022</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="2021/05/">May 2021</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="2021/04/">April 2021</a><span class="archive-list-count">7</span></li></ul>
-</div>
-
-
-        <hr>
-    
-        <!-- Categories -->
-
-<h5><a href="/myBlog/categories/">categories</a></h5>
-<div class="widget">
-  <ul>
-    
-    <a href="/myBlog/categories/#front-end learning note">
-      <li>front-end learning note</li>
-    </a>
-    
-    <a href="/myBlog/categories/#git basic tutorial">
-      <li>git basic tutorial</li>
-    </a>
-    
-    <a href="/myBlog/categories/#Go learning note">
-      <li>Go learning note</li>
-    </a>
-    
-    <a href="/myBlog/categories/#JavaTools">
-      <li>JavaTools</li>
-    </a>
-    
-    <a href="/myBlog/categories/#maven">
-      <li>maven</li>
-    </a>
-    
-    <a href="/myBlog/categories/#machine-learning regression">
-      <li>machine-learning regression</li>
-    </a>
-    
-  </ul>
-</div>
-
-
-        <hr>
-    
-</div>
-
-
-    
+        
+      </div>
+    </div>
   </div>
-</div>
+</article>
+
+
+
+<!-- anchorjs start -->
+<!-- async load function -->
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script type="text/javascript">
+  // async load function
+  function async (u, c) {
+    var d = document,
+      t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) {
+      o.addEventListener('load', function(e) {
+        c(null, e);
+      }, false);
+    }
+    s.parentNode.insertBefore(o, s);
+  };
+</script>
+<script type="text/javascript">
+  //anchor-js, Doc:http://bryanbraun.github.io/anchorjs/
+  async ("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js", function() {
+    anchors.options = {
+      visible: 'hover',
+      placement: 'left',
+      // icon: 'ℬ'
+      icon: '❡'
+    };
+    anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+  });
+</script>
+<style>
+  /* place left on bigger screen */
+  @media all and (min-width: 800px) {
+    .anchorjs-link {
+      position: absolute;
+      left: -0.75em;
+      font-size: 1.1em;
+      margin-top: -0.1em;
+    }
+  }
+</style>
+
+<!-- anchorjs end -->
+
 
 
 		<!-- Footer (contains ThemeColor、viewer) -->

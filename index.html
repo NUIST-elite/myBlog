@@ -262,9 +262,9 @@
           
           
           <li>
-            <a href="/myBlog/archive/">
+            <a href="/myBlog/categories/">
               
-              ARCHIVES
+              CATEGORIES
               
               
             </a>
@@ -273,9 +273,9 @@
           
           
           <li>
-            <a href="/myBlog/categories/">
+            <a href="/myBlog/archive/">
               
-              CATEGORIES
+              ARCHIVES
               
               
             </a>
@@ -482,6 +482,119 @@
   <!-- top end -->
   
 
+  <a href="/myBlog/machine learning/Fundamental and regression algorithm/精确率，召回率，RoC和PR曲线/">
+    <h2 class="post-title">
+      精确率，召回率，RoC,PR曲线
+    </h2>
+    <h3 class="post-subtitle">
+      
+    </h3>
+    <div class="post-content-preview">
+      前置概念（TP, FP, TN, FN）概念介绍在了解精确率和召回率前，有几个概念需要了解
+
+TP（True Positives）：预测为正样本，实际也为正样本的特征的数量
+FP（False Positives）：预测为正样本，实际为负样本的特征的数量
+TN（True Negatives）：预测为负样本，实际也为负样本的特征的数量
+FN（False Negatives）：预测为负样本，实际为......
+    </div>
+  </a>
+  
+  <p class="post-meta" style="margin: 10px 0;">
+    Posted by Eric Wong on
+    2022-05-02
+  </p>
+  <div class="tags">
+    
+    <a href="/myBlog/tags/#machine learning" title="machine learning">machine learning</a>
+    
+    <a href="/myBlog/tags/#regression" title="regression">regression</a>
+    
+  </div>
+  
+
+</div>
+<hr>
+
+<div class="post-preview">
+  
+  <!-- top start (article top hot config) -->
+  
+  <!-- top end -->
+  
+
+  <a href="/myBlog/machine learning/Fundamental and regression algorithm/交叉验证/">
+    <h2 class="post-title">
+      交叉验证
+    </h2>
+    <h3 class="post-subtitle">
+      交叉验证介绍
+    </h3>
+    <div class="post-content-preview">
+      交叉验证交叉验证原理与应用场景交叉验证（Cross validation）是在机器学习建立模型和验证模型参数时常用的办法。交叉验证，顾名思义，就是重复的使用数据，把得到的样本数据进行切分，组合为不同的训练集和测试集，用训练集来训练模型，用测试集来评估模型预测的好坏。在此基础上可以得到多组不同的训练集和测试集，某次训练集中的某样本在下次可能成为测试集中的样本，即所谓“交叉”。
+交叉验证用在数据......
+    </div>
+  </a>
+  
+  <p class="post-meta" style="margin: 10px 0;">
+    Posted by Eric Wong on
+    2022-05-02
+  </p>
+  <div class="tags">
+    
+    <a href="/myBlog/tags/#machine learning" title="machine learning">machine learning</a>
+    
+    <a href="/myBlog/tags/#regression" title="regression">regression</a>
+    
+  </div>
+  
+
+</div>
+<hr>
+
+<div class="post-preview">
+  
+  <!-- top start (article top hot config) -->
+  
+  <!-- top end -->
+  
+
+  <a href="/myBlog/machine learning/Fundamental and regression algorithm/最小二乘法/">
+    <h2 class="post-title">
+      最小二乘法
+    </h2>
+    <h3 class="post-subtitle">
+      最小二乘法学习总结
+    </h3>
+    <div class="post-content-preview">
+      最小二乘法原理最小二乘法是用来做函数拟合或者求函数极值的方法。在机器学习，尤其是回归模型中，经常可以看到最小二乘法的身影
+最小二乘法的一般形式如下：
+loss\ function = \sum\limits（y-hypothesis\ function）^2loss function就是损失函数，y是样本的观测值，hypothesis function是假设拟合函数。我们的目标是得到使los......
+    </div>
+  </a>
+  
+  <p class="post-meta" style="margin: 10px 0;">
+    Posted by Eric Wong on
+    2022-05-02
+  </p>
+  <div class="tags">
+    
+    <a href="/myBlog/tags/#machine learning" title="machine learning">machine learning</a>
+    
+    <a href="/myBlog/tags/#regression" title="regression">regression</a>
+    
+  </div>
+  
+
+</div>
+<hr>
+
+<div class="post-preview">
+  
+  <!-- top start (article top hot config) -->
+  
+  <!-- top end -->
+  
+
   <a href="/myBlog/machine learning/Fundamental and regression algorithm/梯度下降(Gradient Descent)/">
     <h2 class="post-title">
       梯度下降（Gradient Descent）
@@ -491,15 +604,13 @@
     </h3>
     <div class="post-content-preview">
       梯度简介
-
-定义：对多元函数的参数求偏导数，把求得的各个参数的偏导数以向量的形式写出来，就是梯度。比如函数f(x, y), 分别对x, y求偏导数，求得的梯度向量表示如下：
-$$ (\frac{∂f}{∂x}, \frac{∂f}{∂y})^T $$
+定义：对多元函数的参数求偏导数，把求得的各个参数的偏导数以向量的形式写出来，就是梯度。比如函数f(x, y), 分别对x, y求偏导数，求得的梯度向量表示如下：(\frac{∂f}{∂x}, \frac{∂f}{∂y})^T
 
 
 该式即梯度计算公式，简称$grad f(x,y)$或者$▽f(x,y)$。
 
 
-意义：梯度的意义从几何意义上讲，就是函数变化增加最快的地方......
+意义：梯度的意义从几何意义上讲，就是函数变化增加最快的地方。在点$(x_0......
     </div>
   </a>
   
@@ -534,11 +645,9 @@ $$ (\frac{∂f}{∂x}, \frac{∂f}{∂y})^T $$
       
     </h3>
     <div class="post-content-preview">
-      Day08
-log is a standard package in Go, it provides basic logger function.
-Basic usage
-use log to print log with time.
-1234567import &quot;log&quot;func main() &#123;	log.Println(&quot;Wow&quot;)	lo......
+      Day08log is a standard package in Go, it provides basic logger function.
+Basic usageuse log to print log with time.
+1234567import &quot;log&quot;func main() &#123;	log.Println(&quot;Wow&quot;)	log.......
     </div>
   </a>
   
@@ -573,11 +682,9 @@ use log to print log with time.
       
     </h3>
     <div class="post-content-preview">
-      Day07
-The time package provides functions for displaying and measuring time. The calculation of the calendar uses the Gregorian calendar
-Time object
-use time.Time to acquire time.
-1234567891011func......
+      Day07The time package provides functions for displaying and measuring time. The calculation of the calendar uses the Gregorian calendar
+Time objectuse time.Time to acquire time.
+1234567891011func m......
     </div>
   </a>
   
@@ -612,10 +719,8 @@ use time.Time to acquire time.
       
     </h3>
     <div class="post-content-preview">
-      Day06
-Multiplexing
-Sometimes we need to receive data from multiple channel, if we receive it one by one, that will cause bad performance.
-123456for &#123;    data, ok := &lt;-ch1    data, ok := &lt......
+      Day06MultiplexingSometimes we need to receive data from multiple channel, if we receive it one by one, that will cause bad performance.
+123456for &#123;    data, ok := &lt;-ch1    data, ok := &lt;-......
     </div>
   </a>
   
@@ -650,8 +755,7 @@ Sometimes we need to receive data from multiple channel, if we receive it one by
       
     </h3>
     <div class="post-content-preview">
-      Jsoup
-Jsoup is a Java library for working with real-world HTML. It provides a very convenient API for fetching URLs and extracting and manipulating data, using the best of HTML5 DOM methods and CSS......
+      JsoupJsoup is a Java library for working with real-world HTML. It provides a very convenient API for fetching URLs and extracting and manipulating data, using the best of HTML5 DOM methods and CSS ......
     </div>
   </a>
   
@@ -688,10 +792,8 @@ Jsoup is a Java library for working with real-world HTML. It provides a very con
       
     </h3>
     <div class="post-content-preview">
-      Day05
-Goroutine
-Concurrent programming is simple in go, unlike Java, you do not have to configure lots of Threads, etc. You can add go before a function, that means start a goroutine.
-12345678func ......
+      Day05GoroutineConcurrent programming is simple in go, unlike Java, you do not have to configure lots of Threads, etc. You can add go before a function, that means start a goroutine.
+12345678func ma......
     </div>
   </a>
   
@@ -726,8 +828,7 @@ Concurrent programming is simple in go, unlike Java, you do not have to configur
       
     </h3>
     <div class="post-content-preview">
-      Introduction
-This article is intended to show you how to install a jar package at your local maven repository in order that you can user it in Spring project directly by importing a dependency in y......
+      IntroductionThis article is intended to show you how to install a jar package at your local maven repository in order that you can user it in Spring project directly by importing a dependency in yo......
     </div>
   </a>
   
@@ -740,132 +841,6 @@ This article is intended to show you how to install a jar package at your local 
     <a href="/myBlog/tags/#tip" title="tip">tip</a>
     
     <a href="/myBlog/tags/#maven" title="maven">maven</a>
-    
-  </div>
-  
-
-</div>
-<hr>
-
-<div class="post-preview">
-  
-  <!-- top start (article top hot config) -->
-  
-  <!-- top end -->
-  
-
-  <a href="/myBlog/git/tutorial/">
-    <h2 class="post-title">
-      GitHub教程-从零开始
-    </h2>
-    <h3 class="post-subtitle">
-      从创建账号开始，搭建自己的代码管理仓库以及个人博客
-    </h3>
-    <div class="post-content-preview">
-      前言
-这是一篇零基础的GitHub教学，帮助你从创建账号开始，到能熟练操作GitHub。这篇教程包括博主在踩过很多坑，看了很多教程后总结出来的一些个人经验，之后遇到新的问题也会更新到博客上。
- 
- 
-GitHub是什么
-Git
-Git是一个开源的分布式版本控制系统，可以有效、高速地处理从很小到非常大的项目版本管理。如今无论个人还是企业，开发的项目越来越大，而版本会不断地更新，当你想要找到之前......
-    </div>
-  </a>
-  
-  <p class="post-meta" style="margin: 10px 0;">
-    Posted by Eric Wong on
-    2021-04-25
-  </p>
-  <div class="tags">
-    
-    <a href="/myBlog/tags/#git" title="git">git</a>
-    
-    <a href="/myBlog/tags/#tutorial" title="tutorial">tutorial</a>
-    
-    <a href="/myBlog/tags/#basic" title="basic">basic</a>
-    
-  </div>
-  
-
-</div>
-<hr>
-
-<div class="post-preview">
-  
-  <!-- top start (article top hot config) -->
-  
-  <!-- top end -->
-  
-
-  <a href="/myBlog/go/Day04/">
-    <h2 class="post-title">
-      Go day04-Method and interface
-    </h2>
-    <h3 class="post-subtitle">
-      
-    </h3>
-    <div class="post-content-preview">
-      Day04
-Method
-
-
-What’s method?
-Unlike Java and C++, Go doesn’t have concept of class, But it has method.
-Method is similar to function, except that it has a special type of parameter called ‘receive......
-    </div>
-  </a>
-  
-  <p class="post-meta" style="margin: 10px 0;">
-    Posted by Eric Wong on
-    2021-04-24
-  </p>
-  <div class="tags">
-    
-    <a href="/myBlog/tags/#learning note" title="learning note">learning note</a>
-    
-    <a href="/myBlog/tags/#Go" title="Go">Go</a>
-    
-  </div>
-  
-
-</div>
-<hr>
-
-<div class="post-preview">
-  
-  <!-- top start (article top hot config) -->
-  
-  <!-- top end -->
-  
-
-  <a href="/myBlog/front-end/jQuery/">
-    <h2 class="post-title">
-      jQuery learning note
-    </h2>
-    <h3 class="post-subtitle">
-      Some fundamental concepts and features of jQuery
-    </h3>
-    <div class="post-content-preview">
-      jQuery study note
-What’s jQuery?
-
-jQuery is a library for JavaScript, which significantly simplified coding for JS.
-jQuery includes lots of functions, including:
-
-Selecting HTML elements
-Operating ......
-    </div>
-  </a>
-  
-  <p class="post-meta" style="margin: 10px 0;">
-    Posted by Eric Wong on
-    2021-04-22
-  </p>
-  <div class="tags">
-    
-    <a href="/myBlog/tags/#front-end" title="front-end">front-end</a>
-    
-    <a href="/myBlog/tags/#learning note" title="learning note">learning note</a>
     
   </div>
   
@@ -945,14 +920,6 @@ Operating ......
     
     
     
-    <a href="/myBlog/tags/#tip" title="tip" rel="1">tip</a>
-    
-    
-    
-    <a href="/myBlog/tags/#maven" title="maven" rel="1">maven</a>
-    
-    
-    
     <a href="/myBlog/tags/#JSoup" title="JSoup" rel="1">JSoup</a>
     
     
@@ -965,11 +932,19 @@ Operating ......
     
     
     
-    <a href="/myBlog/tags/#machine learning" title="machine learning" rel="1">machine learning</a>
+    <a href="/myBlog/tags/#tip" title="tip" rel="1">tip</a>
     
     
     
-    <a href="/myBlog/tags/#regression" title="regression" rel="1">regression</a>
+    <a href="/myBlog/tags/#maven" title="maven" rel="1">maven</a>
+    
+    
+    
+    <a href="/myBlog/tags/#machine learning" title="machine learning" rel="4">machine learning</a>
+    
+    
+    
+    <a href="/myBlog/tags/#regression" title="regression" rel="4">regression</a>
     
     
   </div>
@@ -1032,24 +1007,24 @@ Operating ......
 <div class="widget">
   <ul>
     
+    <a href="machine%20learning/Fundamental%20and%20regression%20algorithm/%E7%B2%BE%E7%A1%AE%E7%8E%87%EF%BC%8C%E5%8F%AC%E5%9B%9E%E7%8E%87%EF%BC%8CRoC%E5%92%8CPR%E6%9B%B2%E7%BA%BF/">
+      <li>精确率，召回率，RoC,PR曲线</li>
+    </a>
+    
+    <a href="machine%20learning/Fundamental%20and%20regression%20algorithm/%E4%BA%A4%E5%8F%89%E9%AA%8C%E8%AF%81/">
+      <li>交叉验证</li>
+    </a>
+    
+    <a href="machine%20learning/Fundamental%20and%20regression%20algorithm/%E6%9C%80%E5%B0%8F%E4%BA%8C%E4%B9%98%E6%B3%95/">
+      <li>最小二乘法</li>
+    </a>
+    
     <a href="machine%20learning/Fundamental%20and%20regression%20algorithm/%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D(Gradient%20Descent)/">
       <li>梯度下降（Gradient Descent）</li>
     </a>
     
     <a href="go/Day08/">
       <li>Go Day08-Commonly used package-log</li>
-    </a>
-    
-    <a href="go/Day07/">
-      <li>Go Day07-Commonly used package-time</li>
-    </a>
-    
-    <a href="go/Day06/">
-      <li>Go Day06-Concurrent Programming Part 2</li>
-    </a>
-    
-    <a href="Java/JavaTools/JSoup/">
-      <li>Using Jsoup to parse content from html page</li>
     </a>
     
   </ul>
@@ -1067,7 +1042,7 @@ Operating ......
 
 <h5><a href="/myBlog/archives/">archives</a></h5>
 <div class="widget">
-  <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="archives/2022/05/">May 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="archives/2021/05/">May 2021</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="archives/2021/04/">April 2021</a><span class="archive-list-count">7</span></li></ul>
+  <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="archives/2022/05/">May 2022</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="archives/2021/05/">May 2021</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="archives/2021/04/">April 2021</a><span class="archive-list-count">7</span></li></ul>
 </div>
 
 
@@ -1091,12 +1066,12 @@ Operating ......
       <li>Go learning note</li>
     </a>
     
-    <a href="/myBlog/categories/#maven">
-      <li>maven</li>
-    </a>
-    
     <a href="/myBlog/categories/#JavaTools">
       <li>JavaTools</li>
+    </a>
+    
+    <a href="/myBlog/categories/#maven">
+      <li>maven</li>
     </a>
     
     <a href="/myBlog/categories/#machine-learning regression">

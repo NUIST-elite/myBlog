@@ -262,9 +262,9 @@
           
           
           <li>
-            <a href="/myBlog/archive/">
+            <a href="/myBlog/categories/">
               
-              ARCHIVES
+              CATEGORIES
               
               
             </a>
@@ -273,9 +273,9 @@
           
           
           <li>
-            <a href="/myBlog/categories/">
+            <a href="/myBlog/archive/">
               
-              CATEGORIES
+              ARCHIVES
               
               
             </a>
@@ -414,7 +414,7 @@
             </span>
             <div class="blank_box"></div>
             <span class="meta">
-              Words <span class="post-count">311</span> In Total
+              Words <span class="post-count">307</span> In Total
             </span>
             <div class="blank_box"></div>
             <!-- WordCount end -->
@@ -476,28 +476,22 @@
       <!-- Post Container -->
       <div class="col-lg-8 col-lg-offset-1 col-md-10 col-md-offset-1 post-container">
 
-        <h1>Day03</h1>
-<h2 id="Mapping">Mapping</h2>
-<p>Mapping is similar to <code>Map</code> in <em>Java</em>, it  maps <strong>keys to values</strong>.</p>
+        <h1 id="Day03"><a href="#Day03" class="headerlink" title="Day03"></a>Day03</h1><h2 id="Mapping"><a href="#Mapping" class="headerlink" title="Mapping"></a>Mapping</h2><p>Mapping is similar to <code>Map</code> in <em>Java</em>, it  maps <strong>keys to values</strong>.</p>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> Vertex2 <span class="keyword">struct</span> &#123;</span><br><span class="line">	Lat, Long <span class="keyword">float64</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> m <span class="keyword">map</span>[<span class="keyword">string</span>]Vertex2</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	m = <span class="built_in">make</span>(<span class="keyword">map</span>[<span class="keyword">string</span>]Vertex2)</span><br><span class="line">	fmt.Println(m) <span class="comment">// map[]</span></span><br><span class="line">	m[<span class="string">&quot;demo location&quot;</span>] = Vertex2&#123;</span><br><span class="line">		<span class="number">12.34</span>, <span class="number">56.78</span>,</span><br><span class="line">	&#125;</span><br><span class="line">	fmt.Println(m) <span class="comment">// map[1:&#123;12.34 56.78&#125;]</span></span><br><span class="line">	fmt.Println(m[<span class="string">&quot;demo location&quot;</span>]) <span class="comment">// &#123;12.34 56.78&#125;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>Another example: creating a <code>map</code> whose <strong>key</strong> is type <code>string</code> and <strong>value</strong> is type <code>int</code> using following steps:</p>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a <span class="keyword">map</span>[<span class="keyword">string</span>]<span class="keyword">int</span> <span class="comment">// creating an empty map</span></span><br><span class="line">a = <span class="built_in">make</span>(<span class="keyword">map</span>[<span class="keyword">string</span>]<span class="keyword">int</span>) <span class="comment">// initilize the map</span></span><br><span class="line">a[<span class="string">&quot;rank&quot;</span>] = <span class="number">1</span></span><br><span class="line"></span><br><span class="line">fmt.Println(a) <span class="comment">// map[rank:1]</span></span><br><span class="line">fmt.Println(a[<span class="string">&quot;rank&quot;</span>]) <span class="comment">// 1</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// another form</span></span><br><span class="line"><span class="keyword">var</span> a = <span class="keyword">map</span>[<span class="keyword">string</span>]<span class="keyword">int</span>&#123;</span><br><span class="line">    <span class="string">&quot;rank&quot;</span>: <span class="number">1</span>,</span><br><span class="line">    <span class="string">&quot;age&quot;</span>: <span class="number">18</span>,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>Some common operation of map:</p>
 <ul>
-<li>
-<p>insert or update elements</p>
+<li><p>insert or update elements</p>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">m[key] = elem</span><br></pre></td></tr></table></figure>
 </li>
-<li>
-<p>get elements</p>
+<li><p>get elements</p>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">elem := m[key]</span><br></pre></td></tr></table></figure>
 </li>
-<li>
-<p>delete elements</p>
+<li><p>delete elements</p>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">delete</span>(m, key)</span><br></pre></td></tr></table></figure>
 </li>
-<li>
-<p>find out if the key exists</p>
+<li><p>find out if the key exists</p>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">elem, ok := m[key]</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>If the key exists, elem return the <strong>value</strong> of it and ok is <strong>true</strong></p>
@@ -505,11 +499,9 @@
 </blockquote>
 </li>
 </ul>
-<h2 id="Some-additions-for-function">Some additions for function</h2>
-<p>It is noticeable that <code>function</code> can also be used as a <strong>parameter</strong> of <code>function</code></p>
+<h2 id="Some-additions-for-function"><a href="#Some-additions-for-function" class="headerlink" title="Some additions for function"></a>Some additions for function</h2><p>It is noticeable that <code>function</code> can also be used as a <strong>parameter</strong> of <code>function</code></p>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">operator</span><span class="params">(fn <span class="keyword">func</span>(a, b <span class="keyword">int</span>)</span><span class="title">int</span>) <span class="title">int</span></span> &#123;</span><br><span class="line">	<span class="keyword">return</span> fn(<span class="number">7</span>, <span class="number">8</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    hypot := <span class="function"><span class="keyword">func</span><span class="params">(x, y <span class="keyword">int</span>)</span> <span class="title">int</span></span> &#123;</span><br><span class="line">		<span class="keyword">return</span> x * y</span><br><span class="line">	&#125;</span><br><span class="line">	fmt.Println(hypot(<span class="number">5</span>, <span class="number">12</span>)) <span class="comment">// 60</span></span><br><span class="line"></span><br><span class="line">	fmt.Println(operator(hypot)) <span class="comment">// 56</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="Function-closure">Function closure</h3>
-<p>function closure is like Anonymous function in Java</p>
+<h3 id="Function-closure"><a href="#Function-closure" class="headerlink" title="Function closure"></a>Function closure</h3><p>function closure is like Anonymous function in Java</p>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">getSequence</span><span class="params">()</span> <span class="title">func</span><span class="params">()</span> <span class="title">int</span></span> &#123;</span><br><span class="line">   i:=<span class="number">0</span></span><br><span class="line">   <span class="keyword">return</span> <span class="function"><span class="keyword">func</span><span class="params">()</span> <span class="title">int</span></span> &#123;</span><br><span class="line">      i+=<span class="number">1</span></span><br><span class="line">     <span class="keyword">return</span> i  </span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">   <span class="comment">/* nextNumber is a function, i = 1 */</span></span><br><span class="line">   nextNumber := getSequence()  </span><br><span class="line"></span><br><span class="line">   <span class="comment">/* call nextNumber, i+=1 and return */</span></span><br><span class="line">   fmt.Println(nextNumber()) <span class="comment">// 1</span></span><br><span class="line">   fmt.Println(nextNumber()) <span class="comment">// 2</span></span><br><span class="line">   fmt.Println(nextNumber()) <span class="comment">// 3</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
@@ -715,7 +707,7 @@
         <div id="toc" class="toc-article">
         <strong class="toc-title">Contents</strong>
         
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">Day03</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Mapping"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">Mapping</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Some-additions-for-function"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">Some additions for function</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Function-closure"><span class="toc-nav-number">1.2.1.</span> <span class="toc-nav-text">Function closure</span></a></li></ol></li></ol></li></ol>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#Day03"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">Day03</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Mapping"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">Mapping</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Some-additions-for-function"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">Some additions for function</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Function-closure"><span class="toc-nav-number">1.2.1.</span> <span class="toc-nav-text">Function closure</span></a></li></ol></li></ol></li></ol>
         
         </div>
       </aside>
