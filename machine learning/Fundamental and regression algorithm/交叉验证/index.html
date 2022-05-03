@@ -262,17 +262,6 @@
           
           
           <li>
-            <a href="/myBlog/categories/">
-              
-              CATEGORIES
-              
-              
-            </a>
-          </li>
-          
-          
-          
-          <li>
             <a href="/myBlog/archive/">
               
               ARCHIVES
@@ -287,6 +276,17 @@
             <a href="/myBlog/tags/">
               
               TAGS
+              
+              
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/myBlog/categories/">
+              
+              CATEGORIES
               
               
             </a>
@@ -476,12 +476,19 @@
       <!-- Post Container -->
       <div class="col-lg-8 col-lg-offset-1 col-md-10 col-md-offset-1 post-container">
 
-        <h1 id="交叉验证"><a href="#交叉验证" class="headerlink" title="交叉验证"></a>交叉验证</h1><h2 id="交叉验证原理与应用场景"><a href="#交叉验证原理与应用场景" class="headerlink" title="交叉验证原理与应用场景"></a>交叉验证原理与应用场景</h2><p>交叉验证（Cross validation）是在机器学习<strong>建立模型和验证模型参数</strong>时常用的办法。交叉验证，顾名思义，就是重复的使用数据，<strong>把得到的样本数据进行切分，组合为不同的训练集和测试集</strong>，用训练集来训练模型，用测试集来评估模型预测的好坏。在此基础上可以得到多组不同的训练集和测试集，某次训练集中的某样本在下次可能成为测试集中的样本，即所谓“交叉”。</p>
+        <h1>交叉验证</h1>
+<h2 id="交叉验证原理与应用场景">交叉验证原理与应用场景</h2>
+<p>交叉验证（Cross validation）是在机器学习<strong>建立模型和验证模型参数</strong>时常用的办法。交叉验证，顾名思义，就是重复的使用数据，<strong>把得到的样本数据进行切分，组合为不同的训练集和测试集</strong>，用训练集来训练模型，用测试集来评估模型预测的好坏。在此基础上可以得到多组不同的训练集和测试集，某次训练集中的某样本在下次可能成为测试集中的样本，即所谓“交叉”。</p>
 <p>交叉验证用在<strong>数据不是很充足</strong>的时候。比如在日常项目里面，如果数据样本量小于一万条，就会采用交叉验证来训练优化选择模型。如果样本大于一万条的话，一般随机的把数据分成三份，一份为训练集（Training Set），一份为验证集（Validation Set），最后一份为测试集（Test Set）。用训练集来训练模型，用验证集来评估模型预测的好坏和选择模型及其对应的参数。把最终得到的模型再用于测试集，最终决定使用哪个模型以及对应参数。</p>
-<h2 id="交叉验证种类"><a href="#交叉验证种类" class="headerlink" title="交叉验证种类"></a>交叉验证种类</h2><h3 id="简单交叉验证（holdout-cross-validation）"><a href="#简单交叉验证（holdout-cross-validation）" class="headerlink" title="简单交叉验证（holdout cross validation）"></a>简单交叉验证（holdout cross validation）</h3><p>简单交叉验证通过随机的将样本数据分为两部分（比如： 70%的训练集，30%的测试集），然后用训练集来训练模型，在测试集上验证模型及参数。接着，我们再把样本打乱，重新选择训练集和测试集，继续训练数据和检验模型。最后我们选择损失函数评估最优的模型和参数。　</p>
-<h3 id="k折交叉验证（k-fold-cross-validation）"><a href="#k折交叉验证（k-fold-cross-validation）" class="headerlink" title="k折交叉验证（k-fold cross validation）"></a>k折交叉验证（k-fold cross validation）</h3><p>和第一种方法不同，KFold交叉验证会把样本数据<strong>随机的分成K份，每次随机的选择K-1份作为训练集，剩下的1份做测试集</strong>。当这一轮完成后，重新随机选择K-1份来训练数据。若干轮（小于K）之后，选择损失函数评估最优的模型和参数。</p>
-<h3 id="留一交叉验证（Leave-one-out-cross-validation）"><a href="#留一交叉验证（Leave-one-out-cross-validation）" class="headerlink" title="留一交叉验证（Leave-one-out cross validation）"></a>留一交叉验证（Leave-one-out cross validation）</h3><p>它是KFold的特例，此时K等于样本数N，这样对于N个样本，每次选择N-1个样本来训练数据，留一个样本来验证模型预测的好坏。此方法主要用于样本量非常少的情况，比如N小于50时，一般采用留一交叉验证。</p>
-<h2 id="额外的CV种类介绍"><a href="#额外的CV种类介绍" class="headerlink" title="额外的CV种类介绍"></a>额外的CV种类介绍</h2><p>除了本文提到的三种，其实CV可以分为8大种。具体可以看<a target="_blank" rel="noopener" href="https://towardsdatascience.com/understanding-8-types-of-cross-validation-80c935a4976d">这一篇文章</a>。</p>
+<h2 id="交叉验证种类">交叉验证种类</h2>
+<h3 id="简单交叉验证（holdout-cross-validation）">简单交叉验证（holdout cross validation）</h3>
+<p>简单交叉验证通过随机的将样本数据分为两部分（比如： 70%的训练集，30%的测试集），然后用训练集来训练模型，在测试集上验证模型及参数。接着，我们再把样本打乱，重新选择训练集和测试集，继续训练数据和检验模型。最后我们选择损失函数评估最优的模型和参数。</p>
+<h3 id="k折交叉验证（k-fold-cross-validation）">k折交叉验证（k-fold cross validation）</h3>
+<p>和第一种方法不同，KFold交叉验证会把样本数据<strong>随机的分成K份，每次随机的选择K-1份作为训练集，剩下的1份做测试集</strong>。当这一轮完成后，重新随机选择K-1份来训练数据。若干轮（小于K）之后，选择损失函数评估最优的模型和参数。</p>
+<h3 id="留一交叉验证（Leave-one-out-cross-validation）">留一交叉验证（Leave-one-out cross validation）</h3>
+<p>它是KFold的特例，此时K等于样本数N，这样对于N个样本，每次选择N-1个样本来训练数据，留一个样本来验证模型预测的好坏。此方法主要用于样本量非常少的情况，比如N小于50时，一般采用留一交叉验证。</p>
+<h2 id="额外的CV种类介绍">额外的CV种类介绍</h2>
+<p>除了本文提到的三种，其实CV可以分为8大种。具体可以看<a target="_blank" rel="noopener" href="https://towardsdatascience.com/understanding-8-types-of-cross-validation-80c935a4976d">这一篇文章</a>。</p>
 
 
         <hr>
@@ -686,7 +693,7 @@
         <div id="toc" class="toc-article">
         <strong class="toc-title">Contents</strong>
         
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#%E4%BA%A4%E5%8F%89%E9%AA%8C%E8%AF%81"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">交叉验证</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E4%BA%A4%E5%8F%89%E9%AA%8C%E8%AF%81%E5%8E%9F%E7%90%86%E4%B8%8E%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">交叉验证原理与应用场景</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E4%BA%A4%E5%8F%89%E9%AA%8C%E8%AF%81%E7%A7%8D%E7%B1%BB"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">交叉验证种类</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E7%AE%80%E5%8D%95%E4%BA%A4%E5%8F%89%E9%AA%8C%E8%AF%81%EF%BC%88holdout-cross-validation%EF%BC%89"><span class="toc-nav-number">1.2.1.</span> <span class="toc-nav-text">简单交叉验证（holdout cross validation）</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#k%E6%8A%98%E4%BA%A4%E5%8F%89%E9%AA%8C%E8%AF%81%EF%BC%88k-fold-cross-validation%EF%BC%89"><span class="toc-nav-number">1.2.2.</span> <span class="toc-nav-text">k折交叉验证（k-fold cross validation）</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E7%95%99%E4%B8%80%E4%BA%A4%E5%8F%89%E9%AA%8C%E8%AF%81%EF%BC%88Leave-one-out-cross-validation%EF%BC%89"><span class="toc-nav-number">1.2.3.</span> <span class="toc-nav-text">留一交叉验证（Leave-one-out cross validation）</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E9%A2%9D%E5%A4%96%E7%9A%84CV%E7%A7%8D%E7%B1%BB%E4%BB%8B%E7%BB%8D"><span class="toc-nav-number">1.3.</span> <span class="toc-nav-text">额外的CV种类介绍</span></a></li></ol></li></ol>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">交叉验证</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E4%BA%A4%E5%8F%89%E9%AA%8C%E8%AF%81%E5%8E%9F%E7%90%86%E4%B8%8E%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">交叉验证原理与应用场景</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E4%BA%A4%E5%8F%89%E9%AA%8C%E8%AF%81%E7%A7%8D%E7%B1%BB"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">交叉验证种类</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E7%AE%80%E5%8D%95%E4%BA%A4%E5%8F%89%E9%AA%8C%E8%AF%81%EF%BC%88holdout-cross-validation%EF%BC%89"><span class="toc-nav-number">1.2.1.</span> <span class="toc-nav-text">简单交叉验证（holdout cross validation）</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#k%E6%8A%98%E4%BA%A4%E5%8F%89%E9%AA%8C%E8%AF%81%EF%BC%88k-fold-cross-validation%EF%BC%89"><span class="toc-nav-number">1.2.2.</span> <span class="toc-nav-text">k折交叉验证（k-fold cross validation）</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E7%95%99%E4%B8%80%E4%BA%A4%E5%8F%89%E9%AA%8C%E8%AF%81%EF%BC%88Leave-one-out-cross-validation%EF%BC%89"><span class="toc-nav-number">1.2.3.</span> <span class="toc-nav-text">留一交叉验证（Leave-one-out cross validation）</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E9%A2%9D%E5%A4%96%E7%9A%84CV%E7%A7%8D%E7%B1%BB%E4%BB%8B%E7%BB%8D"><span class="toc-nav-number">1.3.</span> <span class="toc-nav-text">额外的CV种类介绍</span></a></li></ol></li></ol>
         
         </div>
       </aside>

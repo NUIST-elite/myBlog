@@ -262,17 +262,6 @@
           
           
           <li>
-            <a href="/myBlog/categories/">
-              
-              CATEGORIES
-              
-              
-            </a>
-          </li>
-          
-          
-          
-          <li>
             <a href="/myBlog/archive/">
               
               ARCHIVES
@@ -287,6 +276,17 @@
             <a href="/myBlog/tags/">
               
               TAGS
+              
+              
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/myBlog/categories/">
+              
+              CATEGORIES
               
               
             </a>
@@ -482,6 +482,45 @@
   <!-- top end -->
   
 
+  <a href="/myBlog/machine learning/Fundamental and regression algorithm/linear-regression/">
+    <h2 class="post-title">
+      linear-regression
+    </h2>
+    <h3 class="post-subtitle">
+      线性回归知识点总结
+    </h3>
+    <div class="post-content-preview">
+      线性回归基础
+线性回归的一般场景
+线性回归问题一般有如下场景：我们有m个样本，每个样本对应于n维特征和一个结果输出，如下：
+$$ (x_1^{(0)}, x_2^{(0)}, …x_n^{(0)}, y_0), (x_1^{(1)}, x_2^{(1)}, …x_n^{(1)},y_1), … (x_1^{(m)}, x_2^{(m)}, …x_n^{(m)}, y_m) $$
+要解决的问题......
+    </div>
+  </a>
+  
+  <p class="post-meta" style="margin: 10px 0;">
+    Posted by Eric Wong on
+    2022-05-03
+  </p>
+  <div class="tags">
+    
+    <a href="/myBlog/tags/#machine learning" title="machine learning">machine learning</a>
+    
+    <a href="/myBlog/tags/#regression" title="regression">regression</a>
+    
+  </div>
+  
+
+</div>
+<hr>
+
+<div class="post-preview">
+  
+  <!-- top start (article top hot config) -->
+  
+  <!-- top end -->
+  
+
   <a href="/myBlog/machine learning/Fundamental and regression algorithm/精确率，召回率，RoC和PR曲线/">
     <h2 class="post-title">
       精确率，召回率，RoC,PR曲线
@@ -490,12 +529,14 @@
       
     </h3>
     <div class="post-content-preview">
-      前置概念（TP, FP, TN, FN）概念介绍在了解精确率和召回率前，有几个概念需要了解
+      前置概念（TP, FP, TN, FN）
+概念介绍
+在了解精确率和召回率前，有几个概念需要了解
 
 TP（True Positives）：预测为正样本，实际也为正样本的特征的数量
 FP（False Positives）：预测为正样本，实际为负样本的特征的数量
 TN（True Negatives）：预测为负样本，实际也为负样本的特征的数量
-FN（False Negatives）：预测为负样本，实际为......
+FN（False Negatives）：预测为负样本，实......
     </div>
   </a>
   
@@ -530,8 +571,10 @@ FN（False Negatives）：预测为负样本，实际为......
       交叉验证介绍
     </h3>
     <div class="post-content-preview">
-      交叉验证交叉验证原理与应用场景交叉验证（Cross validation）是在机器学习建立模型和验证模型参数时常用的办法。交叉验证，顾名思义，就是重复的使用数据，把得到的样本数据进行切分，组合为不同的训练集和测试集，用训练集来训练模型，用测试集来评估模型预测的好坏。在此基础上可以得到多组不同的训练集和测试集，某次训练集中的某样本在下次可能成为测试集中的样本，即所谓“交叉”。
-交叉验证用在数据......
+      交叉验证
+交叉验证原理与应用场景
+交叉验证（Cross validation）是在机器学习建立模型和验证模型参数时常用的办法。交叉验证，顾名思义，就是重复的使用数据，把得到的样本数据进行切分，组合为不同的训练集和测试集，用训练集来训练模型，用测试集来评估模型预测的好坏。在此基础上可以得到多组不同的训练集和测试集，某次训练集中的某样本在下次可能成为测试集中的样本，即所谓“交叉”。
+交叉验证用在......
     </div>
   </a>
   
@@ -566,9 +609,11 @@ FN（False Negatives）：预测为负样本，实际为......
       最小二乘法学习总结
     </h3>
     <div class="post-content-preview">
-      最小二乘法原理最小二乘法是用来做函数拟合或者求函数极值的方法。在机器学习，尤其是回归模型中，经常可以看到最小二乘法的身影
+      最小二乘法原理
+最小二乘法是用来做函数拟合或者求函数极值的方法。在机器学习，尤其是回归模型中，经常可以看到最小二乘法的身影
 最小二乘法的一般形式如下：
-loss\ function = \sum\limits（y-hypothesis\ function）^2loss function就是损失函数，y是样本的观测值，hypothesis function是假设拟合函数。我们的目标是得到使los......
+$$ loss\ function = \sum\limits（y-hypothesis\ function）^2 $$
+loss function就是损失函数，y是样本的观测值，hypothesis function是假设拟合函数。我们的目......
     </div>
   </a>
   
@@ -604,13 +649,15 @@ loss\ function = \sum\limits（y-hypothesis\ function）^2loss function就是损
     </h3>
     <div class="post-content-preview">
       梯度简介
-定义：对多元函数的参数求偏导数，把求得的各个参数的偏导数以向量的形式写出来，就是梯度。比如函数f(x, y), 分别对x, y求偏导数，求得的梯度向量表示如下：(\frac{∂f}{∂x}, \frac{∂f}{∂y})^T
+
+定义：对多元函数的参数求偏导数，把求得的各个参数的偏导数以向量的形式写出来，就是梯度。比如函数f(x, y), 分别对x, y求偏导数，求得的梯度向量表示如下：
+$$ (\frac{∂f}{∂x}, \frac{∂f}{∂y})^T $$
 
 
 该式即梯度计算公式，简称$grad f(x,y)$或者$▽f(x,y)$。
 
 
-意义：梯度的意义从几何意义上讲，就是函数变化增加最快的地方。在点$(x_0......
+意义：梯度的意义从几何意义上讲，就是函数变化增加最快的地方......
     </div>
   </a>
   
@@ -645,9 +692,11 @@ loss\ function = \sum\limits（y-hypothesis\ function）^2loss function就是损
       
     </h3>
     <div class="post-content-preview">
-      Day08log is a standard package in Go, it provides basic logger function.
-Basic usageuse log to print log with time.
-1234567import &quot;log&quot;func main() &#123;	log.Println(&quot;Wow&quot;)	log.......
+      Day08
+log is a standard package in Go, it provides basic logger function.
+Basic usage
+use log to print log with time.
+1234567import &quot;log&quot;func main() &#123;	log.Println(&quot;Wow&quot;)	lo......
     </div>
   </a>
   
@@ -682,9 +731,11 @@ Basic usageuse log to print log with time.
       
     </h3>
     <div class="post-content-preview">
-      Day07The time package provides functions for displaying and measuring time. The calculation of the calendar uses the Gregorian calendar
-Time objectuse time.Time to acquire time.
-1234567891011func m......
+      Day07
+The time package provides functions for displaying and measuring time. The calculation of the calendar uses the Gregorian calendar
+Time object
+use time.Time to acquire time.
+1234567891011func......
     </div>
   </a>
   
@@ -719,8 +770,10 @@ Time objectuse time.Time to acquire time.
       
     </h3>
     <div class="post-content-preview">
-      Day06MultiplexingSometimes we need to receive data from multiple channel, if we receive it one by one, that will cause bad performance.
-123456for &#123;    data, ok := &lt;-ch1    data, ok := &lt;-......
+      Day06
+Multiplexing
+Sometimes we need to receive data from multiple channel, if we receive it one by one, that will cause bad performance.
+123456for &#123;    data, ok := &lt;-ch1    data, ok := &lt......
     </div>
   </a>
   
@@ -755,7 +808,8 @@ Time objectuse time.Time to acquire time.
       
     </h3>
     <div class="post-content-preview">
-      JsoupJsoup is a Java library for working with real-world HTML. It provides a very convenient API for fetching URLs and extracting and manipulating data, using the best of HTML5 DOM methods and CSS ......
+      Jsoup
+Jsoup is a Java library for working with real-world HTML. It provides a very convenient API for fetching URLs and extracting and manipulating data, using the best of HTML5 DOM methods and CSS......
     </div>
   </a>
   
@@ -792,8 +846,10 @@ Time objectuse time.Time to acquire time.
       
     </h3>
     <div class="post-content-preview">
-      Day05GoroutineConcurrent programming is simple in go, unlike Java, you do not have to configure lots of Threads, etc. You can add go before a function, that means start a goroutine.
-12345678func ma......
+      Day05
+Goroutine
+Concurrent programming is simple in go, unlike Java, you do not have to configure lots of Threads, etc. You can add go before a function, that means start a goroutine.
+12345678func ......
     </div>
   </a>
   
@@ -806,41 +862,6 @@ Time objectuse time.Time to acquire time.
     <a href="/myBlog/tags/#learning note" title="learning note">learning note</a>
     
     <a href="/myBlog/tags/#Go" title="Go">Go</a>
-    
-  </div>
-  
-
-</div>
-<hr>
-
-<div class="post-preview">
-  
-  <!-- top start (article top hot config) -->
-  
-  <!-- top end -->
-  
-
-  <a href="/myBlog/Java/maven/maven-jar/">
-    <h2 class="post-title">
-      Install jar package at your local maven repository
-    </h2>
-    <h3 class="post-subtitle">
-      
-    </h3>
-    <div class="post-content-preview">
-      IntroductionThis article is intended to show you how to install a jar package at your local maven repository in order that you can user it in Spring project directly by importing a dependency in yo......
-    </div>
-  </a>
-  
-  <p class="post-meta" style="margin: 10px 0;">
-    Posted by Eric Wong on
-    2021-04-27
-  </p>
-  <div class="tags">
-    
-    <a href="/myBlog/tags/#tip" title="tip">tip</a>
-    
-    <a href="/myBlog/tags/#maven" title="maven">maven</a>
     
   </div>
   
@@ -920,6 +941,14 @@ Time objectuse time.Time to acquire time.
     
     
     
+    <a href="/myBlog/tags/#tip" title="tip" rel="1">tip</a>
+    
+    
+    
+    <a href="/myBlog/tags/#maven" title="maven" rel="1">maven</a>
+    
+    
+    
     <a href="/myBlog/tags/#JSoup" title="JSoup" rel="1">JSoup</a>
     
     
@@ -932,19 +961,11 @@ Time objectuse time.Time to acquire time.
     
     
     
-    <a href="/myBlog/tags/#tip" title="tip" rel="1">tip</a>
+    <a href="/myBlog/tags/#machine learning" title="machine learning" rel="5">machine learning</a>
     
     
     
-    <a href="/myBlog/tags/#maven" title="maven" rel="1">maven</a>
-    
-    
-    
-    <a href="/myBlog/tags/#machine learning" title="machine learning" rel="4">machine learning</a>
-    
-    
-    
-    <a href="/myBlog/tags/#regression" title="regression" rel="4">regression</a>
+    <a href="/myBlog/tags/#regression" title="regression" rel="5">regression</a>
     
     
   </div>
@@ -1007,6 +1028,10 @@ Time objectuse time.Time to acquire time.
 <div class="widget">
   <ul>
     
+    <a href="machine%20learning/Fundamental%20and%20regression%20algorithm/linear-regression/">
+      <li>linear-regression</li>
+    </a>
+    
     <a href="machine%20learning/Fundamental%20and%20regression%20algorithm/%E7%B2%BE%E7%A1%AE%E7%8E%87%EF%BC%8C%E5%8F%AC%E5%9B%9E%E7%8E%87%EF%BC%8CRoC%E5%92%8CPR%E6%9B%B2%E7%BA%BF/">
       <li>精确率，召回率，RoC,PR曲线</li>
     </a>
@@ -1021,10 +1046,6 @@ Time objectuse time.Time to acquire time.
     
     <a href="machine%20learning/Fundamental%20and%20regression%20algorithm/%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D(Gradient%20Descent)/">
       <li>梯度下降（Gradient Descent）</li>
-    </a>
-    
-    <a href="go/Day08/">
-      <li>Go Day08-Commonly used package-log</li>
     </a>
     
   </ul>
@@ -1042,7 +1063,7 @@ Time objectuse time.Time to acquire time.
 
 <h5><a href="/myBlog/archives/">archives</a></h5>
 <div class="widget">
-  <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="archives/2022/05/">May 2022</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="archives/2021/05/">May 2021</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="archives/2021/04/">April 2021</a><span class="archive-list-count">7</span></li></ul>
+  <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="archives/2022/05/">May 2022</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="archives/2021/05/">May 2021</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="archives/2021/04/">April 2021</a><span class="archive-list-count">7</span></li></ul>
 </div>
 
 
@@ -1066,12 +1087,12 @@ Time objectuse time.Time to acquire time.
       <li>Go learning note</li>
     </a>
     
-    <a href="/myBlog/categories/#JavaTools">
-      <li>JavaTools</li>
-    </a>
-    
     <a href="/myBlog/categories/#maven">
       <li>maven</li>
+    </a>
+    
+    <a href="/myBlog/categories/#JavaTools">
+      <li>JavaTools</li>
     </a>
     
     <a href="/myBlog/categories/#machine-learning regression">

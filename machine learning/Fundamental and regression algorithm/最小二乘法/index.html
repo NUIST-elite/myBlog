@@ -262,17 +262,6 @@
           
           
           <li>
-            <a href="/myBlog/categories/">
-              
-              CATEGORIES
-              
-              
-            </a>
-          </li>
-          
-          
-          
-          <li>
             <a href="/myBlog/archive/">
               
               ARCHIVES
@@ -287,6 +276,17 @@
             <a href="/myBlog/tags/">
               
               TAGS
+              
+              
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/myBlog/categories/">
+              
+              CATEGORIES
               
               
             </a>
@@ -410,11 +410,11 @@
             <!-- WordCount start -->
             <div class="blank_box"></div>
             <span class="meta">
-              Estimated Reading Time <span class="post-count">4</span> Minutes
+              Estimated Reading Time <span class="post-count">5</span> Minutes
             </span>
             <div class="blank_box"></div>
             <span class="meta">
-              Words <span class="post-count">1.1k</span> In Total
+              Words <span class="post-count">1.3k</span> In Total
             </span>
             <div class="blank_box"></div>
             <!-- WordCount end -->
@@ -476,28 +476,51 @@
       <!-- Post Container -->
       <div class="col-lg-8 col-lg-offset-1 col-md-10 col-md-offset-1 post-container">
 
-        <h1 id="最小二乘法原理"><a href="#最小二乘法原理" class="headerlink" title="最小二乘法原理"></a>最小二乘法原理</h1><p>最小二乘法是用来做函数拟合或者求函数极值的方法。在机器学习，尤其是回归模型中，经常可以看到最小二乘法的身影</p>
-<p>最小二乘法的一般形式如下：</p>
-<script type="math/tex; mode=display">loss\ function = \sum\limits（y-hypothesis\ function）^2</script><p><strong>loss function</strong>就是损失函数，y是样本的观测值，<strong>hypothesis function</strong>是假设拟合函数。我们的目标是得到使loss function最小化时候的hypothesis function的模型。</p>
-<p>以<strong>线性回归</strong>为例，如现在有m个只有<strong>一个特征</strong>的样本：</p>
-<script type="math/tex; mode=display">(x^{(1)},y^{(1)}), (x^{(2)},y^{(2)},...(x^{(m)},y^{(m)})</script><p>样本的拟合函数定义如下：</p>
-<script type="math/tex; mode=display">h_\theta(x) = \theta_0 + \theta_1 x</script><p>现在我们的目标就是求出其中的两个参数$\theta_0$和$\theta_1$的值。损失函数为：</p>
-<script type="math/tex; mode=display">J(\theta_0, \theta_1) = \sum\limits_{i=1}^{m}(y^{(i)} - h_\theta(x^{(i)})^2 = \sum\limits_{i=1}^{m}(y^{(i)} -  \theta_0 - \theta_1 x^{(i)})^2</script><p>最小二乘法的目标就是使$J(\theta_0, \theta_1)$最小，求出使J(θ0,θ1)最小时的$\theta_0$和$\theta_1$ ，这样拟合函数就得出了。</p>
-<h1 id="最小二乘法算法"><a href="#最小二乘法算法" class="headerlink" title="最小二乘法算法"></a>最小二乘法算法</h1><h2 id="代数法"><a href="#代数法" class="headerlink" title="代数法"></a>代数法</h2><p>要使$J(\theta_0, \theta_1)$最小，就要对$\theta_0$和$\theta_1$分别求偏导，令偏导为0，得到一个方程组，方程组的解（如果存在的话）就是要求的参数值。</p>
+        <h1>最小二乘法原理</h1>
+<p>最小二乘法是用来做函数拟合或者求函数极值的方法。在机器学习，尤其是回归模型中，经常可以看到最小二乘法的身影</p>
+<p>最小二乘法的一般形式如下：<br>
+$$ loss\ function = \sum\limits（y-hypothesis\ function）^2 $$<br>
+<strong>loss function</strong>就是损失函数，y是样本的观测值，<strong>hypothesis function</strong>是假设拟合函数。我们的目标是得到使loss function最小化时候的hypothesis function的模型。</p>
+<p>以<strong>线性回归</strong>为例，如现在有m个只有<strong>一个特征</strong>的样本：<br>
+$$ (x^{(1)},y^{(1)}), (x^{(2)},y^{(2)},…(x^{(m)},y^{(m)}) $$<br>
+样本的拟合函数定义如下：<br>
+$$ h_\theta(x) = \theta_0 + \theta_1 x $$<br>
+现在我们的目标就是求出其中的两个参数$\theta_0$和$\theta_1$的值。损失函数为：<br>
+$$ J(\theta_0, \theta_1) = \sum\limits_{i=1}^{m}(y^{(i)} - h_\theta(x^{(i)})^2 = \sum\limits_{i=1}^{m}(y^{(i)} -  \theta_0 - \theta_1 x^{(i)})^2 $$<br>
+最小二乘法的目标就是使$J(\theta_0, \theta_1)$最小，求出使J(θ0,θ1)最小时的$\theta_0$和$\theta_1$ ，这样拟合函数就得出了。</p>
+<h1>最小二乘法算法</h1>
+<h2 id="代数法">代数法</h2>
+<p>要使$J(\theta_0, \theta_1)$最小，就要对$\theta_0$和$\theta_1$分别求偏导，令偏导为0，得到一个方程组，方程组的解（如果存在的话）就是要求的参数值。</p>
 <ul>
-<li>$J(\theta_0, \theta_1)$对$\theta_0$求导，得到如下方程：<script type="math/tex; mode=display">\sum\limits_{i=1}^{m}(y^{(i)} -  \theta_0 - \theta_1 x^{(i)}) = 0</script></li>
-<li>$J(\theta_0, \theta_1)$对$\theta_1$求导，得到如下方程：<script type="math/tex; mode=display">\sum\limits_{i=1}^{m}(y^{(i)} -  \theta_0 - \theta_1 x^{(i)})x^{(i)} = 0</script></li>
-<li>将两个算式作为一个方程组求解，就可以得到最终两个参数的值：<script type="math/tex; mode=display">\theta_0 = \sum\limits_{i=1}^{m}\big(x^{(i)})^2\sum\limits_{i=1}^{m}y^{(i)} - \sum\limits_{i=1}^{m}x^{(i)}\sum\limits_{i=1}^{m}x^{(i)}y^{(i)} \Bigg/ m\sum\limits_{i=1}^{m}\big(x^{(i)})^2 - \big(\sum\limits_{i=1}^{m}x^{(i)})^2</script><script type="math/tex; mode=display">\theta_1 = m\sum\limits_{i=1}^{m}x^{(i)}y^{(i)} - \sum\limits_{i=1}^{m}x^{(i)}\sum\limits_{i=1}^{m}y^{(i)} \Bigg/ m\sum\limits_{i=1}^{m}\big(x^{(i)})^2 - \big(\sum\limits_{i=1}^{m}x^{(i)})^2</script></li>
+<li>$J(\theta_0, \theta_1)$对$\theta_0$求导，得到如下方程：<br>
+$$ \sum\limits_{i=1}^{m}(y^{(i)} -  \theta_0 - \theta_1 x^{(i)}) = 0 $$</li>
+<li>$J(\theta_0, \theta_1)$对$\theta_1$求导，得到如下方程：<br>
+$$ \sum\limits_{i=1}^{m}(y^{(i)} -  \theta_0 - \theta_1 x^{(i)})x^{(i)} = 0 $$</li>
+<li>将两个算式作为一个方程组求解，就可以得到最终两个参数的值：<br>
+$$ \theta_0 = \sum\limits_{i=1}^{m}\big(x^{(i)})^2\sum\limits_{i=1}^{m}y^{(i)} - \sum\limits_{i=1}^{m}x^{(i)}\sum\limits_{i=1}^{m}x^{(i)}y^{(i)} \Bigg/ m\sum\limits_{i=1}^{m}\big(x^{(i)})^2 - \big(\sum\limits_{i=1}^{m}x^{(i)})^2 $$<br>
+$$ \theta_1 = m\sum\limits_{i=1}^{m}x^{(i)}y^{(i)} - \sum\limits_{i=1}^{m}x^{(i)}\sum\limits_{i=1}^{m}y^{(i)} \Bigg/ m\sum\limits_{i=1}^{m}\big(x^{(i)})^2 - \big(\sum\limits_{i=1}^{m}x^{(i)})^2 $$</li>
 <li>这个方法可以推到多元线性方程的解，对于一个有n个特征的拟然函数，就需要求解一个n+1个方程的方程组。</li>
 </ul>
-<h2 id="矩阵法"><a href="#矩阵法" class="headerlink" title="矩阵法"></a>矩阵法</h2><p>:cry:</p>
-<h1 id="最小二乘法的局限性-amp-适用场景"><a href="#最小二乘法的局限性-amp-适用场景" class="headerlink" title="最小二乘法的局限性&amp;适用场景"></a>最小二乘法的局限性&amp;适用场景</h1><p>从上面可以看出，最小二乘法的步骤十分简洁，比梯度下降这样的迭代法似乎方便很多。但也有不少局限性，在使用中需要注意场景是否合适。</p>
+<h2 id="矩阵法">矩阵法</h2>
+<p>矩阵法的计算相对简单。较详细的线性规划矩阵形式写在了<a href="https://nuist-elite.github.io/myBlog/machine%20learning/Fundamental%20and%20regression%20algorithm/%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D(Gradient%20Descent)/">梯度下降</a>中。这里只列出关键公式。现已知损失函数为：<br>
+$$ J(\mathbf\theta) = \frac{1}{2}(\mathbf{X\theta} - \mathbf{Y})^T(\mathbf{X\theta} - \mathbf{Y}) $$<br>
+根据最小二乘法原理，对它求导并使它等于0：<br>
+$$ \frac{\partial}{\partial\mathbf\theta}J(\mathbf\theta) = \mathbf{X}^T(\mathbf{X\theta} - \mathbf{Y}) = 0 $$<br>
+上述等式整理后可得：<br>
+$$ \mathbf{X^{T}X\theta} = \mathbf{X^{T}Y} $$<br>
+两边同时左乘$(\mathbf{X^{T}X})^{-1}$可得：<br>
+$$ \mathbf{\theta} = (\mathbf{X^{T}X})^{-1}\mathbf{X^{T}Y} $$<br>
+这样求出了$\theta$的表达式，免去了代数法单独一个个求导的麻烦。</p>
+<h1>最小二乘法的局限性&amp;适用场景</h1>
+<p>从上面可以看出，最小二乘法的步骤十分简洁，比梯度下降这样的迭代法似乎方便很多。但也有不少局限性，在使用中需要注意场景是否合适。</p>
 <ol>
-<li>最小二乘法需要计算一个方程组，但如果<strong>方程组的解不存在</strong>，这样就没有办法直接用最小二乘法了，此时梯度下降法仍然可以使用。当然，我们可以通过对样本数据进行整理，去掉冗余特征，然后继续使用最小二乘法，但这样就徒增了一些麻烦。</li>
+<li>最小二乘法需要计算一个方程组，但如果<strong>方程组的解不存在</strong>，这样就没有办法直接用最小二乘法了，同样的如果使用的矩阵解法，如果<strong>矩阵不存在逆矩阵</strong>，一样无法计算。此时梯度下降法仍然可以使用。当然，我们可以通过对样本数据进行整理，去掉冗余特征，然后继续使用最小二乘法，但这样就徒增了一些麻烦。</li>
 <li>当样本特征n非常的大的时候，计算一个有<strong>n+1个方程的方程组</strong>是一个非常耗时的工作，甚至不可行。此时以梯度下降为代表的迭代法仍然可以使用。在机器学习的实践中，如果没有很多的分布式大数据计算资源，一般超过<strong>10000个特征</strong>就建议使用迭代法。或者通过主成分分析降低特征的维度后再用最小二乘法。</li>
 <li>如果拟合函数不是线性的，就无法直接使用最小二乘法，需要转化为线性才能使用。</li>
-<li>当样本量m很少，小于特征数n的时候，这时拟合方程是<strong>欠定</strong>的，常用的优化方法都无法去拟合数据。当样本量m等于特征数n的时候，用方程组求解就可以了。当m大于n时，拟合方程是<strong>超定</strong>的，也就是我们常用与最小二乘法的场景。<blockquote>
-<p>超定：方程个数大于未知量个数的方程组，超定方程一般是不存在解的矛盾方程。<br>欠定：方程个数小于未知量个数的方程组，对于方程组Ra=y，R为n×m矩阵，且n &lt; m。则方程组有无穷多组解，此时称方程组为欠定方程组。</p>
+<li>当样本量m很少，小于特征数n的时候，这时拟合方程是<strong>欠定</strong>的，常用的优化方法都无法去拟合数据。当样本量m等于特征数n的时候，用方程组求解就可以了。当m大于n时，拟合方程是<strong>超定</strong>的，也就是我们常用与最小二乘法的场景。
+<blockquote>
+<p>超定：方程个数大于未知量个数的方程组，超定方程一般是不存在解的矛盾方程。<br>
+欠定：方程个数小于未知量个数的方程组，对于方程组Ra=y，R为n×m矩阵，且n &lt; m。则方程组有无穷多组解，此时称方程组为欠定方程组。</p>
 </blockquote>
 </li>
 </ol>
@@ -705,7 +728,7 @@
         <div id="toc" class="toc-article">
         <strong class="toc-title">Contents</strong>
         
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#%E6%9C%80%E5%B0%8F%E4%BA%8C%E4%B9%98%E6%B3%95%E5%8E%9F%E7%90%86"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">最小二乘法原理</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#%E6%9C%80%E5%B0%8F%E4%BA%8C%E4%B9%98%E6%B3%95%E7%AE%97%E6%B3%95"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">最小二乘法算法</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E4%BB%A3%E6%95%B0%E6%B3%95"><span class="toc-nav-number">2.1.</span> <span class="toc-nav-text">代数法</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E7%9F%A9%E9%98%B5%E6%B3%95"><span class="toc-nav-number">2.2.</span> <span class="toc-nav-text">矩阵法</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#%E6%9C%80%E5%B0%8F%E4%BA%8C%E4%B9%98%E6%B3%95%E7%9A%84%E5%B1%80%E9%99%90%E6%80%A7-amp-%E9%80%82%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">最小二乘法的局限性&amp;适用场景</span></a></li></ol>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">最小二乘法原理</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">最小二乘法算法</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E4%BB%A3%E6%95%B0%E6%B3%95"><span class="toc-nav-number">2.1.</span> <span class="toc-nav-text">代数法</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E7%9F%A9%E9%98%B5%E6%B3%95"><span class="toc-nav-number">2.2.</span> <span class="toc-nav-text">矩阵法</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">最小二乘法的局限性&amp;适用场景</span></a></li></ol>
         
         </div>
       </aside>
