@@ -143,10 +143,10 @@
   <!--[if lt IE 9]> <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script> <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script> <![endif]-->
 
   <!-- ga & ba script hoook -->
-  <link rel="canonical" href="https://nuist-elite.github.io/myBlog/myBlog/machine learning/Fundamental and regression algorithm/精确率，召回率，RoC和PR曲线/">
+  <link rel="canonical" href="https://nuist-elite.github.io/myBlog/myBlog/machine learning/Classification algorithm/perceptron/">
   <title>
     
-      精确率，召回率，RoC,PR曲线 - either win | or lose
+      感知机 - either win | or lose
     
   </title>
 <meta name="generator" content="Hexo 5.4.0"></head>
@@ -395,14 +395,14 @@
               
               <a class="tag" href="/myBlog/tags/#machine learning" title="machine learning">machine learning</a>
               
-              <a class="tag" href="/myBlog/tags/#regression" title="regression">regression</a>
+              <a class="tag" href="/myBlog/tags/#classification" title="classification">classification</a>
               
             </div>
-            <h1>精确率，召回率，RoC,PR曲线</h1>
-            <h2 class="subheading"></h2>
+            <h1>感知机</h1>
+            <h2 class="subheading">感知机算法原理总结</h2>
             <span class="meta">
               Posted by Eric Wong on
-              2022-05-02
+              2022-05-07
             </span>
 
 
@@ -410,11 +410,11 @@
             <!-- WordCount start -->
             <div class="blank_box"></div>
             <span class="meta">
-              Estimated Reading Time <span class="post-count">4</span> Minutes
+              Estimated Reading Time <span class="post-count">9</span> Minutes
             </span>
             <div class="blank_box"></div>
             <span class="meta">
-              Words <span class="post-count">1.2k</span> In Total
+              Words <span class="post-count">2.5k</span> In Total
             </span>
             <div class="blank_box"></div>
             <!-- WordCount end -->
@@ -476,64 +476,99 @@
       <!-- Post Container -->
       <div class="col-lg-8 col-lg-offset-1 col-md-10 col-md-offset-1 post-container">
 
-        <h1>前置概念（TP, FP, TN, FN）</h1>
-<h2 id="概念介绍">概念介绍</h2>
-<p>在了解精确率和召回率前，有几个概念需要了解</p>
-<ol>
-<li><strong>TP（True Positives）</strong>：预测为正样本，实际也为正样本的特征的数量</li>
-<li><strong>FP（False Positives）</strong>：预测为正样本，实际为负样本的特征的数量</li>
-<li><strong>TN（True Negatives）</strong>：预测为负样本，实际也为负样本的特征的数量</li>
-<li><strong>FN（False Negatives）</strong>：预测为负样本，实际为正样本的特征的数量</li>
-</ol>
-<h2 id="图像表示">图像表示</h2>
-<p>图像如下所示，里面绿色的半圆就是<strong>TP(True Positives)</strong>, 红色的半圆就是<strong>FP(False Positives)</strong>, 左边的灰色长方形（不包括绿色半圆），就是<strong>FN（False Negatives）</strong>。右边的 浅灰色长方形（不包括红色半圆），就是<strong>TN(True Negatives)</strong>。这个绿色和红色组成的<strong>圆内代表我们分类得到模型结果认为是正值的样本</strong>。<br>
-<img src="1.jpg" alt="image show"></p>
-<h1>精确率(precision),召回率(Recall)与特异性(specificity)</h1>
-<h2 id="精确率">精确率</h2>
-<p>精确率（Precision）的定义：精确率是针对我们预测结果而言的，它表示的是<strong>预测为阳性的样本中有多少是真正的阳性</strong>。那么预测为正就有两种可能，一种就是把阳性预测为阳性(TP)，另一种就是把阴性预测为阳性(FP)。在上图可以看出，精确率就是绿色半圆除以红色绿色组成的圆。严格的数学定义如下：<br>
-$$ P = \frac{TP}{TP + FP } $$</p>
-<h2 id="召回率">召回率</h2>
-<p>召回率(Recall)的定义：召回率是针对我们原来的样本而言的，它表示的是<strong>样本中的阳性有多少被预测正确了</strong>。那也有两种可能，一种是把原来的阳性预测成阳性(TP)，另一种就是把原来的阳性预测为阴性(FN)。在上图能看出，召回率是绿色半圆除以左边的长方形。严格的数学定义如下：<br>
-$$ R = \frac{TP}{TP + FN } $$</p>
+        <h1>感知机</h1>
+<p>感知机在1957年提出，属于最古老的分类算法之一。虽然从今天来看，他的分类模型在大多数情况下泛化能力不足，但它是支持向量机（SVM）和深度学习，神经网络的基础，能对之后的学习起到较大的帮助。</p>
+<h2 id="感知机模型">感知机模型</h2>
+<p>感知机原理很简单。在二维平面上说，就是要找到一条直线，直线的一边是一类，另一边是另一种类别。放到三维或更高维度中，就是找一个<strong>超平面</strong>，能够把多有二元类别分开。如果找不到这样的一条直线或超平面，就意味着类别<strong>线性不可分</strong>，也就无法使用感知机模型进行数据分类。<strong>使用感知机一个最大的前提，就是数据是线性可分的</strong>，这导致感知机有很大的局限性。其他的分类算法中，如支持向量机可以通过核技巧来让数据在高维可分，神经网络可以通过激活函数和增加隐藏层来让数据可分。</p>
+<p>用数学的语言来说，如果我们有m个样本，每个样本对应于n维特征和一个二元类别输出，如下：<br>
+$$ (x_1^{(0)}, x_2^{(0)}, …x_n^{(0)}, y_0), (x_1^{(1)}, x_2^{(1)}, …x_n^{(1)},y_1), … (x_1^{(m)}, x_2^{(m)}, …x_n^{(m)}, y_m) $$<br>
+我们的目标是找到一个超平面，即：<br>
+$$ \theta_0 + \theta_{1}x_1 + … + \theta_{n}x_{n} = 0 $$</p>
 <blockquote>
-<p>精确率和召回率也被称为<strong>查准率</strong>和<strong>查全率</strong>。<br>
-查准率＝检索出的相关信息量 / 检索出的信息总量<br>
-查全率＝检索出的相关信息量 / 系统中的相关信息总量</p>
+<p>超平面是指n维线性空间中维度为n-1的子空间。它可以把线性空间分割成不相交的两部分。比如二维空间中，一条直线是一维的，它把平面分成了两块；三维空间中，一个平面是二维的，它把空间分成了两块</p>
 </blockquote>
-<h2 id="特异性">特异性</h2>
-<p>特异性就是指应为阴性的样本有多少被成功预测了，具体数学定义为：<br>
-$$ S = \frac{TN}{FP + TN } $$</p>
-<h2 id="其它指标">其它指标</h2>
-<h3 id="F-1-值">F~1~值</h3>
-<p>有时会用一个F1值来综合评估精确率和召回率，它是精确率和召回率的调和均值。当精确率和召回率都高时,F1值也会高。严格的数学定义如下：<br>
-$$ \frac{2}{F_1} = \frac{1}{P} + \frac{1}{R} $$</p>
-<h3 id="灵敏度-true-positive-rate-TPR">灵敏度(true positive rate ,TPR)</h3>
-<p>灵敏度指所有实际阳性样本中，正确识别的正例比例，<strong>它和召回率的表达式相同</strong>。<br>
-$$ R = \frac{TP}{TP + FN } $$</p>
-<h3 id="假阳性率-false-positive-rate-FPR">假阳性率(false positive rate, FPR)</h3>
-<p>它是实际阴性样本中，被错误得识别为阳性的比例。严格的数学定义如下：<br>
-$$ FPR = \frac{FP}{FP + TN } $$</p>
-<h1>RoC曲线和PR曲线</h1>
-<p>根据上一节的一系列指标，可以做出两种不同的曲线，具体如下图：<br>
-<img src="2.png" alt="curve"></p>
-<h2 id="RoC曲线">RoC曲线</h2>
-<p>ROC的全名叫做Receiver Operating Characteristic，以<strong>TPR为y轴，以FPR为x轴</strong>，我们就直接得到了RoC曲线。从FPR和TPR的定义可以理解，TPR越高，FPR越小，我们的模型和算法就越高效。也就是画出来的<strong>RoC曲线越靠近左上</strong>越好。如上图所示。从几何的角度讲，RoC曲线下方的面积越大越大，则模型越优。所以有时候我们用RoC曲线下的面积，即<strong>AUC（Area Under Curve）值来作为算法和模型好坏的标准</strong>。通常，AUC的值介于0.5到1.0之间，较大的AUC代表了较好的性能。</p>
-<p>RoC曲线中的一个点代表一个分类器，也就说一条RoC曲线代表了无数分类器。ROC曲线描述的其实是分类器性能随着分类器阈值的变化而变化的过程。对于ROC曲线，一个重要的特征是它的面积，面积为0.5为随机分类，识别能力为0，面积越接近于1识别能力越强，面积等于1为完全识别。这也就是上面提到的AUC。</p>
-<h2 id="PR曲线">PR曲线</h2>
-<p>以精确率为y轴，以召回率为x轴，我们就得到了PR曲线。仍然从精确率和召回率的定义可以理解，精确率越高，召回率越高，我们的模型和算法就越高效。也就是画出来的PR曲线越靠近右上越好。如上图右图所示。</p>
+<p>让其中一种类别的样本都满足$θ_0+θ_1x_1+…+θ_nx_n&gt;0$ ，让另一种类别的样本都满足$θ_0+θ_1x_1+…+θ_nx_n&lt;0$ ，从而得到线性可分。如果数据线性可分，这样的超平面一般都不是唯一的，也就是说<strong>感知机模型可以有多个解。</strong> 可以通过增加一个特征$x_0=1$，使超平面表达式变为$\sum\limits_{i=0}^{n}\theta_{i}x_{i} = 0$，用向量表示更为简便：$\theta \bullet x = 0$，其中$\theta$和x都是（n+1）*1的向量，$\bullet$为内积。</p>
+<p><strong>本文后面的表示均为向量表示</strong>。</p>
+<p>感知机的模型可以定义为：$y = sign(\theta \bullet x)$。其中：<br>
+$$ sign(x)=<br>
+\begin{cases}<br>
+-1&amp; {x&lt;0}\<br>
+1&amp; {x\geq 0}<br>
+\end{cases} $$</p>
+<h2 id="感知机模型损失函数">感知机模型损失函数</h2>
+<p>为了后面便于定义损失函数，我们将满足$θ∙x&gt;0$的样本类别输出值取为1，满足$θ∙x&lt;0$的样本类别输出值取为-1， 这样取y的值有一个好处，就是方便定义损失函数。因为正确分类的样本满足$yθ∙x&gt;0$，而错误分类的样本满足$yθ∙x&lt;0$。<strong>我们损失函数的优化目标，就是期望使误分类的所有样本，到超平面的距离之和最小</strong>。</p>
+<blockquote>
+<p>关于点到超平面距离的公式与推导，可参考<a target="_blank" rel="noopener" href="https://blog.csdn.net/ProfSnail/article/details/113445348">这篇文章</a></p>
+</blockquote>
+<p>由于$yθ∙x&lt;0$，所以对于每一个误分类的样本i ，到超平面的距离是：<br>
+$$ - y^{(i)}\theta \bullet x^{(i)}\big / ||\theta||_2 $$</p>
+<blockquote>
+<p>其中，$||\theta||_2$为<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/26884695">L2范数</a></p>
+</blockquote>
+<p>我们假设所有误分类的点的集合为M，则所有未分类的样本到超平面的距离之和为：<br>
+$$ \frac{-\sum\limits_{x_i\in M}y^{(i)}\theta \bullet x^{(i)}}{||\theta||_2} $$<br>
+这样就得到了初步的<strong>感知机函数的损失函数</strong>。</p>
+<p>研究上式可以看出，分子和分母都含有$\theta$，且他们有固定的倍数关系。所以我们可以固定分子或分母为1，然后对另一个求最小化作为损失函数（分母的话要取倒数）。在感知机模型中，采用的是保留分子，即最终的得到的损失函数为：<br>
+$$ - J(\theta) = \sum\limits_{x_i \in M} y^{(i)}\theta \bullet x^{(i)} $$</p>
+<blockquote>
+<p>SVM中选取的是保留分母的做法。两者不同的原因主要是优化方式的不同。</p>
+</blockquote>
+<h2 id="感知机模型的损失函数优化方法">感知机模型的损失函数优化方法</h2>
+<p>感知机模型的损失函数常用的优化方法主要有<strong>梯度下降法</strong>和<strong>拟牛顿法</strong>，最常用的是梯度下降法。</p>
+<p>不过普通的基于所有样本的梯度和的均值的<strong>批量梯度下降法（BGD）是行不通的</strong>，原因在于我们的损失函数里面有限定，只有误分类的M集合里面的样本才能参与损失函数的优化。所以我们不能用最普通的批量梯度下降,<strong>只能采用随机梯度下降（SGD）或者小批量梯度下降（MBGD）</strong>。</p>
+<blockquote>
+<p>关于不同梯度下降的讲解可以看<a href="https://nuist-elite.github.io/myBlog/machine%20learning/Fundamental%20and%20regression%20algorithm/%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D(Gradient%20Descent)/#-5">这篇文章</a></p>
+</blockquote>
+<p>感知机模型选择的是采用<strong>随机梯度下降</strong>，这意味着我们每次仅仅需要使用一个误分类的点来更新梯度。损失函数基于$θ$向量的的偏导数为：<br>
+$$ \frac{\partial}{\partial \theta}J(\theta) = - \sum\limits_{x_i \in M}y^{(i)}x^{(i)} $$<br>
+对应的梯度下降迭代公式为：<br>
+$$ \theta = \theta  + \alpha\sum\limits_{x_i \in M}y^{(i)}x^{(i)} $$<br>
+由于我们采用<strong>随机梯度下降</strong>，所以每次仅仅采用一个误分类的样本来计算梯度，假设采用<strong>第i个样本</strong>来更新梯度，则简化后的$θ$向量的梯度下降迭代公式为：<br>
+$$ \theta = \theta  + \alpha y^{(i)}x^{(i)} $$<br>
+其中，$α$为步长，$y^{(i)}$为样本输出1或者-1，$x^{(i)}$为(n+1) x 1的向量。</p>
+<h2 id="感知机算法">感知机算法</h2>
+<p>这一章对感知机算法整个流程做一个总结。</p>
+<h3 id="原始算法">原始算法</h3>
+<p>算法的输入为m个样本，每个样本对应于n维特征和一个二元类别输出1或者-1，如下：<br>
+$$ (x_1^{(0)}, x_2^{(0)}, …x_n^{(0)}, y_0), (x_1^{(1)}, x_2^{(1)}, …x_n^{(1)},y_1), … (x_1^{(m)}, x_2^{(m)}, …x_n^{(m)}, y_m) $$<br>
+输出为分离超平面的模型系数$θ$向量。具体步骤如下：</p>
+<ol>
+<li>定义所有$x_0$为1(为了简化表达式)。选择$θ$向量的初值和步长$α$的初值。可以将$θ$向量置为$0$向量，步长设置为1。要注意的是，由于感知机的解不唯一，使用的这两个初值会影响$θ$向量的最终迭代结果。</li>
+<li>在训练集中选择一个误分类的点$(x_1^{(i)}, x_2^{(i)}, …x_n^{(i)}, y_i)$，用向量表示为$(x^{(i)}, y^{(i)})$，这个点满足：$y^{(i)}\theta \bullet x^{(i)} \leq 0$</li>
+<li>对$θ$向量进行一次随机梯度下降的迭代：$θ=θ+αy^{(i)}x^{(i)}$</li>
+<li>如果训练集中还有未分类的点，则从第二步继续，否则结束算法，此时的$\theta$向量即为最终的结果。</li>
+</ol>
+<h2 id="算法对偶形式">算法对偶形式</h2>
+<p>对偶形式是对算法<strong>执行速度的优化</strong>。</p>
+<p>通过上一节感知机模型的算法原始形式$θ=θ+αy^{(i)}x^{(i)}$可以看出，我们每次梯度的迭代都是选择的一个样本来更新$θ$向量。最终经过若干次的迭代得到最终的结果。对于从来都没有误分类过的样本，他被选择参与$θ$迭代的次数是0，对于被多次误分类而更新的样本j，它参与θ迭代的次数我们设置为$m_j$。如果令$θ$向量初始值为$0$向量， 这样我们的θ向量的表达式可以写为：<br>
+$$ \theta = \sum\limits_{j=1}^{m}\beta_j y^{(j)}x^{(j)} $$<br>
+其中$m_j$为样本$(x^{(j)},y^{(j)})$在随机梯度下降到当前的这一步之前因误分类而更新的次数。每一个样本$(x^{(j)},y^{(j)})$的$m_j$的初始值为0，每当此样本在某一次梯度下降迭代中因误分类而更新时，$m_j$的值加1。由于步长$α$为常量，我们令$β_j=αm_j$,这样θ向量的表达式为:<br>
+$$ \theta = \sum\limits_{j=1}^{m}\beta_j y^{(j)}x^{(j)} $$<br>
+在每一步判断误分类条件的地方，我们用$y^{(i)}\theta \bullet x^{(i)} &lt; 0$的变种$y^{(i)}\sum\limits_{j=1}^{m}\beta_j y^{(j)}x^{(j)}\bullet x^{(i)} &lt; 0$来判断误分类。注意到这个判断误分类的形式里面是计算两个样本$x^{(i)}$和$x^{(j)}$的<strong>内积</strong>，而且这个内积计算的结果在下面的迭代次数中可以重用。如果我们事先用矩阵运算计算出所有的样本之间的内积，那么在算法运行时，仅仅一次的矩阵内积运算比多次的循环计算省时。计算量最大的判断误分类这儿就省下了很多的时间，这也是对偶形式的感知机模型比原始形式优的原因。</p>
+<p>样本的内积矩阵称为<strong>Gram矩阵</strong>，它是一个对称矩阵，记为$G=[x^{(i)}∙x^{(j)}]$。具体定义见下图:<br>
+<img src="1.png" alt="Gram"></p>
+<p>对偶形式的算法的具体形式如下：</p>
+<ol>
+<li>定义所有$x_0$为1(为了简化表达式)，步长$α$的初值和$\beta$的初值。可以将步长设置为1，$\beta$要设置为0。要注意的是，由于感知机的解不唯一，使用的这两个初值会影响$θ$向量的最终迭代结果。</li>
+<li>计算所有样本内积形成的<strong>Gram矩阵G</strong>。</li>
+<li>在训练集里面选择一个误分类的点$(x^{(i)}, y^{(i)})$，这个点应该满足：$y^{(i)}\sum\limits_{j=1}^{m}\beta_j y^{(j)}x^{(j)}\bullet x^{(i)} \leq 0$，在检查是否满足时<strong>可以通过查询Gram矩阵的$g_{ij}$的值来快速计算是否小于0</strong>。</li>
+<li>对$β$向量的第i个分量进行一次更新：$β_i=β_i+α$</li>
+<li>检查训练集里是否还有误分类的点，如果有，继续第3步。如果没有，算法结束，此时的θ向量最终结果为下式：<br>
+$$ \theta = \sum\limits_{j=1}^{m}\beta_j y^{(j)}x^{(j)} $$
+<blockquote>
+<p>其中$β_j$为β向量的第j个分量</p>
+</blockquote>
+</li>
+</ol>
 
 
         <hr>
         <!-- Pager -->
         <ul class="pager">
           
-          <li class="previous">
-            <a href="/myBlog/machine learning/Fundamental and regression algorithm/linear-regression/" data-toggle="tooltip" data-placement="top" title="线性回归">&larr; Previous Post</a>
-          </li>
-          
           
           <li class="next">
-            <a href="/myBlog/machine learning/Fundamental and regression algorithm/交叉验证/" data-toggle="tooltip" data-placement="top" title="交叉验证">Next Post &rarr;</a>
+            <a href="/myBlog/machine learning/Classification algorithm/logistic-regression/" data-toggle="tooltip" data-placement="top" title="逻辑回归算法">Next Post &rarr;</a>
           </li>
           
         </ul>
@@ -582,7 +617,7 @@ $$ FPR = \frac{FP}{FP + TN } $$</p>
       </a>
     </li>
     <li class="social-share-li">
-      <a target="_blank" class="social-share-icon" href="mailto:?subject=精确率，召回率，RoC,PR曲线&body=Hi,I found this website and thought you might like it https://nuist-elite.github.io/myBlog/myBlog/machine learning/Fundamental and regression algorithm/精确率，召回率，RoC和PR曲线/">
+      <a target="_blank" class="social-share-icon" href="mailto:?subject=感知机&body=Hi,I found this website and thought you might like it https://nuist-elite.github.io/myBlog/myBlog/machine learning/Classification algorithm/perceptron/">
         <i class="fa fa-envelope fa-1x" aria-hidden="true"></i>
       </a>
     </li>
@@ -617,7 +652,7 @@ $$ FPR = \frac{FP}{FP + TN } $$</p>
       repo: '',
       owner: '',
       admin: '',
-      id: 'Mon May 02 2022 19:20:36 GMT+0800', // Ensure uniqueness and length less than 50
+      id: 'Sat May 07 2022 15:06:09 GMT+0800', // Ensure uniqueness and length less than 50
       distractionFreeMode: false, // Facebook-like distraction free mode
       perPage: 10,
       pagerDirection: 'last',
@@ -688,7 +723,7 @@ $$ FPR = \frac{FP}{FP + TN } $$</p>
     }
 
     const gitment = new Gitment({
-      id: 'Mon May 02 2022 19:20:36 GMT+0800', // optional
+      id: 'Sat May 07 2022 15:06:09 GMT+0800', // optional
       owner: 'NUIST-elite',
       repo: 'git@github.com:NUIST-elite/blog-comment.git',
       oauth: {
@@ -725,7 +760,7 @@ $$ FPR = \frac{FP}{FP + TN } $$</p>
         <div id="toc" class="toc-article">
         <strong class="toc-title">Contents</strong>
         
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">前置概念（TP, FP, TN, FN）</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E6%A6%82%E5%BF%B5%E4%BB%8B%E7%BB%8D"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">概念介绍</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E5%9B%BE%E5%83%8F%E8%A1%A8%E7%A4%BA"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">图像表示</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">精确率(precision),召回率(Recall)与特异性(specificity)</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E7%B2%BE%E7%A1%AE%E7%8E%87"><span class="toc-nav-number">2.1.</span> <span class="toc-nav-text">精确率</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E5%8F%AC%E5%9B%9E%E7%8E%87"><span class="toc-nav-number">2.2.</span> <span class="toc-nav-text">召回率</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E7%89%B9%E5%BC%82%E6%80%A7"><span class="toc-nav-number">2.3.</span> <span class="toc-nav-text">特异性</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E5%85%B6%E5%AE%83%E6%8C%87%E6%A0%87"><span class="toc-nav-number">2.4.</span> <span class="toc-nav-text">其它指标</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#F-1-%E5%80%BC"><span class="toc-nav-number">2.4.1.</span> <span class="toc-nav-text">F~1~值</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E7%81%B5%E6%95%8F%E5%BA%A6-true-positive-rate-TPR"><span class="toc-nav-number">2.4.2.</span> <span class="toc-nav-text">灵敏度(true positive rate ,TPR)</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%81%87%E9%98%B3%E6%80%A7%E7%8E%87-false-positive-rate-FPR"><span class="toc-nav-number">2.4.3.</span> <span class="toc-nav-text">假阳性率(false positive rate, FPR)</span></a></li></ol></li></ol></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">RoC曲线和PR曲线</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#RoC%E6%9B%B2%E7%BA%BF"><span class="toc-nav-number">3.1.</span> <span class="toc-nav-text">RoC曲线</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#PR%E6%9B%B2%E7%BA%BF"><span class="toc-nav-number">3.2.</span> <span class="toc-nav-text">PR曲线</span></a></li></ol></li></ol>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">感知机</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E6%84%9F%E7%9F%A5%E6%9C%BA%E6%A8%A1%E5%9E%8B"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">感知机模型</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E6%84%9F%E7%9F%A5%E6%9C%BA%E6%A8%A1%E5%9E%8B%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">感知机模型损失函数</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E6%84%9F%E7%9F%A5%E6%9C%BA%E6%A8%A1%E5%9E%8B%E7%9A%84%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0%E4%BC%98%E5%8C%96%E6%96%B9%E6%B3%95"><span class="toc-nav-number">1.3.</span> <span class="toc-nav-text">感知机模型的损失函数优化方法</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E6%84%9F%E7%9F%A5%E6%9C%BA%E7%AE%97%E6%B3%95"><span class="toc-nav-number">1.4.</span> <span class="toc-nav-text">感知机算法</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%8E%9F%E5%A7%8B%E7%AE%97%E6%B3%95"><span class="toc-nav-number">1.4.1.</span> <span class="toc-nav-text">原始算法</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E7%AE%97%E6%B3%95%E5%AF%B9%E5%81%B6%E5%BD%A2%E5%BC%8F"><span class="toc-nav-number">1.5.</span> <span class="toc-nav-text">算法对偶形式</span></a></li></ol></li></ol>
         
         </div>
       </aside>
@@ -750,7 +785,7 @@ $$ FPR = \frac{FP}{FP + TN } $$</p>
             
             <a class="tag" href="/myBlog/tags/#machine learning" title="machine learning">machine learning</a>
             
-            <a class="tag" href="/myBlog/tags/#regression" title="regression">regression</a>
+            <a class="tag" href="/myBlog/tags/#classification" title="classification">classification</a>
             
           </div>
         </section>
