@@ -251,17 +251,6 @@
           
           
           <li>
-            <a href="/myBlog/about/">
-              
-              ABOUT
-              
-              
-            </a>
-          </li>
-          
-          
-          
-          <li>
             <a href="/myBlog/archive/">
               
               ARCHIVES
@@ -273,9 +262,9 @@
           
           
           <li>
-            <a href="/myBlog/tags/">
+            <a href="/myBlog/about/">
               
-              TAGS
+              ABOUT
               
               
             </a>
@@ -287,6 +276,17 @@
             <a href="/myBlog/categories/">
               
               CATEGORIES
+              
+              
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/myBlog/tags/">
+              
+              TAGS
               
               
             </a>
@@ -477,6 +477,10 @@
         
         <a href="#JavaTools" title="JavaTools" rel="1">JavaTools</a>
         
+        <a href="#machine-learning math" title="machine-learning math" rel="1">machine-learning math</a>
+        
+        <a href="#machine-learning classification" title="machine-learning classification" rel="1">machine-learning classification</a>
+        
         <a href="#machine-learning regression" title="machine-learning regression" rel="5">machine-learning regression</a>
         
       </div>
@@ -551,9 +555,9 @@
                   <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
                   </li> -->
         <div class="post-preview">
-          <a href="/myBlog/go/Day02/">
+          <a href="/myBlog/go/Day01/">
             <h2 class="post-title">
-              Go Day02-Pointer ,array and slice
+              Go Day01-Basic structure and grammar
               
               -- go
               
@@ -569,9 +573,9 @@
                   <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
                   </li> -->
         <div class="post-preview">
-          <a href="/myBlog/go/Day01/">
+          <a href="/myBlog/go/Day02/">
             <h2 class="post-title">
-              Go Day01-Basic structure and grammar
+              Go Day02-Pointer ,array and slice
               
               -- go
               
@@ -659,9 +663,9 @@
                   <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
                   </li> -->
         <div class="post-preview">
-          <a href="/myBlog/go/Day08/">
+          <a href="/myBlog/go/Day07/">
             <h2 class="post-title">
-              Go Day08-Commonly used package-log
+              Go Day07-Commonly used package-time
               
               -- go
               
@@ -677,9 +681,9 @@
                   <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
                   </li> -->
         <div class="post-preview">
-          <a href="/myBlog/go/Day07/">
+          <a href="/myBlog/go/Day08/">
             <h2 class="post-title">
-              Go Day07-Commonly used package-time
+              Go Day08-Commonly used package-log
               
               -- go
               
@@ -743,8 +747,8 @@
       </div>
       
       <div class="one-tag-list">
-        <span class="fa fa-tag listing-seperator" id="machine-learning regression">
-          <span class="tag-text">machine-learning regression</span>
+        <span class="fa fa-tag listing-seperator" id="machine-learning math">
+          <span class="tag-text">machine-learning math</span>
         </span>
         
         <!-- <li class="listing-item">
@@ -752,22 +756,58 @@
                   <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
                   </li> -->
         <div class="post-preview">
-          <a href="/myBlog/machine learning/Fundamental and regression algorithm/交叉验证/">
+          <a href="/myBlog/machine learning/Math/MCMC/">
             <h2 class="post-title">
-              交叉验证
+              MCMC
               
               -- machine learning
               
             </h2>
             
             <h3 class="post-subtitle">
-              交叉验证介绍
+              马尔科夫链蒙特卡罗方法
             </h3>
             
           </a>
           <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
         </div>
         <hr>
+        
+      </div>
+      
+      <div class="one-tag-list">
+        <span class="fa fa-tag listing-seperator" id="machine-learning classification">
+          <span class="tag-text">machine-learning classification</span>
+        </span>
+        
+        <!-- <li class="listing-item">
+                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
+                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+                  </li> -->
+        <div class="post-preview">
+          <a href="/myBlog/machine learning/Classification algorithm/logistic-regression/">
+            <h2 class="post-title">
+              逻辑回归算法
+              
+              -- machine learning
+              
+            </h2>
+            
+            <h3 class="post-subtitle">
+              逻辑回归算法学习笔记
+            </h3>
+            
+          </a>
+          <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+        </div>
+        <hr>
+        
+      </div>
+      
+      <div class="one-tag-list">
+        <span class="fa fa-tag listing-seperator" id="machine-learning regression">
+          <span class="tag-text">machine-learning regression</span>
+        </span>
         
         <!-- <li class="listing-item">
                   <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
@@ -784,6 +824,28 @@
             
             <h3 class="post-subtitle">
               线性回归知识点总结
+            </h3>
+            
+          </a>
+          <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+        </div>
+        <hr>
+        
+        <!-- <li class="listing-item">
+                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
+                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+                  </li> -->
+        <div class="post-preview">
+          <a href="/myBlog/machine learning/Fundamental and regression algorithm/交叉验证/">
+            <h2 class="post-title">
+              交叉验证
+              
+              -- machine learning
+              
+            </h2>
+            
+            <h3 class="post-subtitle">
+              交叉验证介绍
             </h3>
             
           </a>

@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://nuist-elite.github.io/myBlog/myBlog/machine%20learning/Classification%20algorithm/logistic-regression/</loc>
+    <lastmod>2022-05-05</lastmod>
+  </url>
+  <url>
+    <loc>https://nuist-elite.github.io/myBlog/myBlog/machine%20learning/Math/MCMC/</loc>
+    <lastmod>2022-05-04</lastmod>
+  </url>
+  <url>
     <loc>https://nuist-elite.github.io/myBlog/myBlog/machine%20learning/Fundamental%20and%20regression%20algorithm/linear-regression/</loc>
     <lastmod>2022-05-03</lastmod>
   </url>
