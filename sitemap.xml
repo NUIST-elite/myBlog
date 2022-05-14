@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://nuist-elite.github.io/myBlog/machine%20learning/Classification%20algorithm/naive-bayes/</loc>
+    
+    <lastmod>2022-05-13</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://nuist-elite.github.io/myBlog/machine%20learning/Classification%20algorithm/knn/</loc>
     
     <lastmod>2022-05-12</lastmod>
@@ -193,7 +200,7 @@
 
   <url>
     <loc>https://nuist-elite.github.io/myBlog</loc>
-    <lastmod>2022-05-13</lastmod>
+    <lastmod>2022-05-14</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -201,105 +208,105 @@
   
   <url>
     <loc>https://nuist-elite.github.io/myBlog/tags/front-end/</loc>
-    <lastmod>2022-05-13</lastmod>
+    <lastmod>2022-05-14</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://nuist-elite.github.io/myBlog/tags/learning-note/</loc>
-    <lastmod>2022-05-13</lastmod>
+    <lastmod>2022-05-14</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://nuist-elite.github.io/myBlog/tags/git/</loc>
-    <lastmod>2022-05-13</lastmod>
+    <lastmod>2022-05-14</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://nuist-elite.github.io/myBlog/tags/tutorial/</loc>
-    <lastmod>2022-05-13</lastmod>
+    <lastmod>2022-05-14</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://nuist-elite.github.io/myBlog/tags/basic/</loc>
-    <lastmod>2022-05-13</lastmod>
+    <lastmod>2022-05-14</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://nuist-elite.github.io/myBlog/tags/Go/</loc>
-    <lastmod>2022-05-13</lastmod>
+    <lastmod>2022-05-14</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://nuist-elite.github.io/myBlog/tags/JSoup/</loc>
-    <lastmod>2022-05-13</lastmod>
+    <lastmod>2022-05-14</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://nuist-elite.github.io/myBlog/tags/Java/</loc>
-    <lastmod>2022-05-13</lastmod>
+    <lastmod>2022-05-14</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://nuist-elite.github.io/myBlog/tags/note/</loc>
-    <lastmod>2022-05-13</lastmod>
+    <lastmod>2022-05-14</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://nuist-elite.github.io/myBlog/tags/tip/</loc>
-    <lastmod>2022-05-13</lastmod>
+    <lastmod>2022-05-14</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://nuist-elite.github.io/myBlog/tags/maven/</loc>
-    <lastmod>2022-05-13</lastmod>
+    <lastmod>2022-05-14</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://nuist-elite.github.io/myBlog/tags/machine-learning/</loc>
-    <lastmod>2022-05-13</lastmod>
+    <lastmod>2022-05-14</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://nuist-elite.github.io/myBlog/tags/classification/</loc>
-    <lastmod>2022-05-13</lastmod>
+    <lastmod>2022-05-14</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://nuist-elite.github.io/myBlog/tags/regression/</loc>
-    <lastmod>2022-05-13</lastmod>
+    <lastmod>2022-05-14</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://nuist-elite.github.io/myBlog/tags/math/</loc>
-    <lastmod>2022-05-13</lastmod>
+    <lastmod>2022-05-14</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
@@ -308,56 +315,56 @@
   
   <url>
     <loc>https://nuist-elite.github.io/myBlog/categories/front-end-learning-note/</loc>
-    <lastmod>2022-05-13</lastmod>
+    <lastmod>2022-05-14</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://nuist-elite.github.io/myBlog/categories/git-basic-tutorial/</loc>
-    <lastmod>2022-05-13</lastmod>
+    <lastmod>2022-05-14</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://nuist-elite.github.io/myBlog/categories/Go-learning-note/</loc>
-    <lastmod>2022-05-13</lastmod>
+    <lastmod>2022-05-14</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://nuist-elite.github.io/myBlog/categories/JavaTools/</loc>
-    <lastmod>2022-05-13</lastmod>
+    <lastmod>2022-05-14</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://nuist-elite.github.io/myBlog/categories/maven/</loc>
-    <lastmod>2022-05-13</lastmod>
+    <lastmod>2022-05-14</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://nuist-elite.github.io/myBlog/categories/machine-learning-classification/</loc>
-    <lastmod>2022-05-13</lastmod>
+    <lastmod>2022-05-14</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://nuist-elite.github.io/myBlog/categories/machine-learning-regression/</loc>
-    <lastmod>2022-05-13</lastmod>
+    <lastmod>2022-05-14</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://nuist-elite.github.io/myBlog/categories/machine-learning-math/</loc>
-    <lastmod>2022-05-13</lastmod>
+    <lastmod>2022-05-14</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
