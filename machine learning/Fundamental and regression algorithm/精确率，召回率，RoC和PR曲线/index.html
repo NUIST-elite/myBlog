@@ -248,6 +248,8 @@
 
           
           
+          
+          
           <li>
             <a href="/myBlog/about/">
               
@@ -259,12 +261,10 @@
           
           
           
-          
-          
           <li>
-            <a href="/myBlog/tags/">
+            <a href="/myBlog/categories/">
               
-              TAGS
+              CATEGORIES
               
               
             </a>
@@ -284,9 +284,9 @@
           
           
           <li>
-            <a href="/myBlog/categories/">
+            <a href="/myBlog/tags/">
               
-              CATEGORIES
+              TAGS
               
               
             </a>
@@ -476,27 +476,51 @@
       <!-- Post Container -->
       <div class="col-lg-8 col-lg-offset-1 col-md-10 col-md-offset-1 post-container">
 
-        <h1 id="前置概念（TP-FP-TN-FN）"><a href="#前置概念（TP-FP-TN-FN）" class="headerlink" title="前置概念（TP, FP, TN, FN）"></a>前置概念（TP, FP, TN, FN）</h1><h2 id="概念介绍"><a href="#概念介绍" class="headerlink" title="概念介绍"></a>概念介绍</h2><p>在了解精确率和召回率前，有几个概念需要了解</p>
+        <h1>前置概念（TP, FP, TN, FN）</h1>
+<h2 id="概念介绍">概念介绍</h2>
+<p>在了解精确率和召回率前，有几个概念需要了解</p>
 <ol>
 <li><strong>TP（True Positives）</strong>：预测为正样本，实际也为正样本的特征的数量</li>
 <li><strong>FP（False Positives）</strong>：预测为正样本，实际为负样本的特征的数量</li>
 <li><strong>TN（True Negatives）</strong>：预测为负样本，实际也为负样本的特征的数量</li>
 <li><strong>FN（False Negatives）</strong>：预测为负样本，实际为正样本的特征的数量</li>
 </ol>
-<h2 id="图像表示"><a href="#图像表示" class="headerlink" title="图像表示"></a>图像表示</h2><p>图像如下所示，里面绿色的半圆就是<strong>TP(True Positives)</strong>, 红色的半圆就是<strong>FP(False Positives)</strong>, 左边的灰色长方形（不包括绿色半圆），就是<strong>FN（False Negatives）</strong>。右边的 浅灰色长方形（不包括红色半圆），就是<strong>TN(True Negatives)</strong>。这个绿色和红色组成的<strong>圆内代表我们分类得到模型结果认为是正值的样本</strong>。<br><img src="1.jpg" alt="image show"></p>
-<h1 id="精确率-precision-召回率-Recall-与特异性-specificity"><a href="#精确率-precision-召回率-Recall-与特异性-specificity" class="headerlink" title="精确率(precision),召回率(Recall)与特异性(specificity)"></a>精确率(precision),召回率(Recall)与特异性(specificity)</h1><h2 id="精确率"><a href="#精确率" class="headerlink" title="精确率"></a>精确率</h2><p>精确率（Precision）的定义：精确率是针对我们预测结果而言的，它表示的是<strong>预测为阳性的样本中有多少是真正的阳性</strong>。那么预测为正就有两种可能，一种就是把阳性预测为阳性(TP)，另一种就是把阴性预测为阳性(FP)。在上图可以看出，精确率就是绿色半圆除以红色绿色组成的圆。严格的数学定义如下：</p>
-<script type="math/tex; mode=display">P = \frac{TP}{TP + FP }</script><h2 id="召回率"><a href="#召回率" class="headerlink" title="召回率"></a>召回率</h2><p>召回率(Recall)的定义：召回率是针对我们原来的样本而言的，它表示的是<strong>样本中的阳性有多少被预测正确了</strong>。那也有两种可能，一种是把原来的阳性预测成阳性(TP)，另一种就是把原来的阳性预测为阴性(FN)。在上图能看出，召回率是绿色半圆除以左边的长方形。严格的数学定义如下： </p>
-<script type="math/tex; mode=display">R = \frac{TP}{TP + FN }</script><blockquote>
-<p>精确率和召回率也被称为<strong>查准率</strong>和<strong>查全率</strong>。<br>查准率＝检索出的相关信息量 / 检索出的信息总量<br>查全率＝检索出的相关信息量 / 系统中的相关信息总量</p>
+<h2 id="图像表示">图像表示</h2>
+<p>图像如下所示，里面绿色的半圆就是<strong>TP(True Positives)</strong>, 红色的半圆就是<strong>FP(False Positives)</strong>, 左边的灰色长方形（不包括绿色半圆），就是<strong>FN（False Negatives）</strong>。右边的 浅灰色长方形（不包括红色半圆），就是<strong>TN(True Negatives)</strong>。这个绿色和红色组成的<strong>圆内代表我们分类得到模型结果认为是正值的样本</strong>。<br>
+<img src="1.jpg" alt="image show"></p>
+<h1>精确率(precision),召回率(Recall)与特异性(specificity)</h1>
+<h2 id="精确率">精确率</h2>
+<p>精确率（Precision）的定义：精确率是针对我们预测结果而言的，它表示的是<strong>预测为阳性的样本中有多少是真正的阳性</strong>。那么预测为正就有两种可能，一种就是把阳性预测为阳性(TP)，另一种就是把阴性预测为阳性(FP)。在上图可以看出，精确率就是绿色半圆除以红色绿色组成的圆。严格的数学定义如下：<br>
+$$ P = \frac{TP}{TP + FP } $$</p>
+<h2 id="召回率">召回率</h2>
+<p>召回率(Recall)的定义：召回率是针对我们原来的样本而言的，它表示的是<strong>样本中的阳性有多少被预测正确了</strong>。那也有两种可能，一种是把原来的阳性预测成阳性(TP)，另一种就是把原来的阳性预测为阴性(FN)。在上图能看出，召回率是绿色半圆除以左边的长方形。严格的数学定义如下：<br>
+$$ R = \frac{TP}{TP + FN } $$</p>
+<blockquote>
+<p>精确率和召回率也被称为<strong>查准率</strong>和<strong>查全率</strong>。<br>
+查准率＝检索出的相关信息量 / 检索出的信息总量<br>
+查全率＝检索出的相关信息量 / 系统中的相关信息总量</p>
 </blockquote>
-<h2 id="特异性"><a href="#特异性" class="headerlink" title="特异性"></a>特异性</h2><p>特异性就是指应为阴性的样本有多少被成功预测了，具体数学定义为：</p>
-<script type="math/tex; mode=display">S = \frac{TN}{FP + TN }</script><h2 id="其它指标"><a href="#其它指标" class="headerlink" title="其它指标"></a>其它指标</h2><h3 id="F-1-值"><a href="#F-1-值" class="headerlink" title="$F_1$值"></a>$F_1$值</h3><p>有时会用一个F1值来综合评估精确率和召回率，它是精确率和召回率的调和均值。当精确率和召回率都高时,F1值也会高。严格的数学定义如下：</p>
-<script type="math/tex; mode=display">\frac{2}{F_1} = \frac{1}{P} + \frac{1}{R}</script><h3 id="灵敏度-true-positive-rate-TPR"><a href="#灵敏度-true-positive-rate-TPR" class="headerlink" title="灵敏度(true positive rate ,TPR)"></a>灵敏度(true positive rate ,TPR)</h3><p>灵敏度指所有实际阳性样本中，正确识别的正例比例，<strong>它和召回率的表达式相同</strong>。</p>
-<script type="math/tex; mode=display">R = \frac{TP}{TP + FN }</script><h3 id="假阳性率-false-positive-rate-FPR"><a href="#假阳性率-false-positive-rate-FPR" class="headerlink" title="假阳性率(false positive rate, FPR)"></a>假阳性率(false positive rate, FPR)</h3><p>它是实际阴性样本中，被错误得识别为阳性的比例。严格的数学定义如下：</p>
-<script type="math/tex; mode=display">FPR = \frac{FP}{FP + TN }</script><h1 id="RoC曲线和PR曲线"><a href="#RoC曲线和PR曲线" class="headerlink" title="RoC曲线和PR曲线"></a>RoC曲线和PR曲线</h1><p>根据上一节的一系列指标，可以做出两种不同的曲线，具体如下图：<br><img src="2.png" alt="curve"></p>
-<h2 id="RoC曲线"><a href="#RoC曲线" class="headerlink" title="RoC曲线"></a>RoC曲线</h2><p>ROC的全名叫做Receiver Operating Characteristic，以<strong>TPR为y轴，以FPR为x轴</strong>，我们就直接得到了RoC曲线。从FPR和TPR的定义可以理解，TPR越高，FPR越小，我们的模型和算法就越高效。也就是画出来的<strong>RoC曲线越靠近左上</strong>越好。如上图所示。从几何的角度讲，RoC曲线下方的面积越大越大，则模型越优。所以有时候我们用RoC曲线下的面积，即<strong>AUC（Area Under Curve）值来作为算法和模型好坏的标准</strong>。通常，AUC的值介于0.5到1.0之间，较大的AUC代表了较好的性能。</p>
+<h2 id="特异性">特异性</h2>
+<p>特异性就是指应为阴性的样本有多少被成功预测了，具体数学定义为：<br>
+$$ S = \frac{TN}{FP + TN } $$</p>
+<h2 id="其它指标">其它指标</h2>
+<h3 id="F-1-值">$F_1$值</h3>
+<p>有时会用一个F1值来综合评估精确率和召回率，它是精确率和召回率的调和均值。当精确率和召回率都高时,F1值也会高。严格的数学定义如下：<br>
+$$ \frac{2}{F_1} = \frac{1}{P} + \frac{1}{R} $$</p>
+<h3 id="灵敏度-true-positive-rate-TPR">灵敏度(true positive rate ,TPR)</h3>
+<p>灵敏度指所有实际阳性样本中，正确识别的正例比例，<strong>它和召回率的表达式相同</strong>。<br>
+$$ R = \frac{TP}{TP + FN } $$</p>
+<h3 id="假阳性率-false-positive-rate-FPR">假阳性率(false positive rate, FPR)</h3>
+<p>它是实际阴性样本中，被错误得识别为阳性的比例。严格的数学定义如下：<br>
+$$ FPR = \frac{FP}{FP + TN } $$</p>
+<h1>RoC曲线和PR曲线</h1>
+<p>根据上一节的一系列指标，可以做出两种不同的曲线，具体如下图：<br>
+<img src="2.png" alt="curve"></p>
+<h2 id="RoC曲线">RoC曲线</h2>
+<p>ROC的全名叫做Receiver Operating Characteristic，以<strong>TPR为y轴，以FPR为x轴</strong>，我们就直接得到了RoC曲线。从FPR和TPR的定义可以理解，TPR越高，FPR越小，我们的模型和算法就越高效。也就是画出来的<strong>RoC曲线越靠近左上</strong>越好。如上图所示。从几何的角度讲，RoC曲线下方的面积越大越大，则模型越优。所以有时候我们用RoC曲线下的面积，即<strong>AUC（Area Under Curve）值来作为算法和模型好坏的标准</strong>。通常，AUC的值介于0.5到1.0之间，较大的AUC代表了较好的性能。</p>
 <p>RoC曲线中的一个点代表一个分类器，也就说一条RoC曲线代表了无数分类器。ROC曲线描述的其实是分类器性能随着分类器阈值的变化而变化的过程。对于ROC曲线，一个重要的特征是它的面积，面积为0.5为随机分类，识别能力为0，面积越接近于1识别能力越强，面积等于1为完全识别。这也就是上面提到的AUC。</p>
-<h2 id="PR曲线"><a href="#PR曲线" class="headerlink" title="PR曲线"></a>PR曲线</h2><p>以精确率为y轴，以召回率为x轴，我们就得到了PR曲线。仍然从精确率和召回率的定义可以理解，精确率越高，召回率越高，我们的模型和算法就越高效。也就是画出来的PR曲线越靠近右上越好。如上图右图所示。</p>
+<h2 id="PR曲线">PR曲线</h2>
+<p>以精确率为y轴，以召回率为x轴，我们就得到了PR曲线。仍然从精确率和召回率的定义可以理解，精确率越高，召回率越高，我们的模型和算法就越高效。也就是画出来的PR曲线越靠近右上越好。如上图右图所示。</p>
 
 
         <hr>
@@ -701,7 +725,7 @@
         <div id="toc" class="toc-article">
         <strong class="toc-title">Contents</strong>
         
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#%E5%89%8D%E7%BD%AE%E6%A6%82%E5%BF%B5%EF%BC%88TP-FP-TN-FN%EF%BC%89"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">前置概念（TP, FP, TN, FN）</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E6%A6%82%E5%BF%B5%E4%BB%8B%E7%BB%8D"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">概念介绍</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E5%9B%BE%E5%83%8F%E8%A1%A8%E7%A4%BA"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">图像表示</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#%E7%B2%BE%E7%A1%AE%E7%8E%87-precision-%E5%8F%AC%E5%9B%9E%E7%8E%87-Recall-%E4%B8%8E%E7%89%B9%E5%BC%82%E6%80%A7-specificity"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">精确率(precision),召回率(Recall)与特异性(specificity)</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E7%B2%BE%E7%A1%AE%E7%8E%87"><span class="toc-nav-number">2.1.</span> <span class="toc-nav-text">精确率</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E5%8F%AC%E5%9B%9E%E7%8E%87"><span class="toc-nav-number">2.2.</span> <span class="toc-nav-text">召回率</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E7%89%B9%E5%BC%82%E6%80%A7"><span class="toc-nav-number">2.3.</span> <span class="toc-nav-text">特异性</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E5%85%B6%E5%AE%83%E6%8C%87%E6%A0%87"><span class="toc-nav-number">2.4.</span> <span class="toc-nav-text">其它指标</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#F-1-%E5%80%BC"><span class="toc-nav-number">2.4.1.</span> <span class="toc-nav-text">$F_1$值</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E7%81%B5%E6%95%8F%E5%BA%A6-true-positive-rate-TPR"><span class="toc-nav-number">2.4.2.</span> <span class="toc-nav-text">灵敏度(true positive rate ,TPR)</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%81%87%E9%98%B3%E6%80%A7%E7%8E%87-false-positive-rate-FPR"><span class="toc-nav-number">2.4.3.</span> <span class="toc-nav-text">假阳性率(false positive rate, FPR)</span></a></li></ol></li></ol></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#RoC%E6%9B%B2%E7%BA%BF%E5%92%8CPR%E6%9B%B2%E7%BA%BF"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">RoC曲线和PR曲线</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#RoC%E6%9B%B2%E7%BA%BF"><span class="toc-nav-number">3.1.</span> <span class="toc-nav-text">RoC曲线</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#PR%E6%9B%B2%E7%BA%BF"><span class="toc-nav-number">3.2.</span> <span class="toc-nav-text">PR曲线</span></a></li></ol></li></ol>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">前置概念（TP, FP, TN, FN）</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E6%A6%82%E5%BF%B5%E4%BB%8B%E7%BB%8D"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">概念介绍</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E5%9B%BE%E5%83%8F%E8%A1%A8%E7%A4%BA"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">图像表示</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">精确率(precision),召回率(Recall)与特异性(specificity)</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E7%B2%BE%E7%A1%AE%E7%8E%87"><span class="toc-nav-number">2.1.</span> <span class="toc-nav-text">精确率</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E5%8F%AC%E5%9B%9E%E7%8E%87"><span class="toc-nav-number">2.2.</span> <span class="toc-nav-text">召回率</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E7%89%B9%E5%BC%82%E6%80%A7"><span class="toc-nav-number">2.3.</span> <span class="toc-nav-text">特异性</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E5%85%B6%E5%AE%83%E6%8C%87%E6%A0%87"><span class="toc-nav-number">2.4.</span> <span class="toc-nav-text">其它指标</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#F-1-%E5%80%BC"><span class="toc-nav-number">2.4.1.</span> <span class="toc-nav-text">$F_1$值</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E7%81%B5%E6%95%8F%E5%BA%A6-true-positive-rate-TPR"><span class="toc-nav-number">2.4.2.</span> <span class="toc-nav-text">灵敏度(true positive rate ,TPR)</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%81%87%E9%98%B3%E6%80%A7%E7%8E%87-false-positive-rate-FPR"><span class="toc-nav-number">2.4.3.</span> <span class="toc-nav-text">假阳性率(false positive rate, FPR)</span></a></li></ol></li></ol></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">RoC曲线和PR曲线</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#RoC%E6%9B%B2%E7%BA%BF"><span class="toc-nav-number">3.1.</span> <span class="toc-nav-text">RoC曲线</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#PR%E6%9B%B2%E7%BA%BF"><span class="toc-nav-number">3.2.</span> <span class="toc-nav-text">PR曲线</span></a></li></ol></li></ol>
         
         </div>
       </aside>

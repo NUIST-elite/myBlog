@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://nuist-elite.github.io/myBlog/myBlog/machine%20learning/Ensemble%20learning/ensemble/</loc>
+    <lastmod>2022-05-26</lastmod>
+  </url>
+  <url>
     <loc>https://nuist-elite.github.io/myBlog/myBlog/machine%20learning/Classification%20algorithm/svm/</loc>
     <lastmod>2022-05-16</lastmod>
   </url>

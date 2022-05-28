@@ -248,6 +248,8 @@
 
           
           
+          
+          
           <li>
             <a href="/myBlog/about/">
               
@@ -259,12 +261,10 @@
           
           
           
-          
-          
           <li>
-            <a href="/myBlog/tags/">
+            <a href="/myBlog/categories/">
               
-              TAGS
+              CATEGORIES
               
               
             </a>
@@ -284,9 +284,9 @@
           
           
           <li>
-            <a href="/myBlog/categories/">
+            <a href="/myBlog/tags/">
               
-              CATEGORIES
+              TAGS
               
               
             </a>
@@ -393,9 +393,9 @@
           <div class="post-heading">
             <div class="tags">
               
-              <a class="tag" href="/myBlog/tags/#Go" title="Go">Go</a>
-              
               <a class="tag" href="/myBlog/tags/#learning note" title="learning note">learning note</a>
+              
+              <a class="tag" href="/myBlog/tags/#Go" title="Go">Go</a>
               
             </div>
             <h1>Go Day08-Commonly used package-log</h1>
@@ -414,7 +414,7 @@
             </span>
             <div class="blank_box"></div>
             <span class="meta">
-              Words <span class="post-count">386</span> In Total
+              Words <span class="post-count">388</span> In Total
             </span>
             <div class="blank_box"></div>
             <!-- WordCount end -->
@@ -476,16 +476,19 @@
       <!-- Post Container -->
       <div class="col-lg-8 col-lg-offset-1 col-md-10 col-md-offset-1 post-container">
 
-        <h1 id="Day08"><a href="#Day08" class="headerlink" title="Day08"></a>Day08</h1><p><code>log</code> is a standard package in Go, it provides basic logger function.</p>
-<h2 id="Basic-usage"><a href="#Basic-usage" class="headerlink" title="Basic usage"></a>Basic usage</h2><p>use <code>log</code> to print log with <strong>time</strong>.</p>
+        <h1>Day08</h1>
+<p><code>log</code> is a standard package in Go, it provides basic logger function.</p>
+<h2 id="Basic-usage">Basic usage</h2>
+<p>use <code>log</code> to print log with <strong>time</strong>.</p>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="string">&quot;log&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	log.Println(<span class="string">&quot;Wow&quot;</span>)</span><br><span class="line">	log.Fatal(<span class="string">&quot;end here&quot;</span>)</span><br><span class="line">	log.Panic(<span class="string">&quot;panic!&quot;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>Println will output a log with message.</p>
 <p>Fatal will print the message, then execute <code>os.Exit(1)</code> immediately, rest of the main will not be run.</p>
 <p>Panic will print message, then throw a <strong>panic.</strong></p>
 </blockquote>
-<p>&nbsp;</p>
-<h2 id="Logger-configuration"><a href="#Logger-configuration" class="headerlink" title="Logger configuration"></a>Logger configuration</h2><p>you can use <code>log.Flags()</code> to view standard logger configuration, and use <code>log.setFlags()</code> to configure logger information.</p>
+<p> </p>
+<h2 id="Logger-configuration">Logger configuration</h2>
+<p>you can use <code>log.Flags()</code> to view standard logger configuration, and use <code>log.setFlags()</code> to configure logger information.</p>
 <p>Here are the attributes of logger:</p>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> (</span><br><span class="line">    <span class="comment">// every item has a : after it：for examole: 2021/05/20 05:20:20.201314 /a/b/c/d.go:23: message</span></span><br><span class="line">    Ldate         = <span class="number">1</span> &lt;&lt; <span class="literal">iota</span>     <span class="comment">// date</span></span><br><span class="line">    Ltime                         <span class="comment">// time</span></span><br><span class="line">    Lmicroseconds                 <span class="comment">// to to microseconds, to enhance Ltime</span></span><br><span class="line">    Llongfile                     <span class="comment">// file path and row number</span></span><br><span class="line">    Lshortfile                    <span class="comment">// file name and row number（overwrite Llongfile）</span></span><br><span class="line">    LUTC                          <span class="comment">// use UTC time</span></span><br><span class="line">    LstdFlags     = Ldate | Ltime <span class="comment">// standard logger</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
 <p>use <code>setFlags()</code> :</p>
@@ -493,16 +496,19 @@
 <blockquote>
 <p>Notice that <code>setFlags</code>() only changes the content of log, has no influence on the output sequence</p>
 </blockquote>
-<p>&nbsp;</p>
-<h3 id="Prefix"><a href="#Prefix" class="headerlink" title="Prefix"></a>Prefix</h3><p>use <code>log.setPrefix</code>() to set the prefix of log</p>
+<p> </p>
+<h3 id="Prefix">Prefix</h3>
+<p>use <code>log.setPrefix</code>() to set the prefix of log</p>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">log.SetPrefix(<span class="string">&quot;-- this is my logger --&quot;</span>)</span><br><span class="line">log.Println(<span class="string">&quot;log with prefix :)&quot;</span>)</span><br><span class="line"><span class="comment">// output:</span></span><br><span class="line"><span class="comment">// -- this is my log --2021/05/20 20:30:20 log with prefix :)</span></span><br></pre></td></tr></table></figure>
-<p>&nbsp;</p>
-<h3 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h3><p>use <code>log.setOutput()</code> to set the output position of logs</p>
+<p> </p>
+<h3 id="Output">Output</h3>
+<p>use <code>log.setOutput()</code> to set the output position of logs</p>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">logFile, err := os.OpenFile(<span class="string">&quot;./xx.log&quot;</span>, os.O_CREATE|os.O_WRONLY|os.O_APPEND, <span class="number">0644</span>)</span><br><span class="line">	<span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">		fmt.Println(<span class="string">&quot;open log file failed, err:&quot;</span>, err)</span><br><span class="line">		<span class="keyword">return</span></span><br><span class="line">	&#125;</span><br><span class="line">log.SetOutput(logFile)</span><br></pre></td></tr></table></figure>
 <p>usually, we will put all configuration action into a function</p>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">init</span><span class="params">()</span></span> &#123;</span><br><span class="line">	logFile, err := os.OpenFile(<span class="string">&quot;./xx.log&quot;</span>, os.O_CREATE|os.O_WRONLY|os.O_APPEND, <span class="number">0644</span>)</span><br><span class="line">	<span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">		fmt.Println(<span class="string">&quot;open log file failed, err:&quot;</span>, err)</span><br><span class="line">		<span class="keyword">return</span></span><br><span class="line">	&#125;</span><br><span class="line">	log.SetOutput(logFile)</span><br><span class="line">	log.SetFlags(log.Llongfile | log.Lmicroseconds | log.Ldate)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>&nbsp;</p>
-<h3 id="Create-logger"><a href="#Create-logger" class="headerlink" title="Create logger"></a>Create logger</h3><p>use constructor <code>New()</code> to configure the logger</p>
+<p> </p>
+<h3 id="Create-logger">Create logger</h3>
+<p>use constructor <code>New()</code> to configure the logger</p>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">New</span><span class="params">(out io.Writer, prefix <span class="keyword">string</span>, flag <span class="keyword">int</span>)</span> *<span class="title">Logger</span></span></span><br></pre></td></tr></table></figure>
 <p>an example:</p>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">logger := log.New(os.Stdout, <span class="string">&quot;the prefix&quot;</span>, log.Llongfile|log.Ldate|log.Lmicroseconds)</span><br></pre></td></tr></table></figure>
@@ -722,9 +728,9 @@
           </h5>
           <div class="tags">
             
-            <a class="tag" href="/myBlog/tags/#Go" title="Go">Go</a>
-            
             <a class="tag" href="/myBlog/tags/#learning note" title="learning note">learning note</a>
+            
+            <a class="tag" href="/myBlog/tags/#Go" title="Go">Go</a>
             
           </div>
         </section>

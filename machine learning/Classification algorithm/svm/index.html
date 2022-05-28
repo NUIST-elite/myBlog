@@ -248,6 +248,8 @@
 
           
           
+          
+          
           <li>
             <a href="/myBlog/about/">
               
@@ -259,12 +261,10 @@
           
           
           
-          
-          
           <li>
-            <a href="/myBlog/tags/">
+            <a href="/myBlog/categories/">
               
-              TAGS
+              CATEGORIES
               
               
             </a>
@@ -284,9 +284,9 @@
           
           
           <li>
-            <a href="/myBlog/categories/">
+            <a href="/myBlog/tags/">
               
-              CATEGORIES
+              TAGS
               
               
             </a>
@@ -410,11 +410,11 @@
             <!-- WordCount start -->
             <div class="blank_box"></div>
             <span class="meta">
-              Estimated Reading Time <span class="post-count">22</span> Minutes
+              Estimated Reading Time <span class="post-count">29</span> Minutes
             </span>
             <div class="blank_box"></div>
             <span class="meta">
-              Words <span class="post-count">5.4k</span> In Total
+              Words <span class="post-count">7k</span> In Total
             </span>
             <div class="blank_box"></div>
             <!-- WordCount end -->
@@ -476,131 +476,277 @@
       <!-- Post Container -->
       <div class="col-lg-8 col-lg-offset-1 col-md-10 col-md-offset-1 post-container">
 
-        <h1 id="线性支持向量机"><a href="#线性支持向量机" class="headerlink" title="线性支持向量机"></a>线性支持向量机</h1><p><strong>支持向量机(Support Vecor Machine, SVM)</strong>是一个拥有良好性能的分类算法，线性分类和非线性分类都支持。经过演进，现在也可以支持多元分类，同时经过扩展，也能应用于回归问题。本章的重点是SVM用于线性分类时的模型和损失函数优化的一个总结。</p>
-<h2 id="SVM前置知识：感知机"><a href="#SVM前置知识：感知机" class="headerlink" title="SVM前置知识：感知机"></a>SVM前置知识：感知机</h2><p>之前的<a href="https://nuist-elite.github.io/myBlog/machine%20learning/Classification%20algorithm/perceptron/">感知机</a>文章中提到，感知机目标就是在多维空间中找到一个超平面$w^Tx + b = 0$，将所有的二元类别隔开。如下图所示，超平面上方为一类，下方唯一类，并且这个超平面<strong>不止一个</strong>。<br><img src="1.jpg" alt="per"></p>
-<p>感知机的损失函数优化的思想是让所有<strong>误分类的点</strong>(定义为M)到超平面的距离和最小，即下式：</p>
-<script type="math/tex; mode=display">\sum\limits_{x_i \in M}- y^{(i)}(w^Tx^{(i)} +b)\big / ||w||_2</script><p>由于分子和分母有固定的倍数关系，感知机中选择固定分母，保留分子，最终得到损失函数：</p>
-<script type="math/tex; mode=display">\sum\limits_{x_i \in M}- y^{(i)}(w^Tx^{(i)} +b)</script><p>如果选择固定分子，分类模型是否会被改进？之后SVM就会提到这个做法。</p>
-<h2 id="函数间隔与几何间隔"><a href="#函数间隔与几何间隔" class="headerlink" title="函数间隔与几何间隔"></a>函数间隔与几何间隔</h2><p>在分离空间的超平面固定为$w^Tx + b = 0$时，$|w^Tx + b |$表示点x到超平面的相对距离。通过观察$w^Tx + b$和y（正确分类结果）是否同号，我们判断分类是否正确。这里引入<strong>函数间隔</strong>的概念，定义函数间隔$\gamma^{‘}$为：</p>
-<script type="math/tex; mode=display">\gamma^{'} = y(w^Tx + b)</script><p>可以看出它就是损失函数中，误分类点到超平面距离的分子。对于训练集中m个样本点对应的m个函数间隔的<strong>最小值</strong>，就是整个训练集的函数间隔。</p>
-<p>函数间隔并不能正常反应点到超平面的距离，在感知机模型里也提到，当分子成比例的增长时，分母也是成倍增长。为了统一度量，我们需要对法向量$w$加上约束条件，这样我们就得到了几何间隔$γ$,定义为：</p>
-<script type="math/tex; mode=display">\gamma = \frac{y(w^Tx + b)}{||w||_2} =  \frac{\gamma^{'}}{||w||_2}</script><p>几何间隔才是点到超平面的真正距离，感知机模型里用到的距离就是几何距离。</p>
-<h2 id="支持向量"><a href="#支持向量" class="headerlink" title="支持向量"></a>支持向量</h2><p>在感知机模型中，可以找到<strong>多个</strong>可以分类的超平面将数据分开，并且优化时希望所有的点都被准确分类。但是实际上<strong>离超平面很远的点已经被正确分类，它对超平面的位置没有影响</strong>。我们最关心是那些离超平面<strong>很近</strong>的点，这些点很容易被误分类。如果我们可以<strong>让离超平面比较近的点尽可能的远离超平面，最大化几何间隔</strong>，那么我们的分类效果会更好一些。SVM的思想起源正起于此。</p>
-<p>如下图所示，分离超平面为$w^Tx+b=0$，如果所有的样本不光可以被超平面分开，还和超平面保持一定的函数距离（下图函数距离为1），那么这样的分类超平面是比感知机的分类超平面优的。可以证明，这样的超平面<strong>只有一个</strong>。<strong>和超平面平行的保持一定的函数距离的这两个超平面对应的向量，我们定义为支持向量</strong>，如下图虚线所示。<br><img src="2.jpg" alt="sv"></p>
+        <h1>线性支持向量机</h1>
+<p>**支持向量机(Support Vecor Machine, SVM)**是一个拥有良好性能的分类算法，线性分类和非线性分类都支持。经过演进，现在也可以支持多元分类，同时经过扩展，也能应用于回归问题。本章的重点是SVM用于线性分类时的模型和损失函数优化的一个总结。</p>
+<h2 id="SVM前置知识：感知机">SVM前置知识：感知机</h2>
+<p>之前的<a href="https://nuist-elite.github.io/myBlog/machine%20learning/Classification%20algorithm/perceptron/">感知机</a>文章中提到，感知机目标就是在多维空间中找到一个超平面$w^Tx + b = 0$，将所有的二元类别隔开。如下图所示，超平面上方为一类，下方唯一类，并且这个超平面<strong>不止一个</strong>。<br>
+<img src="1.jpg" alt="per"></p>
+<p>感知机的损失函数优化的思想是让所有<strong>误分类的点</strong>(定义为M)到超平面的距离和最小，即下式：<br>
+$$ \sum\limits_{x_i \in M}- y^{(i)}(w^Tx^{(i)} +b)\big / ||w||<em>2 $$<br>
+由于分子和分母有固定的倍数关系，感知机中选择固定分母，保留分子，最终得到损失函数：<br>
+$$ \sum\limits</em>{x_i \in M}- y^{(i)}(w^Tx^{(i)} +b) $$<br>
+如果选择固定分子，分类模型是否会被改进？之后SVM就会提到这个做法。</p>
+<h2 id="函数间隔与几何间隔">函数间隔与几何间隔</h2>
+<p>在分离空间的超平面固定为$w^Tx + b = 0$时，$|w^Tx + b |$表示点x到超平面的相对距离。通过观察$w^Tx + b$和y（正确分类结果）是否同号，我们判断分类是否正确。这里引入<strong>函数间隔</strong>的概念，定义函数间隔$\gamma^{‘}$为：<br>
+$$ \gamma^{’} = y(w^Tx + b) $$<br>
+可以看出它就是损失函数中，误分类点到超平面距离的分子。对于训练集中m个样本点对应的m个函数间隔的<strong>最小值</strong>，就是整个训练集的函数间隔。</p>
+<p>函数间隔并不能正常反应点到超平面的距离，在感知机模型里也提到，当分子成比例的增长时，分母也是成倍增长。为了统一度量，我们需要对法向量$w$加上约束条件，这样我们就得到了几何间隔$γ$,定义为：<br>
+$$ \gamma = \frac{y(w^Tx + b)}{||w||_2} =  \frac{\gamma^{'}}{||w||_2} $$<br>
+几何间隔才是点到超平面的真正距离，感知机模型里用到的距离就是几何距离。</p>
+<h2 id="支持向量">支持向量</h2>
+<p>在感知机模型中，可以找到<strong>多个</strong>可以分类的超平面将数据分开，并且优化时希望所有的点都被准确分类。但是实际上<strong>离超平面很远的点已经被正确分类，它对超平面的位置没有影响</strong>。我们最关心是那些离超平面<strong>很近</strong>的点，这些点很容易被误分类。如果我们可以<strong>让离超平面比较近的点尽可能的远离超平面，最大化几何间隔</strong>，那么我们的分类效果会更好一些。SVM的思想起源正起于此。</p>
+<p>如下图所示，分离超平面为$w^Tx+b=0$，如果所有的样本不光可以被超平面分开，还和超平面保持一定的函数距离（下图函数距离为1），那么这样的分类超平面是比感知机的分类超平面优的。可以证明，这样的超平面<strong>只有一个</strong>。<strong>和超平面平行的保持一定的函数距离的这两个超平面对应的向量，我们定义为支持向量</strong>，如下图虚线所示。<br>
+<img src="2.jpg" alt="sv"></p>
 <blockquote>
 <p>支持向量到超平面的距离为$1/||w||_2$,两个支持向量之间的距离为$2/||w||_2$</p>
 </blockquote>
-<h2 id="SVM模型目标函数与优化"><a href="#SVM模型目标函数与优化" class="headerlink" title="SVM模型目标函数与优化"></a>SVM模型目标函数与优化</h2><p>SVM的模型是让所有点到超平面的距离大于一定的距离，也就是所有的分类点要在各自类别的支持向量两边。用数学式子表示为：</p>
-<script type="math/tex; mode=display">max \;\; \gamma = \frac{y(w^Tx + b)}{||w||_2}  \\ s.t \;\; y_i(w^Tx_i + b) = \gamma^{'(i)} \geq \gamma^{'} (i =1,2,...m)</script><blockquote>
-<p>其中，max指后面表达式的最大值<br>s.t 后面跟的是约束条件</p>
+<h2 id="SVM模型目标函数与优化">SVM模型目标函数与优化</h2>
+<p>SVM的模型是让所有点到超平面的距离大于一定的距离，也就是所有的分类点要在各自类别的支持向量两边。用数学式子表示为：<br>
+$$ max ;; \gamma = \frac{y(w^Tx + b)}{||w||_2}  \ s.t ;; y_i(w^Tx_i + b) = \gamma^{‘(i)} \geq \gamma^{’} (i =1,2,…m) $$</p>
+<blockquote>
+<p>其中，max指后面表达式的最大值<br>
+s.t 后面跟的是约束条件</p>
 </blockquote>
-<p>一般取函数间隔$\gamma^{‘}=1$，优化函数为：</p>
-<script type="math/tex; mode=display">max \;\; \frac{2}{||w||_2}  \\ s.t \;\; y_i(w^Tx_i + b)  \geq 1 (i =1,2,...m)</script><p>也就是说，我们要在约束条件$y_i(w^Tx_i+b)≥1\;(i=1,2,…m)$下，最大化$2/||w||_2$。可以看出，这和感知机的优化方式不同，感知机是固定分母优化分子，而SVM是<strong>固定分子优化分母</strong>，同时<strong>加上了支持向量的限制</strong>。</p>
-<p>显然，为了最大化问题，仅需要最大化$\frac{1}{||w||_2}$，根据范数知识，等价于最小化$\frac{1}{2}||w||_2^2$，于是可重写为：</p>
-<script type="math/tex; mode=display">min \;\; \frac{1}{2}||w||_2^2  \\ s.t \;\; y_i(w^Tx_i + b)  \geq 1 (i =1,2,...m)</script><p>由于目标函数$\frac{1}{2}||w||_2^2$是凸函数，且约束条件不等式是仿射的，根据凸优化理论，我们可以通过<strong>拉格朗日函数</strong>将我们的优化目标转化为无约束的优化，优化函数为：</p>
-<script type="math/tex; mode=display">L(w,b,\alpha) = \frac{1}{2}||w||_2^2 - \sum\limits_{i=1}^{m}\alpha_i[y_i(w^Tx_i + b) - 1] \\ \alpha_i \geq 0</script><p>由于引入了<strong>拉格朗日乘子</strong>，我们的优化目标变成：</p>
-<script type="math/tex; mode=display">\underbrace{min}_{w,b}\; \underbrace{max}_{\alpha_i \geq 0} L(w,b,\alpha)</script><p>这个优化函数满足<strong>KKT条件</strong>，可以通过拉格朗日对偶将优化问题转化为相应的对偶问题：</p>
-<script type="math/tex; mode=display">\underbrace{max}_{\alpha_i \geq 0} \;\underbrace{min}_{w,b}\;  L(w,b,\alpha)</script><blockquote>
+<p>一般取函数间隔$\gamma^{'}=1$，优化函数为：<br>
+$$ max ;; \frac{2}{||w||_2}  \ s.t ;; y_i(w^Tx_i + b)  \geq 1 (i =1,2,…m) $$<br>
+也就是说，我们要在约束条件$y_i(w^Tx_i+b)≥1;(i=1,2,…m)$下，最大化$2/||w||_2$。可以看出，这和感知机的优化方式不同，感知机是固定分母优化分子，而SVM是<strong>固定分子优化分母</strong>，同时<strong>加上了支持向量的限制</strong>。</p>
+<p>显然，为了最大化问题，仅需要最大化$\frac{1}{||w||_2}$，根据范数知识，等价于最小化$\frac{1}{2}||w||_2^2$，于是可重写为：<br>
+$$ min ;; \frac{1}{2}||w||_2^2  \ s.t ;; y_i(w^Tx_i + b)  \geq 1 (i =1,2,…m) $$<br>
+由于目标函数$\frac{1}{2}||w||_2^2$是凸函数，且约束条件不等式是仿射的，根据凸优化理论，我们可以通过<strong>拉格朗日函数</strong>将我们的优化目标转化为无约束的优化，优化函数为：<br>
+$$ L(w,b,\alpha) = \frac{1}{2}||w||<em>2^2 - \sum\limits</em>{i=1}^{m}\alpha_i[y_i(w^Tx_i + b) - 1] \ \alpha_i \geq 0 $$</p>
+<p>由于引入了<strong>拉格朗日乘子</strong>，我们的优化目标变成：<br>
+$$ \underbrace{min}<em>{w,b}; \underbrace{max}</em>{\alpha_i \geq 0} L(w,b,\alpha) $$<br>
+这个优化函数满足<strong>KKT条件</strong>，可以通过拉格朗日对偶将优化问题转化为相应的对偶问题：<br>
+$$ \underbrace{max}<em>{\alpha_i \geq 0} ;\underbrace{min}</em>{w,b};  L(w,b,\alpha) $$</p>
+<blockquote>
 <p>关于拉格朗日函数，对偶以及KKT条件，参考了<a target="_blank" rel="noopener" href="https://www.cnblogs.com/breezezz/p/11303722.html">这篇文章</a></p>
 </blockquote>
 <p>从上式中，我们可以先求优化函数对于$w$和$b$的极小值。接着再求拉格朗日乘子$α$的极大值。</p>
-<p>首先来求L(w,b,α)基于w和b的极小值，即$\underbrace{min}_{w,b}\;  L(w,b,\alpha)$。这个极值我们可以通过对w和b分别求偏导数(拉格朗日乘数法)得到：</p>
-<script type="math/tex; mode=display">\frac{\partial L}{\partial w} = 0 \;\Rightarrow w = \sum\limits_{i=1}^{m}\alpha_iy_ix_i \\ \frac{\partial L}{\partial b} = 0 \;\Rightarrow \sum\limits_{i=1}^{m}\alpha_iy_i = 0</script><p>从上两式可以看出，已经求得了w和α的关系，只要后面接着能够求出优化函数极大化对应的α，就可以求出w。注意到b，由于上两式已经没有b（b的取值对优化无影响），所以最后的b可以有多个。根据w和α的关系，可以消除w。首先定义：</p>
-<script type="math/tex; mode=display">\psi(\alpha) = \underbrace{min}_{w,b}\;  L(w,b,\alpha) \\ 
-\psi(\alpha) = \frac{1}{2}||w||_2^2 - \sum\limits_{i=1}^{m}\alpha_i[y_i(w^Tx_i + b) - 1]</script><h3 id="化简"><a href="#化简" class="headerlink" title="化简"></a>化简</h3><p>接下来就要将w消除，一步一步来看。首先，根据范数的定义：$||w||_2^2 =w^Tw$，可以得到：</p>
-<script type="math/tex; mode=display">\psi(\alpha) = \frac{1}{2}w^Tw-\sum\limits_{i=1}^{m}\alpha_iy_iw^Tx_i - \sum\limits_{i=1}^{m}\alpha_iy_ib + \sum\limits_{i=1}^{m}\alpha_i</script><p>根据上面得到的w和$\alpha$的关系式，可以得到：</p>
-<script type="math/tex; mode=display">\psi(\alpha) = \frac{1}{2}w^T\sum\limits_{i=1}^{m}\alpha_iy_ix_i -\sum\limits_{i=1}^{m}\alpha_iy_iw^Tx_i - \sum\limits_{i=1}^{m}\alpha_iy_ib + \sum\limits_{i=1}^{m}\alpha_i</script><p>把和样本无关的$w^T$提前：</p>
-<script type="math/tex; mode=display">\psi(\alpha) = \frac{1}{2}w^T\sum\limits_{i=1}^{m}\alpha_iy_ix_i - w^T\sum\limits_{i=1}^{m}\alpha_iy_ix_i - \sum\limits_{i=1}^{m}\alpha_iy_ib + \sum\limits_{i=1}^{m}\alpha_i</script><p>合并同类项：</p>
-<script type="math/tex; mode=display">\psi(\alpha) = - \frac{1}{2}w^T\sum\limits_{i=1}^{m}\alpha_iy_ix_i - \sum\limits_{i=1}^{m}\alpha_iy_ib + \sum\limits_{i=1}^{m}\alpha_i</script><p>把和样本无关的b提前:</p>
-<script type="math/tex; mode=display">\psi(\alpha) = - \frac{1}{2}w^T\sum\limits_{i=1}^{m}\alpha_iy_ix_i - b\sum\limits_{i=1}^{m}\alpha_iy_i + \sum\limits_{i=1}^{m}\alpha_i</script><p>继续使用w和$\alpha$的关系式：</p>
-<script type="math/tex; mode=display">\psi(\alpha) = -\frac{1}{2}(\sum\limits_{i=1}^{m}\alpha_iy_ix_i)^T(\sum\limits_{i=1}^{m}\alpha_iy_ix_i) - b\sum\limits_{i=1}^{m}\alpha_iy_i + \sum\limits_{i=1}^{m}\alpha_i</script><p>进行向量的转置运算。由于常量的转置是其本身，所有只有向量$x_i$被转置：</p>
-<script type="math/tex; mode=display">\psi(\alpha) = -\frac{1}{2}\sum\limits_{i=1}^{m}\alpha_iy_ix_i^T\sum\limits_{i=1}^{m}\alpha_iy_ix_i - b\sum\limits_{i=1}^{m}\alpha_iy_i + \sum\limits_{i=1}^{m}\alpha_i</script><p>使用上面得到的$\sum\limits_{i=1}^{m}\alpha_iy_i = 0$：</p>
-<script type="math/tex; mode=display">\psi(\alpha) = -\frac{1}{2}\sum\limits_{i=1}^{m}\alpha_iy_ix_i^T\sum\limits_{i=1}^{m}\alpha_iy_ix_i + \sum\limits_{i=1}^{m}\alpha_i</script><p>使用乘法法则合并第一项：</p>
-<script type="math/tex; mode=display">\psi(\alpha) = -\frac{1}{2}\sum\limits_{i=1}^{m}\sum\limits_{j=1}^{m}\alpha_iy_ix_i^T\alpha_jy_jx_j + \sum\limits_{i=1}^{m}\alpha_i</script><p>最后调整一下位置：</p>
-<script type="math/tex; mode=display">\psi(\alpha) = \sum\limits_{i=1}^{m}\alpha_i  - \frac{1}{2}\sum\limits_{i=1}^{m}\sum\limits_{j=1}^{m}\alpha_i\alpha_jy_iy_jx_i^Tx_j</script><h3 id="最终问题"><a href="#最终问题" class="headerlink" title="最终问题"></a>最终问题</h3><p>从上面可以看出，通过对w,b极小化以后，优化函数ψ(α)仅仅只有α向量做参数。只要能够极大化ψ(α)，就可以求出此时对应的α，进而求出w,b。</p>
-<p>对ψ(α)求极大化的数学表达式如下:</p>
-<script type="math/tex; mode=display">\underbrace{max}_{\alpha} -\frac{1}{2}\sum\limits_{i=1}^{m}\sum\limits_{j=1}^{m}\alpha_i\alpha_jy_iy_j(x_i \bullet x_j) + \sum\limits_{i=1}^{m} \alpha_i \\ s.t. \; \sum\limits_{i=1}^{m}\alpha_iy_i = 0 \\ \alpha_i \geq 0  \; i=1,2,...m</script><p>去掉负号，即为等价的极小化问题如下：</p>
-<script type="math/tex; mode=display">\underbrace{min}_{\alpha} \frac{1}{2}\sum\limits_{i=1}^{m}\sum\limits_{j=1}^{m}\alpha_i\alpha_jy_iy_j(x_i \bullet x_j) -  \sum\limits_{i=1}^{m} \alpha_i \\ s.t. \; \sum\limits_{i=1}^{m}\alpha_iy_i = 0 \\ \alpha_i \geq 0  \; i=1,2,...m</script><p>只要可以求出上式<strong>极小化时对应的α向量</strong>就可以求出w和b了。具体怎么极小化上式得到对应的α，一般需要用到<strong>SMO算法</strong>，这个算法比较复杂，之后章节会专门来讲。在这里，假设通过SMO算法，我们得到了对应的$α$的值$α^∗$。</p>
-<p>根据$w = \sum\limits_{i=1}^{m}\alpha_iy_ix_i$，可以求出对应的w的值：</p>
-<script type="math/tex; mode=display">w^{*} = \sum\limits_{i=1}^{m}\alpha_i^{*}y_ix_i</script><p>求b稍微麻烦一点。注意到，对于任意支持向量$(x_x,y_s)$，都有:</p>
-<script type="math/tex; mode=display">y_s(w^Tx_s+b) = y_s(\sum\limits_{i=1}^{m}\alpha_iy_ix_i^Tx_s+b) = 1</script><p>假设<strong>有S个支持向量，则对应求出S个$b^∗$,理论上这些$b^∗$都可以作为最终的结果</strong>， 但是一般采用一种更健壮的办法，即求出所有支持向量所对应的$b^∗_s$，然后将其平均值作为最后的结果。注意到<strong>对于严格线性可分的SVM，b的值是有唯一解的</strong>，也就是这里求出的所有$b^∗$都是一样的，这里仍然这么写是为了和后面加入软间隔后的SVM的算法描述一致。</p>
+<p>首先来求L(w,b,α)基于w和b的极小值，即$\underbrace{min}<em>{w,b};  L(w,b,\alpha)$。这个极值我们可以通过对w和b分别求偏导数(拉格朗日乘数法)得到：<br>
+$$ \frac{\partial L}{\partial w} = 0 ;\Rightarrow w = \sum\limits</em>{i=1}^{m}\alpha_iy_ix_i \ \frac{\partial L}{\partial b} = 0 ;\Rightarrow \sum\limits_{i=1}^{m}\alpha_iy_i = 0 $$<br>
+从上两式可以看出，已经求得了w和α的关系，只要后面接着能够求出优化函数极大化对应的α，就可以求出w。注意到b，由于上两式已经没有b（b的取值对优化无影响），所以最后的b可以有多个。根据w和α的关系，可以消除w。首先定义：<br>
+$$ \psi(\alpha) = \underbrace{min}_{w,b};  L(w,b,\alpha) \<br>
+\psi(\alpha) = \frac{1}{2}||w||<em>2^2 - \sum\limits</em>{i=1}^{m}\alpha_i[y_i(w^Tx_i + b) - 1] $$</p>
+<h3 id="化简">化简</h3>
+<p>接下来就要将w消除，一步一步来看。首先，根据范数的定义：$||w||<em>2^2 =w^Tw$，可以得到：<br>
+$$ \psi(\alpha) = \frac{1}{2}w^Tw-\sum\limits</em>{i=1}^{m}\alpha_iy_iw^Tx_i - \sum\limits_{i=1}^{m}\alpha_iy_ib + \sum\limits_{i=1}^{m}\alpha_i  $$<br>
+根据上面得到的w和$\alpha$的关系式，可以得到：<br>
+$$ \psi(\alpha) = \frac{1}{2}w^T\sum\limits_{i=1}^{m}\alpha_iy_ix_i -\sum\limits_{i=1}^{m}\alpha_iy_iw^Tx_i - \sum\limits_{i=1}^{m}\alpha_iy_ib + \sum\limits_{i=1}^{m}\alpha_i $$<br>
+把和样本无关的$w^T$提前：<br>
+$$ \psi(\alpha) = \frac{1}{2}w^T\sum\limits_{i=1}^{m}\alpha_iy_ix_i - w^T\sum\limits_{i=1}^{m}\alpha_iy_ix_i - \sum\limits_{i=1}^{m}\alpha_iy_ib + \sum\limits_{i=1}^{m}\alpha_i $$<br>
+合并同类项：<br>
+$$ \psi(\alpha) = - \frac{1}{2}w^T\sum\limits_{i=1}^{m}\alpha_iy_ix_i - \sum\limits_{i=1}^{m}\alpha_iy_ib + \sum\limits_{i=1}^{m}\alpha_i $$<br>
+把和样本无关的b提前:<br>
+$$ \psi(\alpha) = - \frac{1}{2}w^T\sum\limits_{i=1}^{m}\alpha_iy_ix_i - b\sum\limits_{i=1}^{m}\alpha_iy_i + \sum\limits_{i=1}^{m}\alpha_i $$<br>
+继续使用w和$\alpha$的关系式：<br>
+$$ \psi(\alpha) = -\frac{1}{2}(\sum\limits_{i=1}^{m}\alpha_iy_ix_i)^T(\sum\limits_{i=1}^{m}\alpha_iy_ix_i) - b\sum\limits_{i=1}^{m}\alpha_iy_i + \sum\limits_{i=1}^{m}\alpha_i $$<br>
+进行向量的转置运算。由于常量的转置是其本身，所有只有向量$x_i$被转置：<br>
+$$ \psi(\alpha) = -\frac{1}{2}\sum\limits_{i=1}^{m}\alpha_iy_ix_i^T\sum\limits_{i=1}^{m}\alpha_iy_ix_i - b\sum\limits_{i=1}^{m}\alpha_iy_i + \sum\limits_{i=1}^{m}\alpha_i $$<br>
+使用上面得到的$\sum\limits_{i=1}^{m}\alpha_iy_i = 0$：<br>
+$$ \psi(\alpha) = -\frac{1}{2}\sum\limits_{i=1}^{m}\alpha_iy_ix_i^T\sum\limits_{i=1}^{m}\alpha_iy_ix_i + \sum\limits_{i=1}^{m}\alpha_i $$<br>
+使用乘法法则合并第一项：<br>
+$$ \psi(\alpha) = -\frac{1}{2}\sum\limits_{i=1}^{m}\sum\limits_{j=1}^{m}\alpha_iy_ix_i^T\alpha_jy_jx_j + \sum\limits_{i=1}^{m}\alpha_i $$<br>
+最后调整一下位置：<br>
+$$ \psi(\alpha) = \sum\limits_{i=1}^{m}\alpha_i  - \frac{1}{2}\sum\limits_{i=1}^{m}\sum\limits_{j=1}^{m}\alpha_i\alpha_jy_iy_jx_i^Tx_j $$</p>
+<h3 id="最终问题">最终问题</h3>
+<p>从上面可以看出，通过对w,b极小化以后，优化函数ψ(α)仅仅只有α向量做参数。只要能够极大化ψ(α)，就可以求出此时对应的α，进而求出w,b。</p>
+<p>对ψ(α)求极大化的数学表达式如下:<br>
+$$ \underbrace{max}<em>{\alpha} -\frac{1}{2}\sum\limits</em>{i=1}^{m}\sum\limits_{j=1}^{m}\alpha_i\alpha_jy_iy_j(x_i \bullet x_j) + \sum\limits_{i=1}^{m} \alpha_i \ s.t. ; \sum\limits_{i=1}^{m}\alpha_iy_i = 0 \ \alpha_i \geq 0  ; i=1,2,…m $$<br>
+去掉负号，即为等价的极小化问题如下：<br>
+$$ \underbrace{min}<em>{\alpha} \frac{1}{2}\sum\limits</em>{i=1}^{m}\sum\limits_{j=1}^{m}\alpha_i\alpha_jy_iy_j(x_i \bullet x_j) -  \sum\limits_{i=1}^{m} \alpha_i \ s.t. ; \sum\limits_{i=1}^{m}\alpha_iy_i = 0 \ \alpha_i \geq 0  ; i=1,2,…m $$<br>
+只要可以求出上式<strong>极小化时对应的α向量</strong>就可以求出w和b了。具体怎么极小化上式得到对应的α，一般需要用到<strong>SMO算法</strong>，这个算法比较复杂，之后章节会专门来讲。在这里，假设通过SMO算法，我们得到了对应的$α$的值$α^∗$。</p>
+<p>根据$w = \sum\limits_{i=1}^{m}\alpha_iy_ix_i$，可以求出对应的w的值：<br>
+$$ w^{<em>} = \sum\limits_{i=1}^{m}\alpha_i^{</em>}y_ix_i $$<br>
+求b稍微麻烦一点。注意到，对于任意支持向量$(x_x,y_s)$，都有:<br>
+$$ y_s(w^Tx_s+b) = y_s(\sum\limits_{i=1}^{m}\alpha_iy_ix_i^Tx_s+b) = 1 $$<br>
+假设<strong>有S个支持向量，则对应求出S个$b^∗$,理论上这些$b^∗$都可以作为最终的结果</strong>， 但是一般采用一种更健壮的办法，即求出所有支持向量所对应的$b^∗_s$，然后将其平均值作为最后的结果。注意到<strong>对于严格线性可分的SVM，b的值是有唯一解的</strong>，也就是这里求出的所有$b^∗$都是一样的，这里仍然这么写是为了和后面加入软间隔后的SVM的算法描述一致。</p>
 <p>最后就是要得到<strong>支持向量</strong>。根据<strong>KKT条件中的对偶互补条件</strong>$\alpha_{i}^{*}(y_i(w^Tx_i + b) - 1) = 0$，如果$α_i&gt;0$则有$y_i(w^Tx_i+b)=1$ 即点在支持向量上，否则如果$α_i=0$则有$y_i(w^Tx_i+b)≥1$，即样本在支持向量上或者已经被正确分类。</p>
-<h2 id="线性可分SVM的算法过程"><a href="#线性可分SVM的算法过程" class="headerlink" title="线性可分SVM的算法过程"></a>线性可分SVM的算法过程</h2><p>总结一下线性可分SVM算法的完整流程。输入<strong>线性可分</strong>的m个样本${(x_1,y_1), (x_2,y_2), …, (x_m,y_m),}$，<strong>其中x为n维特征向量。y为二元输出，值为1，或者-1</strong>。输出是分离超平面的参数$w^∗$和$b^∗$和分类决策函数。算法流程如下：</p>
+<h2 id="线性可分SVM的算法过程">线性可分SVM的算法过程</h2>
+<p>总结一下线性可分SVM算法的完整流程。输入<strong>线性可分</strong>的m个样本${(x_1,y_1), (x_2,y_2), …, (x_m,y_m),}$，<strong>其中x为n维特征向量。y为二元输出，值为1，或者-1</strong>。输出是分离超平面的参数$w^∗$和$b^∗$和分类决策函数。算法流程如下：</p>
 <ol>
-<li>构造优化约束问题：<script type="math/tex; mode=display">\underbrace{min}_{\alpha} \frac{1}{2}\sum\limits_{i=1}^{m}\sum\limits_{j=1}^{m}\alpha_i\alpha_jy_iy_j(x_i \bullet x_j) -  \sum\limits_{i=1}^{m} \alpha_i \\ s.t. \; \sum\limits_{i=1}^{m}\alpha_iy_i = 0 \\ \alpha_i \geq 0  \; i=1,2,...m</script></li>
+<li>构造优化约束问题：<br>
+$$ \underbrace{min}<em>{\alpha} \frac{1}{2}\sum\limits</em>{i=1}^{m}\sum\limits_{j=1}^{m}\alpha_i\alpha_jy_iy_j(x_i \bullet x_j) -  \sum\limits_{i=1}^{m} \alpha_i \ s.t. ; \sum\limits_{i=1}^{m}\alpha_iy_i = 0 \ \alpha_i \geq 0  ; i=1,2,…m $$</li>
 <li>用<strong>SMO算法</strong>求出上式最小时对应的$α$向量的值$α^∗$向量。</li>
 <li>计算w的值$w^{<em>} = \sum\limits_{i=1}^{m}\alpha_i^{</em>}y_ix_i$</li>
-<li>找出所有的S个支持向量，即满足$\alpha<em>s &gt; 0$对应的样本$(x_s,y_s)$。通过$y_s(\sum\limits</em>{i=1}^{m}\alpha<em>iy_ix_i^Tx_s+b) = 1$计算出每个支持向量$(x_x, y_s)$对应的$b_s^<em>$，计算出这些$b_s^{</em>} = y_s - \sum\limits</em>{i=1}^{m}\alpha<em>iy_ix_i^Tx_s$，所有对应的$b_s^{<em>}$平均值即为最终的b值$b^{</em>} = \frac{1}{S}\sum\limits</em>{i=1}^{S}b_s^{*}$</li>
-<li>最终的分类超平面为：$w^{<em>} \bullet x + b^{</em>} = 0$，最终的分类决策函数为：$f(x) = sign(w^{<em>} \bullet x + b^{</em>})$<blockquote>
+<li>找出所有的S个支持向量，即满足$\alpha_s &gt; 0$对应的样本$(x_s,y_s)$。通过$y_s(\sum\limits_{i=1}^{m}\alpha_iy_ix_i^Tx_s+b) = 1$计算出每个支持向量$(x_x, y_s)$对应的$b_s^<em>$，计算出这些$b_s^{</em>} = y_s - \sum\limits_{i=1}^{m}\alpha_iy_ix_i^Tx_s$，所有对应的$b_s^{<em>}$平均值即为最终的b值$b^{</em>} = \frac{1}{S}\sum\limits_{i=1}^{S}b_s^{*}$</li>
+<li>最终的分类超平面为：$w^{<em>} \bullet x + b^{</em>} = 0$，最终的分类决策函数为：$f(x) = sign(w^{<em>} \bullet x + b^{</em>})$
+<blockquote>
 <p>sign函数作用是取符号</p>
 </blockquote>
 </li>
 </ol>
-<h1 id="SVM的软间隔最大化模型"><a href="#SVM的软间隔最大化模型" class="headerlink" title="SVM的软间隔最大化模型"></a>SVM的软间隔最大化模型</h1><p>SVM有时会遇到线性不可分的数据。一部分线性不可分的原因是因为数据集中多了少量的异常点，这些异常点导致了数据集不能线性可分。本章将的就是SVM<strong>处理异常点的原理</strong>。</p>
-<h2 id="SVM面临的线性分类的问题"><a href="#SVM面临的线性分类的问题" class="headerlink" title="SVM面临的线性分类的问题"></a>SVM面临的线性分类的问题</h2><p>有时候本来数据的确是可分的，也就是说可以用线性分类SVM的学习方法来求解，但是却因<strong>为混入了异常点，导致不能线性可分</strong>，比如下图，本来数据是可以按下面的实线来做超平面分离的，可以由于一个橙色和一个蓝色的异常点导致我们没法按照上一篇线性支持向量机中的方法来分类：<br><img src="3.png" alt="lpg"><br>另一种较好的情况，数据仍然是可分得，但异常点会<strong>严重影响模型的泛化效果</strong>。如下图，红色线为不考虑异常点的分类超平面，而粗虚线为考虑后的分类超平面，显然分类效果差了很多：<br><img src="4.png" alt="jpg"><br>对于这些异常点带来的问题，SVM引入了<strong>软间隔最大化</strong>的方法来解决。</p>
-<h2 id="SVM的软间隔最大化"><a href="#SVM的软间隔最大化" class="headerlink" title="SVM的软间隔最大化"></a>SVM的软间隔最大化</h2><p>要了解软间隔，首先要知道<strong>软间隔是相对于硬间隔的</strong>，而<strong>硬间隔最大化</strong>就是上一章介绍的基础学习方法，即要求：</p>
-<script type="math/tex; mode=display">min\;\; \frac{1}{2}||w||_2^2  \\ s.t \;\; y_i(w^Tx_i + b)  \geq 1 (i =1,2,...m)</script><p>在硬间隔的基础上，SVM对训练集中的每一个样本$(x_i, y_i)$引入了一个松弛变量$\xi_i \geq 0$，使条件变为**函数间隔加上松弛变量大于等于1，即：</p>
-<script type="math/tex; mode=display">y_i(w\bullet x_i +b) \geq 1- \xi_i</script><p>可以看出，相对于硬间隔，这里的函数距离要求放松了。但由于加上松弛变量是有成本的，所以每一个松弛变量$\xi_i$, 对应了一个代价$\xi_i$。这样就得到了软间隔最大化的SVM学习条件：</p>
-<script type="math/tex; mode=display">min\;\; \frac{1}{2}||w||_2^2 +C\sum\limits_{i=1}^{m}\xi_i \\ s.t.  \;\; y_i(w^Tx_i + b)  \geq 1 - \xi_i \;\;(i =1,2,...m) \\ \xi_i \geq 0 \;\;(i =1,2,...m)</script><p>其中$C&gt;0$为乘法参数，可以理解为一般回归和分类问题正则化时候的参数。C越大，对误分类的惩罚就越大。我们希望$\frac{1}{2}||w||_2^2$尽量小，误分类的点尽可能的少。C使协调两者关系的正则化惩罚系数。</p>
-<h2 id="软间隔最大化的目标函数优化"><a href="#软间隔最大化的目标函数优化" class="headerlink" title="软间隔最大化的目标函数优化"></a>软间隔最大化的目标函数优化</h2><p>SVM的软间隔最大化目标函数的优化与之前线性可分SVM优化方法类似，也是现用拉格朗日函数转化为<strong>无约束问题</strong>：</p>
-<script type="math/tex; mode=display">L(w,b,\xi,\alpha,\mu) = \frac{1}{2}||w||_2^2 +C\sum\limits_{i=1}^{m}\xi_i - \sum\limits_{i=1}^{m}\alpha_i[y_i(w^Tx_i + b) - 1 + \xi_i] - \sum\limits_{i=1}^{m}\mu_i\xi_i</script><blockquote>
+<h1>SVM的软间隔最大化模型</h1>
+<p>SVM有时会遇到线性不可分的数据。一部分线性不可分的原因是因为数据集中多了少量的异常点，这些异常点导致了数据集不能线性可分。本章将的就是SVM<strong>处理异常点的原理</strong>。</p>
+<h2 id="SVM面临的线性分类的问题">SVM面临的线性分类的问题</h2>
+<p>有时候本来数据的确是可分的，也就是说可以用线性分类SVM的学习方法来求解，但是却因<strong>为混入了异常点，导致不能线性可分</strong>，比如下图，本来数据是可以按下面的实线来做超平面分离的，可以由于一个橙色和一个蓝色的异常点导致我们没法按照上一篇线性支持向量机中的方法来分类：<br>
+<img src="3.png" alt="lpg"><br>
+另一种较好的情况，数据仍然是可分得，但异常点会<strong>严重影响模型的泛化效果</strong>。如下图，红色线为不考虑异常点的分类超平面，而粗虚线为考虑后的分类超平面，显然分类效果差了很多：<br>
+<img src="4.png" alt="jpg"><br>
+对于这些异常点带来的问题，SVM引入了<strong>软间隔最大化</strong>的方法来解决。</p>
+<h2 id="SVM的软间隔最大化">SVM的软间隔最大化</h2>
+<p>要了解软间隔，首先要知道<strong>软间隔是相对于硬间隔的</strong>，而<strong>硬间隔最大化</strong>就是上一章介绍的基础学习方法，即要求：<br>
+$$ min;; \frac{1}{2}||w||_2^2  \ s.t ;; y_i(w^Tx_i + b)  \geq 1 (i =1,2,…m) $$<br>
+在硬间隔的基础上，SVM对训练集中的每一个样本$(x_i, y_i)$引入了一个松弛变量$\xi_i \geq 0$，使条件变为**函数间隔加上松弛变量大于等于1，即：<br>
+$$ y_i(w\bullet x_i +b) \geq 1- \xi_i $$<br>
+可以看出，相对于硬间隔，这里的函数距离要求放松了。但由于加上松弛变量是有成本的，所以每一个松弛变量$\xi_i$, 对应了一个代价$\xi_i$。这样就得到了软间隔最大化的SVM学习条件：<br>
+$$ min;; \frac{1}{2}||w||<em>2^2 +C\sum\limits</em>{i=1}^{m}\xi_i \ s.t.  ;; y_i(w^Tx_i + b)  \geq 1 - \xi_i ;;(i =1,2,…m) \ \xi_i \geq 0 ;;(i =1,2,…m) $$<br>
+其中$C&gt;0$为乘法参数，可以理解为一般回归和分类问题正则化时候的参数。C越大，对误分类的惩罚就越大。我们希望$\frac{1}{2}||w||_2^2$尽量小，误分类的点尽可能的少。C使协调两者关系的正则化惩罚系数。</p>
+<h2 id="软间隔最大化的目标函数优化">软间隔最大化的目标函数优化</h2>
+<p>SVM的软间隔最大化目标函数的优化与之前线性可分SVM优化方法类似，也是现用拉格朗日函数转化为<strong>无约束问题</strong>：<br>
+$$ L(w,b,\xi,\alpha,\mu) = \frac{1}{2}||w||<em>2^2 +C\sum\limits</em>{i=1}^{m}\xi_i - \sum\limits_{i=1}^{m}\alpha_i[y_i(w^Tx_i + b) - 1 + \xi_i] - \sum\limits_{i=1}^{m}\mu_i\xi_i $$</p>
+<blockquote>
 <p>其中$\mu_i \geq 0, \alpha_i \geq 0$均为拉格朗日系数</p>
 </blockquote>
-<p>这样要优化的目标函数为：</p>
-<script type="math/tex; mode=display">\underbrace{min}_{w,b,\xi}\; \underbrace{max}_{\alpha_i \geq 0, \mu_i \geq 0,} L(w,b,\alpha, \xi,\mu)</script><p>同样的，这个优化目标函数也满足<strong>KKT条件</strong>，可以通过拉格朗日对偶将其转化为对偶问题：</p>
-<script type="math/tex; mode=display">\underbrace{max}_{\alpha_i \geq 0, \mu_i \geq 0,} \; \underbrace{min}_{w,b,\xi}\; L(w,b,\alpha, \xi,\mu)</script><p>首先通过求偏导数，得到优化函数对于$w, b, \xi$的极小值：</p>
-<script type="math/tex; mode=display">\frac{\partial L}{\partial b} = 0 \;\Rightarrow \sum\limits_{i=1}^{m}\alpha_iy_i = 0</script><script type="math/tex; mode=display">\frac{\partial L}{\partial b} = 0 \;\Rightarrow \sum\limits_{i=1}^{m}\alpha_iy_i = 0</script><script type="math/tex; mode=display">\frac{\partial L}{\partial \xi} = 0 \;\Rightarrow C- \alpha_i - \mu_i = 0</script><p>通过上面三个式子，可以对目标函数进行化简。首先给出目标函数完整形式：</p>
-<script type="math/tex; mode=display">L(w,b,\xi,\alpha,\mu)  = \frac{1}{2}||w||_2^2 +C\sum\limits_{i=1}^{m}\xi_i - \sum\limits_{i=1}^{m}\alpha_i[y_i(w^Tx_i + b) - 1 + \xi_i] - \sum\limits_{i=1}^{m}\mu_i\xi_i</script><p>使用$C- \alpha_i - \mu_i = 0$，可得：</p>
-<script type="math/tex; mode=display">L(w,b,\xi,\alpha,\mu) = \frac{1}{2}||w||_2^2 - \sum\limits_{i=1}^{m}\alpha_i[y_i(w^Tx_i + b) - 1 + \xi_i] + \sum\limits_{i=1}^{m}\alpha_i\xi_i</script><p>合并同类项：</p>
-<script type="math/tex; mode=display">L(w,b,\xi,\alpha,\mu) = \frac{1}{2}||w||_2^2 - \sum\limits_{i=1}^{m}\alpha_i[y_i(w^Tx_i + b) - 1]</script><p>之后的化简<strong>与上一章线性可分SVM的化简一致</strong>，这里直接给出最终结果：</p>
-<script type="math/tex; mode=display">L(w,b,\xi,\alpha,\mu) = \sum\limits_{i=1}^{m}\alpha_i - \frac{1}{2}\sum\limits_{i=1}^{m}\sum\limits_{j=1}^{m}\alpha_i\alpha_jy_iy_jx_i^Tx_j</script><p>可以看到结果是和上一章线性可分SVM<strong>相同的</strong>，不同的是对应的约束条件：</p>
-<script type="math/tex; mode=display">
-\underbrace{ max }_{\alpha} \sum\limits_{i=1}^{m}\alpha_i - \frac{1}{2}\sum\limits_{i=1}^{m}\sum\limits_{j=1}^{m}\alpha_i\alpha_jy_iy_jx_i^Tx_j  \\
-s.t. \; \sum\limits_{i=1}^{m}\alpha_iy_i = 0 \\
-C- \alpha_i - \mu_i = 0 \\
-\alpha_i,\; \mu_i \geq 0 \;(i =1,2,...,m)</script><p>对于后三个条件，可以消去$\mu_i$，同时将优化函数变号，变为求极小值，即：</p>
-<script type="math/tex; mode=display">
-\underbrace{ max }_{\alpha} \sum\limits_{i=1}^{m}\alpha_i - \frac{1}{2}\sum\limits_{i=1}^{m}\sum\limits_{j=1}^{m}\alpha_i\alpha_jy_iy_jx_i^Tx_j  \\
-s.t. \; \sum\limits_{i=1}^{m}\alpha_iy_i = 0 \\
-0 \leq \alpha_i \leq C</script><p>这就是<strong>软间隔最大化时的线性可分SVM的优化目标形式</strong>，可以看出与上一篇硬间隔最大化的线性可分SVM相比，仅仅多了一个约束条件$0 \leq \alpha_i \leq C$，依旧可以通过<strong>SMO算法</strong>求出上式极小化时对应的$\alpha$向量，进而求出$w$和$b$。</p>
-<h2 id="软间隔最大化时的支持向量"><a href="#软间隔最大化时的支持向量" class="headerlink" title="软间隔最大化时的支持向量"></a>软间隔最大化时的支持向量</h2><p>在上一章的线性可分SVM，也就是硬间隔最大化时，支持向量较简单，只要满足$y<em>i(w^Tx_i + b) -1 =0$即可。根据KKT条件中的<strong>对偶互补条件</strong>，如果$\alpha</em>{i}^{<em>}&gt;0$则有$y<em>i(w^Tx_i + b) =1$，即点在支持向量上，否则$$ \alpha</em>{i}^{</em>}=0 $$，则有$y_i(w^Tx_i + b) \geq 1$，即样本在支持向量上或已被正确分类。</p>
-<p>对于软间隔最大化，会复杂一些，因为对每一个样本$(x<em>i, y_i)$引入了一个松弛变量$\xi_i \geq 0$。我们可以从下图研究软间隔最大化时支持向量的情况。其中，第i个点到对应类别支持向量的距离为$\frac{\xi_i}{||w||_2}$：<br><img src="5.jpg" alt="s"><br>根据对偶互补条件$\alpha</em>{i}^{<em>}(y_i(w^Tx_i + b) - 1 + \xi_i^{</em>}) = 0$，可以得到：</p>
+<p>这样要优化的目标函数为：<br>
+$$ \underbrace{min}<em>{w,b,\xi}; \underbrace{max}</em>{\alpha_i \geq 0, \mu_i \geq 0,} L(w,b,\alpha, \xi,\mu) $$<br>
+同样的，这个优化目标函数也满足<strong>KKT条件</strong>，可以通过拉格朗日对偶将其转化为对偶问题：<br>
+$$ \underbrace{max}<em>{\alpha_i \geq 0, \mu_i \geq 0,} ; \underbrace{min}</em>{w,b,\xi}; L(w,b,\alpha, \xi,\mu) $$<br>
+首先通过求偏导数，得到优化函数对于$w, b, \xi$的极小值：<br>
+$$ \frac{\partial L}{\partial b} = 0 ;\Rightarrow \sum\limits_{i=1}^{m}\alpha_iy_i = 0 $$<br>
+$$ \frac{\partial L}{\partial b} = 0 ;\Rightarrow \sum\limits_{i=1}^{m}\alpha_iy_i = 0 $$<br>
+$$ \frac{\partial L}{\partial \xi} = 0 ;\Rightarrow C- \alpha_i - \mu_i = 0 $$<br>
+通过上面三个式子，可以对目标函数进行化简。首先给出目标函数完整形式：<br>
+$$  L(w,b,\xi,\alpha,\mu)  = \frac{1}{2}||w||<em>2^2 +C\sum\limits</em>{i=1}^{m}\xi_i - \sum\limits_{i=1}^{m}\alpha_i[y_i(w^Tx_i + b) - 1 + \xi_i] - \sum\limits_{i=1}^{m}\mu_i\xi_i $$<br>
+使用$C- \alpha_i - \mu_i = 0$，可得：<br>
+$$ L(w,b,\xi,\alpha,\mu) = \frac{1}{2}||w||<em>2^2 - \sum\limits</em>{i=1}^{m}\alpha_i[y_i(w^Tx_i + b) - 1 + \xi_i] + \sum\limits_{i=1}^{m}\alpha_i\xi_i $$<br>
+合并同类项：<br>
+$$ L(w,b,\xi,\alpha,\mu) = \frac{1}{2}||w||<em>2^2 - \sum\limits</em>{i=1}^{m}\alpha_i[y_i(w^Tx_i + b) - 1] $$<br>
+之后的化简<strong>与上一章线性可分SVM的化简一致</strong>，这里直接给出最终结果：<br>
+$$ L(w,b,\xi,\alpha,\mu) = \sum\limits_{i=1}^{m}\alpha_i - \frac{1}{2}\sum\limits_{i=1}^{m}\sum\limits_{j=1}^{m}\alpha_i\alpha_jy_iy_jx_i^Tx_j $$<br>
+可以看到结果是和上一章线性可分SVM<strong>相同的</strong>，不同的是对应的约束条件：<br>
+$$<br>
+\underbrace{ max }<em>{\alpha} \sum\limits</em>{i=1}^{m}\alpha_i - \frac{1}{2}\sum\limits_{i=1}^{m}\sum\limits_{j=1}^{m}\alpha_i\alpha_jy_iy_jx_i^Tx_j  \<br>
+s.t. ; \sum\limits_{i=1}^{m}\alpha_iy_i = 0 \<br>
+C- \alpha_i - \mu_i = 0 \<br>
+\alpha_i,; \mu_i \geq 0 ;(i =1,2,…,m)<br>
+$$<br>
+对于后三个条件，可以消去$\mu_i$，同时将优化函数变号，变为求极小值，即：<br>
+$$<br>
+\underbrace{ max }<em>{\alpha} \sum\limits</em>{i=1}^{m}\alpha_i - \frac{1}{2}\sum\limits_{i=1}^{m}\sum\limits_{j=1}^{m}\alpha_i\alpha_jy_iy_jx_i^Tx_j  \<br>
+s.t. ; \sum\limits_{i=1}^{m}\alpha_iy_i = 0 \<br>
+0 \leq \alpha_i \leq C<br>
+$$<br>
+这就是<strong>软间隔最大化时的线性可分SVM的优化目标形式</strong>，可以看出与上一篇硬间隔最大化的线性可分SVM相比，仅仅多了一个约束条件$0 \leq \alpha_i \leq C$，依旧可以通过<strong>SMO算法</strong>求出上式极小化时对应的$\alpha$向量，进而求出$w$和$b$。</p>
+<h2 id="软间隔最大化时的支持向量">软间隔最大化时的支持向量</h2>
+<p>在上一章的线性可分SVM，也就是硬间隔最大化时，支持向量较简单，只要满足$y_i(w^Tx_i + b) -1 =0$即可。根据KKT条件中的<strong>对偶互补条件</strong>，如果$\alpha_{i}^{<em>}&gt;0$则有$y_i(w^Tx_i + b) =1$，即点在支持向量上，否则$$ \alpha_{i}^{</em>}=0 $$，则有$y_i(w^Tx_i + b) \geq 1$，即样本在支持向量上或已被正确分类。</p>
+<p>对于软间隔最大化，会复杂一些，因为对每一个样本$(x_i, y_i)$引入了一个松弛变量$\xi_i \geq 0$。我们可以从下图研究软间隔最大化时支持向量的情况。其中，第i个点到对应类别支持向量的距离为$\frac{\xi_i}{||w||<em>2}$：<br>
+<img src="5.jpg" alt="s"><br>
+根据对偶互补条件$\alpha</em>{i}^{<em>}(y_i(w^Tx_i + b) - 1 + \xi_i^{</em>}) = 0$，可以得到：</p>
 <ol>
 <li>如果$α=0$,那么$y_i(w^Tx_i + b) - 1 \geq 0$,即样本在间隔边界上或者已经被正确分类。如图中所有<strong>远离间隔边界</strong>的点。</li>
-<li>如果$0 &lt; \alpha &lt; C$，那么$\xi_i = 0 ,\;\; y_i(w^Tx_i + b) - 1 =  0$，点在间隔边界上。</li>
-<li>如果$\alpha = C$，那说明这可能是一个<strong>异常点</strong>，此时就要检查对应的$\xi_i$:<ul>
+<li>如果$0 &lt; \alpha &lt; C$，那么$\xi_i = 0 ,;; y_i(w^Tx_i + b) - 1 =  0$，点在间隔边界上。</li>
+<li>如果$\alpha = C$，那说明这可能是一个<strong>异常点</strong>，此时就要检查对应的$\xi_i$:
+<ul>
 <li>如果$0≤ξ_i≤1$, 那么点被正确分类，但是却<strong>在超平面和自己类别的间隔边界之间</strong>。如图中的样本2和4。</li>
 <li>如果$ξ_i=1$, 那么点在<strong>分离超平面上</strong>，无法被正确分类。</li>
 <li>如果$ξ_i&gt;1$,那么点在超平面的另一侧，也就是说，这个点不能被正常分类。如图中的样本1和3。</li>
 </ul>
 </li>
 </ol>
-<h2 id="软间隔最大化的线性可分SVM的算法"><a href="#软间隔最大化的线性可分SVM的算法" class="headerlink" title="软间隔最大化的线性可分SVM的算法"></a>软间隔最大化的线性可分SVM的算法</h2><p>输入是线性可分的m个样本${(x_1,y_1), (x_2,y_2), …, (x_m,y_m),}$,其中x为n维特征向量。y为二元输出，值为1，或者-1。输出是分离超平面的参数$w^{<em>}$和$b^{</em>}$和分类决策函数。算法具体过程如下：</p>
+<h2 id="软间隔最大化的线性可分SVM的算法">软间隔最大化的线性可分SVM的算法</h2>
+<p>输入是线性可分的m个样本${(x_1,y_1), (x_2,y_2), …, (x_m,y_m),}$,其中x为n维特征向量。y为二元输出，值为1，或者-1。输出是分离超平面的参数$w^{<em>}$和$b^{</em>}$和分类决策函数。算法具体过程如下：</p>
 <ol>
-<li>选择一个惩罚参数$C&gt;0$，构造约束优化问题：<script type="math/tex; mode=display">
-\underbrace{ max }_{\alpha} \sum\limits_{i=1}^{m}\alpha_i - \frac{1}{2}\sum\limits_{i=1}^{m}\sum\limits_{j=1}^{m}\alpha_i\alpha_jy_iy_jx_i^Tx_j  \\
-s.t. \; \sum\limits_{i=1}^{m}\alpha_iy_i = 0 \\
-0 \leq \alpha_i \leq C</script></li>
-<li>用<strong>SMO算法</strong>求出上式最小时对应的$\alpha$向量的值$\alpha^*$向量。</li>
-<li>计算$w^{<em>} = \sum\limits_{i=1}^{m}\alpha_i^{</em>}y_ix_i$</li>
-<li>找出所有的S个支持向量，即满足$0 \leq \alpha<em>i \leq C$对应的样本$(x_s,y_s)$。通过$y_s(\sum\limits</em>{i=1}^{m}\alpha<em>iy_ix_i^Tx_s+b) = 1$计算出每个支持向量$(x_x, y_s)$对应的$b_s^<em>$，计算出这些$b_s^{</em>} = y_s - \sum\limits</em>{i=1}^{m}\alpha<em>iy_ix_i^Tx_s$，所有对应的$b_s^{<em>}$平均值即为最终的b值$b^{</em>} = \frac{1}{S}\sum\limits</em>{i=1}^{S}b_s^{*}$</li>
-<li>最终的分类超平面为：$w^{<em>} \bullet x + b^{</em>} = 0$，最终的分类决策函数为：$f(x) = sign(w^{<em>} \bullet x + b^{</em>})$</li>
+<li>
+<p>选择一个惩罚参数$C&gt;0$，构造约束优化问题：<br>
+$$<br>
+\underbrace{ max }<em>{\alpha} \sum\limits</em>{i=1}^{m}\alpha_i - \frac{1}{2}\sum\limits_{i=1}^{m}\sum\limits_{j=1}^{m}\alpha_i\alpha_jy_iy_jx_i^Tx_j  \<br>
+s.t. ; \sum\limits_{i=1}^{m}\alpha_iy_i = 0 \<br>
+0 \leq \alpha_i \leq C<br>
+$$</p>
+</li>
+<li>
+<p>用<strong>SMO算法</strong>求出上式最小时对应的$\alpha$向量的值$\alpha^*$向量。</p>
+</li>
+<li>
+<p>计算$w^{<em>} = \sum\limits_{i=1}^{m}\alpha_i^{</em>}y_ix_i$</p>
+</li>
+<li>
+<p>找出所有的S个支持向量，即满足$0 \leq \alpha_i \leq C$对应的样本$(x_s,y_s)$。通过$y_s(\sum\limits_{i=1}^{m}\alpha_iy_ix_i^Tx_s+b) = 1$计算出每个支持向量$(x_x, y_s)$对应的$b_s^<em>$，计算出这些$b_s^{</em>} = y_s - \sum\limits_{i=1}^{m}\alpha_iy_ix_i^Tx_s$，所有对应的$b_s^{<em>}$平均值即为最终的b值$b^{</em>} = \frac{1}{S}\sum\limits_{i=1}^{S}b_s^{*}$</p>
+</li>
+<li>
+<p>最终的分类超平面为：$w^{<em>} \bullet x + b^{</em>} = 0$，最终的分类决策函数为：$f(x) = sign(w^{<em>} \bullet x + b^{</em>})$</p>
+</li>
 </ol>
-<h2 id="合页损失函数（Hinge-loss）"><a href="#合页损失函数（Hinge-loss）" class="headerlink" title="合页损失函数（Hinge loss）"></a>合页损失函数（Hinge loss）</h2><p>在支持向量机中，构造目标函数时可以选用合页损失函数作为损失函数。<strong>合页损失函数不仅要分类正确，而且确信度足够高时损失才是0，也就是说，合页损失函数对学习有更高的要求</strong>。数学表达如下：</p>
-<script type="math/tex; mode=display">\underbrace{ min}_{w, b}[1-y_i(w \bullet x + b)]_{+} + \lambda ||w||_2^2</script><p>其中，$L(y(w \bullet x + b)) = [1-y<em>i(w \bullet x + b)]</em>{+}$称为合页损失函数(hinge loss function)，下标+表示为：</p>
-<script type="math/tex; mode=display">[z]_{+}= \begin{cases} z & {z >0}\\ 0& {z\leq 0} \end{cases}</script><p>常见的一些<strong>模型损失和函数间隔关系</strong>的图像如下图：<br><img src="6.png" alt="a"><br>其中：</p>
+<h2 id="合页损失函数（Hinge-loss）">合页损失函数（Hinge loss）</h2>
+<p>在支持向量机中，构造目标函数时可以选用合页损失函数作为损失函数。<strong>合页损失函数不仅要分类正确，而且确信度足够高时损失才是0，也就是说，合页损失函数对学习有更高的要求</strong>。数学表达如下：<br>
+$$ \underbrace{ min}<em>{w, b}[1-y_i(w \bullet x + b)]</em>{+} + \lambda ||w||<em>2^2 $$<br>
+其中，$L(y(w \bullet x + b)) = [1-y_i(w \bullet x + b)]</em>{+}$称为合页损失函数(hinge loss function)，下标+表示为：<br>
+$$ [z]_{+}= \begin{cases} z &amp; {z &gt;0}\ 0&amp; {z\leq 0} \end{cases} $$</p>
+<p>常见的一些<strong>模型损失和函数间隔关系</strong>的图像如下图：<br>
+<img src="6.png" alt="a"><br>
+其中：</p>
 <ol>
 <li><strong>绿线即合页损失函数</strong>，如果点被正确分类，且函数间隔<strong>大于1</strong>，损失是0，否则损失是$1-y(w \bullet x + b)$</li>
 <li><strong>黑线是0-1损失函数</strong>，如果正确分类，损失为0，误分类损失为1。0-1损失函数是不可导的。</li>
-<li><strong>紫线是感知机模型损失函数</strong>，感知机的损失函数是$[-y<em>i(w \bullet x + b)]</em>{+}$，当样本正确分类时，损失为0；误分类时，损失为$-y_i(w \bullet x + b)$</li>
+<li><strong>紫线是感知机模型损失函数</strong>，感知机的损失函数是$[-y_i(w \bullet x + b)]_{+}$，当样本正确分类时，损失为0；误分类时，损失为$-y_i(w \bullet x + b)$</li>
 <li><strong>红线是逻辑回归之类和最大熵模型对应的对数损失</strong>，损失函数是$log[1+exp(-y(w \bullet x + b))]$</li>
 </ol>
 <p>线性可分SVM通过软间隔最大化，可以解决线性数据集带有异常点时的分类处理，但是解决不了一些确实线性不可分的数据。</p>
+<h1>线性不可分SVM和核函数</h1>
+<h2 id="多项式回归">多项式回归</h2>
+<p>线性回归文章中，提到如何将多项式回归转化为线性回归。比如对于一个2特征的p次多项式回归模型：<br>
+$$ h_\theta(x_1, x_2) = \theta_0 + \theta_{1}x_1 + \theta_{2}x_{2} + \theta_{3}x_1^{2} + \theta_{4}x_2^{2} + \theta_{5}x_{1}x_2 $$</p>
+<p>可以令$x_0 = 1, x_1 = x_1, x_2 = x_2, x_3 =x_1^{2}, x_4 = x_2^{2}, x_5 =  x_{1}x_2$，这样就得到了下式：<br>
+$$ h_\theta(x_1, x_2) = \theta_0 + \theta_{1}x_1 + \theta_{2}x_{2} + \theta_{3}x_3 + \theta_{4}x_4 + \theta_{5}x_5 $$</p>
+<p>可以看出，模型又回归了最基本的线性回归模型，是一个五元线性回归。对于每个二元样本特征$(x_1,x_2)$,我们得到一个五元样本特征$(1, x_1, x_2, x_{1}^2, x_{2}^2, x_{1}x_2)$。</p>
+<p>从上面可以知道，对于二维的非线性数据，将其映射到五维后，就变成了线性的数据。也就是说，<strong>对于在低维线性不可分的数据，在映射到了高位之后，就变成线性可分的了</strong>。这个思想同样可以用于SVM的线性不可分数据上。</p>
+<h2 id="核函数的引入">核函数的引入</h2>
+<p>首先再看一下线性可分SVM的优化目标函数（软间隔优化后）：<br>
+$$ \underbrace{ min }<em>{\alpha}  \frac{1}{2}\sum\limits</em>{i=1}^{m}\sum\limits_{j=1}^{m}\alpha_i\alpha_jy_iy_jx_i \bullet x_j - \sum\limits_{i=1}^{m}\alpha_i \<br>
+s.t. ; \sum\limits_{i=1}^{m}\alpha_iy_i = 0 \<br>
+0 \leq \alpha_i \leq C $$</p>
+<p>注意到，上式中低维特征仅仅以内积的形式出现（$x_i \bullet x_j$），如果此时定义一个<strong>低维空间到高维空间的映射$\phi$(类似上一节的二维到五维)</strong>，将特征映射到更高维度，让数据线性可分，即可继续按之前方法优化目标函数。也即优化目标函数变为：<br>
+$$ \underbrace{ min }<em>{\alpha}  \frac{1}{2}\sum\limits</em>{i=1}^{m}\sum\limits_{j=1}^{m}\alpha_i\alpha_jy_iy_j \phi(x_i) \bullet \phi(x_j) - \sum\limits_{i=1}^{m}\alpha_i \<br>
+s.t. ; \sum\limits_{i=1}^{m}\alpha_iy_i = 0 \<br>
+0 \leq \alpha_i \leq C $$</p>
+<p>可以看到，和线性可分SVM的优化目标函数的区别仅仅是将内积$x_i∙x_j$替换为$ϕ(x_i)∙ϕ(x_j)$。</p>
+<p>虽然看上出解决了线性不可分的问题，但如果数据集拥有100个，1000个乃至无穷维特征，这就导致计算量十分庞大，甚至无法计算。为此，就需要引出<strong>核函数</strong>。</p>
+<p>假设$\phi$是一个从低维的输入空间$\chi$(欧氏空间的子集或离散集合)到高位的<strong>希尔伯特空间</strong>的$\mathcal{H}$映射。那么如果存在函数$K(x,z)$，对于任意的$x,z \in \chi$，都有：<br>
+$$ K(x, z) = \phi(x) \bullet \phi(z) $$</p>
+<p>那么我们就称$K(x,z)$为<strong>核函数</strong>。仔细观察上式可以发现，$K(x,z)$的计算是<strong>在低维空间来计算的</strong>，从而避免了刚刚提到了在高维空间计算内积的恐怖计算量。</p>
+<h2 id="核函数介绍">核函数介绍</h2>
+<p>对于低维到高维的映射，核函数不止一个。什么样的函数才能成为核函数，是一个数学问题，较为复杂，可参考<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/30445271">这篇文章</a>。一般这里提到的核函数都是正定核函数，所以说明以下正定核函数的充分必要条件。一个函数想成为正定核函数，必须满足它里面任何点的集合形成的Gram矩阵式半正定的。也就是说，对于任意的$x_i \in \chi ， i=1,2,3…m$，$K(x_i,x_j)$对应的Gram矩阵$K = \bigg[ K(x_i, x_j )\bigg]$是半正定矩阵，则$K(x,z)$是正定核函数。</p>
+<blockquote>
+<p>关于<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/44860862">正定，半正定</a></p>
+</blockquote>
+<p>根据上面的简介不难看出，袭击找一个核函数挺难的，对数学要求很高。不过机器学习领域已经有许多前人找到的核函数可以直接运用。下面介绍几个常用的核函数，这些核函数也是<strong>scikit-learn</strong>中支持的那些核函数。</p>
+<h3 id="线性核函数">线性核函数</h3>
+<p>线性核函数（Linear Kernel）其实就是前两章的线性可分SVM，表达式为：<br>
+$$ K(x, z) = x \bullet z $$</p>
+<p>也就是说，线性可分SVM我们可以和线性不可分SVM归为一类，区别仅仅在于线性可分SVM用的是线性核函数。</p>
+<h3 id="多项式核函数">多项式核函数</h3>
+<p>多项式核函数（Polynomial Kernel）是线性不可分SVM常用的核函数之一，表达式为：<br>
+$$ K(x, z) = （\gamma x \bullet z  + r)^d $$</p>
+<p>其中，$\gamma, r, d$都需要自己调参定义。</p>
+<h3 id="高斯核函数">高斯核函数</h3>
+<p>高斯核函数（Gaussian Kernel），在SVM中也称为径向基核函数（Radial Basis Function，RBF），它是非线性分类SVM最主流的核函数。libsvm默认核函数就是它。表达式为：<br>
+$$ K(x, z) = exp(-\gamma||x-z||^2) $$</p>
+<p>其中，$\gamma&gt;0$，需要自己调参定义。</p>
+<h3 id="Sigmoid核函数">Sigmoid核函数</h3>
+<p>Sigmoid核函数（Sigmoid Kernel）也是线性不可分SVM常用的核函数之一，表达式为：<br>
+$$ K(x, z) = tanh（\gamma x \bullet z  + r) $$</p>
+<p>其中，$\gamma,r$都需要自己调参定义。</p>
+<h2 id="分类SVM算法小结">分类SVM算法小结</h2>
+<p>在有了核函数后，SVM算法才算比较完整。现对算法做一个总结，不区分是否线性可分。</p>
+<p>输入是m个样本${(x_1,y_1), (x_2,y_2), …, (x_m,y_m),}$，其中x为n维特征向量。y为二元输出，值为1或-1。</p>
+<p>输出为分离超平面的参数$w^<em>$和$b^</em>$和分类决策函数。算法具体过程如下：</p>
+<ol>
+<li>选择适当的核函数$K(x,z)$和一个惩罚系数C（C &gt; 0），构造约束优化问题：<br>
+$$ \underbrace{ min }<em>{\alpha}  \frac{1}{2}\sum\limits</em>{i=1,j=1}^{m}\alpha_i\alpha_jy_iy_jK(x_i,x_j) - \sum\limits_{i=1}^{m}\alpha_i $$</li>
+<li>用<strong>SMO算法</strong>算出上式最小时对应的$\alpha$向量对应的值$\alpha^*$向量。</li>
+<li>得到$w^{<em>} = \sum\limits_{i=1}^{m}\alpha_i^{</em>}y_i\phi(x_i)$，此处可不直接显式的计算$w^*$。</li>
+<li>找出所有的S个支持向量，即满足$0 \leq \alpha_s$对应的样本$(x_s,y_s)$。通过$y_s(\sum\limits_{i=1}^{m}\alpha_iy_iK(x_i,x_s)+b) = 1$计算出每个支持向量$(x_x, y_s)$对应的$b_s^<em>$，计算出这些$b_s^{</em>} = y_s - \sum\limits_{i=1}^{m}\alpha_iy_iK(x_i,x_s)+b)$，所有对应的$b_s^{<em>}$平均值即为最终的b值$b^{</em>} = \frac{1}{S}\sum\limits_{i=1}^{S}b_s^{*}$</li>
+<li>最终的分类超平面为：$\sum\limits_{i=1}^{m}\alpha_i^{<em>}y_iK(x, x_i)+ b^{</em>} = 0$，最终的分类决策函数为：$f(x) = sign(\sum\limits_{i=1}^{m}\alpha_i^{<em>}y_iK(x, x_i)+ b^{</em>})$</li>
+</ol>
 
 
         <hr>
         <!-- Pager -->
         <ul class="pager">
+          
+          <li class="previous">
+            <a href="/myBlog/machine learning/Ensemble learning/ensemble/" data-toggle="tooltip" data-placement="top" title="集成学习原理">&larr; Previous Post</a>
+          </li>
           
           
           <li class="next">
@@ -796,7 +942,7 @@ s.t. \; \sum\limits_{i=1}^{m}\alpha_iy_i = 0 \\
         <div id="toc" class="toc-article">
         <strong class="toc-title">Contents</strong>
         
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#%E7%BA%BF%E6%80%A7%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">线性支持向量机</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#SVM%E5%89%8D%E7%BD%AE%E7%9F%A5%E8%AF%86%EF%BC%9A%E6%84%9F%E7%9F%A5%E6%9C%BA"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">SVM前置知识：感知机</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E5%87%BD%E6%95%B0%E9%97%B4%E9%9A%94%E4%B8%8E%E5%87%A0%E4%BD%95%E9%97%B4%E9%9A%94"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">函数间隔与几何间隔</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F"><span class="toc-nav-number">1.3.</span> <span class="toc-nav-text">支持向量</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#SVM%E6%A8%A1%E5%9E%8B%E7%9B%AE%E6%A0%87%E5%87%BD%E6%95%B0%E4%B8%8E%E4%BC%98%E5%8C%96"><span class="toc-nav-number">1.4.</span> <span class="toc-nav-text">SVM模型目标函数与优化</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%8C%96%E7%AE%80"><span class="toc-nav-number">1.4.1.</span> <span class="toc-nav-text">化简</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E6%9C%80%E7%BB%88%E9%97%AE%E9%A2%98"><span class="toc-nav-number">1.4.2.</span> <span class="toc-nav-text">最终问题</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E7%BA%BF%E6%80%A7%E5%8F%AF%E5%88%86SVM%E7%9A%84%E7%AE%97%E6%B3%95%E8%BF%87%E7%A8%8B"><span class="toc-nav-number">1.5.</span> <span class="toc-nav-text">线性可分SVM的算法过程</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#SVM%E7%9A%84%E8%BD%AF%E9%97%B4%E9%9A%94%E6%9C%80%E5%A4%A7%E5%8C%96%E6%A8%A1%E5%9E%8B"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">SVM的软间隔最大化模型</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#SVM%E9%9D%A2%E4%B8%B4%E7%9A%84%E7%BA%BF%E6%80%A7%E5%88%86%E7%B1%BB%E7%9A%84%E9%97%AE%E9%A2%98"><span class="toc-nav-number">2.1.</span> <span class="toc-nav-text">SVM面临的线性分类的问题</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#SVM%E7%9A%84%E8%BD%AF%E9%97%B4%E9%9A%94%E6%9C%80%E5%A4%A7%E5%8C%96"><span class="toc-nav-number">2.2.</span> <span class="toc-nav-text">SVM的软间隔最大化</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E8%BD%AF%E9%97%B4%E9%9A%94%E6%9C%80%E5%A4%A7%E5%8C%96%E7%9A%84%E7%9B%AE%E6%A0%87%E5%87%BD%E6%95%B0%E4%BC%98%E5%8C%96"><span class="toc-nav-number">2.3.</span> <span class="toc-nav-text">软间隔最大化的目标函数优化</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E8%BD%AF%E9%97%B4%E9%9A%94%E6%9C%80%E5%A4%A7%E5%8C%96%E6%97%B6%E7%9A%84%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F"><span class="toc-nav-number">2.4.</span> <span class="toc-nav-text">软间隔最大化时的支持向量</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E8%BD%AF%E9%97%B4%E9%9A%94%E6%9C%80%E5%A4%A7%E5%8C%96%E7%9A%84%E7%BA%BF%E6%80%A7%E5%8F%AF%E5%88%86SVM%E7%9A%84%E7%AE%97%E6%B3%95"><span class="toc-nav-number">2.5.</span> <span class="toc-nav-text">软间隔最大化的线性可分SVM的算法</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E5%90%88%E9%A1%B5%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0%EF%BC%88Hinge-loss%EF%BC%89"><span class="toc-nav-number">2.6.</span> <span class="toc-nav-text">合页损失函数（Hinge loss）</span></a></li></ol></li></ol>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">线性支持向量机</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#SVM%E5%89%8D%E7%BD%AE%E7%9F%A5%E8%AF%86%EF%BC%9A%E6%84%9F%E7%9F%A5%E6%9C%BA"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">SVM前置知识：感知机</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E5%87%BD%E6%95%B0%E9%97%B4%E9%9A%94%E4%B8%8E%E5%87%A0%E4%BD%95%E9%97%B4%E9%9A%94"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">函数间隔与几何间隔</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F"><span class="toc-nav-number">1.3.</span> <span class="toc-nav-text">支持向量</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#SVM%E6%A8%A1%E5%9E%8B%E7%9B%AE%E6%A0%87%E5%87%BD%E6%95%B0%E4%B8%8E%E4%BC%98%E5%8C%96"><span class="toc-nav-number">1.4.</span> <span class="toc-nav-text">SVM模型目标函数与优化</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%8C%96%E7%AE%80"><span class="toc-nav-number">1.4.1.</span> <span class="toc-nav-text">化简</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E6%9C%80%E7%BB%88%E9%97%AE%E9%A2%98"><span class="toc-nav-number">1.4.2.</span> <span class="toc-nav-text">最终问题</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E7%BA%BF%E6%80%A7%E5%8F%AF%E5%88%86SVM%E7%9A%84%E7%AE%97%E6%B3%95%E8%BF%87%E7%A8%8B"><span class="toc-nav-number">1.5.</span> <span class="toc-nav-text">线性可分SVM的算法过程</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">SVM的软间隔最大化模型</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#SVM%E9%9D%A2%E4%B8%B4%E7%9A%84%E7%BA%BF%E6%80%A7%E5%88%86%E7%B1%BB%E7%9A%84%E9%97%AE%E9%A2%98"><span class="toc-nav-number">2.1.</span> <span class="toc-nav-text">SVM面临的线性分类的问题</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#SVM%E7%9A%84%E8%BD%AF%E9%97%B4%E9%9A%94%E6%9C%80%E5%A4%A7%E5%8C%96"><span class="toc-nav-number">2.2.</span> <span class="toc-nav-text">SVM的软间隔最大化</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E8%BD%AF%E9%97%B4%E9%9A%94%E6%9C%80%E5%A4%A7%E5%8C%96%E7%9A%84%E7%9B%AE%E6%A0%87%E5%87%BD%E6%95%B0%E4%BC%98%E5%8C%96"><span class="toc-nav-number">2.3.</span> <span class="toc-nav-text">软间隔最大化的目标函数优化</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E8%BD%AF%E9%97%B4%E9%9A%94%E6%9C%80%E5%A4%A7%E5%8C%96%E6%97%B6%E7%9A%84%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F"><span class="toc-nav-number">2.4.</span> <span class="toc-nav-text">软间隔最大化时的支持向量</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E8%BD%AF%E9%97%B4%E9%9A%94%E6%9C%80%E5%A4%A7%E5%8C%96%E7%9A%84%E7%BA%BF%E6%80%A7%E5%8F%AF%E5%88%86SVM%E7%9A%84%E7%AE%97%E6%B3%95"><span class="toc-nav-number">2.5.</span> <span class="toc-nav-text">软间隔最大化的线性可分SVM的算法</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E5%90%88%E9%A1%B5%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0%EF%BC%88Hinge-loss%EF%BC%89"><span class="toc-nav-number">2.6.</span> <span class="toc-nav-text">合页损失函数（Hinge loss）</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">线性不可分SVM和核函数</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E5%A4%9A%E9%A1%B9%E5%BC%8F%E5%9B%9E%E5%BD%92"><span class="toc-nav-number">3.1.</span> <span class="toc-nav-text">多项式回归</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E6%A0%B8%E5%87%BD%E6%95%B0%E7%9A%84%E5%BC%95%E5%85%A5"><span class="toc-nav-number">3.2.</span> <span class="toc-nav-text">核函数的引入</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E6%A0%B8%E5%87%BD%E6%95%B0%E4%BB%8B%E7%BB%8D"><span class="toc-nav-number">3.3.</span> <span class="toc-nav-text">核函数介绍</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E7%BA%BF%E6%80%A7%E6%A0%B8%E5%87%BD%E6%95%B0"><span class="toc-nav-number">3.3.1.</span> <span class="toc-nav-text">线性核函数</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%A4%9A%E9%A1%B9%E5%BC%8F%E6%A0%B8%E5%87%BD%E6%95%B0"><span class="toc-nav-number">3.3.2.</span> <span class="toc-nav-text">多项式核函数</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E9%AB%98%E6%96%AF%E6%A0%B8%E5%87%BD%E6%95%B0"><span class="toc-nav-number">3.3.3.</span> <span class="toc-nav-text">高斯核函数</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Sigmoid%E6%A0%B8%E5%87%BD%E6%95%B0"><span class="toc-nav-number">3.3.4.</span> <span class="toc-nav-text">Sigmoid核函数</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E5%88%86%E7%B1%BBSVM%E7%AE%97%E6%B3%95%E5%B0%8F%E7%BB%93"><span class="toc-nav-number">3.4.</span> <span class="toc-nav-text">分类SVM算法小结</span></a></li></ol></li></ol>
         
         </div>
       </aside>

@@ -248,6 +248,8 @@
 
           
           
+          
+          
           <li>
             <a href="/myBlog/about/">
               
@@ -259,12 +261,10 @@
           
           
           
-          
-          
           <li>
-            <a href="/myBlog/tags/">
+            <a href="/myBlog/categories/">
               
-              TAGS
+              CATEGORIES
               
               
             </a>
@@ -284,9 +284,9 @@
           
           
           <li>
-            <a href="/myBlog/categories/">
+            <a href="/myBlog/tags/">
               
-              CATEGORIES
+              TAGS
               
               
             </a>
@@ -482,6 +482,43 @@
   <!-- top end -->
   
 
+  <a href="/myBlog/machine learning/Ensemble learning/ensemble/">
+    <h2 class="post-title">
+      集成学习原理
+    </h2>
+    <h3 class="post-subtitle">
+      
+    </h3>
+    <div class="post-content-preview">
+      集成学习概述
+集成学习(ensemble learning)是现在非常火爆的机器学习方法。它本身不是一个单独的机器学习算法，而是通过构建并结合多个机器学习器来完成学习任务。集成学习可以用于分类问题集成，回归问题集成，特征选取集成，异常点检测集成等等，可以说所有的机器学习领域都可以看到集成学习的身影。
+下图中，对集成学习的思想做了一个概括。对于训练集数据，通过训练若干个个体学习器，并使用一定的......
+    </div>
+  </a>
+  
+  <p class="post-meta" style="margin: 10px 0;">
+    Posted by Eric Wong on
+    2022-05-26
+  </p>
+  <div class="tags">
+    
+    <a href="/myBlog/tags/#machine learning" title="machine learning">machine learning</a>
+    
+    <a href="/myBlog/tags/#ensemble" title="ensemble">ensemble</a>
+    
+  </div>
+  
+
+</div>
+<hr>
+
+<div class="post-preview">
+  
+  <!-- top start (article top hot config) -->
+  
+  <!-- top end -->
+  
+
   <a href="/myBlog/machine learning/Classification algorithm/svm/">
     <h2 class="post-title">
       支持向量机
@@ -490,8 +527,10 @@
       
     </h3>
     <div class="post-content-preview">
-      线性支持向量机支持向量机(Support Vecor Machine, SVM)是一个拥有良好性能的分类算法，线性分类和非线性分类都支持。经过演进，现在也可以支持多元分类，同时经过扩展，也能应用于回归问题。本章的重点是SVM用于线性分类时的模型和损失函数优化的一个总结。
-SVM前置知识：感知机之前的感知机文章中提到，感知机目标就是在多维空间中找到一个超平面$w^Tx + b = 0$，将所有......
+      线性支持向量机
+**支持向量机(Support Vecor Machine, SVM)**是一个拥有良好性能的分类算法，线性分类和非线性分类都支持。经过演进，现在也可以支持多元分类，同时经过扩展，也能应用于回归问题。本章的重点是SVM用于线性分类时的模型和损失函数优化的一个总结。
+SVM前置知识：感知机
+之前的感知机文章中提到，感知机目标就是在多维空间中找到一个超平面$w^Tx + b = ......
     </div>
   </a>
   
@@ -526,7 +565,8 @@ SVM前置知识：感知机之前的感知机文章中提到，感知机目标�
       
     </h3>
     <div class="post-content-preview">
-      朴素贝叶斯介绍在所有的机器学习分类算法中，朴素贝叶斯和其他绝大多数的分类算法都不同。对于大多数的分类算法，比如决策树,KNN,逻辑回归，支持向量机等，他们都是判别方法，也就是直接学习出特征输出Y和特征X之间的关系，要么是决策函数Y=f(X),要么是条件分布P(Y|X)。但是朴素贝叶斯却是生成方法，也就是直接找出特征输出Y和特征X的联合分布P(XY)，然后用$P(Y|X)=P(XY)/P(X)......
+      朴素贝叶斯介绍
+在所有的机器学习分类算法中，朴素贝叶斯和其他绝大多数的分类算法都不同。对于大多数的分类算法，比如决策树,KNN,逻辑回归，支持向量机等，他们都是判别方法，也就是直接学习出特征输出Y和特征X之间的关系，要么是决策函数Y=f(X),要么是条件分布P(Y|X)。但是朴素贝叶斯却是生成方法，也就是直接找出特征输出Y和特征X的联合分布P(XY)，然后用$P(Y|X)=P(XY)/P(X......
     </div>
   </a>
   
@@ -561,8 +601,9 @@ SVM前置知识：感知机之前的感知机文章中提到，感知机目标�
       K近邻算法小结
     </h3>
     <div class="post-content-preview">
-      KNN算法原理K近邻法(k-nearest neighbors,KNN)是一种基本的机器学习方法，该方法的思路是：在特征空间中，如果一个样本附近的k个最近(即特征空间中最邻近)样本的大多数属于某一个类别，则该样本也属于这个类别。
-KNN做回归和分类的主要区别在于最后做预测时候的决策方式不同。KNN做分类预测时，一般是选择多数表决法，即训练集里和预测的样本特征最近的K个样本，预测为里面有最多类......
+      KNN算法原理
+K近邻法(k-nearest neighbors,KNN)是一种基本的机器学习方法，该方法的思路是：在特征空间中，如果一个样本附近的k个最近(即特征空间中最邻近)样本的大多数属于某一个类别，则该样本也属于这个类别。
+KNN做回归和分类的主要区别在于最后做预测时候的决策方式不同。KNN做分类预测时，一般是选择多数表决法，即训练集里和预测的样本特征最近的K个样本，预测为里面有最多......
     </div>
   </a>
   
@@ -597,8 +638,10 @@ KNN做回归和分类的主要区别在于最后做预测时候的决策方式�
       决策树学习记录
     </h3>
     <div class="post-content-preview">
-      决策树算法决策树算法是机器学习中的一个经典算法。它既可以作为分类算法，也可以作为回归算法，同时也特别适合集成学习比如随机森林。本文对决策树算法原理做一个总结，包括ID3，C4.5的算法思想，以及对CART算法做一个详细的介绍。选择CART做重点介绍的原因是scikit-learn使用了优化版的CART算法作为其决策树算法的实现。
-ID3算法决策树描述了一个做选择的过程，决策树机器学习算法使我......
+      决策树算法
+决策树算法是机器学习中的一个经典算法。它既可以作为分类算法，也可以作为回归算法，同时也特别适合集成学习比如随机森林。本文对决策树算法原理做一个总结，包括ID3，C4.5的算法思想，以及对CART算法做一个详细的介绍。选择CART做重点介绍的原因是scikit-learn使用了优化版的CART算法作为其决策树算法的实现。
+ID3算法
+决策树描述了一个做选择的过程，决策树机器学习算法......
     </div>
   </a>
   
@@ -633,8 +676,10 @@ ID3算法决策树描述了一个做选择的过程，决策树机器学习算�
       感知机算法原理总结
     </h3>
     <div class="post-content-preview">
-      感知机感知机在1957年提出，属于最古老的分类算法之一。虽然从今天来看，他的分类模型在大多数情况下泛化能力不足，但它是支持向量机（SVM）和深度学习，神经网络的基础，能对之后的学习起到较大的帮助。
-感知机模型感知机原理很简单。在二维平面上说，就是要找到一条直线，直线的一边是一类，另一边是另一种类别。放到三维或更高维度中，就是找一个超平面，能够把多有二元类别分开。如果找不到这样的一条直线或超平......
+      感知机
+感知机在1957年提出，属于最古老的分类算法之一。虽然从今天来看，他的分类模型在大多数情况下泛化能力不足，但它是支持向量机（SVM）和深度学习，神经网络的基础，能对之后的学习起到较大的帮助。
+感知机模型
+感知机原理很简单。在二维平面上说，就是要找到一条直线，直线的一边是一类，另一边是另一种类别。放到三维或更高维度中，就是找一个超平面，能够把多有二元类别分开。如果找不到这样的一条直线或......
     </div>
   </a>
   
@@ -669,7 +714,8 @@ ID3算法决策树描述了一个做选择的过程，决策树机器学习算�
       逻辑回归算法学习笔记
     </h3>
     <div class="post-content-preview">
-      逻辑回归简介逻辑回归是一个分类算法，它可以处理二元分类以及多元分类。线性回归的模型是求出输出特征向量Y和输入样本矩阵X之间的线性关系系数$\theta$，满足$Y=X\theta$。此时我们的Y是连续的，所以是回归模型。如果Y是离散的话，此时回归问题就变成了分类问题。我们对于这个Y再做一次函数转换，变为$g(Y)$。如果我们令$g(Y)$的值在某个实数区间的时候是类别A，在另一个实数区间的时......
+      逻辑回归简介
+逻辑回归是一个分类算法，它可以处理二元分类以及多元分类。线性回归的模型是求出输出特征向量Y和输入样本矩阵X之间的线性关系系数$\theta$，满足$Y=X\theta$。此时我们的Y是连续的，所以是回归模型。如果Y是离散的话，此时回归问题就变成了分类问题。我们对于这个Y再做一次函数转换，变为$g(Y)$。如果我们令$g(Y)$的值在某个实数区间的时候是类别A，在另一个实数区间的......
     </div>
   </a>
   
@@ -704,7 +750,8 @@ ID3算法决策树描述了一个做选择的过程，决策树机器学习算�
       马尔科夫链蒙特卡罗方法
     </h3>
     <div class="post-content-preview">
-      MCMC概述MCMC由两个MC组成，即蒙特卡罗方法（Monte Carlo Simulation，简称MC）和马尔科夫链（Markov Chain ，也简称MC）。作为一种随机采样方法，马尔科夫链蒙特卡罗（Markov Chain Monte Carlo，以下简称MCMC）在机器学习, 深度学习以及自然语言处理等领域都有广泛的应用，是很多复杂算法求解的基础。要弄懂MCMC的原理首先得搞清楚蒙......
+      MCMC概述
+MCMC由两个MC组成，即蒙特卡罗方法（Monte Carlo Simulation，简称MC）和马尔科夫链（Markov Chain ，也简称MC）。作为一种随机采样方法，马尔科夫链蒙特卡罗（Markov Chain Monte Carlo，以下简称MCMC）在机器学习, 深度学习以及自然语言处理等领域都有广泛的应用，是很多复杂算法求解的基础。要弄懂MCMC的原理首先得搞清楚......
     </div>
   </a>
   
@@ -739,8 +786,11 @@ ID3算法决策树描述了一个做选择的过程，决策树机器学习算�
       线性回归知识点总结
     </h3>
     <div class="post-content-preview">
-      线性回归基础线性回归的一般场景线性回归问题一般有如下场景：我们有m个样本，每个样本对应于n维特征和一个结果输出，如下：
-(x_1^{(0)}, x_2^{(0)}, ...x_n^{(0)}, y_0), (x_1^{(1)}, x_2^{(1)}, ...x_n^{(1)},y_1), ... (x_1^{(m)}, x_2^{(m)}, ...x_n^{(m)}, y_m)要解决的问题是......
+      线性回归基础
+线性回归的一般场景
+线性回归问题一般有如下场景：我们有m个样本，每个样本对应于n维特征和一个结果输出，如下：
+$$ (x_1^{(0)}, x_2^{(0)}, …x_n^{(0)}, y_0), (x_1^{(1)}, x_2^{(1)}, …x_n^{(1)},y_1), … (x_1^{(m)}, x_2^{(m)}, …x_n^{(m)}, y_m) $$
+要解决的问题......
     </div>
   </a>
   
@@ -775,48 +825,14 @@ ID3算法决策树描述了一个做选择的过程，决策树机器学习算�
       
     </h3>
     <div class="post-content-preview">
-      前置概念（TP, FP, TN, FN）概念介绍在了解精确率和召回率前，有几个概念需要了解
+      前置概念（TP, FP, TN, FN）
+概念介绍
+在了解精确率和召回率前，有几个概念需要了解
 
 TP（True Positives）：预测为正样本，实际也为正样本的特征的数量
 FP（False Positives）：预测为正样本，实际为负样本的特征的数量
 TN（True Negatives）：预测为负样本，实际也为负样本的特征的数量
-FN（False Negatives）：预测为负样本，实际为......
-    </div>
-  </a>
-  
-  <p class="post-meta" style="margin: 10px 0;">
-    Posted by Eric Wong on
-    2022-05-02
-  </p>
-  <div class="tags">
-    
-    <a href="/myBlog/tags/#machine learning" title="machine learning">machine learning</a>
-    
-    <a href="/myBlog/tags/#regression" title="regression">regression</a>
-    
-  </div>
-  
-
-</div>
-<hr>
-
-<div class="post-preview">
-  
-  <!-- top start (article top hot config) -->
-  
-  <!-- top end -->
-  
-
-  <a href="/myBlog/machine learning/Fundamental and regression algorithm/交叉验证/">
-    <h2 class="post-title">
-      交叉验证
-    </h2>
-    <h3 class="post-subtitle">
-      交叉验证介绍
-    </h3>
-    <div class="post-content-preview">
-      交叉验证交叉验证原理与应用场景交叉验证（Cross validation）是在机器学习建立模型和验证模型参数时常用的办法。交叉验证，顾名思义，就是重复的使用数据，把得到的样本数据进行切分，组合为不同的训练集和测试集，用训练集来训练模型，用测试集来评估模型预测的好坏。在此基础上可以得到多组不同的训练集和测试集，某次训练集中的某样本在下次可能成为测试集中的样本，即所谓“交叉”。
-交叉验证用在数据......
+FN（False Negatives）：预测为负样本，实......
     </div>
   </a>
   
@@ -884,6 +900,14 @@ FN（False Negatives）：预测为负样本，实际为......
   <div class="tags">
     
     
+    <a href="/myBlog/tags/#front-end" title="front-end" rel="1">front-end</a>
+    
+    
+    
+    <a href="/myBlog/tags/#learning note" title="learning note" rel="9">learning note</a>
+    
+    
+    
     <a href="/myBlog/tags/#git" title="git" rel="1">git</a>
     
     
@@ -900,7 +924,11 @@ FN（False Negatives）：预测为负样本，实际为......
     
     
     
-    <a href="/myBlog/tags/#learning note" title="learning note" rel="9">learning note</a>
+    <a href="/myBlog/tags/#tip" title="tip" rel="1">tip</a>
+    
+    
+    
+    <a href="/myBlog/tags/#maven" title="maven" rel="1">maven</a>
     
     
     
@@ -916,19 +944,7 @@ FN（False Negatives）：预测为负样本，实际为......
     
     
     
-    <a href="/myBlog/tags/#front-end" title="front-end" rel="1">front-end</a>
-    
-    
-    
-    <a href="/myBlog/tags/#tip" title="tip" rel="1">tip</a>
-    
-    
-    
-    <a href="/myBlog/tags/#maven" title="maven" rel="1">maven</a>
-    
-    
-    
-    <a href="/myBlog/tags/#machine learning" title="machine learning" rel="12">machine learning</a>
+    <a href="/myBlog/tags/#machine learning" title="machine learning" rel="13">machine learning</a>
     
     
     
@@ -936,11 +952,15 @@ FN（False Negatives）：预测为负样本，实际为......
     
     
     
-    <a href="/myBlog/tags/#math" title="math" rel="1">math</a>
+    <a href="/myBlog/tags/#ensemble" title="ensemble" rel="1">ensemble</a>
     
     
     
     <a href="/myBlog/tags/#regression" title="regression" rel="5">regression</a>
+    
+    
+    
+    <a href="/myBlog/tags/#math" title="math" rel="1">math</a>
     
     
   </div>
@@ -1003,6 +1023,10 @@ FN（False Negatives）：预测为负样本，实际为......
 <div class="widget">
   <ul>
     
+    <a href="machine%20learning/Ensemble%20learning/ensemble/">
+      <li>集成学习原理</li>
+    </a>
+    
     <a href="machine%20learning/Classification%20algorithm/svm/">
       <li>支持向量机</li>
     </a>
@@ -1017,10 +1041,6 @@ FN（False Negatives）：预测为负样本，实际为......
     
     <a href="machine%20learning/Classification%20algorithm/decisionTree/">
       <li>决策树</li>
-    </a>
-    
-    <a href="machine%20learning/Classification%20algorithm/perceptron/">
-      <li>感知机</li>
     </a>
     
   </ul>
@@ -1038,7 +1058,7 @@ FN（False Negatives）：预测为负样本，实际为......
 
 <h5><a href="/myBlog/archives/">archives</a></h5>
 <div class="widget">
-  <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="archives/2022/05/">May 2022</a><span class="archive-list-count">12</span></li><li class="archive-list-item"><a class="archive-list-link" href="archives/2021/05/">May 2021</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="archives/2021/04/">April 2021</a><span class="archive-list-count">7</span></li></ul>
+  <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="archives/2022/05/">May 2022</a><span class="archive-list-count">13</span></li><li class="archive-list-item"><a class="archive-list-link" href="archives/2021/05/">May 2021</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="archives/2021/04/">April 2021</a><span class="archive-list-count">7</span></li></ul>
 </div>
 
 
@@ -1050,6 +1070,10 @@ FN（False Negatives）：预测为负样本，实际为......
 <div class="widget">
   <ul>
     
+    <a href="/myBlog/categories/#front-end learning note">
+      <li>front-end learning note</li>
+    </a>
+    
     <a href="/myBlog/categories/#git basic tutorial">
       <li>git basic tutorial</li>
     </a>
@@ -1058,28 +1082,28 @@ FN（False Negatives）：预测为负样本，实际为......
       <li>Go learning note</li>
     </a>
     
-    <a href="/myBlog/categories/#JavaTools">
-      <li>JavaTools</li>
-    </a>
-    
-    <a href="/myBlog/categories/#front-end learning note">
-      <li>front-end learning note</li>
-    </a>
-    
     <a href="/myBlog/categories/#maven">
       <li>maven</li>
+    </a>
+    
+    <a href="/myBlog/categories/#JavaTools">
+      <li>JavaTools</li>
     </a>
     
     <a href="/myBlog/categories/#machine-learning classification">
       <li>machine-learning classification</li>
     </a>
     
-    <a href="/myBlog/categories/#machine-learning math">
-      <li>machine-learning math</li>
+    <a href="/myBlog/categories/#machine-learning ensemble">
+      <li>machine-learning ensemble</li>
     </a>
     
     <a href="/myBlog/categories/#machine-learning regression">
       <li>machine-learning regression</li>
+    </a>
+    
+    <a href="/myBlog/categories/#machine-learning math">
+      <li>machine-learning math</li>
     </a>
     
   </ul>

@@ -248,6 +248,8 @@
 
           
           
+          
+          
           <li>
             <a href="/myBlog/about/">
               
@@ -259,12 +261,10 @@
           
           
           
-          
-          
           <li>
-            <a href="/myBlog/tags/">
+            <a href="/myBlog/categories/">
               
-              TAGS
+              CATEGORIES
               
               
             </a>
@@ -284,9 +284,9 @@
           
           
           <li>
-            <a href="/myBlog/categories/">
+            <a href="/myBlog/tags/">
               
-              CATEGORIES
+              TAGS
               
               
             </a>
@@ -482,6 +482,44 @@
   <!-- top end -->
   
 
+  <a href="/myBlog/machine learning/Fundamental and regression algorithm/交叉验证/">
+    <h2 class="post-title">
+      交叉验证
+    </h2>
+    <h3 class="post-subtitle">
+      交叉验证介绍
+    </h3>
+    <div class="post-content-preview">
+      交叉验证
+交叉验证原理与应用场景
+交叉验证（Cross validation）是在机器学习建立模型和验证模型参数时常用的办法。交叉验证，顾名思义，就是重复的使用数据，把得到的样本数据进行切分，组合为不同的训练集和测试集，用训练集来训练模型，用测试集来评估模型预测的好坏。在此基础上可以得到多组不同的训练集和测试集，某次训练集中的某样本在下次可能成为测试集中的样本，即所谓“交叉”。
+交叉验证用在......
+    </div>
+  </a>
+  
+  <p class="post-meta" style="margin: 10px 0;">
+    Posted by Eric Wong on
+    2022-05-02
+  </p>
+  <div class="tags">
+    
+    <a href="/myBlog/tags/#machine learning" title="machine learning">machine learning</a>
+    
+    <a href="/myBlog/tags/#regression" title="regression">regression</a>
+    
+  </div>
+  
+
+</div>
+<hr>
+
+<div class="post-preview">
+  
+  <!-- top start (article top hot config) -->
+  
+  <!-- top end -->
+  
+
   <a href="/myBlog/machine learning/Fundamental and regression algorithm/最小二乘法/">
     <h2 class="post-title">
       最小二乘法
@@ -490,9 +528,11 @@
       最小二乘法学习总结
     </h3>
     <div class="post-content-preview">
-      最小二乘法原理最小二乘法是用来做函数拟合或者求函数极值的方法。在机器学习，尤其是回归模型中，经常可以看到最小二乘法的身影
+      最小二乘法原理
+最小二乘法是用来做函数拟合或者求函数极值的方法。在机器学习，尤其是回归模型中，经常可以看到最小二乘法的身影
 最小二乘法的一般形式如下：
-loss\ function = \sum\limits（y-hypothesis\ function）^2loss function就是损失函数，y是样本的观测值，hypothesis function是假设拟合函数。我们的目标是得到使los......
+$$ loss\ function = \sum\limits（y-hypothesis\ function）^2 $$
+loss function就是损失函数，y是样本的观测值，hypothesis function是假设拟合函数。我们的目......
     </div>
   </a>
   
@@ -528,13 +568,15 @@ loss\ function = \sum\limits（y-hypothesis\ function）^2loss function就是损
     </h3>
     <div class="post-content-preview">
       梯度简介
-定义：对多元函数的参数求偏导数，把求得的各个参数的偏导数以向量的形式写出来，就是梯度。比如函数f(x, y), 分别对x, y求偏导数，求得的梯度向量表示如下：(\frac{∂f}{∂x}, \frac{∂f}{∂y})^T
+
+定义：对多元函数的参数求偏导数，把求得的各个参数的偏导数以向量的形式写出来，就是梯度。比如函数f(x, y), 分别对x, y求偏导数，求得的梯度向量表示如下：
+$$ (\frac{∂f}{∂x}, \frac{∂f}{∂y})^T $$
 
 
 该式即梯度计算公式，简称$grad f(x,y)$或者$▽f(x,y)$。
 
 
-意义：梯度的意义从几何意义上讲，就是函数变化增加最快的地方。在点$(x_0......
+意义：梯度的意义从几何意义上讲，就是函数变化增加最快的地方......
     </div>
   </a>
   
@@ -569,9 +611,11 @@ loss\ function = \sum\limits（y-hypothesis\ function）^2loss function就是损
       
     </h3>
     <div class="post-content-preview">
-      Day08log is a standard package in Go, it provides basic logger function.
-Basic usageuse log to print log with time.
-1234567import &quot;log&quot;func main() &#123;	log.Println(&quot;Wow&quot;)	log.......
+      Day08
+log is a standard package in Go, it provides basic logger function.
+Basic usage
+use log to print log with time.
+1234567import &quot;log&quot;func main() &#123;	log.Println(&quot;Wow&quot;)	lo......
     </div>
   </a>
   
@@ -581,9 +625,9 @@ Basic usageuse log to print log with time.
   </p>
   <div class="tags">
     
-    <a href="/myBlog/tags/#Go" title="Go">Go</a>
-    
     <a href="/myBlog/tags/#learning note" title="learning note">learning note</a>
+    
+    <a href="/myBlog/tags/#Go" title="Go">Go</a>
     
   </div>
   
@@ -606,9 +650,11 @@ Basic usageuse log to print log with time.
       
     </h3>
     <div class="post-content-preview">
-      Day07The time package provides functions for displaying and measuring time. The calculation of the calendar uses the Gregorian calendar
-Time objectuse time.Time to acquire time.
-1234567891011func m......
+      Day07
+The time package provides functions for displaying and measuring time. The calculation of the calendar uses the Gregorian calendar
+Time object
+use time.Time to acquire time.
+1234567891011func......
     </div>
   </a>
   
@@ -618,9 +664,9 @@ Time objectuse time.Time to acquire time.
   </p>
   <div class="tags">
     
-    <a href="/myBlog/tags/#Go" title="Go">Go</a>
-    
     <a href="/myBlog/tags/#learning note" title="learning note">learning note</a>
+    
+    <a href="/myBlog/tags/#Go" title="Go">Go</a>
     
   </div>
   
@@ -643,8 +689,10 @@ Time objectuse time.Time to acquire time.
       
     </h3>
     <div class="post-content-preview">
-      Day06MultiplexingSometimes we need to receive data from multiple channel, if we receive it one by one, that will cause bad performance.
-123456for &#123;    data, ok := &lt;-ch1    data, ok := &lt;-......
+      Day06
+Multiplexing
+Sometimes we need to receive data from multiple channel, if we receive it one by one, that will cause bad performance.
+123456for &#123;    data, ok := &lt;-ch1    data, ok := &lt......
     </div>
   </a>
   
@@ -654,9 +702,9 @@ Time objectuse time.Time to acquire time.
   </p>
   <div class="tags">
     
-    <a href="/myBlog/tags/#Go" title="Go">Go</a>
-    
     <a href="/myBlog/tags/#learning note" title="learning note">learning note</a>
+    
+    <a href="/myBlog/tags/#Go" title="Go">Go</a>
     
   </div>
   
@@ -679,7 +727,8 @@ Time objectuse time.Time to acquire time.
       
     </h3>
     <div class="post-content-preview">
-      JsoupJsoup is a Java library for working with real-world HTML. It provides a very convenient API for fetching URLs and extracting and manipulating data, using the best of HTML5 DOM methods and CSS ......
+      Jsoup
+Jsoup is a Java library for working with real-world HTML. It provides a very convenient API for fetching URLs and extracting and manipulating data, using the best of HTML5 DOM methods and CSS......
     </div>
   </a>
   
@@ -716,8 +765,10 @@ Time objectuse time.Time to acquire time.
       
     </h3>
     <div class="post-content-preview">
-      Day05GoroutineConcurrent programming is simple in go, unlike Java, you do not have to configure lots of Threads, etc. You can add go before a function, that means start a goroutine.
-12345678func ma......
+      Day05
+Goroutine
+Concurrent programming is simple in go, unlike Java, you do not have to configure lots of Threads, etc. You can add go before a function, that means start a goroutine.
+12345678func ......
     </div>
   </a>
   
@@ -727,9 +778,9 @@ Time objectuse time.Time to acquire time.
   </p>
   <div class="tags">
     
-    <a href="/myBlog/tags/#Go" title="Go">Go</a>
-    
     <a href="/myBlog/tags/#learning note" title="learning note">learning note</a>
+    
+    <a href="/myBlog/tags/#Go" title="Go">Go</a>
     
   </div>
   
@@ -752,7 +803,8 @@ Time objectuse time.Time to acquire time.
       
     </h3>
     <div class="post-content-preview">
-      IntroductionThis article is intended to show you how to install a jar package at your local maven repository in order that you can user it in Spring project directly by importing a dependency in yo......
+      Introduction
+This article is intended to show you how to install a jar package at your local maven repository in order that you can user it in Spring project directly by importing a dependency in y......
     </div>
   </a>
   
@@ -787,10 +839,13 @@ Time objectuse time.Time to acquire time.
       从创建账号开始，搭建自己的代码管理仓库以及个人博客
     </h3>
     <div class="post-content-preview">
-      前言这是一篇零基础的GitHub教学，帮助你从创建账号开始，到能熟练操作GitHub。这篇教程包括博主在踩过很多坑，看了很多教程后总结出来的一些个人经验，之后遇到新的问题也会更新到博客上。
-&nbsp;
-&nbsp;
-GitHub是什么GitGit是一个开源的分布式版本控制系统，可以有效、高速地处理从很小到非常大的项目版本管理。如今无论个人还是企业，开发的项目越来越大，而版本会不断地更新，当......
+      前言
+这是一篇零基础的GitHub教学，帮助你从创建账号开始，到能熟练操作GitHub。这篇教程包括博主在踩过很多坑，看了很多教程后总结出来的一些个人经验，之后遇到新的问题也会更新到博客上。
+ 
+ 
+GitHub是什么
+Git
+Git是一个开源的分布式版本控制系统，可以有效、高速地处理从很小到非常大的项目版本管理。如今无论个人还是企业，开发的项目越来越大，而版本会不断地更新，当你想要找到之前......
     </div>
   </a>
   
@@ -805,44 +860,6 @@ GitHub是什么GitGit是一个开源的分布式版本控制系统，可以有�
     <a href="/myBlog/tags/#tutorial" title="tutorial">tutorial</a>
     
     <a href="/myBlog/tags/#basic" title="basic">basic</a>
-    
-  </div>
-  
-
-</div>
-<hr>
-
-<div class="post-preview">
-  
-  <!-- top start (article top hot config) -->
-  
-  <!-- top end -->
-  
-
-  <a href="/myBlog/go/Day04/">
-    <h2 class="post-title">
-      Go day04-Method and interface
-    </h2>
-    <h3 class="post-subtitle">
-      
-    </h3>
-    <div class="post-content-preview">
-      Day04Method
-What’s method?
-Unlike Java and C++, Go doesn’t have concept of class, But it has method.
-Method is similar to function, except that it has a special type of parameter called ‘receiver’.......
-    </div>
-  </a>
-  
-  <p class="post-meta" style="margin: 10px 0;">
-    Posted by Eric Wong on
-    2021-04-24
-  </p>
-  <div class="tags">
-    
-    <a href="/myBlog/tags/#Go" title="Go">Go</a>
-    
-    <a href="/myBlog/tags/#learning note" title="learning note">learning note</a>
     
   </div>
   
@@ -902,6 +919,14 @@ Method is similar to function, except that it has a special type of parameter ca
   <div class="tags">
     
     
+    <a href="/myBlog/tags/#front-end" title="front-end" rel="1">front-end</a>
+    
+    
+    
+    <a href="/myBlog/tags/#learning note" title="learning note" rel="9">learning note</a>
+    
+    
+    
     <a href="/myBlog/tags/#git" title="git" rel="1">git</a>
     
     
@@ -918,7 +943,11 @@ Method is similar to function, except that it has a special type of parameter ca
     
     
     
-    <a href="/myBlog/tags/#learning note" title="learning note" rel="9">learning note</a>
+    <a href="/myBlog/tags/#tip" title="tip" rel="1">tip</a>
+    
+    
+    
+    <a href="/myBlog/tags/#maven" title="maven" rel="1">maven</a>
     
     
     
@@ -934,19 +963,7 @@ Method is similar to function, except that it has a special type of parameter ca
     
     
     
-    <a href="/myBlog/tags/#front-end" title="front-end" rel="1">front-end</a>
-    
-    
-    
-    <a href="/myBlog/tags/#tip" title="tip" rel="1">tip</a>
-    
-    
-    
-    <a href="/myBlog/tags/#maven" title="maven" rel="1">maven</a>
-    
-    
-    
-    <a href="/myBlog/tags/#machine learning" title="machine learning" rel="12">machine learning</a>
+    <a href="/myBlog/tags/#machine learning" title="machine learning" rel="13">machine learning</a>
     
     
     
@@ -954,11 +971,15 @@ Method is similar to function, except that it has a special type of parameter ca
     
     
     
-    <a href="/myBlog/tags/#math" title="math" rel="1">math</a>
+    <a href="/myBlog/tags/#ensemble" title="ensemble" rel="1">ensemble</a>
     
     
     
     <a href="/myBlog/tags/#regression" title="regression" rel="5">regression</a>
+    
+    
+    
+    <a href="/myBlog/tags/#math" title="math" rel="1">math</a>
     
     
   </div>
@@ -1021,6 +1042,10 @@ Method is similar to function, except that it has a special type of parameter ca
 <div class="widget">
   <ul>
     
+    <a href="../../machine%20learning/Ensemble%20learning/ensemble/">
+      <li>集成学习原理</li>
+    </a>
+    
     <a href="../../machine%20learning/Classification%20algorithm/svm/">
       <li>支持向量机</li>
     </a>
@@ -1035,10 +1060,6 @@ Method is similar to function, except that it has a special type of parameter ca
     
     <a href="../../machine%20learning/Classification%20algorithm/decisionTree/">
       <li>决策树</li>
-    </a>
-    
-    <a href="../../machine%20learning/Classification%20algorithm/perceptron/">
-      <li>感知机</li>
     </a>
     
   </ul>
@@ -1056,7 +1077,7 @@ Method is similar to function, except that it has a special type of parameter ca
 
 <h5><a href="/myBlog/archives/">archives</a></h5>
 <div class="widget">
-  <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="../2022/05/">May 2022</a><span class="archive-list-count">12</span></li><li class="archive-list-item"><a class="archive-list-link" href="../2021/05/">May 2021</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="../2021/04/">April 2021</a><span class="archive-list-count">7</span></li></ul>
+  <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="../2022/05/">May 2022</a><span class="archive-list-count">13</span></li><li class="archive-list-item"><a class="archive-list-link" href="../2021/05/">May 2021</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="../2021/04/">April 2021</a><span class="archive-list-count">7</span></li></ul>
 </div>
 
 
@@ -1068,6 +1089,10 @@ Method is similar to function, except that it has a special type of parameter ca
 <div class="widget">
   <ul>
     
+    <a href="/myBlog/categories/#front-end learning note">
+      <li>front-end learning note</li>
+    </a>
+    
     <a href="/myBlog/categories/#git basic tutorial">
       <li>git basic tutorial</li>
     </a>
@@ -1076,28 +1101,28 @@ Method is similar to function, except that it has a special type of parameter ca
       <li>Go learning note</li>
     </a>
     
-    <a href="/myBlog/categories/#JavaTools">
-      <li>JavaTools</li>
-    </a>
-    
-    <a href="/myBlog/categories/#front-end learning note">
-      <li>front-end learning note</li>
-    </a>
-    
     <a href="/myBlog/categories/#maven">
       <li>maven</li>
+    </a>
+    
+    <a href="/myBlog/categories/#JavaTools">
+      <li>JavaTools</li>
     </a>
     
     <a href="/myBlog/categories/#machine-learning classification">
       <li>machine-learning classification</li>
     </a>
     
-    <a href="/myBlog/categories/#machine-learning math">
-      <li>machine-learning math</li>
+    <a href="/myBlog/categories/#machine-learning ensemble">
+      <li>machine-learning ensemble</li>
     </a>
     
     <a href="/myBlog/categories/#machine-learning regression">
       <li>machine-learning regression</li>
+    </a>
+    
+    <a href="/myBlog/categories/#machine-learning math">
+      <li>machine-learning math</li>
     </a>
     
   </ul>

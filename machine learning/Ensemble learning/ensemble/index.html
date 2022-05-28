@@ -143,10 +143,10 @@
   <!--[if lt IE 9]> <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script> <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script> <![endif]-->
 
   <!-- ga & ba script hoook -->
-  <link rel="canonical" href="https://nuist-elite.github.io/myBlog/myBlog/tags/Java/">
+  <link rel="canonical" href="https://nuist-elite.github.io/myBlog/myBlog/machine learning/Ensemble learning/ensemble/">
   <title>
     
-      either win | or lose
+      集成学习原理 - either win | or lose
     
   </title>
 <meta name="generator" content="Hexo 5.4.0"></head>
@@ -304,29 +304,7 @@
           <!-- LangSelect -->
           
           
-          <!-- LangSelect start -->
-          <!-- LangSelect -->
-<li>
-  <a id="lang-select-label"><i class="fa fa-globe"></i>
-    <span>
-      English
-    </span>
-    <select id="lang-select" data-canonical="tags/Java/index.html">
-      
-      
-      <option value="en"  selected >
-        English
-      </option>
-      
-      <option value="cn" >
-        简体中文
-      </option>
-      
-    </select>
-  </a>
-</li>
-
-          <!-- LangSelect end -->
+          
           
           
         </ul>
@@ -378,19 +356,19 @@
     .body--light {
       /* intro-header */
       --intro-header-background-image-url-home: url('/myBlog/img/header_img/newhome_bg.jpg');
-      --intro-header-background-image-url-post: url('');
-      --intro-header-background-image-url-page: url('/myBlog/img/header_img/archive_bg2.jpg');
+      --intro-header-background-image-url-post: url('/myBlog/img/header_img/go/day04.jpg');
+      --intro-header-background-image-url-page: url('/myBlog//myBlog/img/header_img/go/day04.jpg');
     }
     .body--dark {
       --intro-header-background-image-url-home: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('/myBlog/img/header_img/newhome_bg.jpg');
-      --intro-header-background-image-url-post: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('');
-      --intro-header-background-image-url-page: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('/myBlog/img/header_img/archive_bg2.jpg');
+      --intro-header-background-image-url-post: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('/myBlog/img/header_img/go/day04.jpg');
+      --intro-header-background-image-url-page: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('/myBlog//myBlog/img/header_img/go/day04.jpg');
     }
 
     header.intro-header {
-       /*page*/
-        background-image: var(--intro-header-background-image-url-page);
-        /* background-image: url('/myBlog/img/header_img/archive_bg2.jpg'); */
+       /*post*/
+        background-image: var(--intro-header-background-image-url-post);
+        /* background-image: url('/myBlog/img/header_img/go/day04.jpg'); */
       
     }
 
@@ -412,10 +390,44 @@
       <div class="row">
         <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
           
-          <div class="site-heading">
-            <h1>Programming for the future</h1>
-            <!--<hr class="small">-->
-            <span class="subheading">personal blog of a normal programmer</span>
+          <div class="post-heading">
+            <div class="tags">
+              
+              <a class="tag" href="/myBlog/tags/#machine learning" title="machine learning">machine learning</a>
+              
+              <a class="tag" href="/myBlog/tags/#ensemble" title="ensemble">ensemble</a>
+              
+            </div>
+            <h1>集成学习原理</h1>
+            <h2 class="subheading"></h2>
+            <span class="meta">
+              Posted by Eric Wong on
+              2022-05-26
+            </span>
+
+
+            
+            <!-- WordCount start -->
+            <div class="blank_box"></div>
+            <span class="meta">
+              Estimated Reading Time <span class="post-count">5</span> Minutes
+            </span>
+            <div class="blank_box"></div>
+            <span class="meta">
+              Words <span class="post-count">1.7k</span> In Total
+            </span>
+            <div class="blank_box"></div>
+            <!-- WordCount end -->
+            
+            
+            <!-- 不蒜子统计 start -->
+            <span class="meta" id="busuanzi_container_page_pv">
+              Viewed <span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span> Times
+            </span>
+            <!-- 不蒜子统计 end -->
+            
+
+
           </div>
           
         </div>
@@ -456,633 +468,349 @@
 	Friends Blog、
 	anchorjs、
 	) -->
-		<!-- Main Content -->
-<div class="container">
-  <div class="row">
+		<!-- Modify by Yu-Hsuan Yen -->
+<!-- Post Content -->
+<article>
+  <div class="container">
+    <div class="row">
+      <!-- Post Container -->
+      <div class="col-lg-8 col-lg-offset-1 col-md-10 col-md-offset-1 post-container">
+
+        <h1>集成学习概述</h1>
+<p>集成学习(ensemble learning)是现在非常火爆的机器学习方法。它本身不是一个单独的机器学习算法，而是通过<strong>构建并结合多个机器学习器</strong>来完成学习任务。集成学习可以用于分类问题集成，回归问题集成，特征选取集成，异常点检测集成等等，可以说所有的机器学习领域都可以看到集成学习的身影。</p>
+<p>下图中，对集成学习的思想做了一个概括。对于训练集数据，通过训练<strong>若干个个体学习器</strong>，并使用一定的<strong>结合策略</strong>，就可以最终形成一个强学习器。<br>
+<img src="1.png" alt="en"><br>
+集成学习主要解决的问题有两个，第一个是如何得到若干个个体学习器，第二是如何选择一种合适的结合策略，将个体学习器集合成一个强学习器。</p>
+<h1>集成学习算法</h1>
+<h2 id="个体学习器">个体学习器</h2>
+<p>对于如何得到个体学习器的问题，主要有两种情况：</p>
+<ol>
+<li>所有的个体学习器<strong>都是同一种类的</strong>，或者说是同质的。比如都是决策树个体学习器（随机森林），或都是神经网络个体学习器。</li>
+<li>所有的个体学习器<strong>不全是一个种类的</strong>，或者说是异质的。比如一个分类问题，对训练集按此用的是SVM个体学习器，逻辑回归个体学习器和朴素贝叶斯个体学习器来学习，之后再通过某种结合策略来确定最终的分类强学习器。</li>
+</ol>
+<p>目前主流的集成学习采用的多是同质个体学习器。应用最多的通知个体学习器包括CART决策树和神经网络。通知个体学习器按照个体学习器之间<strong>是否存在依赖关系</strong>分为两类：</p>
+<ol>
+<li>第一个是个体学习器之间存在强依赖关系，一系列个体学习器都需要串行生成。代表算法是<strong>boosting系列算法</strong>。</li>
+<li>第二个是个体学习器之间不存在强依赖惯性系，一系列个体学习器可以并行生成。代表算法是<strong>bagging和随机森林（Random Forest）系列算法</strong>。</li>
+</ol>
+<h2 id="boosting算法">boosting算法</h2>
+<p>boosting的基本原理如下图所示：<br>
+<img src="2.png" alt="1"><br>
+可以看出，boosting算法的工作机制是首先从训练集用初始权重训练出一个弱学习器1，之后根据该学习器的学习误差率表现，更新样本的权重，使误差率高的点在之后得到更多重视，基于调整权重后的训练集继续训练弱学习器2。重复上述过程，直到弱学习器数量达到指定数目T，用集成策略进行整合，得到最终的强学习器。</p>
+<p>Boosting系列算法里最著名算法主要有<strong>AdaBoost算法</strong>和<strong>提升树(boosting tree)系列算法</strong>。提升树系列算法里面应用最广泛的是<strong>梯度提升树(Gradient Boosting Tree)</strong>。</p>
+<blockquote>
+<p>boosting树家族的介绍可见<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/57814935">此文章</a></p>
+</blockquote>
+<h2 id="bagging算法">bagging算法</h2>
+<p>bagging算法与boosting不同的是，他的弱学习器之间没有依赖关系，可以并行生成，如下图所示：<br>
+<img src="3.png" alt="2"><br>
+可以看出，bagging的个体弱学习器的训练集是通过随机采样得到的。通过T次的随机采样，我们就可以得到T个采样集，对于这些采样集分别独立训练出T个弱学习器，最后通过集成策略得到最后的强学习器。</p>
+<p>此处采用的随机采样的方法时<strong>自助采样法（Bootstrap sampling）</strong>，即对于m个样本的原始训练集，每次先随机采集一个样本放入采样集，接着<strong>把该样本放回</strong>，也即下次采样时该样本仍可能被采集，这样采集m次，得到m个样本的采样集。</p>
+<p><strong>随机森林</strong>是bagging的一个特化进阶版，它的弱学习器都是决策树。进阶是指随机森林在bagging的样本采样基础上，又加上了<strong>特征的随机选择</strong>。</p>
+<h1>集成学习的结合策略</h1>
+<p>集成学习的另一个重点就是采用的结合策略，主要有三种，假设得到的T个弱学习器为${h_1,h_2,…h_T}$</p>
+<h2 id="平均法">平均法</h2>
+<p>对于数值类的回归预测问题，通常使用的结合策略是平均法。对于若干个弱学习器的输出进行平均的到最终的预测输出。最基本的是算术平均，也即最终预测为：<br>
+$$ H(x) = \frac{1}{T}\sum\limits_{1}^{T}h_i(x) $$<br>
+如果每个个体学习器有一个权重$w$，则最终预测为：<br>
+$$ H(x) = \sum\limits_{i=1}^{T}w_ih_i(x) \<br>
+s.t ; w_i \geq 0 ,;;; \sum\limits_{i=1}^{T}w_i = 1 $$</p>
+<h2 id="投票法">投票法</h2>
+<p>对于分类问题的预测，通常使用的是投票法。假设预测类别有${c_1,c_2,…c_K}$，对于任意一个预测样本x，T个弱学习器的预测结果分别为$(h_1(x), h_2(x)…h_T(x))$\。</p>
+<p>最简单的投票法是<strong>相对多数投票法</strong>，也就是T个弱学习器的对样本x的预测结果中，出现次数最多的类别即为最终的分类类别。如果有多个最高票，则随机选择其中的一个。</p>
+<p>稍复杂的采用<strong>绝对多数投票法</strong>，在相对多数票的基础上，还要求获得超过总量一般的票，否则会拒绝预测。</p>
+<p>更加复杂的是<strong>加权投票法</strong>，和加权平均法一样，每个弱学习器的分类票数要乘以一个权重，最终将各个类别的加权票数求和，最大的值对应的类别为最终类别。</p>
+<h2 id="学习法">学习法</h2>
+<p>上两节的方法都是对弱学习器的结果做平均或者投票，相对比较简单，但是可能学习误差较大，于是就有了学习法这种方法，对于学习法，代表方法是<strong>stacking</strong>，当使用stacking的结合策略时， 我们不是对弱学习器的结果做简单的逻辑处理，而是再加上一层学习器，也就是说，我们将训练集弱学习器的学习结果作为输入，将训练集的输出作为输出，重新训练一个学习器来得到最终结果。</p>
+<blockquote>
+<p>关于stacking的一些知识<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/26890738">参考</a></p>
+</blockquote>
+<p>在这种情况下，我们将弱学习器称为<strong>初级学习器</strong>，将用于结合的学习器称为<strong>次级学习器</strong>。对于测试集，我们首先用初级学习器预测一次，得到次级学习器的输入样本，再用次级学习器预测一次，得到最终的预测结果。</p>
+
+
+        <hr>
+        <!-- Pager -->
+        <ul class="pager">
+          
+          
+          <li class="next">
+            <a href="/myBlog/machine learning/Classification algorithm/svm/" data-toggle="tooltip" data-placement="top" title="支持向量机">Next Post &rarr;</a>
+          </li>
+          
+        </ul>
+
+        
+        <!-- tip start -->
+        <!-- tip -->
+<!-- tip start -->
+<div class="tip">
+  <p>
+    
+      If you like this blog or find it useful for you, you are welcome to comment on it. You are also welcome to share this blog, so that more people can participate in it. If the images used in the blog infringe your copyright, please contact the author to delete them. Thank you !
+    
+  </p>
+</div>
+<!-- tip end -->
+
+        <!-- tip end -->
+        
+
+        
+        <!-- Sharing Srtart -->
+        <!-- Social Social Share Post -->
+<!-- Docs:https://github.com/overtrue/share.js -->
+
+<div class="social-share" data-initialized="true" data-disabled="tencent ,douban ,qzone ,linkedin ,facebook ,google ,diandian" data-wechat-qrcode-helper="" align="center">
+  <ul class="list-inline text-center social-share-ul">
+    <li class="social-share-li">
+      <a target="_blank" class="social-share-icon icon-twitter">
+        <i class="fa fa-twitter fa-1x" aria-hidden="true"></i>
+      </a>
+    </li>
+    <li class="social-share-li">
+      <a class="social-share-icon icon-wechat">
+        <i class="fa fa-weixin fa-1x" aria-hidden="true"></i>
+      </a>
+    </li>
+    <li class="social-share-li">
+      <a target="_blank" class="social-share-icon icon-weibo">
+        <i class="fa fa-weibo fa-1x" aria-hidden="true"></i>
+      </a>
+    </li>
+    <li class="social-share-li">
+      <a target="_blank" class="social-share-icon icon-qq">
+        <i class="fa fa-qq fa-1x" aria-hidden="true"></i>
+      </a>
+    </li>
+    <li class="social-share-li">
+      <a target="_blank" class="social-share-icon" href="mailto:?subject=集成学习原理&body=Hi,I found this website and thought you might like it https://nuist-elite.github.io/myBlog/myBlog/machine learning/Ensemble learning/ensemble/">
+        <i class="fa fa-envelope fa-1x" aria-hidden="true"></i>
+      </a>
+    </li>
+  </ul>
+</div>
+
+<!-- css & js -->
+<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css"> -->
+<script defer="defer" async="true" src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
+
+        <!-- Sharing End -->
+        
+        <hr>
+
+        <!-- comments start -->
+        <!-- 1. gitalk comment -->
+
+  <!-- gitalk start -->
+  <!-- Docs:https://github.com/gitalk/gitalk/blob/master/readme-cn.md -->
+
+  <div id="gitalk-container"></div>
+
+  
+    <!-- <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.js"></script> -->
+    <script src="/myBlog/js/comment/gitalk.js"></script>
+  
+
+  <script>
+    var gitalk = new Gitalk({
+      clientID: '',
+      clientSecret: '',
+      repo: '',
+      owner: '',
+      admin: '',
+      id: 'Thu May 26 2022 17:31:33 GMT+0800', // Ensure uniqueness and length less than 50
+      distractionFreeMode: false, // Facebook-like distraction free mode
+      perPage: 10,
+      pagerDirection: 'last',
+      createIssueManually: false,
+      language: 'en',
+      proxy: 'https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token'
+    });
+    gitalk.render('gitalk-container');
+
+    var gtFolded = () => {
+      setTimeout(function () {
+        let markdownBody = document.getElementsByClassName("markdown-body");
+        let list = Array.from(markdownBody);
+        list.forEach(item => {
+          if (item.clientHeight > 250) {
+            item.classList.add('gt-comment-body-folded');
+            item.style.maxHeight = '250px';
+            item.title = 'Click to Expand';
+            item.onclick = function () {
+              item.classList.remove('gt-comment-body-folded');
+              item.style.maxHeight = '';
+              item.title = '';
+              item.onclick = null;
+            };
+          }
+        })
+      }, 800);
+    }
+  </script>
+
+  <!-- gitalk end -->
+
+
+<!-- 2. gitment comment -->
+
+  <!-- gitment start -->
+  <!-- Docs:https://github.com/imsun/gitment -->
+
+  <div id="blog_comments"></div>
+  <!-- <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css"> <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script> -->
+
+  <script src="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/gitment.browser.js"></script>
+
+  <script>
+    const myTheme = {
+      render(state, instance) {
+        const container = document.createElement('div')
+        container.lang = "en-US"
+        container.className = 'gitment-container gitment-root-container'
+
+        // your custom component
+        container.appendChild(instance.renderSomething(state, instance))
+        container.appendChild(instance.renderHeader(state, instance))
+        container.appendChild(instance.renderEditor(state, instance))
+        container.appendChild(instance.renderComments(state, instance))
+        container.appendChild(instance.renderFooter(state, instance))
+        return container
+      },
+      renderSomething(state, instance) {
+        const container = document.createElement('div')
+        container.lang = "en-US"
+        container.className = 'hello_visitor'
+        if (state.user.login) {
+          container.innerText = `Hello ${state.user.login}, Welcome to comment system`
+        }
+        return container
+      }
+    }
+
+    const gitment = new Gitment({
+      id: 'Thu May 26 2022 17:31:33 GMT+0800', // optional
+      owner: 'NUIST-elite',
+      repo: 'git@github.com:NUIST-elite/blog-comment.git',
+      oauth: {
+        client_id: 'a8536bceb8b28d0df731',
+        client_secret: '696da9430a77d9bfafcbbc62d88eb7196e426c35'
+      },
+      desc: '',
+      perPage: '10',
+      maxCommentHeight: '250',
+      theme: myTheme,
+      // ... For more available options, check out the documentation below
+    })
+
+    gitment.render('blog_comments')
+    // or gitment.render(document.getElementById('comments')) or document.body.appendChild(gitment.render())
+  </script>
+
+  <!-- gitment end -->
+
+
+<!-- 3. disqus comment -->
+
+
+        <!-- comments end -->
+        <hr>
+
+      </div>
+
+      <!-- Catalog: Tabe of Content -->
+      <!-- Table of Contents -->
+
+    
+      <aside id="sidebar">
+        <div id="toc" class="toc-article">
+        <strong class="toc-title">Contents</strong>
+        
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">集成学习概述</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">集成学习算法</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E4%B8%AA%E4%BD%93%E5%AD%A6%E4%B9%A0%E5%99%A8"><span class="toc-nav-number">2.1.</span> <span class="toc-nav-text">个体学习器</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#boosting%E7%AE%97%E6%B3%95"><span class="toc-nav-number">2.2.</span> <span class="toc-nav-text">boosting算法</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#bagging%E7%AE%97%E6%B3%95"><span class="toc-nav-number">2.3.</span> <span class="toc-nav-text">bagging算法</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">集成学习的结合策略</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E5%B9%B3%E5%9D%87%E6%B3%95"><span class="toc-nav-number">3.1.</span> <span class="toc-nav-text">平均法</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E6%8A%95%E7%A5%A8%E6%B3%95"><span class="toc-nav-number">3.2.</span> <span class="toc-nav-text">投票法</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E5%AD%A6%E4%B9%A0%E6%B3%95"><span class="toc-nav-number">3.3.</span> <span class="toc-nav-text">学习法</span></a></li></ol></li></ol>
+        
+        </div>
+      </aside>
     
 
-    <!-- USE SIDEBAR -->
-    <!-- Post Container -->
-    <div class="
+
+
+      <!-- Sidebar Container -->
+      <div class="
                 col-lg-8 col-lg-offset-1
-                col-md-8 col-md-offset-1
-                col-sm-12
-                col-xs-12
-                post-container
-            ">
+                col-md-10 col-md-offset-1
+                sidebar-container">
 
-      <!-- Main Content -->
-<div class="container">
-  <div class="row">
-    <div class="col-lg-8 col-lg-offset-0 col-md-10 col-md-offset-1">
-      <!-- 归档列表 -->
-
-      
-
-      <!-- 归档列表 -->
-      
-      <div class="one-tag-list">
-        <span class="fa fa-calendar-times-o listing-seperator" id="2022">
-          <span class="tag-text">2022</span>
-        </span>
-        <ul>
-          
-          <li>
-            05-26
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/myBlog/machine learning/Ensemble learning/ensemble/" style="color: #0085a1">
-              <span>
-                集成学习原理
-                
-                -- machine learning
-                
-              </span>
-            </a>
-          </li>
-          
-          <li>
-            05-16
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/myBlog/machine learning/Classification algorithm/svm/" style="color: #0085a1">
-              <span>
-                支持向量机
-                
-                -- machine learning
-                
-              </span>
-            </a>
-          </li>
-          
-          <li>
-            05-13
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/myBlog/machine learning/Classification algorithm/naive-bayes/" style="color: #0085a1">
-              <span>
-                朴素贝叶斯
-                
-                -- machine learning
-                
-              </span>
-            </a>
-          </li>
-          
-          <li>
-            05-12
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/myBlog/machine learning/Classification algorithm/knn/" style="color: #0085a1">
-              <span>
-                K近邻算法
-                
-                -- machine learning
-                
-              </span>
-            </a>
-          </li>
-          
-          <li>
-            05-10
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/myBlog/machine learning/Classification algorithm/decisionTree/" style="color: #0085a1">
-              <span>
-                决策树
-                
-                -- machine learning
-                
-              </span>
-            </a>
-          </li>
-          
-          <li>
-            05-07
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/myBlog/machine learning/Classification algorithm/perceptron/" style="color: #0085a1">
-              <span>
-                感知机
-                
-                -- machine learning
-                
-              </span>
-            </a>
-          </li>
-          
-          <li>
-            05-05
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/myBlog/machine learning/Classification algorithm/logistic-regression/" style="color: #0085a1">
-              <span>
-                逻辑回归算法
-                
-                -- machine learning
-                
-              </span>
-            </a>
-          </li>
-          
-          <li>
-            05-04
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/myBlog/machine learning/Math/MCMC/" style="color: #0085a1">
-              <span>
-                MCMC
-                
-                -- machine learning
-                
-              </span>
-            </a>
-          </li>
-          
-          <li>
-            05-03
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/myBlog/machine learning/Fundamental and regression algorithm/linear-regression/" style="color: #0085a1">
-              <span>
-                线性回归
-                
-                -- machine learning
-                
-              </span>
-            </a>
-          </li>
-          
-          <li>
-            05-02
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/myBlog/machine learning/Fundamental and regression algorithm/精确率，召回率，RoC和PR曲线/" style="color: #0085a1">
-              <span>
-                精确率，召回率，RoC,PR曲线
-                
-                -- machine learning
-                
-              </span>
-            </a>
-          </li>
-          
-          <li>
-            05-02
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/myBlog/machine learning/Fundamental and regression algorithm/交叉验证/" style="color: #0085a1">
-              <span>
-                交叉验证
-                
-                -- machine learning
-                
-              </span>
-            </a>
-          </li>
-          
-          <li>
-            05-02
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/myBlog/machine learning/Fundamental and regression algorithm/最小二乘法/" style="color: #0085a1">
-              <span>
-                最小二乘法
-                
-                -- machine learning
-                
-              </span>
-            </a>
-          </li>
-          
-          <li>
-            05-01
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/myBlog/machine learning/Fundamental and regression algorithm/梯度下降(Gradient Descent)/" style="color: #0085a1">
-              <span>
-                梯度下降（Gradient Descent）
-                
-                -- machine learning
-                
-              </span>
-            </a>
-          </li>
-          
-        </ul>
-      </div>
-      
-      <div class="one-tag-list">
-        <span class="fa fa-calendar-times-o listing-seperator" id="2021">
-          <span class="tag-text">2021</span>
-        </span>
-        <ul>
-          
-          <li>
-            05-20
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/myBlog/go/Day08/" style="color: #0085a1">
-              <span>
-                Go Day08-Commonly used package-log
-                
-                -- go
-                
-              </span>
-            </a>
-          </li>
-          
-          <li>
-            05-19
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/myBlog/go/Day07/" style="color: #0085a1">
-              <span>
-                Go Day07-Commonly used package-time
-                
-                -- go
-                
-              </span>
-            </a>
-          </li>
-          
-          <li>
-            05-17
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/myBlog/go/Day06/" style="color: #0085a1">
-              <span>
-                Go Day06-Concurrent Programming Part 2
-                
-                -- go
-                
-              </span>
-            </a>
-          </li>
-          
-          <li>
-            05-17
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/myBlog/Java/JavaTools/JSoup/" style="color: #0085a1">
-              <span>
-                Using Jsoup to parse content from html page
-                
-                -- Java
-                
-              </span>
-            </a>
-          </li>
-          
-          <li>
-            05-16
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/myBlog/go/Day05/" style="color: #0085a1">
-              <span>
-                Go Day05-Concurrent Programming
-                
-                -- go
-                
-              </span>
-            </a>
-          </li>
-          
-          <li>
-            04-27
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/myBlog/Java/maven/maven-jar/" style="color: #0085a1">
-              <span>
-                Install jar package at your local maven repository
-                
-                -- Java
-                
-              </span>
-            </a>
-          </li>
-          
-          <li>
-            04-25
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/myBlog/git/tutorial/" style="color: #0085a1">
-              <span>
-                GitHub教程-从零开始
-                
-                -- git
-                
-              </span>
-            </a>
-          </li>
-          
-          <li>
-            04-24
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/myBlog/go/Day04/" style="color: #0085a1">
-              <span>
-                Go day04-Method and interface
-                
-                -- go
-                
-              </span>
-            </a>
-          </li>
-          
-          <li>
-            04-22
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/myBlog/front-end/jQuery/" style="color: #0085a1">
-              <span>
-                jQuery learning note
-                
-                -- front-end
-                
-              </span>
-            </a>
-          </li>
-          
-          <li>
-            04-21
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/myBlog/go/Day03/" style="color: #0085a1">
-              <span>
-                Go day03-Mapping and function
-                
-                -- go
-                
-              </span>
-            </a>
-          </li>
-          
-          <li>
-            04-20
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/myBlog/go/Day02/" style="color: #0085a1">
-              <span>
-                Go Day02-Pointer ,array and slice
-                
-                -- go
-                
-              </span>
-            </a>
-          </li>
-          
-          <li>
-            04-20
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/myBlog/go/Day01/" style="color: #0085a1">
-              <span>
-                Go Day01-Basic structure and grammar
-                
-                -- go
-                
-              </span>
-            </a>
-          </li>
-          
-        </ul>
-      </div>
-      
-    </div>
-  </div>
-</div>
-
-
-      <!-- 如果开启评论功能 -->
-      
-    </div>
-
-    <!-- Sidebar Container -->
-<div class="
-    col-lg-3 col-lg-offset-0
-    col-md-3 col-md-offset-0
-    col-sm-12
-    col-xs-12
-    sidebar-container
-">
-    
-        <!-- Visitors -->
-<h5><a href="/myBlog/">VISITORS</a></h5>
-
-<div class="widget">
-  <span>
-    Viewed <b><i><span id="busuanzi_value_site_pv"><i class="fa fa-spinner fa-spin"></i></span></i></b> Times
-  </span>
-  <br />
-  <span>
-    <b><i><span id="busuanzi_value_site_uv"><i class="fa fa-spinner fa-spin"></i></span></i></b> Visitors In Total
-  </span>
-</div>
-
-
-        <hr>
-    
         <!-- Featured Tags -->
+        
+        <section>
+          <!-- no hr -->
+          <h5>
+            <a href="/myBlog/tags/">FEATURED TAGS</a>
+          </h5>
+          <div class="tags">
+            
+            <a class="tag" href="/myBlog/tags/#machine learning" title="machine learning">machine learning</a>
+            
+            <a class="tag" href="/myBlog/tags/#ensemble" title="ensemble">ensemble</a>
+            
+          </div>
+        </section>
+        
 
-<section>
-  <h5><a href="/myBlog/tags/">FEATURED TAGS</a></h5>
-  <div class="tags">
-    
-    
-    <a href="/myBlog/tags/#front-end" title="front-end" rel="1">front-end</a>
-    
-    
-    
-    <a href="/myBlog/tags/#learning note" title="learning note" rel="9">learning note</a>
-    
-    
-    
-    <a href="/myBlog/tags/#git" title="git" rel="1">git</a>
-    
-    
-    
-    <a href="/myBlog/tags/#tutorial" title="tutorial" rel="1">tutorial</a>
-    
-    
-    
-    <a href="/myBlog/tags/#basic" title="basic" rel="1">basic</a>
-    
-    
-    
-    <a href="/myBlog/tags/#Go" title="Go" rel="8">Go</a>
-    
-    
-    
-    <a href="/myBlog/tags/#tip" title="tip" rel="1">tip</a>
-    
-    
-    
-    <a href="/myBlog/tags/#maven" title="maven" rel="1">maven</a>
-    
-    
-    
-    <a href="/myBlog/tags/#JSoup" title="JSoup" rel="1">JSoup</a>
-    
-    
-    
-    <a href="/myBlog/tags/#Java" title="Java" rel="1">Java</a>
-    
-    
-    
-    <a href="/myBlog/tags/#note" title="note" rel="1">note</a>
-    
-    
-    
-    <a href="/myBlog/tags/#machine learning" title="machine learning" rel="13">machine learning</a>
-    
-    
-    
-    <a href="/myBlog/tags/#classification" title="classification" rel="6">classification</a>
-    
-    
-    
-    <a href="/myBlog/tags/#ensemble" title="ensemble" rel="1">ensemble</a>
-    
-    
-    
-    <a href="/myBlog/tags/#regression" title="regression" rel="5">regression</a>
-    
-    
-    
-    <a href="/myBlog/tags/#math" title="math" rel="1">math</a>
-    
-    
-  </div>
-</section>
-
-
-        <hr>
-    
-        <!-- Short About -->
-<section class="visible-md visible-lg">
-  <h5><a href="/myBlog/about/">ABOUT ME</a></h5>
-  <div class="short-about">
-
-    
-    <img id="avatar_pic" src="/myBlog/img/avatar/fatpeople.jpg" alt="avatar_pic" style="box-shadow: 5px 5px 10px 5px rgba(0, 0, 0, .5);
-    -moz-box-shadow: 5px 5px 10px 5px rgba(0, 0, 0, .5);
-    -webkit-box-shadow: 5px 5px 10px 5px rgba(0, 0, 0, .5);" />
-    
-
-    
-    <p>Everything has its time and that time must be watched</p>
-    
-
-    <!-- SNS Link -->
-    <ul class="list-inline">
-      
-
-      
-      <li>
-        <a target="_blank" href="https://github.com/NUIST-elite">
-          <span class="fa-stack fa-lg">
-            <i class="fa fa-circle fa-stack-2x"></i>
-            <i class="fa fa-github fa-stack-1x fa-inverse"></i>
-          </span>
-        </a>
-      </li>
-      
-
-      
-
-      
-
-      
-
-      
-
-      
-
-      
-
-    </ul>
-  </div>
-</section>
-
-        <hr>
-    
-        <!-- RECENT POSTS -->
-
-<h5><a href="/myBlog/">RECENT POSTS</a></h5>
-<div class="widget">
-  <ul>
-    
-    <a href="../../machine%20learning/Ensemble%20learning/ensemble/">
-      <li>集成学习原理</li>
-    </a>
-    
-    <a href="../../machine%20learning/Classification%20algorithm/svm/">
-      <li>支持向量机</li>
-    </a>
-    
-    <a href="../../machine%20learning/Classification%20algorithm/naive-bayes/">
-      <li>朴素贝叶斯</li>
-    </a>
-    
-    <a href="../../machine%20learning/Classification%20algorithm/knn/">
-      <li>K近邻算法</li>
-    </a>
-    
-    <a href="../../machine%20learning/Classification%20algorithm/decisionTree/">
-      <li>决策树</li>
-    </a>
-    
-  </ul>
-</div>
-
-
-        <hr>
-    
         <!-- Friends Blog -->
-
-
-        <hr>
-    
-        <!-- Archives -->
-
-<h5><a href="/myBlog/archives/">archives</a></h5>
-<div class="widget">
-  <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/05/">May 2022</a><span class="archive-list-count">13</span></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/05/">May 2021</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/04/">April 2021</a><span class="archive-list-count">7</span></li></ul>
-</div>
-
-
-        <hr>
-    
-        <!-- Categories -->
-
-<h5><a href="/myBlog/categories/">categories</a></h5>
-<div class="widget">
-  <ul>
-    
-    <a href="/myBlog/categories/#front-end learning note">
-      <li>front-end learning note</li>
-    </a>
-    
-    <a href="/myBlog/categories/#git basic tutorial">
-      <li>git basic tutorial</li>
-    </a>
-    
-    <a href="/myBlog/categories/#Go learning note">
-      <li>Go learning note</li>
-    </a>
-    
-    <a href="/myBlog/categories/#maven">
-      <li>maven</li>
-    </a>
-    
-    <a href="/myBlog/categories/#JavaTools">
-      <li>JavaTools</li>
-    </a>
-    
-    <a href="/myBlog/categories/#machine-learning classification">
-      <li>machine-learning classification</li>
-    </a>
-    
-    <a href="/myBlog/categories/#machine-learning ensemble">
-      <li>machine-learning ensemble</li>
-    </a>
-    
-    <a href="/myBlog/categories/#machine-learning regression">
-      <li>machine-learning regression</li>
-    </a>
-    
-    <a href="/myBlog/categories/#machine-learning math">
-      <li>machine-learning math</li>
-    </a>
-    
-  </ul>
-</div>
-
-
-        <hr>
-    
-</div>
-
-
-    
+        
+      </div>
+    </div>
   </div>
-</div>
+</article>
+
+
+
+<!-- anchorjs start -->
+<!-- async load function -->
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script type="text/javascript">
+  // async load function
+  function async (u, c) {
+    var d = document,
+      t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) {
+      o.addEventListener('load', function(e) {
+        c(null, e);
+      }, false);
+    }
+    s.parentNode.insertBefore(o, s);
+  };
+</script>
+<script type="text/javascript">
+  //anchor-js, Doc:http://bryanbraun.github.io/anchorjs/
+  async ("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js", function() {
+    anchors.options = {
+      visible: 'hover',
+      placement: 'left',
+      // icon: 'ℬ'
+      icon: '❡'
+    };
+    anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+  });
+</script>
+<style>
+  /* place left on bigger screen */
+  @media all and (min-width: 800px) {
+    .anchorjs-link {
+      position: absolute;
+      left: -0.75em;
+      font-size: 1.1em;
+      margin-top: -0.1em;
+    }
+  }
+</style>
+
+<!-- anchorjs end -->
+
 
 
 		<!-- Footer (contains ThemeColor、viewer) -->
